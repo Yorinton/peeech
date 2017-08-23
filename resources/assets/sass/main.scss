@@ -34,7 +34,7 @@ $i:10;
 	$i:$i + 1;	
 }
 /* margin-bottom */
-$i:10;
+$i:0;
 @while $i <= 50 {
 	.mb#{$i} {
 		margin-bottom:#{$i}px;
@@ -171,6 +171,9 @@ $i:1;
 }
 .disblo {
 	display:block;
+}
+.dis_inblo {
+	display: inline-block;
 }
 /* フッター */
 .footer {

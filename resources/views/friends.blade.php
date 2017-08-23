@@ -23,16 +23,16 @@
                     </div>
                     <div class="introduction">
                         <div>
-                            <p class="idol">
+                            <p class="idol mb0">
                                 @foreach($friend->idols as $idol)
-                                <span class="idol_name tag_pink">{{ $idol->idol }}</span>
+                                <span class="idol_name tag_pink dis_inblo mb5">{{ $idol->idol }}</span>
                                 @endforeach
                             </p>
                         </div>
                         <div>
-                            <p class="activity">
+                            <p class="activity mb0">
                                 @foreach($friend->activities as $activity)
-                                <span class="activity_name tag_grey">{{ $activity->activity }}</span>
+                                <span class="activity_name tag_grey dis_inblo mb5">{{ $activity->activity }}</span>
                                 @endforeach
                             </p>
                         </div>                        
