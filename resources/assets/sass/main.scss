@@ -1,0 +1,322 @@
+/*
+*
+* 共通コンポーネント
+*
+*/
+// 変数関数のインポート
+@import "settings";
+@import "functions";
+
+// メディアクエリ(要素毎に設定)
+@mixin min_screen($breakpoint){
+	@media screen and (min-width: $breakpoint){
+		@content;
+	}
+}
+// ベンダープレフィックス
+@mixin PropertySetPrefix($name,$value){
+	@each $prefix in $set_prefix {
+		#{$prefix}#{$name}: #{$value};
+	}
+}
+@mixin ValueSetPrefix($name,$value){
+	@each $prefix in $set_prefix {
+		#{$name}: #{$prefix}#{$value};
+	}
+}
+
+/* フォントサイズ */
+$i:10;
+@while $i <= 18 {
+	.fs#{$i} {
+		font-size:#{$i}px;
+	}
+	$i:$i + 1;	
+}
+/* margin-bottom */
+$i:10;
+@while $i <= 50 {
+	.mb#{$i} {
+		margin-bottom:#{$i}px;
+	}
+	$i:$i + 5;	
+}
+/* margin-top */
+$i:10;
+@while $i <= 50 {
+	.mt#{$i} {
+		margin-top:#{$i}px;
+	}
+	$i:$i + 5;	
+}
+/* margin-right */
+$i:1;
+@while $i <= 10 {
+	.mr#{$i} {
+		margin-right:#{$i}px;
+	}
+	$i:$i + 1;	
+}
+/* margin-left */
+$i:1;
+@while $i <= 10 {
+	.ml#{$i} {
+		margin-left:#{$i}px;
+	}
+	$i:$i + 1;	
+}
+
+
+/* 背景色 */
+.bg_white {
+	background-color: white!important;
+}
+.bg_grey {
+	background-color: lightgrey!important;
+}
+
+
+// 必須マーク
+@mixin required {
+	border-color: $baseColorPink;
+	color: $baseColorPink;
+	border-radius: 3px;
+}
+
+// プロフ項目
+@mixin index {
+	// border-left: 8px solid $baseColorPink;
+	padding-left: 8px;
+	background: #f44336; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffa087,#fe66a4); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffa087),color-stop(100%,#fe66a4)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffa087,#fe66a4); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffa087,#fe66a4); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffa087,#fe66a4); /* IE10+ */
+	background: linear-gradient(to bottom, #ffa087,#fe66a4); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa087', endColorstr='#fe66a4',GradientType=0 ); /* IE6-9 */
+}
+
+// 編集ボタン
+@mixin subbtn {
+	border-color: $subColor;
+	color: $subColor;
+	border-radius: 3px;
+}
+
+// submitボタン
+@mixin submit {
+	border-radius: 3px;
+	background: $blandColor;
+	color: $FontColorContrast;
+	&:hover {
+		opacity: $baseOpacity;
+	}
+}
+// display:flex
+.disfle {
+	@include ValueSetPrefix('display','flex');
+}
+
+// flex-boxのspace-between
+.sp-between {
+	@include ValueSetPrefix('display','flex');
+	@include PropertySetPrefix('justify-content','space-between');
+}
+// flex-boxのspace-around
+.sp-around {
+	@include ValueSetPrefix('display','flex');
+	@include PropertySetPrefix('justify-content','space-around');
+}
+// flex-boxのwrap
+.wrap {
+	@include ValueSetPrefix('display','flex');
+	@include PropertySetPrefix('flex-wrap','wrap');
+}
+
+// width
+.wd20 {
+	width:20%;
+}
+.wd30 {
+	width:30%;
+}
+.wd40 {
+	width:40%;
+}
+.wd50 {
+	width:50%;
+}
+.wd60 {
+	width:60%;
+}
+.wd70 {
+	width:70%;
+}
+.wd80 {
+	width:80%;
+}
+.wd90 {
+	width:90%;
+}
+
+/*
+*
+* 共通スタイル
+*
+*/
+/* 表示 / 非表示 */
+.disnone {
+	display:none;
+}
+.disblo {
+	display:block;
+}
+/* フッター */
+.footer {
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    padding: 15px 0;
+    box-shadow: 0 -0.5px 3px rgba(0, 0, 0, 0.2);
+}
+/* プロフィールラベル */
+.label_prof {
+	@include index;
+
+}
+
+.label_prof > span {
+  display:block;
+  background:#fff;
+  padding-left:3%;
+}
+/* 必須 */
+
+.tag {
+	border: 1px solid #fe66a4;
+    border-radius: 3px;
+    padding: 5px 7px;
+
+}
+.tag_pink {
+	@extend .tag;
+	color: #fe66a4;
+}
+.tag_grey {
+	@extend .tag;
+	color: #626063;
+	border: 1px solid #626063;
+}
+
+.required {
+	@extend .tag;
+    font-weight: normal;
+    font-size: 80%;
+    padding: 0 7px;
+    margin-left: 10px;
+    color: #fe66a4;
+}
+
+/* メッセージ */
+.msg {
+	font-size:12px;
+	font-weight: bold;
+	padding:2px 4px;
+	color:white;
+}
+
+.errorMsg {
+	@extend .msg;
+	background:red;
+}
+.warnnigMsg {
+	@extend .msg;
+	background:orange;
+}
+/* input */
+.inputBaseStyle {
+	background-color: #eeeeee;
+    border: none;
+    box-shadow: none;	
+}
+/* ページタイトル */
+.title-area-register {
+	display: flex;
+
+}
+.title-text {
+	text-align: center;
+	font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+	line-height: 30px;
+	background: #444444;
+	background: -webkit-linear-gradient(left, #ffa087 0%,#fe66a4 100%);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+}
+
+/*
+*
+* 登録ページ・プロフィールページ
+*
+*/
+.phonetic {
+	width: 30%;
+}
+.submitBtnContainer {
+	position: fixed;
+    bottom: 0;
+    z-index: 100;
+    width: 100%;
+    margin-left: -15px;
+    margin-bottom: 0;
+    padding: 10px;
+}
+.submitBtn {
+	background: linear-gradient(to right bottom,#ffa087, #fe66a4);
+	background: -webkit-linear-gradient(to right bottom,#ffa087, #fe66a4);
+	color:white;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+}
+.thumb {
+	width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.selected_tag {
+	background-color: $baseColorPink;
+	color: white;
+}
+
+/*
+*
+* 今日のファン友
+*
+*/
+.card {
+	box-shadow:2px 2px 3px rgba(0,0,0,.3);
+	border-radius:3px;
+	padding:5%;
+	border:1px solid lightgrey;
+}
+.negativeBtn {
+	background: #bdbea4;
+	color:white;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+}
+.name {
+	height: 100px;
+    display: table-cell;
+    vertical-align: middle;	
+}
+.profile_link > a{
+	color:$linkColor;
+	font-weight: bold;
+}
+

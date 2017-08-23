@@ -1,0 +1,24 @@
+// min-widthに設定する値
+$breakpoint_tablet: 768px;
+$breakpoint_desktop: 992px;
+$breakpoint_wide: 1200px;
+
+// ベンダープレフィックス
+$set_prefix: -webkit-,-moz-,-ms-,-o-,'';
+
+// ブランドカラー
+$blandColorToRight: linear-gradient(left,#ffa087,#fe66a4);
+$blandColorToBottom: linear-gradient(#ffa087,#fe66a4);
+$baseColorOrange:#ffa087;
+$baseColorPink:#fe66a4;
+$subColor: #86e7b8;
+
+// 文字色
+$baseFontColor: #444444;
+$FontColorContrast: #ffffff;
+$linkColor: #86e7b8;
+
+// フォームの色
+$formInputColor: lightgrey;
+
+
