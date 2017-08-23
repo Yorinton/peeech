@@ -14,7 +14,11 @@
                         <img class="thumb" src="{{ $friend->img_path }}">
                         <div class="basic_info">
                             <p class="name">{{ $friend->name }}<br>
-                            23歳 / {{ $friend->sex }} / 東京</p>
+                            23歳 / {{ $friend->sex }} / 
+                            @foreach($friend->regions as $region)
+                            <span>{{ $region->region }}</span>
+                            @endforeach
+                            </p>
                         </div>
                     </div>
                     <div class="introduction">
