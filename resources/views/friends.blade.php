@@ -14,7 +14,7 @@
                         <img class="thumb" src="{{ $friend->img_path }}">
                         <div class="basic_info">
                             <p class="name">{{ $friend->name }}<br>
-                            23歳 / 女性 / 東京</p>
+                            23歳 / {{ $friend->sex }} / 東京</p>
                         </div>
                     </div>
                     <div class="introduction">
