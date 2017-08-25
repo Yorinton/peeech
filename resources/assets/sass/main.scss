@@ -42,7 +42,7 @@ $i:0;
 	$i:$i + 5;	
 }
 /* margin-top */
-$i:10;
+$i:0;
 @while $i <= 50 {
 	.mt#{$i} {
 		margin-top:#{$i}px;
@@ -65,7 +65,38 @@ $i:1;
 	}
 	$i:$i + 1;	
 }
-
+/* padding-bottom */
+$i:0;
+@while $i <= 50 {
+	.pb#{$i} {
+		padding-bottom:#{$i}px;
+	}
+	$i:$i + 5;	
+}
+/* padding-top */
+$i:0;
+@while $i <= 50 {
+	.pt#{$i} {
+		padding-top:#{$i}px;
+	}
+	$i:$i + 5;	
+}
+/* padding-right */
+$i:1;
+@while $i <= 10 {
+	.pr#{$i} {
+		padding-right:#{$i}px;
+	}
+	$i:$i + 1;	
+}
+/* padding-left */
+$i:1;
+@while $i <= 10 {
+	.pl#{$i} {
+		padding-left:#{$i}px;
+	}
+	$i:$i + 1;	
+}
 
 /* 背景色 */
 .bg_white {
@@ -159,7 +190,31 @@ $i:1;
 .wd90 {
 	width:90%;
 }
-
+//フロート
+.fr {
+	float: right;
+}
+.fl {
+	float: left;
+}
+.of_h {
+	overflow: hidden;
+}
+// 長文省略
+.text_clamp_s {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.text_clamp_m {
+	display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.list_border {
+	border-top:1px solid rgba(0,0,0,.1);
+}
 /*
 *
 * 共通スタイル
@@ -189,14 +244,12 @@ $i:1;
 	@include index;
 
 }
-
 .label_prof > span {
   display:block;
   background:#fff;
   padding-left:3%;
 }
 /* 必須 */
-
 .tag {
 	border: 1px solid #fe66a4;
     border-radius: 3px;
@@ -221,7 +274,6 @@ $i:1;
     margin-left: 10px;
     color: #fe66a4;
 }
-
 /* メッセージ */
 .msg {
 	font-size:12px;
@@ -288,6 +340,12 @@ $i:1;
 .thumb {
 	width: 100px;
     height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.thumb_mini {
+	width: 17.3%;
+    height: 50px;
     object-fit: cover;
     border-radius: 50%;
 }

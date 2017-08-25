@@ -54,8 +54,10 @@ class Kernel extends ConsoleKernel
                         foreach ($idol_names as $idol_name) {
                             if(!in_array($idol_name->user_id, $friend_ids)){
                                 // 既にrecommendsテーブルにレコードが存在する場合を除く
-                                if(!Recommend::where('friend_id',$idol_name->user_id)->where('user_id',$user->id)->exists()) {
-                                    $friend_ids[] = $idol_name->user_id;//array_pushより早いらしい
+                                if($idol_name->user_id !== $user->id){
+                                    if(!Recommend::where('friend_id',$idol_name->user_id)->where('user_id',$user->id)->exists()) {
+                                        $friend_ids[] = $idol_name->user_id;//array_pushより早いらしい
+                                    }
                                 }
                             }
                         }
@@ -64,14 +66,11 @@ class Kernel extends ConsoleKernel
                     //同じアイドルが好きなファン友候補のfriend_idをrecommendsテーブルに保存
                     foreach ($friend_ids as $friend_id) {
                         // echo $friend_id;
-                        // if($i < 4){
                         $recommends = new Recommend();
                             if($friend_id !== $user->id){
                                 $recommends->friend_id = $friend_id;
-                                $recommends->user_id = $user->id;
+                                // $recommends->user_id = $user->id;
                                 $user->recommends()->save($recommends);
-                            // }
-                            // $i += 1;
                         }
                     }
                 }

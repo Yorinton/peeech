@@ -9,10 +9,7 @@
             @foreach($friends as $friend)
             <div class="matching_friend">
                 <div>
-                    <img src="">
-                </div>
-                <div>
-                    <p>名前{{ $friend->name }}<span>{{ $friend->birthday }}</span></p>
+                    <p>{{ $friend->name }}</p>
                     <p>
                         @foreach($friend->idols as $idol)
                         <span>{{ $idol->idol }}</span>

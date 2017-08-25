@@ -24,7 +24,7 @@
 </head>
 <body class="bg_white">
     <div>
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top mb0">
             <div class="container">
                 <div class="navbar-header">
 
