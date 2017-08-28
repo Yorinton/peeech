@@ -1,6 +1,6 @@
 <template lang="html">
 	<div>
-		<p>{{ message.message }}</p>
+		<p class="chatMsg">{{ message.message }}</p>
 		<small>{{ message.user.name }}</small>
 	</div>
 </template>
@@ -12,5 +12,9 @@
 </script>
 
 <style lang="css">
-	
+	.chatMsg {
+		background-color: pink;
+	}
+
+
 </style>
