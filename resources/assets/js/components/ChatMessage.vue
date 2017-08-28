@@ -13,7 +13,7 @@
 
 <style lang="css">
 	.chatMsg {
-		background-color: pink;
+		background-color: #83d8fc;
 	}
 
 

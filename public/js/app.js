@@ -14268,7 +14268,7 @@ if (typeof jQuery === 'undefined') {
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n.chatMsg {\n\tbackground-color: pink;\n}\n\n\n", ""]);
+exports.push([module.i, "\n.chatMsg {\n\tbackground-color: #83d8fc;\n}\n\n\n", ""]);
 
 /***/ }),
 /* 39 */
