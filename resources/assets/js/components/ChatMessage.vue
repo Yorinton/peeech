@@ -14,6 +14,8 @@
 <style lang="css">
 	.chatMsg {
 		background-color: #83d8fc;
+		padding:10px;
+		border-radius: 3px;
 	}
 
 
