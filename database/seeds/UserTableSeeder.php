@@ -14,6 +14,15 @@ class UserTableSeeder extends Seeder
     	$masterData = ['握手会','ライブ','振りコピ','写真交換','オフ会','在宅派','創作','その他'];
 
 		$activity = new App\Eloquent\ActivityMaster();
+		$activity->activity = $masterData[0];
+		$activity->save();
+
+
+		$activity = new App\Eloquent\ActivityMaster();
+		$activity->activity = $masterData[1];
+		$activity->save();
+
+		$activity = new App\Eloquent\ActivityMaster();
 		$activity->activity = $masterData[2];
 		$activity->save();
 

@@ -382,6 +382,7 @@ class ComposerStaticInit2335af6f1bcd1b48a1af468154e38d0b
         'AddIdolIdToIdolsTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_24_111136_add_idol_id_to_idols_table.php',
         'AddPhoneticToIdolMastersTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_29_081402_add_phonetic_to_idol_masters_table.php',
         'AddSettledColumnToMatchings' => __DIR__ . '/../..' . '/database/migrations/2017_07_21_125728_add_settled_column_to_matchings.php',
+        'AlterEmailOnUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_31_000221_alter_email_on_users_table.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Eloquent\\Activity' => __DIR__ . '/../..' . '/app/Eloquent/Activity.php',
         'App\\Eloquent\\ActivityMaster' => __DIR__ . '/../..' . '/app/Eloquent/ActivityMaster.php',

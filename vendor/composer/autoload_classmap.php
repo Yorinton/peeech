@@ -11,6 +11,7 @@ return array(
     'AddIdolIdToIdolsTable' => $baseDir . '/database/migrations/2017_07_24_111136_add_idol_id_to_idols_table.php',
     'AddPhoneticToIdolMastersTable' => $baseDir . '/database/migrations/2017_07_29_081402_add_phonetic_to_idol_masters_table.php',
     'AddSettledColumnToMatchings' => $baseDir . '/database/migrations/2017_07_21_125728_add_settled_column_to_matchings.php',
+    'AlterEmailOnUsersTable' => $baseDir . '/database/migrations/2017_08_31_000221_alter_email_on_users_table.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Eloquent\\Activity' => $baseDir . '/app/Eloquent/Activity.php',
     'App\\Eloquent\\ActivityMaster' => $baseDir . '/app/Eloquent/ActivityMaster.php',
