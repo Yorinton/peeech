@@ -2,7 +2,7 @@
   "name": "peeech",
   "description": "",
   "scripts": {
-    "postdeploy": "php artisan migrate"
+    "postdeploy": ""
   },
   "env": {
     "APP_KEY": {
