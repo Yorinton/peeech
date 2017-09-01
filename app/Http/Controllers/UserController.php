@@ -10,7 +10,7 @@ use Intervention\Image\Facades\Image;
 use App\MasterDbService;
 use App\UserService;
 use Request as RequestFacade;
-use App\imageService;
+use App\ImageService;
 
 class UserController extends Controller
 {
