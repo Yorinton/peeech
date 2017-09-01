@@ -17,7 +17,7 @@ class CreateLinkedSocialAccountsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();           
             $table->string('provider_name')->nullable();
-            $table->string('provider_id')->unique()->nullable();          
+            $table->string('provider_id',191)->unique()->nullable();          
             $table->timestamps();
         });
     }

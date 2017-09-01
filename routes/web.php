@@ -117,30 +117,30 @@ Route::get('/rooms/{id}','RoomController@show');
 
 Auth::routes();
 
-//アイドル名取得&DB登録
-// Route::get('/idols',function(){
-// 	$i;
-// 	for ($i=1; $i < 47; $i++) {
-// 		if(Goutte::request('GET', 'http://idolscheduler.jp/artist/?ai_id='.$i)){
-// 			$crawler = Goutte::request('GET', 'http://idolscheduler.jp/artist/?ai_id='.$i);
-// 			$idols = $crawler->filter('#artist_box > ul > li > dl > dt > p.name > em > a')->each(function($node){
-// 					return $node->text();
-// 			});
-// 			foreach ($idols as $idol) {
-// 				if(!App\Eloquent\IdolMaster::where('idol',$idol)->exists()){
-// 					$idol_master = new App\Eloquent\IdolMaster();
-// 					$idol_master->idol = $idol;
-// 					$idol_master->phonetic_id = $i;
-// 					$idol_master->save();
+// アイドル名取得&DB登録
+Route::get('/idols',function(){
+	$i;
+	for ($i=1; $i < 47; $i++) {
+		if(Goutte::request('GET', 'http://idolscheduler.jp/artist/?ai_id='.$i)){
+			$crawler = Goutte::request('GET', 'http://idolscheduler.jp/artist/?ai_id='.$i);
+			$idols = $crawler->filter('#artist_box > ul > li > dl > dt > p.name > em > a')->each(function($node){
+					return $node->text();
+			});
+			foreach ($idols as $idol) {
+				if(!App\Eloquent\IdolMaster::where('idol',$idol)->exists()){
+					$idol_master = new App\Eloquent\IdolMaster();
+					$idol_master->idol = $idol;
+					$idol_master->phonetic_id = $i;
+					$idol_master->save();
 
-// 					echo $idol.'/';			
-// 				}
-// 			}
+					echo $idol.'/';			
+				}
+			}
 
-// 		}
-// 	}
+		}
+	}
 
-// });
+});
 
 
 

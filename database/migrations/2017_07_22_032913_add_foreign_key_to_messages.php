@@ -35,7 +35,8 @@ class AddForeignKeyToMessages extends Migration
     public function down()
     {
         Schema::table('messages', function (Blueprint $table) {
-            $table->dropForeign(['user_id','room_id']);
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['room_id']);
         });
     }
 }
