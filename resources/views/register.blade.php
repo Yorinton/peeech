@@ -168,18 +168,13 @@
                 </div> -->
                 <div class="form-group">
                     <label for="" class="label_prof wd80"><span>利用目的</span></label><span class="required">必須</span>
-                    <p>
-                        <input type="checkbox" name="purpose[]" value="1" checked="checked">purpose1
-                    </p>
-                    <p>
-                        <input type="checkbox" name="purpose[]" value="2" checked="checked">purpose2
-                    </p>
-                    <p>
-                        <input type="checkbox" name="purpose[]" value="3" checked="checked">purpose3
-                    </p>
-                    <p>
-                        <input type="checkbox" name="purpose[]" value="4" checked="checked">purpose4
-                    </p>                    
+                    @if(isset($purpose_masters))
+                        @foreach($purpose_masters as $purpose_master)
+                            <p>
+                                <input type="checkbox" name="purpose[]" value="{{ $purpose_master->id}}" checked="checked">{{ $purpose_master->purpose}}
+                            </p>
+                        @endforeach
+                    @endif                  
                 </div>
 <!--                 <div class="form-group">
                     <label for="" class="label_prof">どんな人と繋がりたい？</label>

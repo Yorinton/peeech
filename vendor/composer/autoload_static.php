@@ -32,6 +32,7 @@ class ComposerStaticInit2335af6f1bcd1b48a1af468154e38d0b
         ),
         'W' => 
         array (
+            'Weidner\\Goutte\\' => 15,
             'Webmozart\\Assert\\' => 17,
         ),
         'T' => 
@@ -130,6 +131,10 @@ class ComposerStaticInit2335af6f1bcd1b48a1af468154e38d0b
         'XdgBaseDir\\' => 
         array (
             0 => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src',
+        ),
+        'Weidner\\Goutte\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/weidner/goutte/src',
         ),
         'Webmozart\\Assert\\' => 
         array (
@@ -377,6 +382,7 @@ class ComposerStaticInit2335af6f1bcd1b48a1af468154e38d0b
     );
 
     public static $classMap = array (
+        'ActivityMasterTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ActivityMasterTableSeeder.php',
         'AddForeignKeyToMessages' => __DIR__ . '/../..' . '/database/migrations/2017_07_22_032913_add_foreign_key_to_messages.php',
         'AddForeignKeyToSocials' => __DIR__ . '/../..' . '/database/migrations/2017_07_22_033922_add_foreign_key_to_socials.php',
         'AddIdolIdToIdolsTable' => __DIR__ . '/../..' . '/database/migrations/2017_07_24_111136_add_idol_id_to_idols_table.php',
@@ -453,7 +459,6 @@ class ComposerStaticInit2335af6f1bcd1b48a1af468154e38d0b
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
-        'ChangeEmailOnPasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_31_034753_change_email_on_password_resets_table.php',
         'CreateActivitiesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_18_232534_create_activities_table.php',
         'CreateActivityMastersTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_19_204447_create_activity_masters_table.php',
         'CreateEventsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_11_102025_create_events_table.php',
@@ -1575,6 +1580,7 @@ class ComposerStaticInit2335af6f1bcd1b48a1af468154e38d0b
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'IdolMasterTableSeeder' => __DIR__ . '/../..' . '/database/seeds/IdolMasterTableSeeder.php',
         'Illuminate\\Auth\\Access\\AuthorizationException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/AuthorizationException.php',
         'Illuminate\\Auth\\Access\\Gate' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Gate.php',
         'Illuminate\\Auth\\Access\\HandlesAuthorization' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/HandlesAuthorization.php',
@@ -3759,6 +3765,7 @@ class ComposerStaticInit2335af6f1bcd1b48a1af468154e38d0b
         'Psy\\VersionUpdater\\GitHubChecker' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VersionUpdater/GitHubChecker.php',
         'Psy\\VersionUpdater\\IntervalChecker' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VersionUpdater/IntervalChecker.php',
         'Psy\\VersionUpdater\\NoopChecker' => __DIR__ . '/..' . '/psy/psysh/src/Psy/VersionUpdater/NoopChecker.php',
+        'PurposeMasterTableSeeder' => __DIR__ . '/../..' . '/database/seeds/PurposeMasterTableSeeder.php',
         'Pusher\\Pusher' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/Pusher.php',
         'Pusher\\PusherException' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherException.php',
         'Pusher\\PusherInstance' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherInstance.php',
@@ -4459,6 +4466,8 @@ class ComposerStaticInit2335af6f1bcd1b48a1af468154e38d0b
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
         'UserTableSeeder' => __DIR__ . '/../..' . '/database/seeds/UserTableSeeder.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
+        'Weidner\\Goutte\\GoutteFacade' => __DIR__ . '/..' . '/weidner/goutte/src/GoutteFacade.php',
+        'Weidner\\Goutte\\GoutteServiceProvider' => __DIR__ . '/..' . '/weidner/goutte/src/GoutteServiceProvider.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',

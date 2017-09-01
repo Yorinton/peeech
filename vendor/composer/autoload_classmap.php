@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'ActivityMasterTableSeeder' => $baseDir . '/database/seeds/ActivityMasterTableSeeder.php',
     'AddForeignKeyToMessages' => $baseDir . '/database/migrations/2017_07_22_032913_add_foreign_key_to_messages.php',
     'AddForeignKeyToSocials' => $baseDir . '/database/migrations/2017_07_22_033922_add_foreign_key_to_socials.php',
     'AddIdolIdToIdolsTable' => $baseDir . '/database/migrations/2017_07_24_111136_add_idol_id_to_idols_table.php',
@@ -82,7 +83,6 @@ return array(
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
-    'ChangeEmailOnPasswordResetsTable' => $baseDir . '/database/migrations/2017_08_31_034753_change_email_on_password_resets_table.php',
     'CreateActivitiesTable' => $baseDir . '/database/migrations/2017_08_18_232534_create_activities_table.php',
     'CreateActivityMastersTable' => $baseDir . '/database/migrations/2017_08_19_204447_create_activity_masters_table.php',
     'CreateEventsTable' => $baseDir . '/database/migrations/2017_05_11_102025_create_events_table.php',
@@ -1204,6 +1204,7 @@ return array(
     'Hamcrest\\Type\\IsString' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
     'Hamcrest\\Util' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+    'IdolMasterTableSeeder' => $baseDir . '/database/seeds/IdolMasterTableSeeder.php',
     'Illuminate\\Auth\\Access\\AuthorizationException' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Access/AuthorizationException.php',
     'Illuminate\\Auth\\Access\\Gate' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Access/Gate.php',
     'Illuminate\\Auth\\Access\\HandlesAuthorization' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Access/HandlesAuthorization.php',
@@ -3388,6 +3389,7 @@ return array(
     'Psy\\VersionUpdater\\GitHubChecker' => $vendorDir . '/psy/psysh/src/Psy/VersionUpdater/GitHubChecker.php',
     'Psy\\VersionUpdater\\IntervalChecker' => $vendorDir . '/psy/psysh/src/Psy/VersionUpdater/IntervalChecker.php',
     'Psy\\VersionUpdater\\NoopChecker' => $vendorDir . '/psy/psysh/src/Psy/VersionUpdater/NoopChecker.php',
+    'PurposeMasterTableSeeder' => $baseDir . '/database/seeds/PurposeMasterTableSeeder.php',
     'Pusher\\Pusher' => $vendorDir . '/pusher/pusher-php-server/src/Pusher.php',
     'Pusher\\PusherException' => $vendorDir . '/pusher/pusher-php-server/src/PusherException.php',
     'Pusher\\PusherInstance' => $vendorDir . '/pusher/pusher-php-server/src/PusherInstance.php',
@@ -4088,6 +4090,8 @@ return array(
     'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
     'UserTableSeeder' => $baseDir . '/database/seeds/UserTableSeeder.php',
     'Webmozart\\Assert\\Assert' => $vendorDir . '/webmozart/assert/src/Assert.php',
+    'Weidner\\Goutte\\GoutteFacade' => $vendorDir . '/weidner/goutte/src/GoutteFacade.php',
+    'Weidner\\Goutte\\GoutteServiceProvider' => $vendorDir . '/weidner/goutte/src/GoutteServiceProvider.php',
     'XdgBaseDir\\Xdg' => $vendorDir . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
     'phpDocumentor\\Reflection\\DocBlock' => $vendorDir . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
     'phpDocumentor\\Reflection\\DocBlockFactory' => $vendorDir . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',

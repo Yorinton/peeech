@@ -183,7 +183,7 @@ return [
         /*
          * External Service Providers...
          */
-        // Weidner\Goutte\GoutteServiceProvider::class,
+        Weidner\Goutte\GoutteServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
 
     ],
@@ -216,7 +216,7 @@ return [
         'Event' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
-        // 'Goutte' => Weidner\Goutte\GoutteFacade::class,
+        'Goutte' => Weidner\Goutte\GoutteFacade::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,

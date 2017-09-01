@@ -39,6 +39,7 @@ class UserController extends Controller
 
         //DBからアイドル一覧取得
         $idol_masters = $this->masterDbService->getMaster('idol');
+        $purpose_masters = $this->masterDbService->getMaster('purpose');
 
         $title = '利用登録';
 
@@ -49,6 +50,7 @@ class UserController extends Controller
 	        return view('register')->with("prefs",$prefs)
 	        					   ->with('user',$user)
 	        					   ->with('idol_masters',$idol_masters)
+                                   ->with('purpose_masters',$purpose_masters)
                                    ->with('title',$title);
         }else{
         	return view('login');
