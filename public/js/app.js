@@ -10831,6 +10831,7 @@ var app = new Vue({
         usersInRoom: []
     },
     methods: {
+        // message・user・roomId・img_pathという4つのプロパティを持つオブジェクトをmessageという名前でaddMessage()の引数に指定
         addMessage: function addMessage(message) {
             //Add to existing messages
             this.messages.push(message); //push() -> 配列の末尾に要素を追加
@@ -10852,11 +10853,16 @@ var app = new Vue({
             // console.log(response);
         });
         Echo.join('chatroom.' + roomId) // 入室しているroomIdをここに入れる
+        //チャンネルを購入している全ユーザー情報を含む配列を返す
         .here(function (users) {
             _this.usersInRoom = users;
-        }).joining(function (user) {
+        })
+        //新たに参加したユーザー情報
+        .joining(function (user) {
             _this.usersInRoom.push(user);
-        }).leaving(function (user) {
+        })
+        //離脱したユーザー情報
+        .leaving(function (user) {
             _this.usersInRoom = _this.usersInRoom.filter(function (u) {
                 return u != user;
             });
@@ -10864,6 +10870,7 @@ var app = new Vue({
         }).listen('MessagePosted', function (e) {
             //Handle event
             _this.messages.push({
+                //MessagePostedイベントクラスのプロパティ
                 message: e.message.message,
                 user: e.user
             });
@@ -11743,9 +11750,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		sendMessage: function sendMessage() {
 			//$emitはイベントを発生させる(イベント名は'messagesent')
 			this.$emit("messagesent", {
+				// 3つのプロパティを持つオブジェクト？が送信される
 				message: this.messageText,
 				user: {
-					name: $("#app-navbar-collapse > ul.nav.navbar-nav.navbar-right > li > a").text()
+					name: $("#app-navbar-collapse > ul.nav.navbar-nav.navbar-right > li > a").text(),
+					id: Number($(".user_id").text()),
+					img_path: ''
 				},
 				roomId: $(".room_id").text()
 			});
@@ -11771,7 +11781,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ["messages"],
+	props: ["messages", "userId"],
 	computed: {
 		messageLength: function messageLength() {
 			return this.messages.length;
@@ -11792,9 +11802,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ["message"] //ChatLog.vueからmesssageを受け取る
+	props: ["message", "userId"] //ChatLog.vueからmesssageを受け取る
 });
 
 /***/ }),
@@ -46897,7 +46909,12 @@ module.exports = Component.exports
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('p', {
     staticClass: "chatMsg"
-  }, [_vm._v(_vm._s(_vm.message.message))]), _vm._v(" "), _c('small', [_vm._v(_vm._s(_vm.message.user.name))])])
+  }, [_vm._v(_vm._s(_vm.message.message))]), _vm._v(" "), (_vm.userId !== _vm.message.user.id) ? _c('div', [_c('img', {
+    staticClass: "thumb",
+    attrs: {
+      "src": _vm.message.user.img_path
+    }
+  })]) : _vm._e()])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -46995,7 +47012,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     return _c('chat-message', {
       key: message,
       attrs: {
-        "message": message
+        "message": message,
+        "user-id": _vm.userId
       }
     })
   }), _vm._v(" "), _c('div', {

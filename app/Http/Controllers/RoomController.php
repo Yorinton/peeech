@@ -39,7 +39,7 @@ class RoomController extends Controller
             $room = Room::find($room_id);
 
             if($user->id === $room->from_user_id || $user->id === $room->to_user_id){
-                return view('room')->with('room_id',$room_id)->with('title',$title);
+                return view('room')->with('room_id',$room_id)->with('title',$title)->with('user',$user);
             }else {
                 return "このルームには参加できません";
             }
