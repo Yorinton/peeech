@@ -11771,7 +11771,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ["messages"]
+	props: ["messages"],
+	computed: {
+		messageLength: function messageLength() {
+			return this.messages.length;
+		}
+	}
 });
 
 /***/ }),
@@ -46920,7 +46925,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "message",
       "type": "text",
       "name": "",
-      "placeholder": "Start typing your message.."
+      "placeholder": "メッセージを入力"
     },
     domProps: {
       "value": (_vm.messageText)
@@ -46940,7 +46945,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.sendMessage
     }
-  }, [_vm._v("Send")])])
+  }, [_vm._v("送信")])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -46997,11 +47002,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: (_vm.messages.length === 0),
-      expression: "messages.length === 0"
+      value: (_vm.messageLength === 0),
+      expression: "messageLength === 0"
     }],
     staticClass: "empty"
-  }, [_vm._v("\n\t\tNothing here yet!\n\t")])], 2)
+  }, [_vm._v("\n\t\tまだメッセージはありません\n\t")])], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

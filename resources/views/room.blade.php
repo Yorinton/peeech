@@ -7,7 +7,6 @@
         	<div class="form-group">メッセージを送る
         		<div id="app">
         		<div class="panel-heading">
-                        chatroom
                         <span class="badge pull-right">
                             @{{ usersInRoom.length }}
                         </span>         
@@ -16,14 +15,6 @@
         			<chat-composer v-on:messagesent="addMessage"></chat-composer>
                    	<div class="room_id" style="display:none;">{{ $room_id }}</div>
         		</div>
-                <?php echo $_SERVER['SERVER_PORT'];?>
-        		@if(isset($friend))
-        		<h4>{{ $friend->name }}</h4>
-				<input class="form-control message" type="text" name="message">
-				<button class="submit">送信</button>
-				@elseif(isset($m))
-				<p>{{ $m }}</p>
-				@endif
 			</div>
 		</div>
 	</div>

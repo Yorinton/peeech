@@ -1,15 +1,20 @@
 <template lang="html">
 	<div class="chat-log">
 		<chat-message v-for="message in messages" :key="message" v-bind:message="message"></chat-message>
-		<div class="empty" v-show="messages.length === 0">
-			Nothing here yet!
+		<div class="empty" v-show="messageLength === 0">
+			まだメッセージはありません
 		</div>
 	</div>
 </template>
 
 <script>
 	export default {
-		props:["messages"]
+		props:["messages"],
+		computed: {
+			messageLength: function(){
+				return this.messages.length;
+			}
+		}
 	}
 </script>
 
