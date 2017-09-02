@@ -16,9 +16,12 @@
 			sendMessage(){
 				//$emitはイベントを発生させる(イベント名は'messagesent')
 				this.$emit("messagesent",{
+					// 3つのプロパティを持つオブジェクト？が送信される
 					message: this.messageText,
 					user: {
-						name:$("#app-navbar-collapse > ul.nav.navbar-nav.navbar-right > li > a").text()
+						name:$("#app-navbar-collapse > ul.nav.navbar-nav.navbar-right > li > a").text(),
+						id:Number($(".user_id").text()),
+						img_path:''
 					},
 					roomId: $(".room_id").text()
 				});

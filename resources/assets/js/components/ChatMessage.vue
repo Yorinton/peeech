@@ -1,13 +1,15 @@
 <template lang="html">
 	<div>
 		<p class="chatMsg">{{ message.message }}</p>
-		<small>{{ message.user.name }}</small>
+		<div v-if="userId !== message.user.id">
+			<img v-bind:src="message.user.img_path" class="thumb">
+		</div>
 	</div>
 </template>
 
 <script>
 	export default {
-		props:["message"]//ChatLog.vueからmesssageを受け取る
+		props:["message","userId"]//ChatLog.vueからmesssageを受け取る
 	}
 </script>
 

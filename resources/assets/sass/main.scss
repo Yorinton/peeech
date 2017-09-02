@@ -35,7 +35,7 @@ $i:10;
 }
 /* margin-bottom */
 $i:0;
-@while $i <= 50 {
+@while $i <= 120 {
 	.mb#{$i} {
 		margin-bottom:#{$i}px;
 	}
@@ -380,4 +380,19 @@ $i:1;
 	color:$linkColor;
 	font-weight: bold;
 }
+/*
+*
+* チャットルーム
+*
+*/
+.composer_container {
+	width: 100%;
+    position: fixed;
+    bottom: 50px;
+    margin-left: -15px;
+    padding: 5px;
+    background-color: #eeeeee;
+}
+
+
 

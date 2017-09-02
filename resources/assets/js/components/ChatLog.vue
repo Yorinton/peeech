@@ -1,6 +1,6 @@
 <template lang="html">
 	<div class="chat-log">
-		<chat-message v-for="message in messages" :key="message" v-bind:message="message"></chat-message>
+		<chat-message v-for="message in messages" :key="message" v-bind:message="message" v-bind:user-id="userId"></chat-message>
 		<div class="empty" v-show="messageLength === 0">
 			まだメッセージはありません
 		</div>
@@ -9,7 +9,7 @@
 
 <script>
 	export default {
-		props:["messages"],
+		props:["messages","userId"],
 		computed: {
 			messageLength: function(){
 				return this.messages.length;

@@ -28,6 +28,7 @@ const app = new Vue({
         usersInRoom: []
     },
     methods: {
+        // message・user・roomId・img_pathという4つのプロパティを持つオブジェクトをmessageという名前でaddMessage()の引数に指定
     	addMessage(message){
     		//Add to existing messages
     		this.messages.push(message);//push() -> 配列の末尾に要素を追加
@@ -47,12 +48,15 @@ const app = new Vue({
     		// console.log(response);
     	});
         Echo.join('chatroom.' + roomId)// 入室しているroomIdをここに入れる
+            //チャンネルを購入している全ユーザー情報を含む配列を返す
             .here((users) => {
                 this.usersInRoom = users;
             })
+            //新たに参加したユーザー情報
             .joining((user) => {
                 this.usersInRoom.push(user);
             })
+            //離脱したユーザー情報
             .leaving((user) => {
                 this.usersInRoom = this.usersInRoom.filter(u => u != user);
                 //配列の各要素に対して条件式に当てはまるかチェックし当てはまるものだけで新しい配列を作る
@@ -60,6 +64,7 @@ const app = new Vue({
             .listen('MessagePosted',(e) => {
                 //Handle event
                 this.messages.push({
+                    //MessagePostedイベントクラスのプロパティ
                     message: e.message.message,
                     user: e.user
                 });
