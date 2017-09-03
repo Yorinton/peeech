@@ -1,8 +1,9 @@
 <template lang="html">
-	<div>
-		<p class="chatMsg">{{ message.message }}</p>
-		<div v-if="userId !== message.user.id">
-			<img v-bind:src="message.user.img_path" class="thumb">
+	<div class="msg_container">
+		<p v-if="userId !== message.user.id" class="chatMsg msg_text_other">{{ message.message }}</p>
+		<p v-else-if="userId === message.user.id" class="chatMsg msg_text_mine">{{ message.message }}</p>
+		<div v-if="userId !== message.user.id" class="msg_thumb_container">
+			<img v-bind:src="message.user.img_path" class="thumb msg_thumb">
 		</div>
 	</div>
 </template>
@@ -15,10 +16,37 @@
 
 <style lang="css">
 	.chatMsg {
-		background-color: #83d8fc;
 		padding:10px;
 		border-radius: 3px;
 	}
-
+	.composer_container {
+		width: 100%;
+	    position: fixed;
+	    bottom: 50px;
+	    margin-left: -15px;
+	    padding: 5px;
+	    background-color: #eeeeee;
+	}
+	.msg_container {
+		overflow: hidden;
+	    width: 100%;
+	}
+	.msg_text_other {
+		float: right;
+	    width: 80%;
+	    background-color: #f7f7f8;
+	}
+	.msg_text_mine {
+		float: left;
+	    width: 80%;
+	    background-color: #ffe2db;
+	}
+	.msg_thumb_container {
+		width: 15%;
+	}
+	.msg_thumb {
+		width: 50px;
+	    height: 50px;
+	}
 
 </style>

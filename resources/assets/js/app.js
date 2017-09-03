@@ -36,10 +36,11 @@ const app = new Vue({
     		//このメソッドが呼び出された際に、指定のURLに非同期でポストする
             axios.post('/messages', message).then(response => {
             	console.log(response.data);
-            });
+            });     
     	}
     },
     created(){
+
         var roomId = $(".room_id").text();
 
     	//このインスタンスが作成された際に、指定のURLに非同期でリクエストする
@@ -68,6 +69,20 @@ const app = new Vue({
                     message: e.message.message,
                     user: e.user
                 });
-            });        
+            });    
+    },
+    beforeUpdate(){
+        //room.blade.php表示時に最新メッセージを表示する
+        if($(".room_id").length > 0){
+            var bodyHeight = $('body').height() + 100;
+            console.log(bodyHeight);
+            $('body').scrollTop(bodyHeight);
+        }
+    },
+    updated(){
+        // 最新メッセージ表示
+        var bodyHeight = $('body').height() + 100;
+        console.log(bodyHeight);
+        $(document).scrollTop(bodyHeight);
     }
 });
