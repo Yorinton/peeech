@@ -10840,6 +10840,10 @@ var app = new Vue({
             axios.post('/messages', message).then(function (response) {
                 console.log(response.data);
             });
+            // // 最新メッセージ表示
+            // var bodyHeight = $('body').height() + 100;
+            // console.log(bodyHeight);
+            // $(document).scrollTop(bodyHeight);        
         }
     },
     created: function created() {
@@ -10875,6 +10879,20 @@ var app = new Vue({
                 user: e.user
             });
         });
+    },
+    beforeUpdate: function beforeUpdate() {
+        //room.blade.php表示時に最新メッセージを表示する
+        if ($(".room_id").length > 0) {
+            var bodyHeight = $('body').height() + 100;
+            console.log(bodyHeight);
+            $('body').scrollTop(bodyHeight);
+        }
+    },
+    updated: function updated() {
+        // 最新メッセージ表示
+        var bodyHeight = $('body').height() + 100;
+        console.log(bodyHeight);
+        $(document).scrollTop(bodyHeight);
     }
 });
 
@@ -11748,18 +11766,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	methods: {
 		sendMessage: function sendMessage() {
-			//$emitはイベントを発生させる(イベント名は'messagesent')
-			this.$emit("messagesent", {
-				// 3つのプロパティを持つオブジェクト？が送信される
-				message: this.messageText,
-				user: {
-					name: $("#app-navbar-collapse > ul.nav.navbar-nav.navbar-right > li > a").text(),
-					id: Number($(".user_id").text()),
-					img_path: ''
-				},
-				roomId: $(".room_id").text()
-			});
-			this.messageText = ''; //input内を空に
+			if (this.messageText) {
+				//$emitはイベントを発生させる(イベント名は'messagesent')
+				this.$emit("messagesent", {
+					// 3つのプロパティを持つオブジェクト？が送信される
+					message: this.messageText,
+					user: {
+						name: $("#app-navbar-collapse > ul.nav.navbar-nav.navbar-right > li > a").text(),
+						id: Number($(".user_id").text()),
+						img_path: ''
+					},
+					roomId: $(".room_id").text()
+				});
+				this.messageText = ''; //input内を空に
+			}
 		}
 	}
 });
@@ -11795,6 +11815,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -14285,7 +14306,7 @@ if (typeof jQuery === 'undefined') {
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(3)();
-exports.push([module.i, "\n.chatMsg {\n\tbackground-color: #83d8fc;\n\tpadding:10px;\n\tborder-radius: 3px;\n}\n\n\n", ""]);
+exports.push([module.i, "\n.chatMsg {\n\tpadding:10px;\n\tborder-radius: 3px;\n}\n.composer_container {\n\twidth: 100%;\n    position: fixed;\n    bottom: 50px;\n    margin-left: -15px;\n    padding: 5px;\n    background-color: #eeeeee;\n}\n.msg_container {\n\toverflow: hidden;\n    width: 100%;\n}\n.msg_text_other {\n\tfloat: right;\n    width: 80%;\n    background-color: #f7f7f8;\n}\n.msg_text_mine {\n\tfloat: left;\n    width: 80%;\n    background-color: #ffe2db;\n}\n.msg_thumb_container {\n\twidth: 15%;\n}\n.msg_thumb {\n\twidth: 50px;\n    height: 50px;\n}\n\n", ""]);
 
 /***/ }),
 /* 39 */
@@ -46907,10 +46928,16 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('p', {
-    staticClass: "chatMsg"
-  }, [_vm._v(_vm._s(_vm.message.message))]), _vm._v(" "), (_vm.userId !== _vm.message.user.id) ? _c('div', [_c('img', {
-    staticClass: "thumb",
+  return _c('div', {
+    staticClass: "msg_container"
+  }, [(_vm.userId !== _vm.message.user.id) ? _c('p', {
+    staticClass: "chatMsg msg_text_other"
+  }, [_vm._v(_vm._s(_vm.message.message))]) : (_vm.userId === _vm.message.user.id) ? _c('p', {
+    staticClass: "chatMsg msg_text_mine"
+  }, [_vm._v(_vm._s(_vm.message.message))]) : _vm._e(), _vm._v(" "), (_vm.userId !== _vm.message.user.id) ? _c('div', {
+    staticClass: "msg_thumb_container"
+  }, [_c('img', {
+    staticClass: "thumb msg_thumb",
     attrs: {
       "src": _vm.message.user.img_path
     }
@@ -46942,7 +46969,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "message",
       "type": "text",
       "name": "",
-      "placeholder": "メッセージを入力"
+      "placeholder": "メッセージを入力",
+      "required": ""
     },
     domProps: {
       "value": (_vm.messageText)
