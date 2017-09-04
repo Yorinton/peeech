@@ -215,6 +215,12 @@ $i:1;
     -webkit-line-clamp: 2;
     overflow: hidden;
 }
+.text_clamp_title {
+	display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
 .list_border {
 	border-top:1px solid rgba(0,0,0,.1);
 }
@@ -299,6 +305,13 @@ $i:1;
     border: none;
     box-shadow: none;	
 }
+/* nav-bar */
+.nav-bar-fixed {
+	position: fixed;
+    top: 0;
+    width: 100%;
+}
+
 /* ページタイトル */
 .title-area-register {
 	display: flex;

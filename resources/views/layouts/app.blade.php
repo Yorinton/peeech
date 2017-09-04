@@ -24,7 +24,7 @@
 </head>
 <body class="bg_white">
     <div>
-        <nav class="navbar navbar-default navbar-static-top mb0">
+        <nav class="navbar navbar-default navbar-static-top nav-bar-fixed mb0">
             <div class="container">
                 <div class="navbar-header">
 
@@ -36,7 +36,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="title-area-register">
-                        <h4 class="title-text">{{ $title or 'Peeech' }}</h4>
+                        <h4 class="title-text text_clamp_title">{{ $title or 'Peeech' }}</h4>
                     </div>
                     <!-- <title-default></title-default> -->
                     <!-- Branding Image -->
