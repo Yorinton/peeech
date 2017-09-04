@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mb100">
+<div class="container mb100 mt50">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
         	<div class="form-group">
