@@ -351,35 +351,31 @@
                 <input type="submit" name="" value="メッセージを送る">
             </form>
             <div>
-                <h4 class="label_prof">プロフィール画像</h4>
+                <h4 class="label_prof"><span>プロフィール画像</span></h4>
                 <div>
-                    <form class="form-group" method="post" action="{{ url('/users/profileimg')}}">
-                        <img src="">
-                        <input type="file">
-                        <input type="submit" value="変更">
-                    </form>
+                    <img src="{{ $user->img_path}}" class="thumb">
                 </div>
             </div>
             <div>
-                <h4 class="label_prof">ニックネーム</h4>                
+                <h4 class="label_prof"><span>ニックネーム</span></h4>                
                 <div class="form-group">
                     <p>{{ $user->name }}</p>
                 </div>               
             </div>
-            <div>
-                <h4 class="label_prof">メールアドレス</h4>
+ <!--            <div>
+                <h4 class="label_prof"><span>メールアドレス</span></h4>
                 <div class="form-group">                            
                     <p>{{ decrypt($user->email) }}</p>
                 </div>          
-            </div>            
+            </div>      -->       
             <div>
-                <h4 class="label_prof">お誕生日</h4>
+                <h4 class="label_prof"><span>お誕生日</span></h4>
                 <div class="form-group">                                
                     <p>{{ $user->birthday }}</p>
                 </div>
             </div>
             <div>
-                <h4 class="label_prof">性別</h4> 
+                <h4 class="label_prof"><span>性別</span></h4> 
                 <div class="form-group">                                                             
                     @if($user->sex == 'male')
                     <p>男</p>
@@ -389,44 +385,52 @@
                 </div>
             </div>            
             <div>
-                <h4 class="label_prof">好きなアイドル</h4>
+                <h4 class="label_prof"><span>好きなアイドル</span></h4>
                 <div class="form-group">
                     @foreach($idols as $idol)
-                    <span>{{ $idol->idol }}</span>
+                    <span class="tag_pink">{{ $idol->idol }}</span>
                     @endforeach
                 </div>
             </div>
             <div>
-                <h4 class="label_prof">推し</h4>              
+                <h4 class="label_prof"><span>主な活動内容</span></h4>
+                <div class="form-group">
+                    @foreach($activity_names as $activity)
+                    <span class="tag_grey">{{ $activity }}</span>
+                    @endforeach
+                </div>
+            </div>
+            <div>
+                <h4 class="label_prof"><span>推し</span></h4>              
                 <div class="form-group">
                     @foreach($favorites as $favorite)
-                    <span>{{ $favorite->favorite }}</span>
+                    <span class="tag_pink">{{ $favorite->favorite }}</span>
                     @endforeach
                 </div>
             </div> 
             <div>
-                <h4 class="label_prof">活動場所</h4>
+                <h4 class="label_prof"><span>活動場所</span></h4>
                 <div>
                     @foreach($regions as $region)
-                    <p>{{ $region->region }}</p>
+                    <p class="tag_grey">{{ $region->region }}</p>
                     @endforeach
                 </div>
             </div>
             <div>
-                <h4 class="label_prof">利用目的</h4>
+                <h4 class="label_prof"><span>利用目的</span></h4>
                 <div>
                     @foreach($purpose_masters as $purpose_master)
-                    <p>
+                    <ul>
                         <!-- true/falseで返すのはin_array(),キーを返すのはarray_search() -->
                         @if(in_array($purpose_master->id,$purpose_ids))
-                        <p>{{ $purpose_master->purpose }}</p>
+                        <li>{{ $purpose_master->purpose }}</li>
                         @endif
-                    </p>
+                    </ul>
                     @endforeach
                 </div>
             </div>
             <div>
-                <h4 class="label_prof">繋がりたい人</h4>
+                <h4 class="label_prof"><span>繋がりたい人</span></h4>
                 <div>                    
                     @foreach($statue_masters as $statue_master)
                     <p>
@@ -439,7 +443,7 @@
                 </div>
             </div>
             <div>
-                <h4 class="label_prof">参加予定イベント</h4>
+                <h4 class="label_prof"><span>参加予定イベント</span></h4>
                 <div>
                     @foreach($events as $event)
                     <span>{{ $event->event }}</span>
@@ -447,7 +451,7 @@
                 </div>
             </div>
             <div>
-                <h4 class="label_prof">自己紹介</h4>
+                <h4 class="label_prof"><span>自己紹介</span></h4>
                 <div class="form-group">
                     <p>{{ $user->introduction }}</p>
                 </div>
