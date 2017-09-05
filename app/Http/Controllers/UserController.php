@@ -102,7 +102,7 @@ class UserController extends Controller
 
             $this->userService->createOtherProfs($request,$user,'idol');
             // $this->userService->createOtherProfs($request,$user,'favorite');
-            // $this->userService->createOtherProfs($request,$user,'region');
+            $this->userService->createOtherProfs($request,$user,'region');
             // $this->userService->createOtherProfs($request,$user,'statue');
             $this->userService->createOtherProfs($request,$user,'purpose');
             // $this->userService->createOtherProfs($request,$user,'event');

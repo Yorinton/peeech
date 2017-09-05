@@ -45,7 +45,8 @@ class PostProfsTest extends TestCase
                  ->assertSee($request['year'])
                  ->assertSee($request['month'])
                  ->assertSee($request['day'])
-                 ->assertSee($request['added_idol']);
+                 ->assertSee($request['added_idol'])
+                 ->assertSee($request['region']);
             $this->assertEquals('1920-10-11',$user->birthday);
             //最後にテスト用ユーザーを削除
             $user->delete();

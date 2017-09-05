@@ -8,7 +8,7 @@ $(function(){ //即時関数にすることで外から中の変数を参照出�
 	$(".btn-idol").on("click",function(){
 		var idolName = $(".disblo").val();
 		if(idolName !== ""){
-			$(".del_idol").after("<div class='added_idol_container'><span class='del_idol_btn'>×</span><span class='added_idol'>" + idolName + "</span><input type='hidden' name='added_idol[]' value='" + idolName + "'></div>");
+			$(".del_idol").after("<div class='added_idol_container tag_pink mr5 mb5'><span class='del_idol_btn'>×</span><span class='added_idol'>" + idolName + "</span><input type='hidden' name='added_idol[]' value='" + idolName + "'></div>");
 			size = $(".added_idol_container").length;
 			var i;
 			for(i=2;i < size + 2;i++){

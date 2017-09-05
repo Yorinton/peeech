@@ -15,7 +15,7 @@ function makeUserRequest()
             'purpose' => [1],
             // 'statue' => [2],
             // 'added_event' => ['握手会'],
-            // 'region' => ['東京都'],
+            'region' => ['東京都'],
         ];
 }
 
