@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mb50 mt50">
-    <div class="row">
+<div class="container mb50 mt80 container_10">
+    <div class="row" id="prof">
         <div class="col-md-8 col-md-offset-2">
         @if(Auth::id() === $user->id) 
             @if (count($errors) > 0)
@@ -15,7 +15,6 @@
                 </div>
             @endif
             <div>
-                <h4 class="label_prof"><span>プロフィール画像</span></h4>
                 <div class="thumb_container">
                     <img class="thumb" src="{{ $user->img_path }}">
                     <form class="form-group thumb_form" method="post" action="{{ url('/users/'.$user->id) }}" enctype="multipart/form-data" files='true'>
@@ -27,94 +26,59 @@
                 </div>
             </div>
             <div>
-                <h4 class="label_prof"><span>ニックネーム</span></h4>
-                <form method="POST" action="{{ url('/users/'.$user->id) }}">
-                    {{ csrf_field() }}                
-                    {{ method_field('PATCH') }}                
-                    <div class="form-group disfle">
-                        <input name="name" type="text" class="form-control inputBaseStyle mr10" value="{{ $user->name }}" placeholder="ニックネーム" id="" required>
-                        <input class="form-control wd20" type="submit" value="変更">
-                    </div>               
-                </form>
-            </div>
-<!--             <div>
-                <h4 class="label_prof">メールアドレス</h4>
-                <form class="form-group" method="post" action="{{ url('/users/'.$user->id)}}">
-                    {{ csrf_field() }}                
-                    {{ method_field('PATCH') }}                                
-                    <input name="email" type="email" class="form-control" placeholder="メールアドレス" id="" value="{{ decrypt($user->email) }}" required>
-                    <input class="form-control" type="submit" value="変更">                   
-                </form>                
-            </div>  -->           
+                <label class="label_prof wd80"><span>ニックネーム</span></label>
+                <prof-name v-bind:user="{{ $user }}" v-on:namesent="editValue"></prof-name>
+            </div>      
             <div>
-                <h4 class="label_prof"><span>生年月日</span></h4>
-                <form class="form-group" method="post" action="{{ url('/users/'.$user->id)}}">
-                    {{ csrf_field() }}                
-                    {{ method_field('PATCH') }}
-                    <div class="sp-between">
-                    <select name="year" class="form-control inputBaseStyle mr5">
-                        @for($i=2002;$i>1949;$i--)
-                            @if((int)$birthArr[0] === $i)
-                            <option selected>{{ $i }}</option>
-                            @else
-                            <option>{{ $i }}</option>
-                            @endif
-                        @endfor
-                    </select>
-                    <select name="month" class="form-control inputBaseStyle mr5">
-                        @for($i=1;$i<13;$i++)
-                            @if((int)$birthArr[1] === $i)
-                            <option selected>{{ $i }}</option>
-                            @else
-                            <option>{{ $i }}</option>
-                            @endif
-                        @endfor
-                    </select>
-                    <select name="day" class="form-control inputBaseStyle">
-                        @for($i=1;$i<32;$i++)
-                            @if((int)$birthArr[2] === $i)
-                            <option selected>{{ $i }}</option>
-                            @else
-                            <option>{{ $i }}</option>
-                            @endif
-                        @endfor
-                    </select>
-                    </div>                                                     
-                 <!--    <input name="birthday" type="" class="form-control" placeholder="2001年11月3日" value="{{ $user->birthday }}" id="" required> -->
-                    <input class="form-control" type="submit" value="変更">                   
-                </form>                
+                <label class="label_prof wd80"><span>生年月日</span></label>
+                <div>
+                    <p>
+                        {{ (int)$birthArr[0] }}年{{ (int)$birthArr[1] }}月{{ (int)$birthArr[2] }}日
+                    </p>
+                </div>          
             </div>
             <div>
-                <h4 class="label_prof"><span>性別</span></h4>
-                <form class="form-group" method="post" action="{{ url('/users/'.$user->id)}}">
-                    {{ csrf_field() }}                
-                    {{ method_field('PATCH') }}
-                    <div class="disfle">               
+                <label class="label_prof wd80"><span>性別</span></label>
+                <div>
+                    <p>
                         @if($user->sex == 'male')
-                        <div class="wd40">
-                            <input type="radio" name="sex" value="male" checked="checked">男性
-                        </div>
-                        <div class="wd40">
-                            <input type="radio" name="sex" value="female">女性
-                        </div>
+                        男性
                         @else
-                        <div class="wd40">
-                            <input type="radio" name="sex" value="male">男性
-                        </div>
-                        <div class="wd40">
-                            <input type="radio" name="sex" value="female" checked="checked">女性
-                        </div>
+                        女性
                         @endif
-                        <input class="form-control wd20" type="submit" value="変更"> 
-                    </div>                    
-                </form>                                 
-            </div>            
+                    </p>
+                </div>                                
+            </div>
             <div>
-                <h4 class="label_prof"><span>好きなアイドル</span></h4>
+                <label class="label_prof wd80"><span>居住地域</span></label>
+                <div>
+                    <form class="form-group" method="post" action="{{ url('users/'.$user->id)}}">
+                        {{ csrf_field() }}
+                        {{ method_field('PATCH') }}
+                        <div class="disfle">
+                            <select name="region" type="text" class="form-control inputBaseStyle mr5" id="">
+                                <option value="">選択して下さい</option>
+                                @if(isset($region))
+                                    @foreach($prefs as $pref)
+                                        @if($pref == $region->region)
+                                        <option value="{{ $pref }}" selected>{{ $pref }}</option>
+                                        @else
+                                        <option value="{{ $pref }}">{{ $pref }}</option>
+                                        @endif
+                                    @endforeach
+                                @endif
+                            </select>
+                            <input class="form-control wd20" type="submit" value="変更">
+                        </div>
+                    </form>                   
+                </div>
+            </div>                         
+ <!--            <div>
+                <label class="label_prof wd80"><span>好きなアイドル</span></label>
                 <form class="form-group" method="post" action="{{ url('users/'.$user->id)}}">
                     {{ csrf_field() }}
                     <div class="disfle">
-                        <select name='phonetic' class="form-control phonetic inputBaseStyle mr5 wd20">
+                        <select name='phonetic' class="form-control phonetic inputBaseStyle mr5 wd35">
                             <option value="1">あ行</option>
                             <option value="2">か行</option>
                             <option value="3">さ行</option>
@@ -126,56 +90,58 @@
                             <option value="9">ら行</option>
                             <option value="10">わ行</option>
                         </select>
-                        <select name="idol" class="form-control form-idol disblo inputBaseStyle mr5" id="idols_1">
-                            @foreach($idol_masters->where('phonetic_id','>=',1)->where('phonetic_id','<=',5) as $idol)
-                            <option>{{ $idol->idol }}</option>
-                            @endforeach
-                        </select>
-                        <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_2">
-                            @foreach($idol_masters->where('phonetic_id','>=',6)->where('phonetic_id','<=',10) as $idol)
-                            <option>{{ $idol->idol }}</option>
-                            @endforeach
-                        </select>
-                        <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_3">
-                            @foreach($idol_masters->where('phonetic_id','>=',11)->where('phonetic_id','<=',15) as $idol)
-                            <option>{{ $idol->idol }}</option>
-                            @endforeach
-                        </select>
-                        <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_4">
-                            @foreach($idol_masters->where('phonetic_id','>=',16)->where('phonetic_id','<=',20) as $idol)
-                            <option>{{ $idol->idol }}</option>
-                            @endforeach
-                        </select>
-                        <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_5">
-                            @foreach($idol_masters->where('phonetic_id','>=',21)->where('phonetic_id','<=',25) as $idol)
-                            <option>{{ $idol->idol }}</option>
-                            @endforeach
-                        </select>
-                        <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_6">
-                            @foreach($idol_masters->where('phonetic_id','>=',26)->where('phonetic_id','<=',30) as $idol)
-                            <option>{{ $idol->idol }}</option>
-                            @endforeach
-                        </select>
-                        <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_7">
-                            @foreach($idol_masters->where('phonetic_id','>=',31)->where('phonetic_id','<=',35) as $idol)
-                            <option>{{ $idol->idol }}</option>
-                            @endforeach
-                        </select>                                                                                      
-                        <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_8">
-                            @foreach($idol_masters->where('phonetic_id','>=',36)->where('phonetic_id','<=',40) as $idol)
-                            <option>{{ $idol->idol }}</option>
-                            @endforeach
-                        </select> 
-                        <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_9">
-                            @foreach($idol_masters->where('phonetic_id','>=',41)->where('phonetic_id','<=',45) as $idol)
-                            <option>{{ $idol->idol }}</option>
-                            @endforeach
-                        </select>
-                        <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_10">
-                            @foreach($idol_masters->where('phonetic_id',46) as $idol)
-                            <option>{{ $idol->idol }}</option>
-                            @endforeach
-                        </select>                   
+                        <div class="wd65 mr5">
+                            <select name="idol" class="form-control form-idol disblo inputBaseStyle mr5" id="idols_1">
+                                @foreach($idol_masters->where('phonetic_id','>=',1)->where('phonetic_id','<=',5) as $idol)
+                                <option>{{ $idol->idol }}</option>
+                                @endforeach
+                            </select>
+                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_2">
+                                @foreach($idol_masters->where('phonetic_id','>=',6)->where('phonetic_id','<=',10) as $idol)
+                                <option>{{ $idol->idol }}</option>
+                                @endforeach
+                            </select>
+                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_3">
+                                @foreach($idol_masters->where('phonetic_id','>=',11)->where('phonetic_id','<=',15) as $idol)
+                                <option>{{ $idol->idol }}</option>
+                                @endforeach
+                            </select>
+                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_4">
+                                @foreach($idol_masters->where('phonetic_id','>=',16)->where('phonetic_id','<=',20) as $idol)
+                                <option>{{ $idol->idol }}</option>
+                                @endforeach
+                            </select>
+                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_5">
+                                @foreach($idol_masters->where('phonetic_id','>=',21)->where('phonetic_id','<=',25) as $idol)
+                                <option>{{ $idol->idol }}</option>
+                                @endforeach
+                            </select>
+                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_6">
+                                @foreach($idol_masters->where('phonetic_id','>=',26)->where('phonetic_id','<=',30) as $idol)
+                                <option>{{ $idol->idol }}</option>
+                                @endforeach
+                            </select>
+                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_7">
+                                @foreach($idol_masters->where('phonetic_id','>=',31)->where('phonetic_id','<=',35) as $idol)
+                                <option>{{ $idol->idol }}</option>
+                                @endforeach
+                            </select>                                                                                      
+                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_8">
+                                @foreach($idol_masters->where('phonetic_id','>=',36)->where('phonetic_id','<=',40) as $idol)
+                                <option>{{ $idol->idol }}</option>
+                                @endforeach
+                            </select> 
+                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_9">
+                                @foreach($idol_masters->where('phonetic_id','>=',41)->where('phonetic_id','<=',45) as $idol)
+                                <option>{{ $idol->idol }}</option>
+                                @endforeach
+                            </select>
+                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_10">
+                                @foreach($idol_masters->where('phonetic_id',46) as $idol)
+                                <option>{{ $idol->idol }}</option>
+                                @endforeach
+                            </select>
+                        </div>                  
                         <input class="form-control wd20" type="submit" value="追加"> 
                     </div>
                 </form>
@@ -192,9 +158,35 @@
                     </span>
                     @endforeach
                 </div>
+            </div> -->
+            <prof-idol :idols="{{ $idols }}" :idol_masters="{{ $idol_masters }}" :user="{{ $user }}"></prof-idol>
+            <div>
+                <label class="label_prof wd80"><span>主な活動内容 (タップで追加)</span></label>
+                <div class="wrap">
+                    @foreach($act_masters as $act_master)
+                    <p>
+                        <!-- true/falseで返すのはin_array(),キーを返すのはarray_search() -->
+                        @if(in_array($act_master->activity,$activity_names))
+                        <form class="form-group mr5" method="post" action="{{ url('users/'.$user->id)}}">
+                            {{ csrf_field() }}
+                            <input class="form-control selected_tag" type="submit" name="activity" value="{{ $act_master->activity }}">
+                        </form>
+                        @else
+                        <form class="form-group mr5" method="post" action="{{ url('users/'.$user->id)}}">
+                            {{ csrf_field() }}
+                            <input class="form-control" type="submit" name="activity" value="{{ $act_master->activity }}">
+                        </form>                        
+                        @endif
+                    </p>
+                    @endforeach              
+                </div>                
             </div>
             <div>
-                <h4 class="label_prof"><span>推し</span></h4>
+                <label class="label_prof wd80"><span>自己紹介</span></label>
+                <prof-intro v-bind:user="{{ $user }}" v-on:introsent="editValue"></prof-intro>
+            </div> 
+            <div>
+                <label class="label_prof wd80"><span>推し</span></label>
                 <form class="form-group" method="post" action="{{ url('users/'.$user->id)}}">
                     {{ csrf_field() }}
                     <div class="disfle">
@@ -217,62 +209,8 @@
                     @endforeach
                     @endif
                 </div>
-            </div>
-            <div>
-                <h4 class="label_prof"><span>主な活動内容 (タップで追加)</span></h4>
-                <div class="wrap">
-                    @foreach($act_masters as $act_master)
-                    <p>
-                        <!-- true/falseで返すのはin_array(),キーを返すのはarray_search() -->
-                        @if(in_array($act_master->activity,$activity_names))
-                        <form class="form-group mr5" method="post" action="{{ url('users/'.$user->id)}}">
-                            {{ csrf_field() }}
-                            <input class="form-control selected_tag" type="submit" name="activity" value="{{ $act_master->activity }}">
-                        </form>
-                        @else
-                        <form class="form-group mr5" method="post" action="{{ url('users/'.$user->id)}}">
-                            {{ csrf_field() }}
-                            <input class="form-control" type="submit" name="activity" value="{{ $act_master->activity }}">
-                        </form>                        
-                        @endif
-                    </p>
-                    @endforeach              
-                </div>                
-            </div>             
-            <div>
-                <h4 class="label_prof"><span>普段の活動場所</span></h4>
-                <div>
-                    <form class="form-group" method="post" action="{{ url('users/'.$user->id)}}">
-                        {{ csrf_field() }}
-                        {{ method_field('PUT') }}
-                        <div class="disfle">
-                            <select name="region" type="text" class="form-control inputBaseStyle mr5" id="">
-                                <option value="">選択して下さい</option>
-                                @foreach($prefs as $pref)
-                                    <option value="{{ $pref }}">{{ $pref }}</option>
-                                @endforeach
-                            </select>
-                            <input class="form-control wd20" type="submit" value="変更">
-                        </div>
-                    </form>
-                    <div>
-                        @if($regions)
-                        @foreach($regions as $region)
-                        <span class='added_region'>
-                            <form class="form-group" method="post" action="{{ url('users/'.$user->id.'/'.$region->id)}}">
-                                {{ csrf_field() }}
-                                {{ method_field('DELETE') }}
-                                <input type="hidden" name="region" value="region">
-                                <input type="submit" value="×">
-                                <span>{{ $region->region }}</span>
-                            </form>
-                        </span>
-                        @endforeach
-                        @endif
-                    </div>                    
-                </div>
-            </div>            
-            <div>
+            </div>          
+<!--             <div>
                 <h4 class="label_prof"><span>利用目的</span></h4>
                 <div>
                     <form class="form-group" method="post" action="{{ url('users/'.$user->id)}}">
@@ -280,7 +218,6 @@
                         {{ method_field('PUT') }} 
                         @foreach($purpose_masters as $purpose_master)
                         <p>
-                            <!-- true/falseで返すのはin_array(),キーを返すのはarray_search() -->
                             @if(in_array($purpose_master->id,$purpose_ids))
                             <input type="checkbox" name="purpose[]" value="{{$purpose_master->id}}" checked="checked">{{ $purpose_master->purpose }}
                             @else
@@ -292,8 +229,8 @@
                     </form>
                 </div>
             </div>
- <!--            <div>
-                <h4 class="label_prof">繋がりたい人</h4>
+ -->            <div>
+                <label class="label_prof wd80"><span>こんな人と繋がりたい</span></label>
                 <div>
                     <form class="form-group" method="post" action="{{ url('users/'.$user->id)}}">
                         {{ csrf_field() }}
@@ -310,9 +247,9 @@
                         <input class="form-control" type="submit" value="変更"> 
                     </form>
                 </div>
-            </div> -->
- <!--            <div>
-                <h4 class="label_prof">参加予定イベント</h4>
+            </div>
+            <div>
+                <label class="label_prof wd80"><span>参加予定イベント</span></label>
                 <form class="form-group" method="post" action="{{ url('users/'.$user->id)}}">
                     {{ csrf_field() }} 
                     <input name="event" type="text" class="form-control form-idol" placeholder="" id="" required>
@@ -331,18 +268,16 @@
                     </span>
                     @endforeach
                 </div>
-            </div> -->
-            <div>
-                <h4 class="label_prof"><span>自己紹介</span></h4>
-                <form method="post" action="{{url('/users/'.$user->id)}}">
-                {{ csrf_field() }}                
-                {{ method_field('PATCH') }} 
-                <div class="form-group">
-                    <textarea name="introduction" class="form-control inputBaseStyle" placeholder="自己紹介" id="" rows="5" required>{{ $user->introduction }}</textarea>
-                    <input class="form-control" type="submit" value="変更">
-                </div>
-                </form>
             </div>
+            <div>
+                <label class="label_prof wd80"><span>メールアドレス(非公開)</span></label>
+                <form class="form-group" method="post" action="{{ url('/users/'.$user->id)}}">
+                    {{ csrf_field() }}                
+                    {{ method_field('PATCH') }}                                
+                    <input name="email" type="email" class="form-control" placeholder="メールアドレス" id="" value="{{ decrypt($user->email) }}" required>
+                    <input class="form-control" type="submit" value="変更">                   
+                </form>                
+            </div> 
         @else
             <form method="post" action="{{ url('/room') }}">
                 {{ csrf_field() }}

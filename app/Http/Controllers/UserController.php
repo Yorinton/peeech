@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App;
+use App\Eloquent\Idol;
 use Intervention\Image\Facades\Image;
 use App\MasterDbService;
 use App\UserService;
@@ -150,10 +151,11 @@ class UserController extends Controller
             		$events = $this->userService->getOtherProfs($id,'events');
                     $activities = $this->userService->getOtherProfs($id,'activities');
 
+                    $region = $regions->first();
+
 			        //選択された利用目的のpurpose_id,regionを配列にする(マスターとの比較用)
 			        $purpose_ids = $this->objArrToPropArr($purposes,'purpose_id');
 			        $statue_ids = $this->objArrToPropArr($statues,'statue_id');
-			        $region_names = $this->objArrToPropArr($regions,'region');
                     $activity_names = $this->objArrToPropArr($activities,'activity');
 
 			        //47都道府県
@@ -173,7 +175,7 @@ class UserController extends Controller
 			                              ->with('idols',$idols)
 			                              ->with('favorites',$favorites)
 			                              // ->with('region_names',$region_names)
-			                              ->with('regions',$regions)
+			                              ->with('region',$region)
 			                              ->with('purpose_ids',$purpose_ids)
 			                              ->with('statue_ids',$statue_ids)
 			                              ->with('events',$events)
@@ -233,13 +235,17 @@ class UserController extends Controller
                 $this->userService->updateUserProfsSimple($id,'birthday',$birthday);
             }
             //一つずつ登録するパターンのデータのアップデート
-	        if($request->idol || $request->favorite || $request->event || $request->region || $request->activity){
-				$this->userService->updateOtherProfsSingle($request,$user,'idol');
-				$this->userService->updateOtherProfsSingle($request,$user,'favorite');
-				$this->userService->updateOtherProfsSingle($request,$user,'event');
-                $this->userService->updateOtherProfsSingle($request,$user,'region');
-                $this->userService->updateOtherProfsSingle($request,$user,'activity');
+	        if($request->idol || $request->favorite || $request->event || $request->activity){
+				$this->userService->addOtherProfsSingle($request,$user,'idol');
+				$this->userService->addOtherProfsSingle($request,$user,'favorite');
+				$this->userService->addOtherProfsSingle($request,$user,'event');
+                $this->userService->addOtherProfsSingle($request,$user,'region');
+                $this->userService->addOtherProfsSingle($request,$user,'activity');
 			}
+            //登録済みアイテムの修正
+            if($request->region){
+                $this->userService->editOtherProfsSingle($request,$user,'region');
+            }
 
 			//複数登録パターンデータのアップデート
 			if($request->purpose || $request->statue){
@@ -252,7 +258,9 @@ class UserController extends Controller
 
                 $this->imageService->upload($request,$id);
 	        }
-	        return redirect()->route('profiles',[$user]);
+	        // return redirect()->route('profiles',[$user]);
+            $added_idol = Idol::where('idol',request('idol'))->first();
+            return ['idol' => $added_idol];
 
         }
         echo '指定のユーザーは存在しません';
@@ -276,6 +284,20 @@ class UserController extends Controller
                 $this->userService->deleteProfs($id,'region');    
             }
             return redirect()->route('profiles',['id' => $user_id]);   
+        }
+    }
+    public function delete(Request $request,$id)
+    {
+        //
+        if($id){
+            if($request->idol || $request->favorite || $request->event || $request->region){
+                $this->userService->deleteProfs($id,'idol');
+                $this->userService->deleteProfs($id,'favorite');
+                $this->userService->deleteProfs($id,'event');
+                $this->userService->deleteProfs($id,'region');    
+            }
+            // return redirect()->route('profiles',['id' => $user_id]);
+            return ['result' => '成功'];   
         }
     }
 }

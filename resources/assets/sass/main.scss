@@ -287,16 +287,26 @@ input[type="submit"],input[type="button"] {
     padding: 5px 7px;
 
 }
-.tag_pink {
-	@extend .tag;
-	color: #fe66a4;
-}
 .tag_grey {
 	@extend .tag;
 	color: #626063;
 	border: 1px solid #626063;
 }
-
+.tag_no_select {
+	@extend .tag;
+	color: lightgrey;
+	border: 1px dashed lightgrey;
+}
+.tag_pink {
+	@extend .tag;
+	color: #fe66a4;
+	border: 1px solid #fe66a4;
+}
+.tag_blue {
+	@extend .tag;
+	color: #67c3fc;
+	border: 1px solid #67c3fc;	
+}
 .required {
 	@extend .tag;
     font-weight: normal;
@@ -389,9 +399,13 @@ input[type="submit"],input[type="button"] {
 	color:white;
 	font-weight: bold;
 	-webkit-font-smoothing: antialiased;
-	height: 50px;
-    font-size: 20px;
 }
+.registerBtn {
+	@extend .submitBtn;
+	height: 50px;
+    font-size: 20px;	
+}
+
 .thumb {
 	width: 100px;
     height: 100px;
@@ -401,6 +415,12 @@ input[type="submit"],input[type="button"] {
 .thumb_mini {
 	width: 50px;
     height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.thumb_mini_s {
+	width: 20px;
+    height: 20px;
     object-fit: cover;
     border-radius: 50%;
 }

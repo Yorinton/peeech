@@ -65,8 +65,10 @@
                 <div class="form-group mb20">
                     <label for="" class="label_prof wd80"><span>性別</span></label><span class="required">必須</span>
                     <div class="form-group mt10">
-                        <input type="radio" name="sex" value="male">男性
-                        <input type="radio" name="sex" value="female">女性
+                        <input type="radio" name="sex" value="male" id="male" class="disnone">
+                        <label class="sex_label tag_no_select" for="male">男性</label>
+                        <input type="radio" name="sex" value="female" id="female" class="disnone">
+                        <label class="sex_label tag_no_select" for="female">女性</label>
                     </div>
                   <!--   <select name="sex" class="form-control" id="" required>
                         <option value="male">男</option>
@@ -172,9 +174,11 @@
                     <div class="form-group mt10">
                     @if(isset($purpose_masters))
                         @foreach($purpose_masters as $purpose_master)
-                            <p>
-                                <input type="checkbox" name="purpose[]" value="{{ $purpose_master->id}}" checked="checked">{{ $purpose_master->purpose}}
-                            </p>
+                            <div class="checkbox_container mb10">
+                                <label for="{{ $purpose_master->id}}" class="fs10 checkbox_{{ $purpose_master->id}}">
+                                <img class="thumb_mini_s img_checkbox_{{ $purpose_master->id}} mr5" src="../../images/icons/no_checked.png">{{ $purpose_master->purpose }}</label>
+                                <input type="checkbox" name="purpose[]" value="{{ $purpose_master->id}}" class="{{ $purpose_master->id}} disnone">
+                            </div>
                         @endforeach
                     @endif 
                     </div>                 
@@ -206,7 +210,7 @@
                     <textarea name="introduction" class="form-control" placeholder="自己紹介" id="" rows="20" required>{{ old('introduction',$user->introduction) }}</textarea>
                 </div> -->
                 <div class="form-group submitBtnContainer">
-                    <input class="form-control submitBtn" type="submit" value="登録">
+                    <input class="form-control registerBtn" type="submit" value="登録">
                 </div>           
             </form>
         </div>
