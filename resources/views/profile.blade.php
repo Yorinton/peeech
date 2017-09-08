@@ -73,99 +73,12 @@
                     </form>                   
                 </div>
             </div>                         
- <!--            <div>
-                <label class="label_prof wd80"><span>好きなアイドル</span></label>
-                <form class="form-group" method="post" action="{{ url('users/'.$user->id)}}">
-                    {{ csrf_field() }}
-                    <div class="disfle">
-                        <select name='phonetic' class="form-control phonetic inputBaseStyle mr5 wd35">
-                            <option value="1">あ行</option>
-                            <option value="2">か行</option>
-                            <option value="3">さ行</option>
-                            <option value="4">た行</option>
-                            <option value="5">な行</option>
-                            <option value="6">は行</option>
-                            <option value="7">ま行</option>
-                            <option value="8">や行</option>
-                            <option value="9">ら行</option>
-                            <option value="10">わ行</option>
-                        </select>
-                        <div class="wd65 mr5">
-                            <select name="idol" class="form-control form-idol disblo inputBaseStyle mr5" id="idols_1">
-                                @foreach($idol_masters->where('phonetic_id','>=',1)->where('phonetic_id','<=',5) as $idol)
-                                <option>{{ $idol->idol }}</option>
-                                @endforeach
-                            </select>
-                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_2">
-                                @foreach($idol_masters->where('phonetic_id','>=',6)->where('phonetic_id','<=',10) as $idol)
-                                <option>{{ $idol->idol }}</option>
-                                @endforeach
-                            </select>
-                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_3">
-                                @foreach($idol_masters->where('phonetic_id','>=',11)->where('phonetic_id','<=',15) as $idol)
-                                <option>{{ $idol->idol }}</option>
-                                @endforeach
-                            </select>
-                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_4">
-                                @foreach($idol_masters->where('phonetic_id','>=',16)->where('phonetic_id','<=',20) as $idol)
-                                <option>{{ $idol->idol }}</option>
-                                @endforeach
-                            </select>
-                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_5">
-                                @foreach($idol_masters->where('phonetic_id','>=',21)->where('phonetic_id','<=',25) as $idol)
-                                <option>{{ $idol->idol }}</option>
-                                @endforeach
-                            </select>
-                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_6">
-                                @foreach($idol_masters->where('phonetic_id','>=',26)->where('phonetic_id','<=',30) as $idol)
-                                <option>{{ $idol->idol }}</option>
-                                @endforeach
-                            </select>
-                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_7">
-                                @foreach($idol_masters->where('phonetic_id','>=',31)->where('phonetic_id','<=',35) as $idol)
-                                <option>{{ $idol->idol }}</option>
-                                @endforeach
-                            </select>                                                                                      
-                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_8">
-                                @foreach($idol_masters->where('phonetic_id','>=',36)->where('phonetic_id','<=',40) as $idol)
-                                <option>{{ $idol->idol }}</option>
-                                @endforeach
-                            </select> 
-                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_9">
-                                @foreach($idol_masters->where('phonetic_id','>=',41)->where('phonetic_id','<=',45) as $idol)
-                                <option>{{ $idol->idol }}</option>
-                                @endforeach
-                            </select>
-                            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_10">
-                                @foreach($idol_masters->where('phonetic_id',46) as $idol)
-                                <option>{{ $idol->idol }}</option>
-                                @endforeach
-                            </select>
-                        </div>                  
-                        <input class="form-control wd20" type="submit" value="追加"> 
-                    </div>
-                </form>
-                <div>
-                    @foreach($idols as $idol)
-                    <span class='added_idol'>
-                        <form class="form-group" method="post" action="{{ url('users/'.$user->id.'/'.$idol->id)}}">
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }}
-                            <input type="hidden" name="idol" value="idol">
-                            <input type="submit" value="×">
-                            <span>{{ $idol->idol }}</span>
-                        </form>
-                    </span>
-                    @endforeach
-                </div>
-            </div> -->
             <prof-idol :idols="{{ $idols }}" :idol_masters="{{ $idol_masters }}" :user="{{ $user }}"></prof-idol>
-            <div>
+ <!--            <div>
                 <label class="label_prof wd80"><span>主な活動内容 (タップで追加)</span></label>
                 <div class="wrap">
                     @foreach($act_masters as $act_master)
                     <p>
-                        <!-- true/falseで返すのはin_array(),キーを返すのはarray_search() -->
                         @if(in_array($act_master->activity,$activity_names))
                         <form class="form-group mr5" method="post" action="{{ url('users/'.$user->id)}}">
                             {{ csrf_field() }}
@@ -180,7 +93,8 @@
                     </p>
                     @endforeach              
                 </div>                
-            </div>
+            </div> -->
+            <prof-activity :act_masters="{{ $act_masters }}" :user="{{ $user }}" :acts="{{ $activities }}"></prof-activity>
             <div>
                 <label class="label_prof wd80"><span>自己紹介</span></label>
                 <prof-intro v-bind:user="{{ $user }}" v-on:introsent="editValue"></prof-intro>

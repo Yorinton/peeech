@@ -185,7 +185,8 @@ class UserController extends Controller
 			                              ->with('idol_masters',$idol_masters)
                                           ->with('title',$title)
                                           ->with('activity_names',$activity_names)
-                                          ->with('act_masters',$act_masters);
+                                          ->with('act_masters',$act_masters)
+                                          ->with('activities',$activities);
 
             	}
             	echo '指定のユーザーは存在しない';
@@ -258,9 +259,14 @@ class UserController extends Controller
 
                 $this->imageService->upload($request,$id);
 	        }
-	        // return redirect()->route('profiles',[$user]);
+
             $added_idol = Idol::where('idol',request('idol'))->first();
-            return ['idol' => $added_idol];
+            if($added_idol){
+                return ['idol' => $added_idol];
+            }elseif(request('name') || request('introduction')){
+                return ['result' => '成功'];
+            }
+            return redirect()->route('profiles',[$user]);
 
         }
         echo '指定のユーザーは存在しません';

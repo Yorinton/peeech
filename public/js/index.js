@@ -46,12 +46,6 @@ $(function(){ //即時関数にすることで外から中の変数を参照出�
 			}
 		}
 	});
-	//50音別アイドル一覧表示
-	// $("select.form-control.phonetic").change(function(){
-	// 	var num = $(this).val();
-	// 	$('.disblo').addClass('disnone').attr('name','').removeClass('disblo');
-	// 	$("#idols_" + num).addClass('disblo').removeClass('disnone').attr('name','idol');
-	// });
 
 	//メッセージ一覧ページの各メッセージクリック
 	$(".to_room").each(function(){

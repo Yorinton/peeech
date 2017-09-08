@@ -63,12 +63,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 75);
+/******/ 	return __webpack_require__(__webpack_require__.s = 78);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 1:
+/******/ ([
+/* 0 */
 /***/ (function(module, exports) {
 
 // this module is a runtime utility for cleaner component module output and will
@@ -125,457 +124,8 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-
-/***/ 10:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
-
-/***/ }),
-
-/***/ 11:
-/***/ (function(module, exports, __webpack_require__) {
-
-var Component = __webpack_require__(1)(
-  /* script */
-  __webpack_require__(6),
-  /* template */
-  __webpack_require__(14),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "/home/vagrant/Code/Laravel/resources/assets/js/components/ProfIdol.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] ProfIdol.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0bc02b72", Component.options)
-  } else {
-    hotAPI.reload("data-v-0bc02b72", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 12:
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/* styles */
-__webpack_require__(17)
-
-var Component = __webpack_require__(1)(
-  /* script */
-  __webpack_require__(7),
-  /* template */
-  __webpack_require__(15),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "/home/vagrant/Code/Laravel/resources/assets/js/components/ProfIntroduction.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] ProfIntroduction.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2f5ac054", Component.options)
-  } else {
-    hotAPI.reload("data-v-2f5ac054", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 13:
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/* styles */
-__webpack_require__(18)
-
-var Component = __webpack_require__(1)(
-  /* script */
-  __webpack_require__(8),
-  /* template */
-  __webpack_require__(16),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "/home/vagrant/Code/Laravel/resources/assets/js/components/ProfName.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] ProfName.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-70a70445", Component.options)
-  } else {
-    hotAPI.reload("data-v-70a70445", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 14:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._m(0), _vm._v(" "), _c('div', {
-    staticClass: "disfle"
-  }, [_c('select', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.selected),
-      expression: "selected"
-    }],
-    staticClass: "form-control phonetic inputBaseStyle mr5 wd35",
-    attrs: {
-      "name": "phonetic"
-    },
-    on: {
-      "change": [function($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
-          return o.selected
-        }).map(function(o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val
-        });
-        _vm.selected = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-      }, _vm.selectPhonetic]
-    }
-  }, _vm._l((_vm.phonetics), function(phonetic) {
-    return _c('option', {
-      domProps: {
-        "value": phonetic.value
-      }
-    }, [_vm._v(_vm._s(phonetic.text))])
-  })), _vm._v(" "), _c('div', {
-    staticClass: "wd65 mr5"
-  }, [_c('select', {
-    staticClass: "form-control form-idol disblo inputBaseStyle mr5",
-    attrs: {
-      "name": "idol",
-      "id": "idols_1"
-    }
-  }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 1 && idol.phonetic_id <= 5) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
-  })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
-    attrs: {
-      "name": "",
-      "id": "idols_2"
-    }
-  }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 6 && idol.phonetic_id <= 10) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
-  })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
-    attrs: {
-      "name": "",
-      "id": "idols_3"
-    }
-  }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 11 && idol.phonetic_id <= 15) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
-  })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
-    attrs: {
-      "name": "",
-      "id": "idols_4"
-    }
-  }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 16 && idol.phonetic_id <= 20) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
-  })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
-    attrs: {
-      "name": "",
-      "id": "idols_5"
-    }
-  }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 21 && idol.phonetic_id <= 25) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
-  })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
-    attrs: {
-      "name": "",
-      "id": "idols_6"
-    }
-  }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 26 && idol.phonetic_id <= 30) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
-  })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
-    attrs: {
-      "name": "",
-      "id": "idols_7"
-    }
-  }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 31 && idol.phonetic_id <= 35) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
-  })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
-    attrs: {
-      "name": "",
-      "id": "idols_8"
-    }
-  }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 36 && idol.phonetic_id <= 40) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
-  })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
-    attrs: {
-      "name": "",
-      "id": "idols_9"
-    }
-  }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 41 && idol.phonetic_id <= 45) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
-  })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
-    attrs: {
-      "name": "",
-      "id": "idols_10"
-    }
-  }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id === 46) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
-  }))]), _vm._v(" "), _c('button', {
-    staticClass: "btn btn-idol ml5 btn_add",
-    on: {
-      "click": _vm.addIdol
-    }
-  }, [_vm._v("+")])]), _vm._v(" "), _c('div', {
-    staticClass: "wrap mt10 mb10"
-  }, _vm._l((_vm.idol_names), function(idol) {
-    return _c('span', {
-      staticClass: "added_idol tag_pink mr5 mb5",
-      on: {
-        "click": function($event) {
-          _vm.removeIdol(idol)
-        }
-      }
-    }, [_vm._v("× " + _vm._s(idol.idol))])
-  }))])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('label', {
-    staticClass: "label_prof wd80"
-  }, [_c('span', [_vm._v("好きなアイドル")])])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-0bc02b72", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 15:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "form-group"
-  }, [_c('textarea', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.introduction),
-      expression: "introduction"
-    }],
-    staticClass: "form-control inputBaseStyle mr10",
-    attrs: {
-      "name": "introduction",
-      "placeholder": "自己紹介",
-      "rows": "5",
-      "required": ""
-    },
-    domProps: {
-      "value": (_vm.introduction)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.introduction = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('button', {
-    staticClass: "form-control wd30 fs10",
-    on: {
-      "click": _vm.sendIntroduction
-    }
-  }, [_vm._v("変更")])])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-2f5ac054", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 16:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "form-group disfle"
-  }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.name),
-      expression: "name"
-    }],
-    staticClass: "form-control inputBaseStyle mr10",
-    attrs: {
-      "name": "name",
-      "type": "text",
-      "placeholder": "ニックネーム",
-      "required": ""
-    },
-    domProps: {
-      "value": (_vm.name)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.name = $event.target.value
-      }
-    }
-  }), _vm._v(" "), _c('button', {
-    staticClass: "form-control wd30 fs10",
-    on: {
-      "click": _vm.sendName
-    }
-  }, [_vm._v("変更")])])
-},staticRenderFns: []}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-70a70445", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 17:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(9);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("631ab30a", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-2f5ac054\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfIntroduction.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-2f5ac054\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfIntroduction.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 18:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(10);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("659e79e2", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-70a70445\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfName.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-70a70445\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfName.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 19:
-/***/ (function(module, exports) {
-
-/**
- * Translates the list format produced by css-loader into something
- * easier to manipulate.
- */
-module.exports = function listToStyles (parentId, list) {
-  var styles = []
-  var newStyles = {}
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i]
-    var id = item[0]
-    var css = item[1]
-    var media = item[2]
-    var sourceMap = item[3]
-    var part = {
-      id: parentId + ':' + i,
-      css: css,
-      media: media,
-      sourceMap: sourceMap
-    }
-    if (!newStyles[id]) {
-      styles.push(newStyles[id] = { id: id, parts: [part] })
-    } else {
-      newStyles[id].parts.push(part)
-    }
-  }
-  return styles
-}
-
-
-/***/ }),
-
-/***/ 2:
+/* 1 */,
+/* 2 */
 /***/ (function(module, exports) {
 
 /*
@@ -631,8 +181,7 @@ module.exports = function() {
 
 
 /***/ }),
-
-/***/ 3:
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -651,7 +200,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(19)
+var listToStyles = __webpack_require__(22)
 
 /*
 type StyleObject = {
@@ -853,14 +402,14 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-
-/***/ 4:
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //プロフィール
-Vue.component('prof-name', __webpack_require__(13));
-Vue.component('prof-intro', __webpack_require__(12));
-Vue.component('prof-idol', __webpack_require__(11));
+Vue.component('prof-name', __webpack_require__(15));
+Vue.component('prof-intro', __webpack_require__(14));
+Vue.component('prof-idol', __webpack_require__(13));
+Vue.component('prof-activity', __webpack_require__(12));
 
 //Vueインスタンス生成
 var prof = new Vue({
@@ -875,8 +424,51 @@ var prof = new Vue({
 });
 
 /***/ }),
+/* 5 */,
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/***/ 6:
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ["act_masters", "user", "acts"],
+	data: function data() {
+		return {
+			remId: '',
+			addedActs: this.acts
+		};
+	},
+	methods: {
+		addAct: function addAct(act) {
+			console.log(act.activity);
+		},
+		deleteAct: function deleteAct(act) {
+			console.log(act.activity);
+			this.addedActs.some(function (v, i, ar) {
+				if (v.activity === act.activity) {
+					console.log(i);
+					ar.splice(i, 1);
+					console.log(ar);
+				}
+			});
+		}
+	}
+});
+
+/***/ }),
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -932,9 +524,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	props: ["idols", "idol_masters", "user"],
 	data: function data() {
 		return {
+			selected: 1, //セレクトボックスの初期値のvalueを指定
 			phonetics: [{ text: 'あ行', value: 1 }, { text: 'か行', value: 2 }, { text: 'さ行', value: 3 }, { text: 'た行', value: 4 }, { text: 'な行', value: 5 }, { text: 'は行', value: 6 }, { text: 'ま行', value: 7 }, { text: 'や行', value: 8 }, { text: 'ら行', value: 9 }, { text: 'わ行', value: 10 }],
 			num: '',
-			selected: '',
 			request: {
 				idol: ''
 			},
@@ -969,8 +561,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-
-/***/ 7:
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1007,16 +598,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-
-/***/ 75:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(4);
-
-
-/***/ }),
-
-/***/ 8:
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1053,13 +635,585 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-
-/***/ 9:
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)();
 exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
-/***/ })
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/******/ });
+exports = module.exports = __webpack_require__(2)();
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(6),
+  /* template */
+  __webpack_require__(18),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/home/vagrant/Code/Laravel/resources/assets/js/components/ProfActivity.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] ProfActivity.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4d4879c9", Component.options)
+  } else {
+    hotAPI.reload("data-v-4d4879c9", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(7),
+  /* template */
+  __webpack_require__(16),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/home/vagrant/Code/Laravel/resources/assets/js/components/ProfIdol.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] ProfIdol.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0bc02b72", Component.options)
+  } else {
+    hotAPI.reload("data-v-0bc02b72", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(20)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(8),
+  /* template */
+  __webpack_require__(17),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/home/vagrant/Code/Laravel/resources/assets/js/components/ProfIntroduction.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] ProfIntroduction.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2f5ac054", Component.options)
+  } else {
+    hotAPI.reload("data-v-2f5ac054", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(21)
+
+var Component = __webpack_require__(0)(
+  /* script */
+  __webpack_require__(9),
+  /* template */
+  __webpack_require__(19),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/home/vagrant/Code/Laravel/resources/assets/js/components/ProfName.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] ProfName.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-70a70445", Component.options)
+  } else {
+    hotAPI.reload("data-v-70a70445", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "disfle"
+  }, [_c('select', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.selected),
+      expression: "selected"
+    }],
+    staticClass: "form-control phonetic inputBaseStyle mr5 wd35",
+    attrs: {
+      "name": "phonetic"
+    },
+    on: {
+      "change": [function($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+          return o.selected
+        }).map(function(o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val
+        });
+        _vm.selected = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+      }, _vm.selectPhonetic]
+    }
+  }, _vm._l((_vm.phonetics), function(phonetic) {
+    return _c('option', {
+      domProps: {
+        "value": phonetic.value
+      }
+    }, [_vm._v(_vm._s(phonetic.text))])
+  })), _vm._v(" "), _c('div', {
+    staticClass: "wd65 mr5"
+  }, [_c('select', {
+    staticClass: "form-control form-idol disblo inputBaseStyle mr5",
+    attrs: {
+      "name": "idol",
+      "id": "idols_1"
+    }
+  }, _vm._l((_vm.idol_masters), function(idol) {
+    return (idol.phonetic_id >= 1 && idol.phonetic_id <= 5) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+  })), _vm._v(" "), _c('select', {
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    attrs: {
+      "name": "",
+      "id": "idols_2"
+    }
+  }, _vm._l((_vm.idol_masters), function(idol) {
+    return (idol.phonetic_id >= 6 && idol.phonetic_id <= 10) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+  })), _vm._v(" "), _c('select', {
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    attrs: {
+      "name": "",
+      "id": "idols_3"
+    }
+  }, _vm._l((_vm.idol_masters), function(idol) {
+    return (idol.phonetic_id >= 11 && idol.phonetic_id <= 15) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+  })), _vm._v(" "), _c('select', {
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    attrs: {
+      "name": "",
+      "id": "idols_4"
+    }
+  }, _vm._l((_vm.idol_masters), function(idol) {
+    return (idol.phonetic_id >= 16 && idol.phonetic_id <= 20) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+  })), _vm._v(" "), _c('select', {
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    attrs: {
+      "name": "",
+      "id": "idols_5"
+    }
+  }, _vm._l((_vm.idol_masters), function(idol) {
+    return (idol.phonetic_id >= 21 && idol.phonetic_id <= 25) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+  })), _vm._v(" "), _c('select', {
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    attrs: {
+      "name": "",
+      "id": "idols_6"
+    }
+  }, _vm._l((_vm.idol_masters), function(idol) {
+    return (idol.phonetic_id >= 26 && idol.phonetic_id <= 30) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+  })), _vm._v(" "), _c('select', {
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    attrs: {
+      "name": "",
+      "id": "idols_7"
+    }
+  }, _vm._l((_vm.idol_masters), function(idol) {
+    return (idol.phonetic_id >= 31 && idol.phonetic_id <= 35) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+  })), _vm._v(" "), _c('select', {
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    attrs: {
+      "name": "",
+      "id": "idols_8"
+    }
+  }, _vm._l((_vm.idol_masters), function(idol) {
+    return (idol.phonetic_id >= 36 && idol.phonetic_id <= 40) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+  })), _vm._v(" "), _c('select', {
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    attrs: {
+      "name": "",
+      "id": "idols_9"
+    }
+  }, _vm._l((_vm.idol_masters), function(idol) {
+    return (idol.phonetic_id >= 41 && idol.phonetic_id <= 45) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+  })), _vm._v(" "), _c('select', {
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    attrs: {
+      "name": "",
+      "id": "idols_10"
+    }
+  }, _vm._l((_vm.idol_masters), function(idol) {
+    return (idol.phonetic_id === 46) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+  }))]), _vm._v(" "), _c('button', {
+    staticClass: "btn btn-idol ml5 btn_add",
+    on: {
+      "click": _vm.addIdol
+    }
+  }, [_vm._v("+")])]), _vm._v(" "), _c('div', {
+    staticClass: "wrap mt10 mb10"
+  }, _vm._l((_vm.idol_names), function(idol) {
+    return _c('span', {
+      staticClass: "added_idol tag_pink mr5 mb5",
+      on: {
+        "click": function($event) {
+          _vm.removeIdol(idol)
+        }
+      }
+    }, [_vm._v("× " + _vm._s(idol.idol))])
+  }))])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('label', {
+    staticClass: "label_prof wd80"
+  }, [_c('span', [_vm._v("好きなアイドル")])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-0bc02b72", module.exports)
+  }
+}
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "form-group"
+  }, [_c('textarea', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.introduction),
+      expression: "introduction"
+    }],
+    staticClass: "form-control inputBaseStyle mr10",
+    attrs: {
+      "name": "introduction",
+      "placeholder": "自己紹介",
+      "rows": "5",
+      "required": ""
+    },
+    domProps: {
+      "value": (_vm.introduction)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.introduction = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('button', {
+    staticClass: "form-control wd30 fs10",
+    on: {
+      "click": _vm.sendIntroduction
+    }
+  }, [_vm._v("変更")])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-2f5ac054", module.exports)
+  }
+}
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_vm._m(0), _vm._v(" "), _c('div', {
+    staticClass: "wrap"
+  }, _vm._l((_vm.act_masters), function(act) {
+    return _c('p', [(_vm.addedActs.some(function(v) {
+      return v.activity === act.activity
+    })) ? _c('span', {
+      staticClass: "selected_tag tag mr5 mb5",
+      on: {
+        "click": function($event) {
+          _vm.deleteAct(act)
+        }
+      }
+    }, [_vm._v(_vm._s(act.activity))]) : _c('span', {
+      staticClass: "tag mr5 mb5",
+      on: {
+        "click": function($event) {
+          _vm.addAct(act)
+        }
+      }
+    }, [_vm._v(_vm._s(act.activity))])])
+  }))])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('label', {
+    staticClass: "label_prof wd80"
+  }, [_c('span', [_vm._v("主な活動内容 (タップで追加)")])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-4d4879c9", module.exports)
+  }
+}
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "form-group disfle"
+  }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.name),
+      expression: "name"
+    }],
+    staticClass: "form-control inputBaseStyle mr10",
+    attrs: {
+      "name": "name",
+      "type": "text",
+      "placeholder": "ニックネーム",
+      "required": ""
+    },
+    domProps: {
+      "value": (_vm.name)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.name = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('button', {
+    staticClass: "form-control wd30 fs10",
+    on: {
+      "click": _vm.sendName
+    }
+  }, [_vm._v("変更")])])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-70a70445", module.exports)
+  }
+}
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(10);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("631ab30a", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-2f5ac054\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfIntroduction.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-2f5ac054\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfIntroduction.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(11);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("659e79e2", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-70a70445\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfName.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-70a70445\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ProfName.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+/**
+ * Translates the list format produced by css-loader into something
+ * easier to manipulate.
+ */
+module.exports = function listToStyles (parentId, list) {
+  var styles = []
+  var newStyles = {}
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i]
+    var id = item[0]
+    var css = item[1]
+    var media = item[2]
+    var sourceMap = item[3]
+    var part = {
+      id: parentId + ':' + i,
+      css: css,
+      media: media,
+      sourceMap: sourceMap
+    }
+    if (!newStyles[id]) {
+      styles.push(newStyles[id] = { id: id, parts: [part] })
+    } else {
+      newStyles[id].parts.push(part)
+    }
+  }
+  return styles
+}
+
+
+/***/ }),
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(4);
+
+
+/***/ })
+/******/ ]);

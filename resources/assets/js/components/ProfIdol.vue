@@ -49,6 +49,7 @@
 		props:["idols","idol_masters","user"],
 		data:function(){
 			return {
+				selected: 1,//セレクトボックスの初期値のvalueを指定
 				phonetics: [
 					{ text:'あ行',value:1},
 					{ text:'か行',value:2},
@@ -62,7 +63,6 @@
 					{ text:'わ行',value:10}
 				],
 				num:'',
-				selected:'',
 				request:{
 					idol:''
 				},
