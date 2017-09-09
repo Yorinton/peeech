@@ -852,20 +852,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	data: function data() {
 		return {
 			remId: '',
-			addedActs: this.acts
+			addedActs: this.acts,
+			request: {
+				activity: ''
+			}
 		};
 	},
 	methods: {
 		addAct: function addAct(act) {
 			console.log(act.activity);
+			this.addedActs.push(act);
+			this.request.activity = act.activity;
+			axios.post('/users/' + this.user.id, this.request).then(function (res) {
+				console.log(res.data);
+			});
 		},
 		deleteAct: function deleteAct(act) {
 			console.log(act.activity);
+			//addedActs
 			this.addedActs.some(function (v, i, ar) {
+				//addedActs = 登録済みactivityの配列
+				//v には登録済みactivityのオブジェクトが入っている
+				//i にはaddedActs内でのvのキーが入る
 				if (v.activity === act.activity) {
-					console.log(i);
 					ar.splice(i, 1);
-					console.log(ar);
+					axios.delete('/users/' + v.id, { data: { key: 'activity' } }).then(function (res) {
+						console.log(res.data);
+					});
 				}
 			});
 		}
@@ -953,7 +966,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		removeIdol: function removeIdol(idol) {
 			this.remId = this.idol_names.indexOf(idol);
 			this.idol_names.splice(this.remId, 1);
-			axios.delete('/users/' + idol.id, { data: { idol: 'idol' } }).then(function (res) {
+			axios.delete('/users/' + idol.id, { data: { key: 'idol' } }).then(function (res) {
 				console.log('成功');
 			});
 		},

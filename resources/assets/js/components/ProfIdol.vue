@@ -82,7 +82,7 @@
 			removeIdol(idol){
 				this.remId = this.idol_names.indexOf(idol);
 				this.idol_names.splice(this.remId,1);
-				axios.delete('/users/' + idol.id, {data:{idol:'idol'}}).then(res => {
+				axios.delete('/users/' + idol.id, {data:{key:'idol'}}).then(res => {
 					console.log('成功');
 				});
 			},

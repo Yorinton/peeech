@@ -15,22 +15,34 @@
 		data:function(){
 			return{
 				remId:'',
-				addedActs:this.acts
+				addedActs:this.acts,
+				request:{
+					activity:''
+				}
 			}
 		},
 		methods:{
 			addAct(act){
 				console.log(act.activity);
+				this.addedActs.push(act);
+				this.request.activity = act.activity;
+				axios.post('/users/' + this.user.id, this.request).then(res => {
+					console.log(res.data);
+				});		
 			},
 			deleteAct(act){
 				console.log(act.activity);
-				//
+				//addedActs
 				this.addedActs.some(function(v,i,ar){
+					//addedActs = 登録済みactivityの配列
+					//v には登録済みactivityのオブジェクトが入っている
+					//i にはaddedActs内でのvのキーが入る
 					if(v.activity === act.activity){
-						console.log(i);
 						ar.splice(i,1);
-						console.log(ar);		
-					}
+						axios.delete('/users/' + v.id, {data:{key:'activity'}}).then(res => {
+							console.log(res.data);
+						});									
+					}				
 				});
 			}
 		}
