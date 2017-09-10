@@ -25,10 +25,7 @@
                     </form>
                 </div>
             </div>
-            <div>
-                <label class="label_prof wd80"><span>ニックネーム</span></label>
-                <prof-name v-bind:user="{{ $user }}" v-on:namesent="editValue"></prof-name>
-            </div>      
+            <prof-name v-bind:user="{{ $user }}" v-on:namesent="editValue"></prof-name>
             <div>
                 <label class="label_prof wd80"><span>生年月日</span></label>
                 <div>
@@ -49,148 +46,22 @@
                     </p>
                 </div>                                
             </div>
-            <div>
-                <label class="label_prof wd80"><span>居住地域</span></label>
-                <div>
-                    <form class="form-group" method="post" action="{{ url('users/'.$user->id)}}">
-                        {{ csrf_field() }}
-                        {{ method_field('PATCH') }}
-                        <div class="disfle">
-                            <select name="region" type="text" class="form-control inputBaseStyle mr5" id="">
-                                <option value="">選択して下さい</option>
-                                @if(isset($region))
-                                    @foreach($prefs as $pref)
-                                        @if($pref == $region->region)
-                                        <option value="{{ $pref }}" selected>{{ $pref }}</option>
-                                        @else
-                                        <option value="{{ $pref }}">{{ $pref }}</option>
-                                        @endif
-                                    @endforeach
-                                @endif
-                            </select>
-                            <input class="form-control wd20" type="submit" value="変更">
-                        </div>
-                    </form>                   
-                </div>
-            </div>                         
+            <prof-region :region="{{ $region }}" :prefs="{{ $prefs }}" :user="{{ $user }}" v-on:regionsent="editValue"></prof-region>
             <prof-idol :idols="{{ $idols }}" :idol_masters="{{ $idol_masters }}" :user="{{ $user }}"></prof-idol>
- <!--            <div>
-                <label class="label_prof wd80"><span>主な活動内容 (タップで追加)</span></label>
-                <div class="wrap">
-                    @foreach($act_masters as $act_master)
-                    <p>
-                        @if(in_array($act_master->activity,$activity_names))
-                        <form class="form-group mr5" method="post" action="{{ url('users/'.$user->id)}}">
-                            {{ csrf_field() }}
-                            <input class="form-control selected_tag" type="submit" name="activity" value="{{ $act_master->activity }}">
-                        </form>
-                        @else
-                        <form class="form-group mr5" method="post" action="{{ url('users/'.$user->id)}}">
-                            {{ csrf_field() }}
-                            <input class="form-control" type="submit" name="activity" value="{{ $act_master->activity }}">
-                        </form>                        
-                        @endif
-                    </p>
-                    @endforeach              
-                </div>                
-            </div> -->
-            <prof-activity :act_masters="{{ $act_masters }}" :user="{{ $user }}" :acts="{{ $activities }}"></prof-activity>
-            <div>
-                <label class="label_prof wd80"><span>自己紹介</span></label>
-                <prof-intro v-bind:user="{{ $user }}" v-on:introsent="editValue"></prof-intro>
-            </div> 
-            <div>
-                <label class="label_prof wd80"><span>推し</span></label>
-                <form class="form-group" method="post" action="{{ url('users/'.$user->id)}}">
-                    {{ csrf_field() }}
-                    <div class="disfle">
-                        <input name="favorite" type="text" class="form-control form-favorite inputBaseStyle mr5" placeholder="推しの名前を記入" id="">
-                        <input class="form-control wd20" type="submit" value="追加">
-                    </div>
-                </form>                
-                <div>
-                    @if($favorites)
-                    @foreach($favorites as $favorite)
-                    <span class='added_favorite'>
-                        <form class="form-group" method="post" action="{{ url('users/'.$user->id.'/'.$favorite->id)}}">
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }}
-                            <input type="hidden" name="favorite" value="favorite">
-                            <input type="submit" value="×">
-                            <span>{{ $favorite->favorite }}</span>
-                        </form>
-                    </span>
-                    @endforeach
-                    @endif
-                </div>
-            </div>          
-<!--             <div>
-                <h4 class="label_prof"><span>利用目的</span></h4>
-                <div>
-                    <form class="form-group" method="post" action="{{ url('users/'.$user->id)}}">
-                        {{ csrf_field() }}
-                        {{ method_field('PUT') }} 
-                        @foreach($purpose_masters as $purpose_master)
-                        <p>
-                            @if(in_array($purpose_master->id,$purpose_ids))
-                            <input type="checkbox" name="purpose[]" value="{{$purpose_master->id}}" checked="checked">{{ $purpose_master->purpose }}
-                            @else
-                            <input type="checkbox" name="purpose[]" value="{{$purpose_master->id}}">{{ $purpose_master->purpose }}
-                            @endif
-                        </p>
-                        @endforeach
-                        <input class="form-control" type="submit" value="変更"> 
-                    </form>
-                </div>
-            </div>
- -->            <div>
-                <label class="label_prof wd80"><span>こんな人と繋がりたい</span></label>
-                <div>
-                    <form class="form-group" method="post" action="{{ url('users/'.$user->id)}}">
-                        {{ csrf_field() }}
-                        {{ method_field('PUT') }}                    
-                        @foreach($statue_masters as $statue_master)
-                        <p>
-                            @if(in_array($statue_master->id,$statue_ids))
-                            <input type="checkbox" name="statue[]" value="{{$statue_master->id}}" checked="checked">{{ $statue_master->statue }}
-                            @else
-                            <input type="checkbox" name="statue[]" value="{{$statue_master->id}}">{{ $statue_master->statue }}
-                            @endif
-                        </p>
-                        @endforeach
-                        <input class="form-control" type="submit" value="変更"> 
-                    </form>
-                </div>
-            </div>
-            <div>
-                <label class="label_prof wd80"><span>参加予定イベント</span></label>
-                <form class="form-group" method="post" action="{{ url('users/'.$user->id)}}">
-                    {{ csrf_field() }} 
-                    <input name="event" type="text" class="form-control form-idol" placeholder="" id="" required>
-                    <input class="form-control" type="submit" value="追加"> 
-                </form>
-                <div>
-                    @foreach($events as $event)
-                    <span class='added_event'>
-                        <form class="form-group" method="post" action="{{ url('users/'.$user->id.'/'.$event->id)}}">
-                            {{ csrf_field() }}
-                            {{ method_field('DELETE') }}
-                            <input type="hidden" name="event" value="event">
-                            <input type="submit" value="×">
-                            <span>{{ $event->event }}</span>
-                        </form>
-                    </span>
-                    @endforeach
-                </div>
-            </div>
+            <prof-activity :act_masters="{{ $act_masters }}" :user="{{ $user }}" :acts="{{ $activities }}"></prof-activity>      
+            <prof-intro v-bind:user="{{ $user }}" v-on:introsent="editValue"></prof-intro>
+            <prof-favorite :favorites="{{ $favorites }}" :user="{{ $user }}"></prof-favorite>       
+            <prof-statue :statues="{{ $statues }}" :statue_masters="{{ $statue_masters }}" :user="{{ $user }}"></prof-statue>
+            <prof-event :events="{{ $events }}" :user="{{ $user }}"></prof-event>
+            <prof-email :user="{{ $user }}" v-on:emailsent="editValue"></prof-email>
             <div>
                 <label class="label_prof wd80"><span>メールアドレス(非公開)</span></label>
-                <form class="form-group" method="post" action="{{ url('/users/'.$user->id)}}">
+                <form class="form-group disfle" method="post" action="{{ url('/users/'.$user->id)}}">
                     {{ csrf_field() }}                
                     {{ method_field('PATCH') }}                                
-                    <input name="email" type="email" class="form-control" placeholder="メールアドレス" id="" value="{{ decrypt($user->email) }}" required>
-                    <input class="form-control" type="submit" value="変更">                   
-                </form>                
+                    <input name="email" type="email" class="form-control inputBaseStyle mr10" placeholder="メールアドレス" id="" value="{{ decrypt($user->email) }}" required>
+                    <input class="form-control wd30 fs10" type="submit" value="変更">
+                </form>
             </div> 
         @else
             <form method="post" action="{{ url('/room') }}">

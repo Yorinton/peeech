@@ -102,6 +102,7 @@ class UserService
         		'event' => ['event' => 'required|max:255'],
         		'region' => ['region' => 'required|max:255'],
         		'activity' => ['activity' => 'required|max:255'],
+        		'statue_id' => ['statue_id' => 'required'],
         	];
           	$this->validate($request,$rules[$key]);
 

@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App;
 use App\Eloquent\Idol;
+use App\Eloquent\Favorite;
+use App\Eloquent\Statue;
+use App\Eloquent\Event;
 use Intervention\Image\Facades\Image;
 use App\MasterDbService;
 use App\UserService;
@@ -140,7 +143,7 @@ class UserController extends Controller
             	if($this->userService->getUser($id)->exists()){
             		//user情報を取得
             		$user = $this->userService->getUser($id);
-                    $birthArr = explode('-',$user->birthday);
+                $birthArr = explode('-',$user->birthday);
                     
 	                //usesテーブルに関連する各テーブルのモデルを取得
             		$idols = $this->userService->getOtherProfs($id,'idols');
@@ -149,29 +152,28 @@ class UserController extends Controller
             		$purposes = $this->userService->getOtherProfs($id,'purposes');
             		$statues = $this->userService->getOtherProfs($id,'statues');
             		$events = $this->userService->getOtherProfs($id,'events');
-                    $activities = $this->userService->getOtherProfs($id,'activities');
-
-                    $region = $regions->first();
+                $activities = $this->userService->getOtherProfs($id,'activities');
+                $region = $regions->first();
 
 			        //選択された利用目的のpurpose_id,regionを配列にする(マスターとの比較用)
 			        $purpose_ids = $this->objArrToPropArr($purposes,'purpose_id');
-			        $statue_ids = $this->objArrToPropArr($statues,'statue_id');
-                    $activity_names = $this->objArrToPropArr($activities,'activity');
+			        $statue_ids = json_encode($this->objArrToPropArr($statues,'statue_id'));
+              $activity_names = $this->objArrToPropArr($activities,'activity');
 
 			        //47都道府県
-			        $prefs = $this->getPref();
+			        $prefs = json_encode($this->getPref());
 
 			        //各マスタデータ
 			        $purpose_masters = $this->masterDbService->getMaster('purpose');
 			        $statue_masters = $this->masterDbService->getMaster('statue');
 			        $idol_masters = $this->masterDbService->getMaster('idol');
-                    $act_masters = $this->masterDbService->getMaster('activity');
+              $act_masters = $this->masterDbService->getMaster('activity');
 
-                    $title = 'プロフィール';
+              $title = 'プロフィール';
 
 			        //変数をprofile.blade.phpに渡す(viewでforeachを回す)
 			        return view('profile')->with('user',$user)
-                                          ->with('birthArr',$birthArr)
+                                    ->with('birthArr',$birthArr)
 			                              ->with('idols',$idols)
 			                              ->with('favorites',$favorites)
 			                              // ->with('region_names',$region_names)
@@ -180,13 +182,14 @@ class UserController extends Controller
 			                              ->with('statue_ids',$statue_ids)
 			                              ->with('events',$events)
 			                              ->with('purpose_masters',$purpose_masters)
+                                    ->with('statues',$statues)
 			                              ->with('statue_masters',$statue_masters)
 			                              ->with('prefs',$prefs)
 			                              ->with('idol_masters',$idol_masters)
-                                          ->with('title',$title)
-                                          ->with('activity_names',$activity_names)
-                                          ->with('act_masters',$act_masters)
-                                          ->with('activities',$activities);
+                                    ->with('title',$title)
+                                    ->with('activity_names',$activity_names)
+                                    ->with('act_masters',$act_masters)
+                                    ->with('activities',$activities);
 
             	}
             	echo '指定のユーザーは存在しない';
@@ -235,23 +238,24 @@ class UserController extends Controller
               $this->userService->updateUserProfsSimple($id,'birthday',$birthday);
           }
             //一つずつ登録するパターンのデータのアップデート
-	        if($request->idol || $request->favorite || $request->event || $request->activity){
+	        if($request->idol || $request->favorite || $request->event || $request->activity || $request->statue_id){
+                $this->userService->addOtherProfsSingle($request,$user,'favorite');
         				$this->userService->addOtherProfsSingle($request,$user,'idol');
-        				$this->userService->addOtherProfsSingle($request,$user,'favorite');
         				$this->userService->addOtherProfsSingle($request,$user,'event');
-                $this->userService->addOtherProfsSingle($request,$user,'region');
+                $this->userService->addOtherProfsSingle($request,$user,'statue_id');
                 $this->userService->addOtherProfsSingle($request,$user,'activity');
 			      }
             //登録済みアイテムの修正
             if($request->region){
                 $this->userService->editOtherProfsSingle($request,$user,'region');
+                return ['result' => '成功'];
             }
 
       			//複数登録パターンデータのアップデート
-      			if($request->purpose || $request->statue){
-      				$this->userService->updateOtherProfsMultiple($request,$user,'region');
-      				$this->userService->updateOtherProfsMultiple($request,$user,'purpose_id');
-      				$this->userService->updateOtherProfsMultiple($request,$user,"statue_id");			
+      			if($request->purpose){
+              $this->userService->updateOtherProfsMultiple($request,$user,"statue_id");     
+      				// $this->userService->updateOtherProfsMultiple($request,$user,'region');
+      				// $this->userService->updateOtherProfsMultiple($request,$user,'purpose_id');
       			}
       			//画像アップロード
   	        if($request->img_path){
@@ -260,8 +264,17 @@ class UserController extends Controller
   	        }
 
             $added_idol = Idol::where('idol',request('idol'))->first();
+            $added_favorite = Favorite::where('favorite',request('favorite'))->first();
+            $added_statue = Statue::where('statue_id',request('statue_id'))->first();
+            $added_event = Event::where('event',request('event'))->first();
             if($added_idol){
                 return ['idol' => $added_idol];
+            }elseif($added_favorite){
+                return ['favorite' => $added_favorite];
+            }elseif($added_statue){
+                return ['statue' => $added_statue];
+            }elseif($added_event){
+                return ['event' => $added_event];
             }elseif(request('name') || request('introduction') || request('activity')){
                 return ['result' => '成功'];
             }
