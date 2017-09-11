@@ -283,7 +283,7 @@ class UserController extends Controller
                 return ['statue' => $added_statue];
             }elseif($added_event){
                 return ['event' => $added_event];
-            }elseif(request('name') || request('introduction') || request('activity') || request('email')){
+            }elseif(request('name') || request('introduction') || request('activity') || request('email') || request('region')){
                 return ['result' => '成功'];
             }
             return redirect()->route('profiles',[$user]);
