@@ -54,7 +54,7 @@
             <prof-favorite :favorites="{{ $favorites }}" :user="{{ $user }}"></prof-favorite>       
             <prof-statue :statues="{{ $statues }}" :statue_masters="{{ $statue_masters }}" :user="{{ $user }}"></prof-statue>
             <prof-event :events="{{ $events }}" :user="{{ $user }}"></prof-event>
-            <!-- <prof-email :user="{{ $user }}" v-on:emailsent="editValue"></prof-email> -->
+            <prof-email :user="{{ $user }}" v-on:emailsent="editValue"></prof-email>
         @else
             <form method="post" action="{{ url('/room') }}">
                 {{ csrf_field() }}
