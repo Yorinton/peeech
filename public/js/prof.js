@@ -832,15 +832,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ["region", "user"],
+	props: ["region", "user", "prefs"],
 	data: function data() {
 		return {
 			selected: this.region.region,
 			request: {
 				region: ''
-			},
-			prefs: [{ text: '東京都', value: '東京都' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }]
-		};
+				// prefs: [
+				// 	{ text:'東京都',value:'東京都'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'}
+				// ]
+			} };
 	},
 	methods: {
 		sendRegion: function sendRegion() {
@@ -1726,9 +1736,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("選択して下さい")]), _vm._v(" "), _vm._l((_vm.prefs), function(pref) {
     return _c('option', {
       domProps: {
-        "value": pref.value
+        "value": pref
       }
-    }, [_vm._v(_vm._s(pref.text))])
+    }, [_vm._v(_vm._s(pref))])
   })], 2), _vm._v(" "), _c('button', {
     staticClass: "form-control wd20",
     on: {

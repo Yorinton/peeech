@@ -1237,15 +1237,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ["region", "user"],
+	props: ["region", "user", "prefs"],
 	data: function data() {
 		return {
 			selected: this.region.region,
 			request: {
 				region: ''
-			},
-			prefs: [{ text: '東京都', value: '東京都' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }, { text: '石川県', value: '石川県' }]
-		};
+				// prefs: [
+				// 	{ text:'東京都',value:'東京都'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'}
+				// ]
+			} };
 	},
 	methods: {
 		sendRegion: function sendRegion() {
@@ -2131,9 +2141,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("選択して下さい")]), _vm._v(" "), _vm._l((_vm.prefs), function(pref) {
     return _c('option', {
       domProps: {
-        "value": pref.value
+        "value": pref
       }
-    }, [_vm._v(_vm._s(pref.text))])
+    }, [_vm._v(_vm._s(pref))])
   })], 2), _vm._v(" "), _c('button', {
     staticClass: "form-control wd20",
     on: {
@@ -12555,13 +12565,15 @@ var app = new Vue({
     created: function created() {
         var _this = this;
 
-        var roomId = $(".room_id").text();
+        if ($(".room_id").length > 0) {
+            var roomId = $(".room_id").text();
 
-        //このインスタンスが作成された際に、指定のURLに非同期でリクエストする
-        axios.get('/messages/' + roomId).then(function (response) {
-            _this.messages = response.data;
-            // console.log(response);
-        });
+            //このインスタンスが作成された際に、指定のURLに非同期でリクエストする
+            axios.get('/messages/' + roomId).then(function (response) {
+                _this.messages = response.data;
+                // console.log(response);
+            });
+        }
         Echo.join('chatroom.' + roomId) // 入室しているroomIdをここに入れる
         //チャンネルを購入している全ユーザー情報を含む配列を返す
         .here(function (users) {
