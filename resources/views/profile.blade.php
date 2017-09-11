@@ -50,11 +50,11 @@
            <!--  <prof-region :region="{{ $region }}" :prefs="{{ $prefs }}" :user="{{ $user }}" v-on:regionsent="editValue"></prof-region> -->
             <prof-idol :idols="{{ $idols }}" :idol_masters="{{ $idol_masters }}" :user="{{ $user }}"></prof-idol>
             <prof-activity :act_masters="{{ $act_masters }}" :user="{{ $user }}" :acts="{{ $activities }}"></prof-activity>      
-           <!--  <prof-intro v-bind:user="{{ $user }}" v-on:introsent="editValue"></prof-intro>
-            <prof-favorite :favorites="{{ $favorites }}" :user="{{ $user }}"></prof-favorite>       
+            <prof-intro v-bind:user="{{ $user }}" v-on:introsent="editValue"></prof-intro>
+           <!--  <prof-favorite :favorites="{{ $favorites }}" :user="{{ $user }}"></prof-favorite>       
             <prof-statue :statues="{{ $statues }}" :statue_masters="{{ $statue_masters }}" :user="{{ $user }}"></prof-statue>
             <prof-event :events="{{ $events }}" :user="{{ $user }}"></prof-event>
-            <prof-email :user="{{ $user }}" v-on:emailsent="editValue"></prof-email> -->
+            <prof-email :user="{{ $user }}" v-on:emailsent="editVa -->lue"></prof-email>
         @else
             <form method="post" action="{{ url('/room') }}">
                 {{ csrf_field() }}
