@@ -43,7 +43,7 @@ $i:0;
 }
 /* margin-top */
 $i:0;
-@while $i <= 50 {
+@while $i <= 120 {
 	.mt#{$i} {
 		margin-top:#{$i}px;
 	}
@@ -51,7 +51,7 @@ $i:0;
 }
 /* margin-right */
 $i:1;
-@while $i <= 10 {
+@while $i <= 30 {
 	.mr#{$i} {
 		margin-right:#{$i}px;
 	}
@@ -172,6 +172,9 @@ $i:1;
 .wd30 {
 	width:30%;
 }
+.wd35 {
+	width:35%;
+}
 .wd40 {
 	width:40%;
 }
@@ -180,6 +183,9 @@ $i:1;
 }
 .wd60 {
 	width:60%;
+}
+.wd65 {
+	width:65%;
 }
 .wd70 {
 	width:70%;
@@ -193,6 +199,15 @@ $i:1;
 .w100 {
 	width:100%;
 }
+//height
+$i:20;
+@while $i <= 300 {
+	.he#{$i} {
+		height:#{$i}px;
+	}
+	$i:$i + 5;	
+}
+
 //フロート
 .fr {
 	float: right;
@@ -239,6 +254,10 @@ $i:1;
 .dis_inblo {
 	display: inline-block;
 }
+/* モバイルのinput */
+input[type="submit"],input[type="button"] {
+	-webkit-appearance: none!important;
+}
 /* フッター */
 .footer {
 	position: fixed;
@@ -254,9 +273,12 @@ $i:1;
 
 }
 .label_prof > span {
-  display:block;
-  background:#fff;
-  padding-left:3%;
+	display:block;
+	background:#fff;
+	padding-left:3%;
+	margin-right: -1px;
+    margin-top: -1px;
+    margin-bottom: -1px;
 }
 /* 必須 */
 .tag {
@@ -265,16 +287,26 @@ $i:1;
     padding: 5px 7px;
 
 }
-.tag_pink {
-	@extend .tag;
-	color: #fe66a4;
-}
 .tag_grey {
 	@extend .tag;
 	color: #626063;
 	border: 1px solid #626063;
 }
-
+.tag_no_select {
+	@extend .tag;
+	color: lightgrey;
+	border: 1px dashed lightgrey;
+}
+.tag_pink {
+	@extend .tag;
+	color: #fe66a4;
+	border: 1px solid #fe66a4;
+}
+.tag_blue {
+	@extend .tag;
+	color: #67c3fc;
+	border: 1px solid #67c3fc;	
+}
 .required {
 	@extend .tag;
     font-weight: normal;
@@ -328,23 +360,38 @@ $i:1;
 	-webkit-text-fill-color: transparent;
 	-webkit-background-clip: text;
 }
+.container_5 {
+	padding-left: 5%;
+	padding-right: 5%;
+}
+.container_10 {
+	padding-left: 10%;
+	padding-right: 10%;
+}
+/* 追加ボタン */
+.btn_add {
+	border-radius: 50%;
+    font-size: 32px;
+    line-height: 25px;
+    background-color: #eeeeee;
+    color: #b5b5b5;
+    border: none;	
+}
 
 /*
 *
 * 登録ページ・プロフィールページ
 *
 */
-.phonetic {
-	width: 30%;
-}
 .submitBtnContainer {
 	position: fixed;
     bottom: 0;
     z-index: 100;
     width: 100%;
-    margin-left: -15px;
+    margin-left: -10%;
     margin-bottom: 0;
     padding: 10px;
+    background-color: white;
 }
 .submitBtn {
 	background: linear-gradient(to right bottom,#ffa087, #fe66a4);
@@ -353,6 +400,12 @@ $i:1;
 	font-weight: bold;
 	-webkit-font-smoothing: antialiased;
 }
+.registerBtn {
+	@extend .submitBtn;
+	height: 50px;
+    font-size: 20px;	
+}
+
 .thumb {
 	width: 100px;
     height: 100px;
@@ -362,6 +415,12 @@ $i:1;
 .thumb_mini {
 	width: 50px;
     height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.thumb_mini_s {
+	width: 20px;
+    height: 20px;
     object-fit: cover;
     border-radius: 50%;
 }

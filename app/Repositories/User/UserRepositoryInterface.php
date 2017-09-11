@@ -18,7 +18,9 @@ interface UserRepositoryInterface
 
 	public function updateUserProfsById($id,$key,$value);
 
-	public function updateOtherProfsSingleByUser($request,$user,$key);
+	public function addOtherProfsSingleByUser($request,$user,$key);
+
+	public function editOtherProfsSingleByUser($request,$user,$key);
 
 	public function updateOtherProfsMultipleByUser($request,$user,$key,$indexDatas);
 

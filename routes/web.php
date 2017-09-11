@@ -39,6 +39,7 @@ Route::patch('/users/{id}','UserController@update');
 Route::post('/users/{id}','UserController@update');
 Route::put('/users/{id}','UserController@update');
 Route::delete('/users/{user_id}/{id}','UserController@destroy');
+Route::delete('/users/{id}','UserController@delete');
 
 /**
  *

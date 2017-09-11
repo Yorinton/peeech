@@ -6,11 +6,16 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App;
+use App\Eloquent\Idol;
+use App\Eloquent\Favorite;
+use App\Eloquent\Statue;
+use App\Eloquent\Event;
 use Intervention\Image\Facades\Image;
 use App\MasterDbService;
 use App\UserService;
 use Request as RequestFacade;
 use App\ImageService;
+use Illuminate\Contracts\Encryption\DecryptException;
 
 class UserController extends Controller
 {
@@ -102,7 +107,7 @@ class UserController extends Controller
 
             $this->userService->createOtherProfs($request,$user,'idol');
             // $this->userService->createOtherProfs($request,$user,'favorite');
-            // $this->userService->createOtherProfs($request,$user,'region');
+            $this->userService->createOtherProfs($request,$user,'region');
             // $this->userService->createOtherProfs($request,$user,'statue');
             $this->userService->createOtherProfs($request,$user,'purpose');
             // $this->userService->createOtherProfs($request,$user,'event');
@@ -139,7 +144,14 @@ class UserController extends Controller
             	if($this->userService->getUser($id)->exists()){
             		//user情報を取得
             		$user = $this->userService->getUser($id);
-                    $birthArr = explode('-',$user->birthday);
+                if($user->email){
+                  try{
+                    $user->email = decrypt($user->email);
+                  }catch(\DecryptException $e){
+                    $user->email ='';
+                  }
+                }
+                $birthArr = explode('-',$user->birthday);
                     
 	                //usesテーブルに関連する各テーブルのモデルを取得
             		$idols = $this->userService->getOtherProfs($id,'idols');
@@ -148,42 +160,44 @@ class UserController extends Controller
             		$purposes = $this->userService->getOtherProfs($id,'purposes');
             		$statues = $this->userService->getOtherProfs($id,'statues');
             		$events = $this->userService->getOtherProfs($id,'events');
-                    $activities = $this->userService->getOtherProfs($id,'activities');
+                $activities = $this->userService->getOtherProfs($id,'activities');
+                $region = $regions->first();
 
 			        //選択された利用目的のpurpose_id,regionを配列にする(マスターとの比較用)
 			        $purpose_ids = $this->objArrToPropArr($purposes,'purpose_id');
-			        $statue_ids = $this->objArrToPropArr($statues,'statue_id');
-			        $region_names = $this->objArrToPropArr($regions,'region');
-                    $activity_names = $this->objArrToPropArr($activities,'activity');
+			        $statue_ids = json_encode($this->objArrToPropArr($statues,'statue_id'));
+              $activity_names = $this->objArrToPropArr($activities,'activity');
 
 			        //47都道府県
-			        $prefs = $this->getPref();
+			        $prefs = json_encode($this->getPref());
 
 			        //各マスタデータ
 			        $purpose_masters = $this->masterDbService->getMaster('purpose');
 			        $statue_masters = $this->masterDbService->getMaster('statue');
 			        $idol_masters = $this->masterDbService->getMaster('idol');
-                    $act_masters = $this->masterDbService->getMaster('activity');
+              $act_masters = $this->masterDbService->getMaster('activity');
 
-                    $title = 'プロフィール';
+              $title = 'プロフィール';
 
 			        //変数をprofile.blade.phpに渡す(viewでforeachを回す)
 			        return view('profile')->with('user',$user)
-                                          ->with('birthArr',$birthArr)
+                                    ->with('birthArr',$birthArr)
 			                              ->with('idols',$idols)
 			                              ->with('favorites',$favorites)
 			                              // ->with('region_names',$region_names)
-			                              ->with('regions',$regions)
+			                              ->with('region',$region)
 			                              ->with('purpose_ids',$purpose_ids)
 			                              ->with('statue_ids',$statue_ids)
 			                              ->with('events',$events)
 			                              ->with('purpose_masters',$purpose_masters)
+                                    ->with('statues',$statues)
 			                              ->with('statue_masters',$statue_masters)
 			                              ->with('prefs',$prefs)
 			                              ->with('idol_masters',$idol_masters)
-                                          ->with('title',$title)
-                                          ->with('activity_names',$activity_names)
-                                          ->with('act_masters',$act_masters);
+                                    ->with('title',$title)
+                                    ->with('activity_names',$activity_names)
+                                    ->with('act_masters',$act_masters)
+                                    ->with('activities',$activities);
 
             	}
             	echo '指定のユーザーは存在しない';
@@ -211,48 +225,68 @@ class UserController extends Controller
      */
     public function update(Request $request,$id)
     {
-        //
     	if($this->userService->getUser($id)->exists()){
 
-    		//認証中のUser取得
+    		  //認証中のUser取得
 	        $user = $this->userService->getUser($id);
 
 	        //usersテーブル情報のアップデート
 	        if($request->name || $request->sex || $request->email || $request->introduction){
 	        	//リクエストに応じてUserのプロフィールをアップデート
 	        	$this->userService->updateUserProfs($request,$id);
-	    	}
-            if($request->year && $request->month && $request->day){
-                $rules = [
-                    'year' => 'required|integer',
-                    'month' => 'required|integer',
-                    'day' => 'required|integer',
-                ];
-                $this->validate($request,$rules);               
-                $birthday = $request->year."-".$request->month."-".$request->day;
-                $this->userService->updateUserProfsSimple($id,'birthday',$birthday);
-            }
+	    	  }
+          if($request->year && $request->month && $request->day){
+              $rules = [
+                  'year' => 'required|integer',
+                  'month' => 'required|integer',
+                  'day' => 'required|integer',
+              ];
+              $this->validate($request,$rules);               
+              $birthday = $request->year."-".$request->month."-".$request->day;
+              $this->userService->updateUserProfsSimple($id,'birthday',$birthday);
+          }
             //一つずつ登録するパターンのデータのアップデート
-	        if($request->idol || $request->favorite || $request->event || $request->region || $request->activity){
-				$this->userService->updateOtherProfsSingle($request,$user,'idol');
-				$this->userService->updateOtherProfsSingle($request,$user,'favorite');
-				$this->userService->updateOtherProfsSingle($request,$user,'event');
-                $this->userService->updateOtherProfsSingle($request,$user,'region');
-                $this->userService->updateOtherProfsSingle($request,$user,'activity');
-			}
+	        if($request->idol || $request->favorite || $request->event || $request->activity || $request->statue_id){
+                $this->userService->addOtherProfsSingle($request,$user,'favorite');
+        				$this->userService->addOtherProfsSingle($request,$user,'idol');
+        				$this->userService->addOtherProfsSingle($request,$user,'event');
+                $this->userService->addOtherProfsSingle($request,$user,'statue_id');
+                $this->userService->addOtherProfsSingle($request,$user,'activity');
+			      }
+            //登録済みアイテムの修正
+            if($request->region){
+                $this->userService->editOtherProfsSingle($request,$user,'region');
+                return ['result' => '成功'];
+            }
 
-			//複数登録パターンデータのアップデート
-			if($request->purpose || $request->statue){
-				$this->userService->updateOtherProfsMultiple($request,$user,'region');
-				$this->userService->updateOtherProfsMultiple($request,$user,'purpose_id');
-				$this->userService->updateOtherProfsMultiple($request,$user,"statue_id");			
-			}
-			//画像アップロード
-	        if($request->img_path){
+      			//複数登録パターンデータのアップデート
+      			if($request->purpose){
+              $this->userService->updateOtherProfsMultiple($request,$user,"statue_id");     
+      				// $this->userService->updateOtherProfsMultiple($request,$user,'region');
+      				// $this->userService->updateOtherProfsMultiple($request,$user,'purpose_id');
+      			}
+      			//画像アップロード
+  	        if($request->img_path){
 
-                $this->imageService->upload($request,$id);
-	        }
-	        return redirect()->route('profiles',[$user]);
+                  $this->imageService->upload($request,$id);
+  	        }
+
+            $added_idol = Idol::where('idol',request('idol'))->first();
+            $added_favorite = Favorite::where('favorite',request('favorite'))->first();
+            $added_statue = Statue::where('statue_id',request('statue_id'))->first();
+            $added_event = Event::where('event',request('event'))->first();
+            if($added_idol){
+                return ['idol' => $added_idol];
+            }elseif($added_favorite){
+                return ['favorite' => $added_favorite];
+            }elseif($added_statue){
+                return ['statue' => $added_statue];
+            }elseif($added_event){
+                return ['event' => $added_event];
+            }elseif(request('name') || request('introduction') || request('activity') || request('email')){
+                return ['result' => '成功'];
+            }
+            return redirect()->route('profiles',[$user]);
 
         }
         echo '指定のユーザーは存在しません';
@@ -276,6 +310,20 @@ class UserController extends Controller
                 $this->userService->deleteProfs($id,'region');    
             }
             return redirect()->route('profiles',['id' => $user_id]);   
+        }
+    }
+    public function delete(Request $request,$id)
+    {
+        if($id){
+            if($request->key){
+                $this->userService->deleteProfs($id,$request->key);
+                // $this->userService->deleteProfs($id,'idol');
+                // $this->userService->deleteProfs($id,'favorite');
+                // $this->userService->deleteProfs($id,'event');
+                // $this->userService->deleteProfs($id,'region');
+            }
+            // return redirect()->route('profiles',['id' => $user_id]);
+            return ['result' => '成功'];   
         }
     }
 }

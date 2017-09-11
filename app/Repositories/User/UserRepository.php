@@ -5,6 +5,8 @@ namespace App\Repositories\User;
 
 use App\Eloquent\User;
 use App\Eloquent\IdolMaster;
+use App\Eloquent\Region;
+use App\Eloquent\Favorite;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -83,11 +85,17 @@ class UserRepository implements UserRepositoryInterface
 		$user->save();
 	}
 
-	public function updateOtherProfsSingleByUser($request,$user,$key)
+	public function addOtherProfsSingleByUser($request,$user,$key)
 	{
 		DB::beginTransaction();
 		try{
-	        $string = 'App\\Eloquent\\'.ucfirst($key);		
+			//_idの有無で$keyを定義
+			if(strpos($key,'_id') !== false){
+				$column = substr($key, 0,-3);
+			}else{
+				$column = $key;
+			}
+	        $string = 'App\\Eloquent\\'.ucfirst($column);		
 	      	$model = new $string;
 	      	$model->$key = $request->$key;
 	      	$model->user_id = $user->id;
@@ -102,6 +110,24 @@ class UserRepository implements UserRepositoryInterface
       		echo $e;
       		exit();
       	}
+	}
+
+	public function editOtherProfsSingleByUser($request,$user,$key)
+	{
+
+		DB::beginTransaction();
+		try{
+			$className = 'App\\Eloquent\\'.ucfirst($key);
+			$model = $className::where('user_id',$user->id)->first();
+			$model->$key = $request->$key;
+			$model->save();
+
+			DB::commit();
+		}catch(\Exception $e){
+			DB::rollback();
+			echo $e;
+			exit();
+		}
 	}
 
 	public function updateOtherProfsMultipleByUser($request,$user,$key,$indexDatas)

@@ -69,7 +69,7 @@ class UserService
 		//リクエストの配列からkeyとvalueを取り出す
  		foreach (Request::all() as $key => $value) {
  			//keyがテーブルに存在するもの以外の場合は弾く
-	        if($key !== '_token' && $key !== '_method'){
+	        if($key !== '_token' && $key !== '_method' && $key !== 'id'){
 				//$valueの存在チェック
 				if($value){
 					//バリデーションルールの配列
@@ -93,7 +93,7 @@ class UserService
 		$this->userRepository->updateUserProfsById($id,$key,$value);
 	}
 
-	public function updateOtherProfsSingle($request,$user,$key)
+	public function addOtherProfsSingle($request,$user,$key)
 	{
         if($request->$key){
         	$rules = [
@@ -102,13 +102,24 @@ class UserService
         		'event' => ['event' => 'required|max:255'],
         		'region' => ['region' => 'required|max:255'],
         		'activity' => ['activity' => 'required|max:255'],
+        		'statue_id' => ['statue_id' => 'required'],
         	];
           	$this->validate($request,$rules[$key]);
 
           	//DBへ保存
-          	$this->userRepository->updateOtherProfsSingleByUser($request,$user,$key);
-        }		
+          	$this->userRepository->addOtherProfsSingleByUser($request,$user,$key);
+        }
+    }		
 
+	public function editOtherProfsSingle($request,$user,$key)
+	{
+		if($request->$key){
+        	$rules = [
+        		'region' => ['region' => 'required|max:255'],
+        	];
+        	//テーブル編集
+        	$this->userRepository->editOtherProfsSingleByUser($request,$user,$key);
+		}
 	}
 
 	public function updateOtherProfsMultiple($request,$user,$key)

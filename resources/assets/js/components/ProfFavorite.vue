@@ -1,0 +1,48 @@
+<template>
+    <div>
+        <label class="label_prof wd80"><span>推し</span></label>
+	    <div class="form-group disfle">
+	        <input name="favorite" type="text" class="form-control inputBaseStyle mr10" v-model="favorite" placeholder="推し" required>
+	        <button class="form-control wd30 fs10" v-on:click="addFavorite">変更</button>
+	    </div>              
+		<div class="wrap mt10 mb10">
+		    <span v-for="favorite in favorite_names" class='tag_pink mr5 mb5' @click="removeFavorite(favorite)">× {{ favorite.favorite }}</span>
+		</div>
+    </div>
+</template>
+<script type="text/javascript">
+	export default {
+		props:["favorites","user"],
+		data:function(){
+			return {
+				favorite:'',
+				request:{
+					favorite:''
+				},
+				favorite_names:this.favorites,
+				remId:''
+			}
+		},
+		methods:{
+			addFavorite(){
+				console.log(this.favorite);
+				this.request.favorite = this.favorite;
+				axios.post('/users/' + this.user.id,this.request).then(res => {
+					console.log(res.data.favorite);
+					this.favorite_names.push(res.data.favorite);
+				});
+			},
+			removeFavorite(favorite){
+				this.remId = this.favorite_names.indexOf(favorite);
+				this.favorite_names.splice(this.remId,1);
+				this.request.favorite = 'favorite';
+				axios.delete('/users/' + favorite.id, {data:{key:'favorite'}}).then(res => {
+					console.log(res.data);
+				});
+			}
+		}
+	}
+</script>
+<style type="text/css">
+	
+</style>

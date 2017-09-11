@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mb50 mt50">
+<div class="container mb50 mt80 container_10">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             @if (count($errors) > 0)
@@ -15,22 +15,23 @@
             @endif
             <form method="POST" action="{{ url('/profiles/'.$user->id) }}">
                 {{ csrf_field() }}
-                <div class="form-group">
+                <div class="form-group mb20">
                     <label for="" class="label_prof wd80"><span>ニックネーム</span></label><span class="required">必須</span>
-                    <input name="name" value="{{ old('name',$user->name) }}" type="text" class="form-control inputBaseStyle" placeholder="ニックネーム" id="" required>
+                    <input name="name" value="{{ old('name',$user->name) }}" type="text" class="form-control inputBaseStyle mt10" placeholder="ニックネーム" id="" required>
                 </div>
- <!--                <div class="form-group">
-                    <label for="" class="label_prof">メールアドレス</label>
+                <div class="form-group mb20">
+                    <label for="" class="label_prof wd80"><span>メールアドレス</span></label><span class="required">必須</span>
                     @if(isset($user->email))
-                    <input name="email" value="{{ old('email',decrypt($user->email)) }}" type="email" class="form-control" placeholder="メールアドレス" id="" required>
+                    <input name="email" value="{{ old('email',decrypt($user->email)) }}" type="email" class="form-control inputBaseStyle mt10" placeholder="メールアドレス" id="" required>
                     @else
-                    <input name="email" value="{{ old('email',$user->email) }}" type="email" class="form-control" placeholder="メールアドレス" id="" required>
+                    <input name="email" value="{{ old('email') }}" type="email" class="form-control inputBaseStyle mt10" placeholder="メールアドレス" id="" required>
                     @endif
-                </div> -->
-                <div class="form-group">
+                </div>
+                <div class="form-group mb20">
                     <label for="" class="label_prof wd80"><span>生年月日</span></label><span class="required">必須</span>
-                    <div class="sp-between">
-                        <select name="year" class="form-control inputBaseStyle mr5">
+                    <div class="sp-between mt10">
+                        <select name="year" class="form-control inputBaseStyle mr20 he30 fs12">
+                            <option>年</option>
                             @for($i=2002;$i > 1949;$i--)
                                 @if(isset($birthArr) and (int)$birthArr[0] === $i)
                                 <option selected>{{ $i }}</option>
@@ -39,7 +40,8 @@
                                 @endif
                             @endfor
                         </select>
-                        <select name="month" class="form-control inputBaseStyle mr5">
+                        <select name="month" class="form-control inputBaseStyle mr20 he30 fs12">
+                            <option>月</option>
                             @for($i=1;$i < 13;$i++)
                                 @if(isset($birthArr) and (int)$birthArr[0] === $i)
                                 <option selected>{{ $i }}</option>
@@ -48,7 +50,8 @@
                                 @endif
                             @endfor
                         </select>
-                        <select name="day" class="form-control inputBaseStyle">
+                        <select name="day" class="form-control inputBaseStyle he30 fs12">
+                            <option>日</option>
                             @for($i=1;$i < 32;$i++)
                                 @if(isset($birthArr) and (int)$birthArr[2] === $i)
                                 <option selected>{{ $i }}</option>
@@ -59,21 +62,23 @@
                         </select>
                     </div>                     
                 </div> 
-                <div class="form-group">
+                <div class="form-group mb20">
                     <label for="" class="label_prof wd80"><span>性別</span></label><span class="required">必須</span>
-                    <div>
-                        <input type="radio" name="sex" value="male">男性
-                        <input type="radio" name="sex" value="female">女性
+                    <div class="form-group mt10">
+                        <input type="radio" name="sex" value="male" id="male" class="disnone">
+                        <label class="sex_label tag_no_select" for="male">男性</label>
+                        <input type="radio" name="sex" value="female" id="female" class="disnone">
+                        <label class="sex_label tag_no_select" for="female">女性</label>
                     </div>
                   <!--   <select name="sex" class="form-control" id="" required>
                         <option value="male">男</option>
                         <option value="female">女</option>
                     </select> -->
                 </div>                                               
-                <div class="form-group">
+                <div class="form-group mb20">
                     <label for="" class="label_prof wd80"><span>好きなアイドル</span></label><span class="required">必須</span>
-                    <div class="disfle">
-                        <select name='phonetic' class="form-control phonetic inputBaseStyle mr5">
+                    <div class="disfle mt10">
+                        <select name='phonetic' class="form-control phonetic inputBaseStyle mr5 wd35">
                             <option value="1">あ行</option>
                             <option value="2">か行</option>
                             <option value="3">さ行</option>
@@ -85,7 +90,7 @@
                             <option value="9">ら行</option>
                             <option value="10">わ行</option>
                         </select>
-                        <div class="">
+                        <div class="wd65">
                             <select name="idol" class="form-control form-idol disblo inputBaseStyle mr5" id="idols_1">
                                 @foreach($idol_masters->where('phonetic_id','>=',1)->where('phonetic_id','<=',5) as $idol)
                                 <option>{{ $idol->idol }}</option>
@@ -138,10 +143,10 @@
                             </select>
                         </div>
                         <p>
-                            <a class="btn btn-success btn-idol ml5"> + </a>
+                            <a class="btn btn-idol ml5 btn_add"> + </a>
                         </p>
                     </div>                                       
-                    <div>
+                    <div class="wrap">
                         <span class="del_idol"></span>
                     </div>                   
                 </div>
@@ -155,26 +160,28 @@
                         <span class="del_favorite"></span>
                     </div>
                 </div> -->
-<!--                 <div class="form-group">
-                    <label for="" class="label_prof">活動場所</label>
-                    @for ($i = 0; $i < 3; $i++)
-                    <select name="region[]" type="text" class="form-control" id="">
-                        <option value="">選択して下さい</option>
+                <div class="form-group mb20">
+                    <label for="" class="label_prof wd80"><span>居住地域</span></label><span class="required">必須</span>
+                    <select name="region[]" type="text" class="form-control inputBaseStyle mt10" id="">
+                        <option value="">選択してね</option>
                         @foreach($prefs as $pref)
                         <option value="{{ $pref }}">{{ $pref }}</option>
                         @endforeach
                     </select>
-                    @endfor                                     
-                </div> -->
-                <div class="form-group">
+                </div>
+                <div class="form-group mb20">
                     <label for="" class="label_prof wd80"><span>利用目的</span></label><span class="required">必須</span>
+                    <div class="form-group mt10">
                     @if(isset($purpose_masters))
                         @foreach($purpose_masters as $purpose_master)
-                            <p>
-                                <input type="checkbox" name="purpose[]" value="{{ $purpose_master->id}}" checked="checked">{{ $purpose_master->purpose}}
-                            </p>
+                            <div class="checkbox_container mb10">
+                                <label for="{{ $purpose_master->id}}" class="fs10 checkbox_{{ $purpose_master->id}}">
+                                <img class="thumb_mini_s img_checkbox_{{ $purpose_master->id}} mr5" src="../../images/icons/no_checked.png">{{ $purpose_master->purpose }}</label>
+                                <input type="checkbox" name="purpose[]" value="{{ $purpose_master->id}}" class="{{ $purpose_master->id}} disnone">
+                            </div>
                         @endforeach
-                    @endif                  
+                    @endif 
+                    </div>                 
                 </div>
 <!--                 <div class="form-group">
                     <label for="" class="label_prof">どんな人と繋がりたい？</label>
@@ -203,7 +210,7 @@
                     <textarea name="introduction" class="form-control" placeholder="自己紹介" id="" rows="20" required>{{ old('introduction',$user->introduction) }}</textarea>
                 </div> -->
                 <div class="form-group submitBtnContainer">
-                    <input class="form-control submitBtn" type="submit" value="登録">
+                    <input class="form-control registerBtn" type="submit" value="登録">
                 </div>           
             </form>
         </div>
