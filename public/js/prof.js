@@ -835,27 +835,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	props: ["region", "user", "prefs"],
 	data: function data() {
 		return {
-			selected: this.region.region,
+			region_name: this.region.region,
 			request: {
 				region: ''
-				// prefs: [
-				// 	{ text:'東京都',value:'東京都'},
-				// 	{ text:'石川県',value:'石川県'},
-				// 	{ text:'石川県',value:'石川県'},
-				// 	{ text:'石川県',value:'石川県'},
-				// 	{ text:'石川県',value:'石川県'},
-				// 	{ text:'石川県',value:'石川県'},
-				// 	{ text:'石川県',value:'石川県'},
-				// 	{ text:'石川県',value:'石川県'},
-				// 	{ text:'石川県',value:'石川県'},
-				// 	{ text:'石川県',value:'石川県'}
-				// ]
-			} };
+			}
+		};
 	},
 	methods: {
 		sendRegion: function sendRegion() {
-			if (this.selected) {
-				this.request.region = this.selected;
+			if (this.region_name) {
+				this.request.region = this.region_name;
 				//namesentというイベントを送信
 				this.$emit("regionsent", {
 					id: this.user.id,
@@ -952,7 +941,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 20 */
@@ -1710,8 +1699,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: (_vm.selected),
-      expression: "selected"
+      value: (_vm.region_name),
+      expression: "region_name"
     }],
     staticClass: "form-control inputBaseStyle mr5",
     attrs: {
@@ -1726,7 +1715,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           var val = "_value" in o ? o._value : o.value;
           return val
         });
-        _vm.selected = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+        _vm.region_name = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
       }
     }
   }, [_c('option', {
