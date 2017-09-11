@@ -52,8 +52,8 @@
             <prof-activity :act_masters="{{ $act_masters }}" :user="{{ $user }}" :acts="{{ $activities }}"></prof-activity>      
             <prof-intro v-bind:user="{{ $user }}" v-on:introsent="editValue"></prof-intro>
             <prof-favorite :favorites="{{ $favorites }}" :user="{{ $user }}"></prof-favorite>       
-           <!--  <prof-statue :statues="{{ $statues }}" :statue_masters="{{ $statue_masters }}" :user="{{ $user }}"></prof-statue>
-            <prof-event :events="{{ $events }}" :user="{{ $user }}"></prof-event>
+            <prof-statue :statues="{{ $statues }}" :statue_masters="{{ $statue_masters }}" :user="{{ $user }}"></prof-statue>
+           <!--  <prof-event :events="{{ $events }}" :user="{{ $user }}"></prof-event>
             <prof-email :user="{{ $user }}" v-on:emailsent="editValue"></prof-email> -->
         @else
             <form method="post" action="{{ url('/room') }}">
