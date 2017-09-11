@@ -256,7 +256,6 @@ class UserController extends Controller
             //登録済みアイテムの修正
             if($request->region){
                 $this->userService->editOtherProfsSingle($request,$user,'region');
-                return ['result' => '成功'];
             }
 
       			//複数登録パターンデータのアップデート
@@ -276,15 +275,25 @@ class UserController extends Controller
             $added_statue = Statue::where('statue_id',request('statue_id'))->first();
             $added_event = Event::where('event',request('event'))->first();
             if($added_idol){
+
                 return ['idol' => $added_idol];
+
             }elseif($added_favorite){
+
                 return ['favorite' => $added_favorite];
+
             }elseif($added_statue){
+
                 return ['statue' => $added_statue];
+
             }elseif($added_event){
+
                 return ['event' => $added_event];
+
             }elseif(request('name') || request('introduction') || request('activity') || request('email') || request('region')){
+              
                 return ['result' => '成功'];
+
             }
             return redirect()->route('profiles',[$user]);
 

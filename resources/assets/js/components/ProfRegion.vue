@@ -5,7 +5,7 @@
             <div class="disfle">
                 <select name="region" type="text" class="form-control inputBaseStyle mr5" v-model="selected">
                 	<option disabled="disabled">選択して下さい</option>
-                    <option v-for="pref in prefs" v-bind:value="pref.value">{{ pref.text }}</option>
+                    <option v-for="pref in prefs" v-bind:value="pref">{{ pref }}</option>
                 </select>
                 <button class="form-control wd20" v-on:click="sendRegion">変更</button>
             </div>
@@ -14,25 +14,25 @@
 </template>
 <script type="text/javascript">
 	export default {
-		props:["region","user"],
+		props:["region","user","prefs"],
 		data:function(){
 			return {
 				selected:this.region.region,
 				request:{
 					region:''
-				},
-				prefs: [
-					{ text:'東京都',value:'東京都'},
-					{ text:'石川県',value:'石川県'},
-					{ text:'石川県',value:'石川県'},
-					{ text:'石川県',value:'石川県'},
-					{ text:'石川県',value:'石川県'},
-					{ text:'石川県',value:'石川県'},
-					{ text:'石川県',value:'石川県'},
-					{ text:'石川県',value:'石川県'},
-					{ text:'石川県',value:'石川県'},
-					{ text:'石川県',value:'石川県'}
-				]
+				}
+				// prefs: [
+				// 	{ text:'東京都',value:'東京都'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'},
+				// 	{ text:'石川県',value:'石川県'}
+				// ]
 			}
 		},
 		methods:{
