@@ -15,6 +15,7 @@ use App\MasterDbService;
 use App\UserService;
 use Request as RequestFacade;
 use App\ImageService;
+use Illuminate\Contracts\Encryption\DecryptException;
 
 class UserController extends Controller
 {
@@ -143,6 +144,13 @@ class UserController extends Controller
             	if($this->userService->getUser($id)->exists()){
             		//user情報を取得
             		$user = $this->userService->getUser($id);
+                if($user->email){
+                  try{
+                    $user->email = decrypt($user->email);
+                  }catch(\DecryptException $e){
+                    $user->email ='';
+                  }
+                }
                 $birthArr = explode('-',$user->birthday);
                     
 	                //usesテーブルに関連する各テーブルのモデルを取得
@@ -275,7 +283,7 @@ class UserController extends Controller
                 return ['statue' => $added_statue];
             }elseif($added_event){
                 return ['event' => $added_event];
-            }elseif(request('name') || request('introduction') || request('activity')){
+            }elseif(request('name') || request('introduction') || request('activity') || request('email')){
                 return ['result' => '成功'];
             }
             return redirect()->route('profiles',[$user]);

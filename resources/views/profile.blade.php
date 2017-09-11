@@ -3,6 +3,7 @@
 @section('content')
 <div class="container mb50 mt80 container_10">
     <div class="row" id="prof">
+        <msg></msg>
         <div class="col-md-8 col-md-offset-2">
         @if(Auth::id() === $user->id) 
             @if (count($errors) > 0)
@@ -54,15 +55,6 @@
             <prof-statue :statues="{{ $statues }}" :statue_masters="{{ $statue_masters }}" :user="{{ $user }}"></prof-statue>
             <prof-event :events="{{ $events }}" :user="{{ $user }}"></prof-event>
             <prof-email :user="{{ $user }}" v-on:emailsent="editValue"></prof-email>
-            <div>
-                <label class="label_prof wd80"><span>メールアドレス(非公開)</span></label>
-                <form class="form-group disfle" method="post" action="{{ url('/users/'.$user->id)}}">
-                    {{ csrf_field() }}                
-                    {{ method_field('PATCH') }}                                
-                    <input name="email" type="email" class="form-control inputBaseStyle mr10" placeholder="メールアドレス" id="" value="{{ decrypt($user->email) }}" required>
-                    <input class="form-control wd30 fs10" type="submit" value="変更">
-                </form>
-            </div> 
         @else
             <form method="post" action="{{ url('/room') }}">
                 {{ csrf_field() }}
@@ -82,12 +74,6 @@
                     <p>{{ $user->name }}</p>
                 </div>               
             </div>
- <!--            <div>
-                <h4 class="label_prof"><span>メールアドレス</span></h4>
-                <div class="form-group">                            
-                    <p>{{ decrypt($user->email) }}</p>
-                </div>          
-            </div>      -->       
             <div>
                 <h4 class="label_prof"><span>お誕生日</span></h4>
                 <div class="form-group">                                

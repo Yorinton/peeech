@@ -35,9 +35,6 @@ Route::post('/profiles/{id}','UserController@store');
 Route::get('/profiles/{id}','UserController@show')->name('profiles');
 // プロフィール情報更新 - usersテーブル
 Route::patch('/users/{id}','UserController@update');
-// Route::patch('/user/{id}',function($id){
-// 	return ['user' => request('user')];
-// });
 // プロフィール情報更新 - その他プロフィール情報
 Route::post('/users/{id}','UserController@update');
 Route::put('/users/{id}','UserController@update');
