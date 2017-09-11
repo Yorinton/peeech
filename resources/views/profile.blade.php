@@ -47,9 +47,9 @@
                     </p>
                 </div>                                
             </div>
-            <prof-region :region="{{ $region }}" :prefs="{{ $prefs }}" :user="{{ $user }}" v-on:regionsent="editValue"></prof-region>
-<!--             <prof-idol :idols="{{ $idols }}" :idol_masters="{{ $idol_masters }}" :user="{{ $user }}"></prof-idol>
-            <prof-activity :act_masters="{{ $act_masters }}" :user="{{ $user }}" :acts="{{ $activities }}"></prof-activity>      
+           <!--  <prof-region :region="{{ $region }}" :prefs="{{ $prefs }}" :user="{{ $user }}" v-on:regionsent="editValue"></prof-region> -->
+            <prof-idol :idols="{{ $idols }}" :idol_masters="{{ $idol_masters }}" :user="{{ $user }}"></prof-idol>
+            <!-- <prof-activity :act_masters="{{ $act_masters }}" :user="{{ $user }}" :acts="{{ $activities }}"></prof-activity>      
             <prof-intro v-bind:user="{{ $user }}" v-on:introsent="editValue"></prof-intro>
             <prof-favorite :favorites="{{ $favorites }}" :user="{{ $user }}"></prof-favorite>       
             <prof-statue :statues="{{ $statues }}" :statue_masters="{{ $statue_masters }}" :user="{{ $user }}"></prof-statue>
