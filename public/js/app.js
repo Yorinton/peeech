@@ -1237,10 +1237,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	props: ["region", "prefs", "user"],
+	props: {
+		region: { type: Object, required: false },
+		user: { name: Object, required: false },
+		prefs: { name: Array, required: false }
+	},
 	data: function data() {
 		return {
-			selected: this.region.region,
 			request: {
 				region: ''
 			}
@@ -1248,8 +1251,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	},
 	methods: {
 		sendRegion: function sendRegion() {
-			if (this.selected) {
-				this.request.region = this.selected;
+			if (this.region.region) {
+				this.request.region = this.region.region;
 				//namesentというイベントを送信
 				this.$emit("regionsent", {
 					id: this.user.id,
@@ -1346,7 +1349,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 20 */
@@ -2104,8 +2107,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: (_vm.selected),
-      expression: "selected"
+      value: (_vm.region.region),
+      expression: "region.region"
     }],
     staticClass: "form-control inputBaseStyle mr5",
     attrs: {
@@ -2120,7 +2123,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           var val = "_value" in o ? o._value : o.value;
           return val
         });
-        _vm.selected = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+        _vm.region.region = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
       }
     }
   }, [_c('option', {
@@ -12554,13 +12557,15 @@ var app = new Vue({
     created: function created() {
         var _this = this;
 
-        var roomId = $(".room_id").text();
+        if ($(".room_id").length > 0) {
+            var roomId = $(".room_id").text();
 
-        //このインスタンスが作成された際に、指定のURLに非同期でリクエストする
-        axios.get('/messages/' + roomId).then(function (response) {
-            _this.messages = response.data;
-            // console.log(response);
-        });
+            //このインスタンスが作成された際に、指定のURLに非同期でリクエストする
+            axios.get('/messages/' + roomId).then(function (response) {
+                _this.messages = response.data;
+                // console.log(response);
+            });
+        }
         Echo.join('chatroom.' + roomId) // 入室しているroomIdをここに入れる
         //チャンネルを購入している全ユーザー情報を含む配列を返す
         .here(function (users) {

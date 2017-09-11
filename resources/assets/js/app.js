@@ -42,13 +42,15 @@ const app = new Vue({
     },
     created(){
 
-        var roomId = $(".room_id").text();
+        if($(".room_id").length > 0){
+            var roomId = $(".room_id").text();
 
-    	//このインスタンスが作成された際に、指定のURLに非同期でリクエストする
-    	axios.get('/messages/' + roomId).then(response => {
-    		this.messages = response.data;
-    		// console.log(response);
-    	});
+        	//このインスタンスが作成された際に、指定のURLに非同期でリクエストする
+        	axios.get('/messages/' + roomId).then(response => {
+        		this.messages = response.data;
+        		// console.log(response);
+        	});
+        }
         Echo.join('chatroom.' + roomId)// 入室しているroomIdをここに入れる
             //チャンネルを購入している全ユーザー情報を含む配列を返す
             .here((users) => {
