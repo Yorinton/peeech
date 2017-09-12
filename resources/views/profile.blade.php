@@ -16,36 +16,34 @@
                 </div>
             @endif
             <div>
-                <div class="thumb_container">
-                    <img class="thumb" src="{{ $user->img_path }}">
+                <div class="thumb_container mb20 wrap">
+                    <img class="thumb preview" src="{{ $user->img_path }}">
                     <form class="form-group thumb_form" method="post" action="{{ url('/users/'.$user->id) }}" enctype="multipart/form-data" files='true'>
                     {{ csrf_field() }}                
-                    {{ method_field('PATCH') }}                     
-                        <input type="file" name="img_path">
-                        <input type="submit" value="変更">
+                    {{ method_field('PATCH') }}
+                        <div class="wrap mb0 lh100 dis_inblo">
+                            <label for="file" class="btn inputBaseStyle">画像を設定</label>
+                            <input id="file" type="file" name="img_path" style="display:none;">
+                            <input class="btn" type="submit" value="変更">
+                        </div>
                     </form>
                 </div>
             </div>
             <prof-name v-bind:user="{{ $user }}" v-on:namesent="editValue"></prof-name>
-            <div>
-                <label class="label_prof wd80"><span>生年月日</span></label>
-                <div>
-                    <p>
-                        {{ (int)$birthArr[0] }}年{{ (int)$birthArr[1] }}月{{ (int)$birthArr[2] }}日
-                    </p>
-                </div>          
-            </div>
-            <div>
-                <label class="label_prof wd80"><span>性別</span></label>
-                <div>
-                    <p>
+            <div class="mb20">
+                <label class="label_prof wd80 mb10"><span>生年月日 / 性別</span></label>
+                <div class="ml10">
+                    <span>
+                        {{ (int)$birthArr[0] }}年{{ (int)$birthArr[1] }}月{{ (int)$birthArr[2] }}日 /
+                    </span>
+                    <span>
                         @if($user->sex == 'male')
                         男性
                         @else
                         女性
                         @endif
-                    </p>
-                </div>                                
+                    </span>                    
+                </div>                      
             </div>
             <prof-region :region="{{ $region }}" :prefs="{{ $prefs }}" :user="{{ $user }}" v-on:regionsent="editValue"></prof-region>
             <prof-idol :idols="{{ $idols }}" :idol_masters="{{ $idol_masters }}" :user="{{ $user }}"></prof-idol>

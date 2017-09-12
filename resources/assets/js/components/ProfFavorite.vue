@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <label class="label_prof wd80"><span>推し</span></label>
+    <div class="mb20">
+        <label class="label_prof wd80 mb15"><span>推し</span></label>
 	    <div class="form-group disfle">
 	        <input name="favorite" type="text" class="form-control inputBaseStyle mr10" v-model="favorite" placeholder="推し" required>
-	        <button class="form-control wd30 fs10" v-on:click="addFavorite">変更</button>
+	        <button class="btn btn_add fs10" v-on:click="addFavorite">+</button>
 	    </div>              
 		<div class="wrap mt10 mb10">
 		    <span v-for="favorite in favorite_names" class='tag_pink mr5 mb5' @click="removeFavorite(favorite)">× {{ favorite.favorite }}</span>

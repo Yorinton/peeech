@@ -1,9 +1,9 @@
 <template>
-	<div>
-		<label class="label_prof wd80"><span>ニックネーム</span></label>
+	<div class="mb20">
+		<label class="label_prof wd80 mb15"><span>ニックネーム</span></label>
 	    <div class="form-group disfle">
 	        <input name="name" type="text" class="form-control inputBaseStyle mr10" v-model="name" placeholder="ニックネーム" required>
-	        <button class="form-control wd30 fs10" v-on:click="sendName">変更</button>
+	        <button class="btn fs10 btn_add" v-on:click="sendName">+</button>
 	    </div>
 	</div>    
 </template>

@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <label class="label_prof wd80"><span>参加予定イベント</span></label>
+    <div class="mb20">
+        <label class="label_prof wd80 mb15"><span>参加予定イベント</span></label>
 	    <div class="form-group disfle">
 	        <input name="event" type="text" class="form-control inputBaseStyle mr10" v-model="event" placeholder="イベント名" required>
-	        <button class="form-control wd30 fs10" v-on:click="addEvent">追加</button>
+	        <button class="btn btn_add fs10" v-on:click="addEvent">+</button>
 	    </div>              
 		<div class="wrap mt10 mb10">
 		    <span v-for="event in event_names" class='tag_pink mr5 mb5' @click="removeEvent(event)">× {{ event.event }}</span>

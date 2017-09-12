@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<label class="label_prof wd80"><span>好きなアイドル</span></label>
+	<div class="mb20">
+		<label class="label_prof wd80 mb15"><span>好きなアイドル</span></label>
 	    <div class="disfle">
 	        <select name='phonetic' class="form-control phonetic inputBaseStyle mr5 wd35" v-on:change="selectPhonetic" v-model="selected">
 	        	<option v-for="phonetic in phonetics" v-bind:value="phonetic.value">{{ phonetic.text }}</option>

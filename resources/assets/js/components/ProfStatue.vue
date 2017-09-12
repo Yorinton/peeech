@@ -1,10 +1,10 @@
 <template>
-	<div>
-	    <label class="label_prof wd80"><span>こんな人と繋がりたい</span></label>
+	<div class="mb20">
+	    <label class="label_prof wd80 mb15"><span>こんな人と繋がりたい</span></label>
 	    <div class="wrap">                   
             <p v-for="statue in statue_masters">
-                <span v-if="addedStatues.some(function(v){ return v.statue_id === statue.id })" class="selected_tag tag mr5 mb5" @click="deleteStatue(statue)">{{ statue.statue }}</span>
-				<span v-else class="tag mr5 mb5" @click="addStatue(statue)">{{ statue.statue }}</span>
+                <span v-if="addedStatues.some(function(v){ return v.statue_id === statue.id })" class="tag_grey tag mr5 mb5" @click="deleteStatue(statue)">{{ statue.statue }}</span>
+				<span v-else class="tag_no_select mr5 mb5" @click="addStatue(statue)">{{ statue.statue }}</span>
             </p>
 	    </div>
 	</div>

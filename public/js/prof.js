@@ -1333,7 +1333,9 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._m(0), _vm._v(" "), _c('div', {
+  return _c('div', {
+    staticClass: "mb20"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "form-group disfle"
   }, [_c('input', {
     directives: [{
@@ -1359,11 +1361,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }), _vm._v(" "), _c('button', {
-    staticClass: "form-control wd30 fs10",
+    staticClass: "btn btn_add fs10",
     on: {
       "click": _vm.addFavorite
     }
-  }, [_vm._v("変更")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("+")])]), _vm._v(" "), _c('div', {
     staticClass: "wrap mt10 mb10"
   }, _vm._l((_vm.favorite_names), function(favorite) {
     return _c('span', {
@@ -1377,7 +1379,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }))])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('label', {
-    staticClass: "label_prof wd80"
+    staticClass: "label_prof wd80 mb15"
   }, [_c('span', [_vm._v("推し")])])
 }]}
 module.exports.render._withStripped = true
@@ -1393,7 +1395,9 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._m(0), _vm._v(" "), _c('div', {
+  return _c('div', {
+    staticClass: "mb20"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "disfle"
   }, [_c('select', {
     directives: [{
@@ -1524,7 +1528,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }))])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('label', {
-    staticClass: "label_prof wd80"
+    staticClass: "label_prof wd80 mb15"
   }, [_c('span', [_vm._v("好きなアイドル")])])
 }]}
 module.exports.render._withStripped = true
@@ -1540,7 +1544,9 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._m(0), _vm._v(" "), _c('div', {
+  return _c('div', {
+    staticClass: "mb20"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_c('textarea', {
     directives: [{
@@ -1573,7 +1579,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v("変更")])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('label', {
-    staticClass: "label_prof wd80"
+    staticClass: "label_prof wd80 mb15"
   }, [_c('span', [_vm._v("自己紹介")])])
 }]}
 module.exports.render._withStripped = true
@@ -1608,7 +1614,9 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._m(0), _vm._v(" "), _c('div', {
+  return _c('div', {
+    staticClass: "mb20"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "form-group disfle"
   }, [_c('input', {
     directives: [{
@@ -1634,14 +1642,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }), _vm._v(" "), _c('button', {
-    staticClass: "form-control wd30 fs10",
+    staticClass: "btn btn_add fs10",
     on: {
       "click": _vm.sendEmail
     }
-  }, [_vm._v("変更")])])])
+  }, [_vm._v("+")])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('label', {
-    staticClass: "label_prof wd80"
+    staticClass: "label_prof wd80 mb15"
   }, [_c('span', [_vm._v("メールアドレス(非公開)")])])
 }]}
 module.exports.render._withStripped = true
@@ -1657,20 +1665,22 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._m(0), _vm._v(" "), _c('div', {
+  return _c('div', {
+    staticClass: "mb20"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "wrap"
   }, _vm._l((_vm.act_masters), function(act) {
     return _c('p', [(_vm.addedActs.some(function(v) {
       return v.activity === act.activity
     })) ? _c('span', {
-      staticClass: "selected_tag tag mr5 mb5",
+      staticClass: "tag_grey tag mr5 mb5",
       on: {
         "click": function($event) {
           _vm.deleteAct(act)
         }
       }
     }, [_vm._v(_vm._s(act.activity))]) : _c('span', {
-      staticClass: "tag mr5 mb5",
+      staticClass: "tag_no_select mr5 mb5",
       on: {
         "click": function($event) {
           _vm.addAct(act)
@@ -1680,7 +1690,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }))])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('label', {
-    staticClass: "label_prof wd80"
+    staticClass: "label_prof wd80 mb15"
   }, [_c('span', [_vm._v("主な活動内容 (タップで追加)")])])
 }]}
 module.exports.render._withStripped = true
@@ -1696,7 +1706,9 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._m(0), _vm._v(" "), _c('div', [_c('div', {
+  return _c('div', {
+    staticClass: "mb20"
+  }, [_vm._m(0), _vm._v(" "), _c('div', [_c('div', {
     staticClass: "disfle"
   }, [_c('select', {
     directives: [{
@@ -1732,14 +1744,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_vm._v(_vm._s(pref))])
   })], 2), _vm._v(" "), _c('button', {
-    staticClass: "form-control wd20",
+    staticClass: "btn btn_add fs10",
     on: {
       "click": _vm.sendRegion
     }
-  }, [_vm._v("変更")])])])])
+  }, [_vm._v("+")])])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('label', {
-    staticClass: "label_prof wd80"
+    staticClass: "label_prof wd80 mb15"
   }, [_c('span', [_vm._v("居住地域")])])
 }]}
 module.exports.render._withStripped = true
@@ -1755,20 +1767,22 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._m(0), _vm._v(" "), _c('div', {
+  return _c('div', {
+    staticClass: "mb20"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "wrap"
   }, _vm._l((_vm.statue_masters), function(statue) {
     return _c('p', [(_vm.addedStatues.some(function(v) {
       return v.statue_id === statue.id
     })) ? _c('span', {
-      staticClass: "selected_tag tag mr5 mb5",
+      staticClass: "tag_grey tag mr5 mb5",
       on: {
         "click": function($event) {
           _vm.deleteStatue(statue)
         }
       }
     }, [_vm._v(_vm._s(statue.statue))]) : _c('span', {
-      staticClass: "tag mr5 mb5",
+      staticClass: "tag_no_select mr5 mb5",
       on: {
         "click": function($event) {
           _vm.addStatue(statue)
@@ -1778,7 +1792,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }))])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('label', {
-    staticClass: "label_prof wd80"
+    staticClass: "label_prof wd80 mb15"
   }, [_c('span', [_vm._v("こんな人と繋がりたい")])])
 }]}
 module.exports.render._withStripped = true
@@ -1794,7 +1808,9 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._m(0), _vm._v(" "), _c('div', {
+  return _c('div', {
+    staticClass: "mb20"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "form-group disfle"
   }, [_c('input', {
     directives: [{
@@ -1820,11 +1836,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }), _vm._v(" "), _c('button', {
-    staticClass: "form-control wd30 fs10",
+    staticClass: "btn btn_add fs10",
     on: {
       "click": _vm.addEvent
     }
-  }, [_vm._v("追加")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("+")])]), _vm._v(" "), _c('div', {
     staticClass: "wrap mt10 mb10"
   }, _vm._l((_vm.event_names), function(event) {
     return _c('span', {
@@ -1838,7 +1854,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }))])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('label', {
-    staticClass: "label_prof wd80"
+    staticClass: "label_prof wd80 mb15"
   }, [_c('span', [_vm._v("参加予定イベント")])])
 }]}
 module.exports.render._withStripped = true
@@ -1854,7 +1870,9 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._m(0), _vm._v(" "), _c('div', {
+  return _c('div', {
+    staticClass: "mb20"
+  }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "form-group disfle"
   }, [_c('input', {
     directives: [{
@@ -1880,14 +1898,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }), _vm._v(" "), _c('button', {
-    staticClass: "form-control wd30 fs10",
+    staticClass: "btn fs10 btn_add",
     on: {
       "click": _vm.sendName
     }
-  }, [_vm._v("変更")])])])
+  }, [_vm._v("+")])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('label', {
-    staticClass: "label_prof wd80"
+    staticClass: "label_prof wd80 mb15"
   }, [_c('span', [_vm._v("ニックネーム")])])
 }]}
 module.exports.render._withStripped = true
