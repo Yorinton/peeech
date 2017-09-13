@@ -23,7 +23,7 @@ class RecommendController extends Controller
 	//今日のファン友候補取得
 	public function show($id)
     {
-   	    $title = '今日のファン友'; 	
+   	    $title = '友達を見つける'; 	
     	if(Auth::id() === (int)$id){
 	    	if(Recommend::where('user_id',$id)->exists()){
 

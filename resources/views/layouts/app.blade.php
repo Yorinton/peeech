@@ -23,7 +23,7 @@
     <!-- <script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script> -->
 </head>
 <body class="bg_white">
-    <div>
+    <div class="ht100">
         <nav class="navbar navbar-default navbar-static-top nav-bar-fixed mb0">
             <div class="container">
                 <div class="navbar-header">

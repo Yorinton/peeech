@@ -57,6 +57,19 @@ $i:1;
 	}
 	$i:$i + 1;	
 }
+/* mr %指定 */
+.mr5p {
+	margin-right: 5%;
+}
+.mr10p {
+	margin-right: 10%;
+}
+.mr15p {
+	margin-right: 15%;
+}
+.mr_a {
+	margin-right: auto;
+}
 /* margin-left */
 $i:1;
 @while $i <= 10 {
@@ -65,6 +78,21 @@ $i:1;
 	}
 	$i:$i + 1;	
 }
+/* ml %指定 */
+.ml5p {
+	margin-left: 5%;
+}
+.ml10p {
+	margin-left: 10%;
+}
+.ml15p {
+	margin-left: 15%;
+}
+.ml_a {
+	margin-left: auto;
+}
+
+
 /* padding-bottom */
 $i:0;
 @while $i <= 50 {
@@ -103,7 +131,14 @@ $i:10;
 	.lh#{$i} {
 		line-height:#{$i}px;
 	}
-	$i:$i + 10;	
+	$i:$i + 2;	
+}
+/* height %指定 */
+.ht80 {
+	height: 80%;
+}
+.ht100 {
+	height: 100%;
 }
 
 /* 背景色 */
@@ -112,6 +147,14 @@ $i:10;
 }
 .bg_grey {
 	background-color: lightgrey!important;
+}
+
+/* フォントウェイト */
+.fw_b {
+	font-weight: bold;
+}
+.fw_n {
+	font-weight: normal;
 }
 
 
@@ -189,6 +232,9 @@ $i:10;
 .wd50 {
 	width:50%;
 }
+.wd55 {
+	width:55%;
+}
 .wd60 {
 	width:60%;
 }
@@ -252,13 +298,20 @@ $i:20;
 * 共通スタイル
 *
 */
+/* html */
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+}
+
 /* セレクトボックス */
 select {
 	-webkit-appearance: none!important;
 	-moz-appearance: none!important;
 	appearance: none!important;	
 }
-
 /* 表示 / 非表示 */
 .disnone {
 	display:none;
@@ -414,6 +467,7 @@ input[type="submit"],input[type="button"] {
 	color:white;
 	font-weight: bold;
 	-webkit-font-smoothing: antialiased;
+	border:none;
 }
 .registerBtn {
 	@extend .submitBtn;
@@ -453,26 +507,43 @@ input[type="submit"],input[type="button"] {
 * 今日のファン友
 *
 */
+.card_container {
+	background: #f7f7f8;
+}
 .card {
 	box-shadow:2px 2px 3px rgba(0,0,0,.3);
 	border-radius:3px;
 	padding:5%;
 	border:1px solid lightgrey;
+	position: relative;
+	background: white;
 }
 .negativeBtn {
 	background: #bdbea4;
 	color:white;
 	font-weight: bold;
 	-webkit-font-smoothing: antialiased;
+	border:none;
 }
 .name {
-	height: 100px;
+	height: 80px;
     display: table-cell;
     vertical-align: middle;	
+	padding-left: 5%;
+    padding-right: 5%;
 }
 .profile_link > a{
-	color:$linkColor;
+	color:$baseColorPink;
 	font-weight: bold;
+}
+.tag_container {
+	height: 34px;
+    overflow: hidden;	
+}
+.btn_judge_container {
+	position: absolute;
+    width: 90%;
+    bottom: 0;
 }
 /*
 *
