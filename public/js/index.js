@@ -124,5 +124,12 @@ $(function(){ //即時関数にすることで外から中の変数を参照出�
 
 		reader.readAsDataURL(file);
 	});
-
+	//cardの高さ設定
+	if($('.card').length > 0){
+		var ht_w = $(window).height();
+		// var ht_card = ht_w * 0.727;
+		var ht_card = ht_w - 157;		
+		console.log(ht_card);
+		$('.card').height(ht_card);
+	}
 });
