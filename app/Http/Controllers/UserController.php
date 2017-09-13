@@ -140,76 +140,43 @@ class UserController extends Controller
     public function show($id)
     {
         //usersテーブル
-        if(isset($id)){
-            if($id !== null){
-            	if($this->userService->getUser($id)->exists()){
-            		//user情報を取得
-            		$user = $this->userService->getUser($id);
-                if($user->email){
-                  try{
-                    $user->email = decrypt($user->email);
-                  }catch(\DecryptException $e){
-                    $user->email ='';
-                  }
-                }
-                $birthArr = explode('-',$user->birthday);
-                    
-	                //usesテーブルに関連する各テーブルのモデルを取得
-            		$idols = $this->userService->getOtherProfs($id,'idols');
-            		$favorites = $this->userService->getOtherProfs($id,'favorites');
-            		$regions = $this->userService->getOtherProfs($id,'regions');
-            		$purposes = $this->userService->getOtherProfs($id,'purposes');
-            		$statues = $this->userService->getOtherProfs($id,'statues');
-            		$events = $this->userService->getOtherProfs($id,'events');
-                $activities = $this->userService->getOtherProfs($id,'activities');
-                $region = $regions->first();
-                if(!isset($region)){
-                  $region = new Region();
-                  $region->region = '東京都';
-                  $user->regions()->save($region);
-                }
+    	if($this->userService->getUser($id)){
+    		//user情報を取得
+    		$user = $this->userService->getUser($id);
+        $user->email = $this->decryptData($user->email);
+        $birthArr = explode('-',$user->birthday);
+            
+          //usesテーブルに関連する各テーブルのモデルを取得
+    		$idols = $this->userService->getOtherProfs($id,'idols');
+    		$favorites = $this->userService->getOtherProfs($id,'favorites');
+    		$regions = $this->userService->getOtherProfs($id,'regions');
+    		$purposes = $this->userService->getOtherProfs($id,'purposes');
+    		$statues = $this->userService->getOtherProfs($id,'statues');
+    		$events = $this->userService->getOtherProfs($id,'events');
+        $activities = $this->userService->getOtherProfs($id,'activities');
+        //初期化クラス作って分けた方が良さそう
+        $region = $regions->first() !== null ? $regions->first() : Region::init($user->id,'東京都');
 
-  			        //選択された利用目的のpurpose_id,regionを配列にする(マスターとの比較用)
-  			        $purpose_ids = $this->objArrToPropArr($purposes,'purpose_id');
-  			        $statue_ids = json_encode($this->objArrToPropArr($statues,'statue_id'));
-                $activity_names = $this->objArrToPropArr($activities,'activity');
+        //選択された利用目的のpurpose_id,regionを配列にする(マスターとの比較用)
+        $purpose_ids = $this->objArrToPropArr($purposes,'purpose_id');
+        $statue_ids = json_encode($this->objArrToPropArr($statues,'statue_id'));
+        $activity_names = $this->objArrToPropArr($activities,'activity');
 
-  			        //47都道府県
-  			        $prefs = json_encode($this->getPref());
+        //47都道府県
+        $prefs = json_encode($this->getPref());
 
-  			        //各マスタデータ
-  			        $purpose_masters = $this->masterDbService->getMaster('purpose');
-  			        $statue_masters = $this->masterDbService->getMaster('statue');
-  			        $idol_masters = $this->masterDbService->getMaster('idol');
-                $act_masters = $this->masterDbService->getMaster('activity');
+        //各マスタデータ
+        $purpose_masters = $this->masterDbService->getMaster('purpose');
+        $statue_masters = $this->masterDbService->getMaster('statue');
+        $idol_masters = $this->masterDbService->getMaster('idol');
+        $act_masters = $this->masterDbService->getMaster('activity');
 
-                $title = 'プロフィール';
+        $title = 'プロフィール';
 
+        return view('profile',compact('user','birthArr','idols','favorites','region','purpose_ids','statue_ids','events','purpose_masters','statues','statue_masters','prefs','idol_masters','title','activity_names','act_masters','activities'));
 
-  			        //変数をprofile.blade.phpに渡す(viewでforeachを回す)
-  			        return view('profile')->with('user',$user)
-                                      ->with('birthArr',$birthArr)
-  			                              ->with('idols',$idols)
-  			                              ->with('favorites',$favorites)
-  			                              // ->with('region_names',$region_names)
-  			                              ->with('region',$region)
-  			                              ->with('purpose_ids',$purpose_ids)
-  			                              ->with('statue_ids',$statue_ids)
-  			                              ->with('events',$events)
-  			                              ->with('purpose_masters',$purpose_masters)
-                                      ->with('statues',$statues)
-  			                              ->with('statue_masters',$statue_masters)
-  			                              ->with('prefs',$prefs)
-  			                              ->with('idol_masters',$idol_masters)
-                                      ->with('title',$title)
-                                      ->with('activity_names',$activity_names)
-                                      ->with('act_masters',$act_masters)
-                                      ->with('activities',$activities);
-
-            	}
-            	echo '指定のユーザーは存在しない';
-            }
-        }                              
+    	}
+    	echo '指定のユーザーは存在しません';                             
     }
 
     /**

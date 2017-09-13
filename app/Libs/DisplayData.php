@@ -16,6 +16,15 @@ trait DisplayData
         return $values;
 	}
 
+	//暗号化された値を復号化
+	public function decryptData($value){
+          try{
+            return $value = decrypt($value);
+          }catch(\DecryptException $e){
+            return $valuel ='';
+          }
+	}
+
 	//ファイル名からページタイトルを生成
 	// public function fileNameToTitle($filename)
 	// {

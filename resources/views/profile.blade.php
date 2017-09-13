@@ -18,13 +18,13 @@
             <div>
                 <div class="thumb_container mb20 wrap">
                     <img class="thumb preview" src="{{ $user->img_path }}">
-                    <form class="form-group thumb_form" method="post" action="{{ url('/users/'.$user->id) }}" enctype="multipart/form-data" files='true'>
+                    <form class="form-group thumb_form ml10" method="post" action="{{ url('/users/'.$user->id) }}" enctype="multipart/form-data" files='true'>
                     {{ csrf_field() }}                
                     {{ method_field('PATCH') }}
-                        <div class="wrap mb0 lh100 dis_inblo">
+                        <div class="wrap mb0 lh80 dis_inblo">
                             <label for="file" class="btn inputBaseStyle">画像を設定</label>
                             <input id="file" type="file" name="img_path" style="display:none;">
-                            <input class="btn" type="submit" value="変更">
+                            <input class="btn inputBaseStyle submitBtn" type="submit" value="変更">
                         </div>
                     </form>
                 </div>

@@ -29,7 +29,10 @@ class UserRepository implements UserRepositoryInterface
 	*/
 	public function getUserById($id)
 	{
-		return $this->user->where('id',$id)->first();
+		if($this->user->where('id',$id)->exists()){
+			return $this->user->where('id',$id)->first();
+		}
+		return false;
 	}
 
 	public function getOtherProfsByUser($id,$tableName)
