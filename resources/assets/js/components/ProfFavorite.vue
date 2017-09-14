@@ -27,7 +27,7 @@
 			addFavorite(){
 				console.log(this.favorite);
 				this.request.favorite = this.favorite;
-				axios.post('/users/' + this.user.id,this.request).then(res => {
+				axios.post('/favorite/' + this.user.id,this.request).then(res => {
 					console.log(res.data.favorite);
 					this.favorite_names.push(res.data.favorite);
 				});

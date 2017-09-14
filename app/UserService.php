@@ -70,20 +70,17 @@ class UserService
  		foreach (Request::all() as $key => $value) {
  			//keyがテーブルに存在するもの以外の場合は弾く
 	        if($key !== '_token' && $key !== '_method' && $key !== 'id'){
-				//$valueの存在チェック
-				if($value){
-					//バリデーションルールの配列
-					$rules = [
-						'name' => ['name' => 'required|max:255'],
-						'email' => ['email' => 'required|email|unique:users,email'],
-						'sex' => ['sex' => 'required|max:11'],
-						'introduction' => ['introduction' => 'required|max:1000'],
-					];
-					//バリデート実施
-					$this->validate($request,$rules[$key]);
-					//DBに保存
-					return $this->userRepository->updateUserProfsById($id,$key,$value);
-				}
+				//バリデーションルールの配列
+				$rules = [
+					'name' => ['name' => 'required|max:255'],
+					'email' => ['email' => 'required|email|unique:users,email'],
+					'sex' => ['sex' => 'required|max:11'],
+					'introduction' => ['introduction' => 'required|max:1000'],
+				];
+				//バリデート実施
+				$this->validate($request,$rules[$key]);
+				//DBに保存
+				return $this->userRepository->updateUserProfsById($id,$key,$value);
 			}
 		}
 	}
@@ -107,7 +104,7 @@ class UserService
           	$this->validate($request,$rules[$key]);
 
           	//DBへ保存
-          	$this->userRepository->addOtherProfsSingleByUser($request,$user,$key);
+          	return $this->userRepository->addOtherProfsSingleByUser($request,$user,$key);
         }
     }		
 
@@ -118,7 +115,7 @@ class UserService
         		'region' => ['region' => 'required|max:255'],
         	];
         	//テーブル編集
-        	$this->userRepository->editOtherProfsSingleByUser($request,$user,$key);
+        	return $this->userRepository->editOtherProfsSingleByUser($request,$user,$key);
 		}
 	}
 

@@ -15,14 +15,25 @@ const prof = new Vue({
     el: '#prof',
 	methods: {
 		editValue(req){
-			axios.patch('/users/' + req.id, req.request).then(res => {
-				if(res.data.result === '成功'){
-					$(".msg_cover").addClass('msg_appear');
-					setTimeout(function() {
-	    				$('.msg_cover').removeClass('msg_appear');
-					}, 3000);
-				}
-			});
+			if(!req.request.region){
+				axios.patch('/user/' + req.id, req.request).then(res => {
+					if(res.data){
+						$(".msg_cover").addClass('msg_appear');
+						setTimeout(function() {
+		    				$('.msg_cover').removeClass('msg_appear');
+						}, 3000);
+					}
+				});
+			}else{
+				axios.patch('/region/' + req.id, req.request).then(res => {
+					if(res.data){
+						$(".msg_cover").addClass('msg_appear');
+						setTimeout(function() {
+		    				$('.msg_cover').removeClass('msg_appear');
+						}, 3000);
+					}
+				});				
+			}
 		}
 	},
 });

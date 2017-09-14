@@ -27,7 +27,7 @@
 			addEvent(){
 				console.log(this.event);
 				this.request.event = this.event;
-				axios.post('/users/' + this.user.id,this.request).then(res => {
+				axios.post('/event/' + this.user.id,this.request).then(res => {
 					console.log(res.data.event);
 					this.event_names.push(res.data.event);
 				});

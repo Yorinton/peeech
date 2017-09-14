@@ -74,7 +74,7 @@
 			addIdol(){
 				this.request.idol = $("select[name='idol'] > option:selected").text();
 				console.log(this.request.idol);
-				axios.post('/users/' + this.user.id,this.request).then(res => {
+				axios.post('/idol/' + this.user.id,this.request).then(res => {
 					console.log(res.data);
 					this.idol_names.push(res.data.idol);//res.data = ['idol' => request('idol')]
 				});

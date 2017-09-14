@@ -108,11 +108,13 @@ class UserRepository implements UserRepositoryInterface
 	      	}
 	      	$model->save();
 	      	DB::commit();
+	      	return $model;
       	}catch(\Exception $e){
       		DB::rollback();
       		echo $e;
       		exit();
       	}
+
 	}
 
 	public function editOtherProfsSingleByUser($request,$user,$key)
@@ -124,8 +126,8 @@ class UserRepository implements UserRepositoryInterface
 			$model = $className::where('user_id',$user->id)->first();
 			$model->$key = $request->$key;
 			$model->save();
-
 			DB::commit();
+			return $model;
 		}catch(\Exception $e){
 			DB::rollback();
 			echo $e;

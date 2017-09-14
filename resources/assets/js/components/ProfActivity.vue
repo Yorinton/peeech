@@ -26,7 +26,7 @@
 				console.log(act.activity);
 				this.addedActs.push(act);
 				this.request.activity = act.activity;
-				axios.post('/users/' + this.user.id, this.request).then(res => {
+				axios.post('/activity/' + this.user.id, this.request).then(res => {
 					console.log(res.data);
 				});		
 			},

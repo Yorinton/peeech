@@ -33,12 +33,17 @@ Route::get('/registerpage/{id}','UserController@index')->name('registerpage');
 Route::post('/profiles/{id}','UserController@store');
 // プロフィール情報取得
 Route::get('/profiles/{id}','UserController@show')->name('profiles');
-// プロフィール情報更新 - usersテーブル
-Route::patch('/users/{id}','UserController@update');
-// プロフィール情報更新 - その他プロフィール情報
-Route::post('/users/{id}','UserController@update');
-Route::put('/users/{id}','UserController@update');
-Route::delete('/users/{user_id}/{id}','UserController@destroy');
+// プロフィール情報更新
+Route::patch('/user/{id}','UserController@update');
+Route::patch('/region/{id}','RegionController@update');
+// プロフィール情報追加
+// Route::post('/users/{id}','UserController@update');
+Route::post('/idol/{user_id}','IdolController@store');
+Route::post('/favorite/{user_id}','FavoriteController@store');
+Route::post('/event/{user_id}','EventController@store');
+Route::post('/activity/{user_id}','ActivityController@store');
+Route::post('/statue/{user_id}','StatueController@store');
+// プロフィール情報削除
 Route::delete('/users/{id}','UserController@delete');
 
 /**
@@ -119,29 +124,29 @@ Route::get('/rooms/{id}','RoomController@show');
 Auth::routes();
 
 // アイドル名取得&DB登録
-Route::get('/idols',function(){
-	$i;
-	for ($i=1; $i < 47; $i++) {
-		if(Goutte::request('GET', 'http://idolscheduler.jp/artist/?ai_id='.$i)){
-			$crawler = Goutte::request('GET', 'http://idolscheduler.jp/artist/?ai_id='.$i);
-			$idols = $crawler->filter('#artist_box > ul > li > dl > dt > p.name > em > a')->each(function($node){
-					return $node->text();
-			});
-			foreach ($idols as $idol) {
-				if(!App\Eloquent\IdolMaster::where('idol',$idol)->exists()){
-					$idol_master = new App\Eloquent\IdolMaster();
-					$idol_master->idol = $idol;
-					$idol_master->phonetic_id = $i;
-					$idol_master->save();
+// Route::get('/idols',function(){
+// 	$i;
+// 	for ($i=1; $i < 47; $i++) {
+// 		if(Goutte::request('GET', 'http://idolscheduler.jp/artist/?ai_id='.$i)){
+// 			$crawler = Goutte::request('GET', 'http://idolscheduler.jp/artist/?ai_id='.$i);
+// 			$idols = $crawler->filter('#artist_box > ul > li > dl > dt > p.name > em > a')->each(function($node){
+// 					return $node->text();
+// 			});
+// 			foreach ($idols as $idol) {
+// 				if(!App\Eloquent\IdolMaster::where('idol',$idol)->exists()){
+// 					$idol_master = new App\Eloquent\IdolMaster();
+// 					$idol_master->idol = $idol;
+// 					$idol_master->phonetic_id = $i;
+// 					$idol_master->save();
 
-					echo $idol.'/';			
-				}
-			}
+// 					echo $idol.'/';			
+// 				}
+// 			}
 
-		}
-	}
+// 		}
+// 	}
 
-});
+// });
 
 
 

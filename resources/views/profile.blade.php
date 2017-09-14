@@ -18,7 +18,7 @@
             <div>
                 <div class="thumb_container mb20 wrap">
                     <img class="thumb preview" src="{{ $user->img_path }}">
-                    <form class="form-group thumb_form ml10" method="post" action="{{ url('/users/'.$user->id) }}" enctype="multipart/form-data" files='true'>
+                    <form class="form-group thumb_form ml10" method="post" action="{{ url('/user/'.$user->id) }}" enctype="multipart/form-data" files='true'>
                     {{ csrf_field() }}                
                     {{ method_field('PATCH') }}
                         <div class="wrap mb0 lh80 dis_inblo">
@@ -33,25 +33,17 @@
             <div class="mb20">
                 <label class="label_prof wd80 mb10"><span>生年月日 / 性別</span></label>
                 <div class="ml10">
-                    <span>
-                        {{ (int)$birthArr[0] }}年{{ (int)$birthArr[1] }}月{{ (int)$birthArr[2] }}日 /
-                    </span>
-                    <span>
-                        @if($user->sex == 'male')
-                        男性
-                        @else
-                        女性
-                        @endif
-                    </span>                    
+                    <span>{{ $user->birthday }}</span>
+                    <span>{{ $user->sex }}</span>                  
                 </div>                      
             </div>
             <prof-region :region="{{ $region }}" :prefs="{{ $prefs }}" :user="{{ $user }}" v-on:regionsent="editValue"></prof-region>
-            <prof-idol :idols="{{ $idols }}" :idol_masters="{{ $idol_masters }}" :user="{{ $user }}"></prof-idol>
-            <prof-activity :act_masters="{{ $act_masters }}" :user="{{ $user }}" :acts="{{ $activities }}"></prof-activity>      
+            <prof-idol :idols="{{ $user->idols }}" :idol_masters="{{ $idol_masters }}" :user="{{ $user }}"></prof-idol>
+            <prof-activity :act_masters="{{ $act_masters }}" :user="{{ $user }}" :acts="{{ $user->activities }}"></prof-activity>      
             <prof-intro v-bind:user="{{ $user }}" v-on:introsent="editValue"></prof-intro>
-            <prof-favorite :favorites="{{ $favorites }}" :user="{{ $user }}"></prof-favorite>       
-            <prof-statue :statues="{{ $statues }}" :statue_masters="{{ $statue_masters }}" :user="{{ $user }}"></prof-statue>
-            <prof-event :events="{{ $events }}" :user="{{ $user }}"></prof-event>
+            <prof-favorite :favorites="{{ $user->favorites }}" :user="{{ $user }}"></prof-favorite>       
+            <prof-statue :statues="{{ $user->statues }}" :statue_masters="{{ $statue_masters }}" :user="{{ $user }}"></prof-statue>
+            <prof-event :events="{{ $user->events }}" :user="{{ $user }}"></prof-event>
             <prof-email :user="{{ $user }}" v-on:emailsent="editValue"></prof-email>
         @else
             <form method="post" action="{{ url('/room') }}">
