@@ -53,7 +53,9 @@ Route::delete('/users/{id}','UserController@delete');
 **/
 
 //今日のファン友画面取得
-Route::get('/friends/{id}','RecommendController@show')->name('friends');
+Route::get('/friends/{id}','RecommendController@list')->name('friends');
+//ファン友のプロフィール画面
+Route::get('/friend/{id}/{friend_id}','FriendController@showProfile');
 //ジャッジ結果登録
 Route::post('/matchings/{from_user_id}','RecommendController@judge');
 

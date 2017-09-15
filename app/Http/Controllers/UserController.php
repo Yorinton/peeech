@@ -13,6 +13,7 @@ use App\UserService;
 use Request as RequestFacade;
 use App\ImageService;
 use Illuminate\Contracts\Encryption\DecryptException;
+use Auth;
 
 class UserController extends Controller
 {
@@ -20,12 +21,12 @@ class UserController extends Controller
 
 	protected $masterDbService;
 	protected $userService;
-  protected $imageService;
+    protected $imageService;
 
 	public function __construct(MasterDbService $masterDbService,UserService $userService,ImageService $imageService)
 	{
-    		$this->masterDbService = $masterDbService;
-    		$this->userService = $userService;
+		$this->masterDbService = $masterDbService;
+		$this->userService = $userService;
         $this->imageService = $imageService;
         $this->middleware('auth');
 	}
@@ -47,8 +48,8 @@ class UserController extends Controller
         // $user = App\Eloquent\User::where('id',$id)->first();
         // return redirect()->route('profiles',[$user]);
         return view('register')->with("prefs",$prefs)
-        	        					   ->with('user',$user)
-        	        					   ->with('idol_masters',$idol_masters)
+        					   ->with('user',$user)
+        					   ->with('idol_masters',$idol_masters)
                                ->with('purpose_masters',$purpose_masters)
                                ->with('title',$title);
 
@@ -125,28 +126,39 @@ class UserController extends Controller
     {
         //usersテーブル
     	if($this->userService->getUser($id)){
-    		//user関連情報を取得 + 整形
-    		$user = $this->userService->getUser($id);
-            $user->email = $this->decryptData($user->email);
-            $user->birthday = $this->birthdayFormat($user->birthday);
-            $user->sex = $this->sexFormat($user->sex);
-            $region = $user->regions->first() !== null ? $user->regions->first() : Region::init($user->id,'東京都');
+        		//user関連情報を取得 + 整形
+        		$user = $this->userService->getUser($id);
+                $user->email = $this->decryptData($user->email);
+                $user->birthday = $this->birthdayFormat($user->birthday);
+                $user->sex = $this->sexFormat($user->sex);
+                $region = $user->regions->first() !== null ? $user->regions->first() : Region::init($user->id,'東京都');
 
-            //選択されたstatue_idを配列に格納
-            $statue_ids = json_encode($this->objArrToPropArr($user->statues,'statue_id'));
+                //選択されたstatue_idを配列に格納
+                $statue_ids = json_encode($this->objArrToPropArr($user->statues,'statue_id'));
 
-            //各マスタデータ
-            $statue_masters = $this->masterDbService->getMaster('statue');
-            $idol_masters = $this->masterDbService->getMaster('idol');
-            $act_masters = $this->masterDbService->getMaster('activity');
-            $prefs = json_encode($this->getPref());
+                //各マスタデータ
+                $statue_masters = $this->masterDbService->getMaster('statue');
+                $idol_masters = $this->masterDbService->getMaster('idol');
+                $act_masters = $this->masterDbService->getMaster('activity');
+                $prefs = json_encode($this->getPref());
 
-            $title = 'プロフィール';
+                $title = 'プロフィール';
 
-            return view('profile',compact('user','region','statue_ids','statue_masters','prefs','idol_masters','title','act_masters'));
+                return $this->chooseTemplate(compact('user','region','statue_ids','statue_masters','prefs','idol_masters','title','act_masters'));
 
     	}
     	echo '指定のユーザーは存在しません';                             
+    }
+
+    /**
+     * Choose Template of displaying profile (user or friend)
+     *
+     * @param  array  $datas
+     * @return View
+     */    
+    public function chooseTemplate($datas)
+    {
+        return view('profile',$datas);
     }
 
     /**

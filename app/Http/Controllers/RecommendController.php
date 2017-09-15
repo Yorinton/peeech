@@ -21,7 +21,7 @@ class RecommendController extends Controller
 		$this->middleware('auth');
 	}
 	//今日のファン友候補取得
-	public function show($id)
+	public function list($id)
     {
    	    $title = '友達を見つける'; 	
     	if(Auth::id() === (int)$id){

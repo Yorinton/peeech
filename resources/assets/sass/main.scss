@@ -531,6 +531,7 @@ input[type="submit"],input[type="button"] {
     vertical-align: middle;	
 	padding-left: 5%;
     padding-right: 5%;
+    width:100%;
 }
 .profile_link > a{
 	color:$baseColorPink;
@@ -544,6 +545,10 @@ input[type="submit"],input[type="button"] {
 	position: absolute;
     width: 90%;
     bottom: 0;
+}
+.introduction_sentents {
+	height:150px;
+	overflow: hidden;
 }
 /*
 *

@@ -48,6 +48,10 @@ class UserRepository implements UserRepositoryInterface
 	public function createUserProfsById($request,$id)
 	{
         $user = $this->getUserById($id);//SNS認証で作成したUserに変更予定
+
+        if($request->email){
+        	$user->email = encrypt($request->email);
+        }
         $user->name = $request->name;
         // $user->email = encrypt($request->email);
         $user->sex = $request->sex;

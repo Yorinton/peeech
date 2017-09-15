@@ -177,7 +177,7 @@
                             <div class="checkbox_container mb10">
                                 <label for="{{ $purpose_master->id}}" class="fs10 checkbox_{{ $purpose_master->id}}">
                                 <img class="thumb_mini_s img_checkbox_{{ $purpose_master->id}} mr5" src="../../images/icons/no_checked.png">{{ $purpose_master->purpose }}</label>
-                                <input type="checkbox" name="purpose[]" value="{{ $purpose_master->id}}" class="{{ $purpose_master->id}} disnone">
+                                <input id="{{ $purpose_master->id}}" type="checkbox" name="purpose[]" value="{{ $purpose_master->id}}" class="{{ $purpose_master->id}} disnone">
                             </div>
                         @endforeach
                     @endif 

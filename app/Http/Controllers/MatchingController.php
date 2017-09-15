@@ -19,6 +19,7 @@ class MatchingController extends Controller
     {
         $title = 'マッチング一覧';
         if(Auth::id() === (int)$id){
+            $user = Auth::user();
         	if(Matching::where('from_user_id',$id)->where('judge',1)->exists()){
     	    	$matchings = Matching::where('from_user_id',$id)->where('judge',1)->get();
     	    	$friends = [];
@@ -29,7 +30,7 @@ class MatchingController extends Controller
                     }
     	    	}
                 if(count($friends) > 0){
-        		  return view('matchings')->with('friends',$friends)->with('title',$title);
+        		  return view('matchings')->with('friends',$friends)->with('title',$title)->with('user',$user);
                 }
         	}
         	$m = 'まだマッチングしたファン友はいません';

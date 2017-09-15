@@ -2044,7 +2044,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "form-control inputBaseStyle mr10",
     attrs: {
       "name": "email",
-      "type": "text",
+      "type": "email",
       "placeholder": "sample@example.com",
       "required": ""
     },

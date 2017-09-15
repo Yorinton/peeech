@@ -9,19 +9,14 @@
             @endif
             @if(isset($friends))
                 @foreach($friends as $friend)
-                <div class="card mb10 ht80">
+                <div class="card mb10 ht80 disnone">
                     <div class="mb10 disfle">
                         <img class="thumb ml5p" src="{{ $friend->img_path }}">
                         <div class="basic_info wd55 ml5p mr_a">
-                            <p class="name"><span class="fw_b text_clamp_m">{{ $friend->name }}</span>
-                            23歳 /
-                            <span>
-                                @if($friend->sex == 'male')
-                                男性
-                                @else
-                                女性
-                                @endif
-                            </span>
+                            <p class="name">
+                                <span class="fw_b text_clamp_m">{{ $friend->name }}</span>
+                                <span>{{ $friend->birthday }}</span>
+                                <span>{{ $friend->sex }}</span><br>
                             @foreach($friend->regions as $region)
                             <span>{{ $region->region }}</span>
                             @endforeach
@@ -47,7 +42,7 @@
                             <p>{{ $friend->introduction }}</p>
                         </div>
                         <p class="profile_link">
-                            <a href="{{ url('/profiles/'.$friend->id) }}">
+                            <a href="{{ url('/friend/'.Auth::id().'/'.$friend->id) }}">
                                 もっと見る
                                 <img src="">
                             </a>

@@ -57,10 +57,10 @@ $(function(){ //即時関数にすることで外から中の変数を参照出�
 	//性別選択
 	$(".sex_label").on('click',function(){
 		if($(this).attr('for') === 'female'){
-			$('.tag_blue').removeClass('tag_blue');
+			$('label.tag_blue').removeClass('tag_blue');
 			$(this).addClass('tag_pink');
 		}else{
-			$('.tag_pink').removeClass('tag_pink');
+			$('label.tag_pink').removeClass('tag_pink');
 			$(this).addClass('tag_blue');
 		}
 	});
@@ -96,6 +96,11 @@ $(function(){ //即時関数にすることで外から中の変数を参照出�
 	//利用登録画面のみメニューボタン非表示
 	if($(location).attr('pathname').match(/^.*registerpage.*$/)){
 		$('.navbar-toggle').attr('style','display:none');
+		$('.phonetic').on('change',function(){
+			var num = $(this).val();
+			$('.disblo').addClass('disnone').attr('name','').removeClass('disblo');
+			$("#idols_" + num).addClass('disblo').removeClass('disnone').attr('name','idol');
+		});		
 	}
 	//画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
 	$('.thumb_form').on('change', 'input[type="file"]', function(e) {
@@ -128,8 +133,11 @@ $(function(){ //即時関数にすることで外から中の変数を参照出�
 	if($('.card').length > 0){
 		var ht_w = $(window).height();
 		// var ht_card = ht_w * 0.727;
-		var ht_card = ht_w - 157;		
-		console.log(ht_card);
+		var ht_card = ht_w - 157;
+		var ht_text = ht_w - 418;	
 		$('.card').height(ht_card);
+		$('.introduction_sentents').height(ht_text);
+		$('.card:first-child').removeClass('disnone');
 	}
+
 });

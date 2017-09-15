@@ -2,7 +2,7 @@
 	<div class="mb20">
 		<label class="label_prof wd80 mb15"><span>メールアドレス(非公開)</span></label>
 	    <div class="form-group disfle">
-	        <input name="email" type="text" class="form-control inputBaseStyle mr10" v-model="email" placeholder="sample@example.com" required>
+	        <input name="email" type="email" class="form-control inputBaseStyle mr10" v-model="email" placeholder="sample@example.com" required>
 	        <button class="btn btn_add fs10" v-on:click="sendEmail">+</button>
 	    </div>
 	</div>    

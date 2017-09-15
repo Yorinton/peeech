@@ -11,6 +11,8 @@ use App\Repositories\User\UserRepository;
 class RecommendService
 {
 
+	use Libs\DisplayData;
+
 	protected $Rrepo;
 	protected $Urepo;
 
@@ -26,7 +28,8 @@ class RecommendService
 		$friends = [];
     	foreach ($collections as $collection) {
     		$friend = $this->Urepo->getUserById($collection->$keyInUser);
-    		// $friend = User::where('id',$recommend->friend_id)->first();
+    		$friend->birthday = $this->birthdayFormat($friend->birthday);
+    		$friend->sex = $this->sexFormat($friend->sex);
     		$friends[] = $friend;
     	}
     	return $friends; 

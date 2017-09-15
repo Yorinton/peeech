@@ -29,7 +29,7 @@ trait DisplayData
 	public function birthdayFormat(String $birthday)
 	{
 		$birthArr = explode('-',$birthday);
-		return (int)$birthArr[0].'年'.(int)$birthArr[1].'月'.(int)$birthArr[2].'日 /';
+		return (int)$birthArr[0].'年'.(int)$birthArr[1].'月'.(int)$birthArr[2].'日';
 	}
 	//性別整形
 	public function sexFormat(String $sex){
