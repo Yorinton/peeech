@@ -45,6 +45,8 @@
             <prof-statue :statues="{{ $user->statues }}" :statue_masters="{{ $statue_masters }}" :user="{{ $user }}"></prof-statue>
             <prof-event :events="{{ $user->events }}" :user="{{ $user }}"></prof-event>
             <prof-email :user="{{ $user }}" v-on:emailsent="editValue"></prof-email>
+        @else
+            <p>ご指定のユーザーのプロフィールは表示出来ません</p>
         @endif
         </div>
     </div>

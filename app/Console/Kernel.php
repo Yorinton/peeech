@@ -75,7 +75,7 @@ class Kernel extends ConsoleKernel
                     }
                 }
             }
-        })->everyMinute();
+        })->everyMinutes();
 
 
         // 新しくマッチングした場合にお知らせ
@@ -107,7 +107,7 @@ class Kernel extends ConsoleKernel
                     }
                 }
         	}	
-        })->everyMinute();
+        })->everyMinutes();
     }
 
     /**

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Http\Requests;
+use App\Http\Requests\RegisterPost as RegisterPost;
 use App;
 use App\Eloquent\Region;
 use Intervention\Image\Facades\Image;
@@ -13,6 +13,7 @@ use App\UserService;
 use Request as RequestFacade;
 use App\ImageService;
 use Illuminate\Contracts\Encryption\DecryptException;
+use App\MatchingService;
 use Auth;
 
 class UserController extends Controller
@@ -22,12 +23,14 @@ class UserController extends Controller
 	protected $masterDbService;
 	protected $userService;
     protected $imageService;
+    protected $matchingService;
 
-	public function __construct(MasterDbService $masterDbService,UserService $userService,ImageService $imageService)
+	public function __construct(MasterDbService $masterDbService,UserService $userService,ImageService $imageService,MatchingService $matchingService)
 	{
 		$this->masterDbService = $masterDbService;
 		$this->userService = $userService;
         $this->imageService = $imageService;
+        $this->matchingService = $matchingService;
         $this->middleware('auth');
 	}
     /**
@@ -37,21 +40,23 @@ class UserController extends Controller
      */
     public function index($id)
     {
-        //マスターデータ
-        $idol_masters = $this->masterDbService->getMaster('idol');
-        $purpose_masters = $this->masterDbService->getMaster('purpose');
-        $prefs = $this->getPref();
+        if(Auth::id() === (int)$id){
 
-        $title = '利用登録';
+            $user = $this->userService->getUser($id);
 
-        $user = $this->userService->getUser($id);
-        // $user = App\Eloquent\User::where('id',$id)->first();
-        // return redirect()->route('profiles',[$user]);
-        return view('register')->with("prefs",$prefs)
-        					   ->with('user',$user)
-        					   ->with('idol_masters',$idol_masters)
-                               ->with('purpose_masters',$purpose_masters)
-                               ->with('title',$title);
+            $idol_masters = $this->masterDbService->getMaster('idol');
+            $purpose_masters = $this->masterDbService->getMaster('purpose');
+            $prefs = $this->getPref();
+
+            $title = '利用登録';
+
+            return view('register')->with("prefs",$prefs)
+            					   ->with('user',$user)
+            					   ->with('idol_masters',$idol_masters)
+                                   ->with('purpose_masters',$purpose_masters)
+                                   ->with('title',$title);
+        }
+        return '指定のユーザーは存在しません';
 
     }
 
@@ -72,23 +77,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     //$requestに入力されたプロフィール情報が入る
-    public function store(Request $request,$id)
+    public function store(RegisterPost $request,$id)
     {
-
-        //バリデーション
-        $this->validate($request,[
-                'name' => 'required|max:255',
-                'email' => 'required|email|unique:users,email',
-                'sex' => 'required|max:11',
-                'year' => 'required|integer',
-                'month' => 'required|integer',
-                'day' => 'required|integer',
-                'added_idol' => 'required',
-                'region' => 'required',
-                'purpose' => 'required'
-            ]);
-
-        //トランザクション
         DB::beginTransaction();
         try{
 
@@ -100,19 +90,14 @@ class UserController extends Controller
             $this->userService->createOtherProfs($request,$user,'purpose');
 
             DB::commit();
-            $result = true;
+
+            return redirect()->route('profiles',[$user]);
 
         }catch(\Exception $e){
         
             DB::rollback();
             echo $e;
-            // return back()->withInput()->with('e','プロフィール登録に失敗しました。再度お試し下さい');
-            // return redirect()->with('e','プロフィール登録に失敗しました。再度お試し下さい');
-        }
-        //レスポンスデータを返す
-        if($result){
-            // return redirect()->route('profiles',['id' => $user->id]);
-            return redirect()->route('profiles',[$user]);//Eloquentモデルを渡すと自動的にidを取り出す
+
         }
     }
 

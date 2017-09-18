@@ -16,8 +16,8 @@ class FriendController extends UserController
     public function showProfile($id,$friend_id)
     {
     	$user = $this->userService->getUser($id);
-    	// dd(get_class($user));
-    	if($user->recommends->where('friend_id',$friend_id)->first()){
+
+    	if(!$user->recommends->where('friend_id',$friend_id)->isEmpty()){
     		return $this->show($friend_id);
     	}
     	return 'ご指定の友達は存在しません';
@@ -30,6 +30,8 @@ class FriendController extends UserController
      */
     public function chooseTemplate($datas)
     {
+        $datas['hasMatched'] = $this->matchingService->hasMatched($datas['user']);
+        $datas['backUrl'] = $_SERVER['HTTP_REFERER'];
         return view('friend',$datas);
     }
 

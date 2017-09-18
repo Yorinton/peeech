@@ -178,6 +178,10 @@ $i:10;
 	background: linear-gradient(to bottom, #ffa087,#fe66a4); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa087', endColorstr='#fe66a4',GradientType=0 ); /* IE6-9 */
 }
+// 項目を分けるライン
+.separator {
+	border-bottom: $borderSeparate;
+}
 
 // 編集ボタン
 @mixin subbtn {
@@ -445,6 +449,14 @@ input[type="submit"],input[type="button"] {
     color: #b5b5b5;
     border: none;	
 }
+/* ページ右上に表示するコンテンツ */
+.content_right_top {
+	position: fixed;
+    top: 0;
+    z-index: 1000;
+    right: 0;
+    padding: 15px;
+}
 
 /*
 *
@@ -518,6 +530,10 @@ input[type="submit"],input[type="button"] {
 	position: relative;
 	background: white;
 }
+.card_detail {
+	@extend .card;
+}
+
 .negativeBtn {
 	background: #bdbea4;
 	color:white;
@@ -550,6 +566,26 @@ input[type="submit"],input[type="button"] {
 	height:150px;
 	overflow: hidden;
 }
+/* フレンドプロフィール */
+.link_back {
+	margin-left: 20px;
+    line-height: 34px;
+    margin-bottom: 0;
+}
+.link_back > a {
+	color: #444444;
+}
+.top_bar {
+	position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    margin-left: -6%;
+    background-color: white;
+    padding-top: 10px;
+}
+
+
 /*
 *
 * チャットルーム

@@ -34,10 +34,9 @@
 			},
 			removeEvent(event){
 				this.remId = this.event_names.indexOf(event);
-				this.event_names.splice(this.remId,1);
-				this.request.event = 'favorite';
 				axios.delete('/users/' + event.id, {data:{key:'event'}}).then(res => {
 					console.log(res.data);
+					this.event_names.splice(this.remId,1);
 				});
 			}
 		}

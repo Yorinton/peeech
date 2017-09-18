@@ -585,11 +585,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			});
 		},
 		removeEvent: function removeEvent(event) {
+			var _this2 = this;
+
 			this.remId = this.event_names.indexOf(event);
-			this.event_names.splice(this.remId, 1);
-			this.request.event = 'favorite';
 			axios.delete('/users/' + event.id, { data: { key: 'event' } }).then(function (res) {
 				console.log(res.data);
+				_this2.event_names.splice(_this2.remId, 1);
 			});
 		}
 	}
@@ -638,11 +639,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			});
 		},
 		removeFavorite: function removeFavorite(favorite) {
+			var _this2 = this;
+
 			this.remId = this.favorite_names.indexOf(favorite);
-			this.favorite_names.splice(this.remId, 1);
-			this.request.favorite = 'favorite';
 			axios.delete('/users/' + favorite.id, { data: { key: 'favorite' } }).then(function (res) {
 				console.log(res.data);
+				_this2.favorite_names.splice(_this2.remId, 1);
 			});
 		}
 	}
@@ -927,7 +929,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 16 */
@@ -962,7 +964,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 21 */

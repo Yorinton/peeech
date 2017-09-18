@@ -102,6 +102,17 @@ $(function(){ //即時関数にすることで外から中の変数を参照出�
 			$("#idols_" + num).addClass('disblo').removeClass('disnone').attr('name','idol');
 		});		
 	}
+	if($(location).attr('pathname').match(/^.*friend\/.*$/)){
+		console.log('成功');	
+		$('.navbar').addClass('disnone');
+		// $('.container').removeClass('mt80').addClass('mt20');
+	}
+	if($(location).attr('pathname').match(/^.*room\/.*$/)){
+		console.log('成功');	
+		$('.navbar-toggle').addClass('disnone');
+		// $('.container').removeClass('mt80').addClass('mt20');
+	}
+
 	//画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
 	$('.thumb_form').on('change', 'input[type="file"]', function(e) {
 		var file = e.target.files[0],

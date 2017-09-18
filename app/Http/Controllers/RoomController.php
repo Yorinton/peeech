@@ -46,7 +46,7 @@ class RoomController extends Controller
                     $friend = User::where('id',$room->from_user_id)->first();
                 }
 
-                return view('room')->with('room_id',$room_id)->with('title',$friend->name)->with('user',$user);
+                return view('room')->with('room_id',$room_id)->with('title',$friend->name)->with('user',$user)->with('friend',$friend)->with('backUrl',$_SERVER['HTTP_REFERER']);
             }else {
                 return "このルームには参加できません";
             }

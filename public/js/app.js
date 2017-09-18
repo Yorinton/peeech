@@ -990,11 +990,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			});
 		},
 		removeEvent: function removeEvent(event) {
+			var _this2 = this;
+
 			this.remId = this.event_names.indexOf(event);
-			this.event_names.splice(this.remId, 1);
-			this.request.event = 'favorite';
 			axios.delete('/users/' + event.id, { data: { key: 'event' } }).then(function (res) {
 				console.log(res.data);
+				_this2.event_names.splice(_this2.remId, 1);
 			});
 		}
 	}
@@ -1043,11 +1044,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			});
 		},
 		removeFavorite: function removeFavorite(favorite) {
+			var _this2 = this;
+
 			this.remId = this.favorite_names.indexOf(favorite);
-			this.favorite_names.splice(this.remId, 1);
-			this.request.favorite = 'favorite';
 			axios.delete('/users/' + favorite.id, { data: { key: 'favorite' } }).then(function (res) {
 				console.log(res.data);
+				_this2.favorite_names.splice(_this2.remId, 1);
 			});
 		}
 	}
@@ -1332,7 +1334,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 16 */
@@ -1367,7 +1369,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 21 */
@@ -16051,7 +16053,7 @@ if (typeof jQuery === 'undefined') {
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n.chatMsg {\n\tpadding:10px;\n\tborder-radius: 3px;\n}\n.composer_container {\n\twidth: 100%;\n    position: fixed;\n    bottom: 50px;\n    margin-left: -15px;\n    padding: 5px;\n    background-color: #eeeeee;\n}\n.msg_container {\n\toverflow: hidden;\n    width: 100%;\n}\n.msg_text_other {\n\tfloat: right;\n    width: 80%;\n    background-color: #f7f7f8;\n}\n.msg_text_mine {\n\tfloat: left;\n    width: 80%;\n    background-color: #ffe2db;\n}\n.msg_thumb_container {\n\twidth: 15%;\n}\n.msg_thumb {\n\twidth: 50px;\n    height: 50px;\n}\n\n", ""]);
+exports.push([module.i, "\n.chatMsg {\n\tpadding:10px;\n\tborder-radius: 3px;\n\tfont-size: 12px;\n}\n.composer_container {\n\twidth: 100%;\n    position: fixed;\n    bottom: 50px;\n    margin-left: -15px;\n    padding: 5px;\n    background-color: #eeeeee;\n}\n.msg_container {\n\toverflow: hidden;\n    width: 100%;\n}\n.msg_text_other {\n\tfloat: right;\n    width: 80%;\n    background-color: #f7f7f8;\n}\n.msg_text_mine {\n\tfloat: right;\n    width: 90%;\n    background-color: #ffe2db;\n}\n.msg_thumb_container {\n\twidth: 15%;\n}\n.msg_thumb {\n\twidth: 35px;\n    height: 35px;\n}\n\n", ""]);
 
 /***/ }),
 /* 85 */
@@ -48731,7 +48733,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }), _vm._v(" "), _c('button', {
-    staticClass: "btn btn-primary",
+    staticClass: "ml5 btn inputBaseStyle submitBtn",
     on: {
       "click": _vm.sendMessage
     }

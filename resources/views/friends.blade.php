@@ -41,7 +41,7 @@
                         <div class="introduction_sentents">
                             <p>{{ $friend->introduction }}</p>
                         </div>
-                        <p class="profile_link">
+                        <p class="profile_link mt5">
                             <a href="{{ url('/friend/'.Auth::id().'/'.$friend->id) }}">
                                 もっと見る
                                 <img src="">

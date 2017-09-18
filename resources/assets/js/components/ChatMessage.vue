@@ -18,6 +18,7 @@
 	.chatMsg {
 		padding:10px;
 		border-radius: 3px;
+		font-size: 12px;
 	}
 	.composer_container {
 		width: 100%;
@@ -37,16 +38,16 @@
 	    background-color: #f7f7f8;
 	}
 	.msg_text_mine {
-		float: left;
-	    width: 80%;
+		float: right;
+	    width: 90%;
 	    background-color: #ffe2db;
 	}
 	.msg_thumb_container {
 		width: 15%;
 	}
 	.msg_thumb {
-		width: 50px;
-	    height: 50px;
+		width: 35px;
+	    height: 35px;
 	}
 
 </style>
