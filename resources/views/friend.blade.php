@@ -25,20 +25,22 @@
                     </ul>
                 </div>
             @endif
-            <div class="disfle mb20">
+            <div class="disfle mb10">
                 <div>
                     <div>
                         <img src="{{ $user->img_path}}" class="thumb">
                     </div>
                 </div>
                 <div>
-                    <div class="form-group">
-                        <span class="fw_b text_clamp_m">{{ $user->name }}</span>
-                        <span>{{ $user->birthday }}</span>
-                        <span>{{ $user->sex }}</span>
-                        @foreach($user->regions as $region)
-                        <p>{{ $region->region }}</p>
-                        @endforeach                                      
+                    <div class="form-group ml10">
+                        <p class="name">
+                            <span class="fw_b text_clamp_m">{{ $user->name }}</span>
+                            <span>{{ $user->birthday }}</span>
+                            <span>{{ $user->sex }}</span><br>
+                            @foreach($user->regions as $region)
+                            <span>{{ $region->region }}</span>
+                            @endforeach
+                        </p>                                 
                     </div>               
                 </div>
             </div>       
