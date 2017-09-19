@@ -8,10 +8,12 @@ use App\Eloquent\User;
 use App\Eloquent\Matching;
 use App\Events\EnterChatRoom;
 use Auth;
+use App;
 
 class RoomController extends Controller
 {
     //
+    use App\Libs\DisplayData;
 
     public function __construct()
     {
@@ -67,6 +69,9 @@ class RoomController extends Controller
                 $friends = [];
                 foreach ($rooms as $room) {
                     $friend = User::whereNotIn('id',[$id])->where('id',$room->to_user_id)->orWhere('id',$room->from_user_id)->whereNotIn('id',[$id])->first();
+                        //表示用に整形
+                        $friend->birthday = $this->birthdayFormat($friend->birthday);
+                        $friend->sex = $this->sexFormat($friend->sex);
                         $friends[] = $friend;
                 }
                 //roomsのfrom_user_idかto_user_idに自分のidが入っているroomを取得

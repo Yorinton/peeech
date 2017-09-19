@@ -6,9 +6,12 @@ use App\Eloquent\User as User;
 use App\Eloquent\Matching as Matching;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App;
 
 class MatchingController extends Controller
 {
+
+    use App\Libs\DisplayData;
 
     public function __construct()
     {
@@ -26,11 +29,14 @@ class MatchingController extends Controller
     	    	foreach ($matchings as $matching) {
                     if(Matching::where('from_user_id',$matching->to_user_id)->where('to_user_id',$matching->from_user_id)->where('judge',1)->exists()){
                         $friend = User::where('id',$matching->to_user_id)->first();
+                        //表示用に整形
+                        $friend->birthday = $this->birthdayFormat($friend->birthday);
+                        $friend->sex = $this->sexFormat($friend->sex);
                         $friends[] = $friend;
                     }
     	    	}
                 if(count($friends) > 0){
-        		  return view('matchings')->with('friends',$friends)->with('title',$title)->with('user',$user);
+                    return view('matchings')->with('friends',$friends)->with('title',$title)->with('user',$user);
                 }
         	}
         	$m = 'まだマッチングしたファン友はいません';

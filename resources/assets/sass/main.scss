@@ -295,7 +295,7 @@ $i:20;
     overflow: hidden;
 }
 .list_border {
-	border-top:1px solid rgba(0,0,0,.1);
+	border-bottom:$borderSeparate;
 }
 /*
 *
@@ -309,6 +309,10 @@ $i:20;
 // body {
 // 	height: 100%;
 // }
+
+a {
+	color:#636b6f;
+}
 
 /* セレクトボックス */
 select {
@@ -493,17 +497,21 @@ input[type="submit"],input[type="button"] {
     object-fit: cover;
     border-radius: 50%;
 }
+.thumb_middle {
+	@extend .thumb;
+	width:70px;
+	height: 70px;
+}
+
 .thumb_mini {
+	@extend .thumb;
 	width: 50px;
     height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
 }
 .thumb_mini_s {
+	@extend .thumb;
 	width: 20px;
     height: 20px;
-    object-fit: cover;
-    border-radius: 50%;
 }
 .thumb_form {
 	text-align: center;
