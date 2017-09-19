@@ -3,21 +3,21 @@
 @section('content')
 <div class="container mb50 mt50">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8 col-md-offset-2 mt10">
             @if(isset($friends))
             @foreach($friends as $friend)
             <div class="matching_friend">
                 <!-- <a> -->
                 <div class="of_h pt10 pb10 list_border to_room">
-                    <img class="thumb_mini" src="{{ $friend->img_path}}">
-                    <div class="fr wd80">
-                        <p class="mb0">{{ $friend->name }}</p>
-                        <p class="mb0">20代前半 / {{ $friend->sex}} / 
+                    <img class="thumb_middle" src="{{ $friend->img_path}}">
+                    <div class="fr wd70">
+                        <p class="mb0 fw_b text_clamp_s fs15">{{ $friend->name }}</p>
+                        <p class="mb0 fs13">{{ $friend->birthday }} / {{ $friend->sex}} / 
                             @foreach($friend->regions as $region)
                             <span>{{ $region->region }}</span>
                             @endforeach
                         </p>
-                        <p class="mb0 text_clamp_s">{{ $friend->introduction}}</p>
+                        <p class="mb0 text_clamp_m fs10">{{ $friend->introduction}}</p>
                     </div>
                     <form method="post" action="{{ url('/room') }}" class="disnone make_room">
                         {{ csrf_field() }}

@@ -422,14 +422,25 @@ var prof = new Vue({
 	el: '#prof',
 	methods: {
 		editValue: function editValue(req) {
-			axios.patch('/users/' + req.id, req.request).then(function (res) {
-				if (res.data.result === '成功') {
-					$(".msg_cover").addClass('msg_appear');
-					setTimeout(function () {
-						$('.msg_cover').removeClass('msg_appear');
-					}, 3000);
-				}
-			});
+			if (!req.request.region) {
+				axios.patch('/user/' + req.id, req.request).then(function (res) {
+					if (res.data) {
+						$(".msg_cover").addClass('msg_appear');
+						setTimeout(function () {
+							$('.msg_cover').removeClass('msg_appear');
+						}, 3000);
+					}
+				});
+			} else {
+				axios.patch('/region/' + req.id, req.request).then(function (res) {
+					if (res.data) {
+						$(".msg_cover").addClass('msg_appear');
+						setTimeout(function () {
+							$('.msg_cover').removeClass('msg_appear');
+						}, 3000);
+					}
+				});
+			}
 		}
 	}
 });
@@ -469,7 +480,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			console.log(act.activity);
 			this.addedActs.push(act);
 			this.request.activity = act.activity;
-			axios.post('/users/' + this.user.id, this.request).then(function (res) {
+			axios.post('/activity/' + this.user.id, this.request).then(function (res) {
 				console.log(res.data);
 			});
 		},
@@ -568,17 +579,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			console.log(this.event);
 			this.request.event = this.event;
-			axios.post('/users/' + this.user.id, this.request).then(function (res) {
+			axios.post('/event/' + this.user.id, this.request).then(function (res) {
 				console.log(res.data.event);
 				_this.event_names.push(res.data.event);
 			});
 		},
 		removeEvent: function removeEvent(event) {
+			var _this2 = this;
+
 			this.remId = this.event_names.indexOf(event);
-			this.event_names.splice(this.remId, 1);
-			this.request.event = 'favorite';
 			axios.delete('/users/' + event.id, { data: { key: 'event' } }).then(function (res) {
 				console.log(res.data);
+				_this2.event_names.splice(_this2.remId, 1);
 			});
 		}
 	}
@@ -621,17 +633,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			console.log(this.favorite);
 			this.request.favorite = this.favorite;
-			axios.post('/users/' + this.user.id, this.request).then(function (res) {
+			axios.post('/favorite/' + this.user.id, this.request).then(function (res) {
 				console.log(res.data.favorite);
 				_this.favorite_names.push(res.data.favorite);
 			});
 		},
 		removeFavorite: function removeFavorite(favorite) {
+			var _this2 = this;
+
 			this.remId = this.favorite_names.indexOf(favorite);
-			this.favorite_names.splice(this.remId, 1);
-			this.request.favorite = 'favorite';
 			axios.delete('/users/' + favorite.id, { data: { key: 'favorite' } }).then(function (res) {
 				console.log(res.data);
+				_this2.favorite_names.splice(_this2.remId, 1);
 			});
 		}
 	}
@@ -710,7 +723,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			this.request.idol = $("select[name='idol'] > option:selected").text();
 			console.log(this.request.idol);
-			axios.post('/users/' + this.user.id, this.request).then(function (res) {
+			axios.post('/idol/' + this.user.id, this.request).then(function (res) {
 				console.log(res.data);
 				_this.idol_names.push(res.data.idol); //res.data = ['idol' => request('idol')]
 			});
@@ -893,7 +906,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 			this.addedStatues.push(statue);
 			this.request.statue_id = statue.id;
-			axios.post('/users/' + this.user.id, this.request).then(function (res) {
+			axios.post('/statue/' + this.user.id, this.request).then(function (res) {
 				console.log(res.data.statue.id);
 				_this.addedStatues.push(res.data.statue);
 			});
@@ -916,7 +929,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 16 */
@@ -951,7 +964,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 21 */
@@ -1628,7 +1641,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "form-control inputBaseStyle mr10",
     attrs: {
       "name": "email",
-      "type": "text",
+      "type": "email",
       "placeholder": "sample@example.com",
       "required": ""
     },

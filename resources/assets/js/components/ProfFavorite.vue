@@ -27,17 +27,16 @@
 			addFavorite(){
 				console.log(this.favorite);
 				this.request.favorite = this.favorite;
-				axios.post('/users/' + this.user.id,this.request).then(res => {
+				axios.post('/favorite/' + this.user.id,this.request).then(res => {
 					console.log(res.data.favorite);
 					this.favorite_names.push(res.data.favorite);
 				});
 			},
 			removeFavorite(favorite){
 				this.remId = this.favorite_names.indexOf(favorite);
-				this.favorite_names.splice(this.remId,1);
-				this.request.favorite = 'favorite';
 				axios.delete('/users/' + favorite.id, {data:{key:'favorite'}}).then(res => {
 					console.log(res.data);
+					this.favorite_names.splice(this.remId,1);
 				});
 			}
 		}

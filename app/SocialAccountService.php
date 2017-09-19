@@ -25,12 +25,7 @@ class SocialAccountService
 		//SNSアカウントが存在する場合、関連するUserインスタンスを取得(アカウント作成済み = ログイン)
 		if($account){
 
-			// ここにemail、名前、画像パスに変更がある場合にupdateする処理を書く
 			$user = $account->user;
-			// $user->email = $providerUser->getEmail();
-			// $user->name = $providerUser->getName();
-			// $user->img_path = $providerUser->getAvatar();
-			// $user->save();
 
 			// ステータスとユーザーを返す
 			$result = array('login',$user);
@@ -46,11 +41,17 @@ class SocialAccountService
 			//
 			if(!$user){
 				//SNSアカウントのemailとnameを使ってUserインスタンスを作成しテーブルに保存
-				$user = User::create([
-					'email' => encrypt($providerUser->getEmail()),
-					'name' => $providerUser->getName(),
-					'img_path' => $providerUser->getAvatar(),
-				]);
+				$email = encrypt($providerUser->getEmail());
+				$user = new User();
+				$user->email = $email;
+				$user->name = $providerUser->getName();
+				$user->img_path = $providerUser->getAvatar();
+				$user->save();
+				// $user = User::create([
+				// 	'email' => $email,
+				// 	'name' => $providerUser->getName(),
+				// 	'img_path' => $providerUser->getAvatar(),
+				// ]);
 			}
 
 			//Userに関連するLinkedSocialAccountインスタンスを作成

@@ -33,7 +33,7 @@
                         <select name="year" class="form-control inputBaseStyle mr20 he30 fs12">
                             <option>年</option>
                             @for($i=2002;$i > 1949;$i--)
-                                @if(isset($birthArr) and (int)$birthArr[0] === $i)
+                                @if(old('year') == $i)
                                 <option selected>{{ $i }}</option>
                                 @else
                                 <option>{{ $i }}</option>
@@ -43,7 +43,7 @@
                         <select name="month" class="form-control inputBaseStyle mr20 he30 fs12">
                             <option>月</option>
                             @for($i=1;$i < 13;$i++)
-                                @if(isset($birthArr) and (int)$birthArr[0] === $i)
+                                @if(old('month') == $i)
                                 <option selected>{{ $i }}</option>
                                 @else
                                 <option>{{ $i }}</option>
@@ -53,7 +53,7 @@
                         <select name="day" class="form-control inputBaseStyle he30 fs12">
                             <option>日</option>
                             @for($i=1;$i < 32;$i++)
-                                @if(isset($birthArr) and (int)$birthArr[2] === $i)
+                                @if(old('day') == $i)
                                 <option selected>{{ $i }}</option>
                                 @else
                                 <option>{{ $i }}</option>
@@ -70,10 +70,6 @@
                         <input type="radio" name="sex" value="female" id="female" class="disnone">
                         <label class="sex_label tag_no_select" for="female">女性</label>
                     </div>
-                  <!--   <select name="sex" class="form-control" id="" required>
-                        <option value="male">男</option>
-                        <option value="female">女</option>
-                    </select> -->
                 </div>                                               
                 <div class="form-group mb20">
                     <label for="" class="label_prof wd80"><span>好きなアイドル</span></label><span class="required">必須</span>
@@ -177,7 +173,7 @@
                             <div class="checkbox_container mb10">
                                 <label for="{{ $purpose_master->id}}" class="fs10 checkbox_{{ $purpose_master->id}}">
                                 <img class="thumb_mini_s img_checkbox_{{ $purpose_master->id}} mr5" src="../../images/icons/no_checked.png">{{ $purpose_master->purpose }}</label>
-                                <input type="checkbox" name="purpose[]" value="{{ $purpose_master->id}}" class="{{ $purpose_master->id}} disnone">
+                                <input id="{{ $purpose_master->id}}" type="checkbox" name="purpose[]" value="{{ $purpose_master->id}}" class="{{ $purpose_master->id}} disnone">
                             </div>
                         @endforeach
                     @endif 

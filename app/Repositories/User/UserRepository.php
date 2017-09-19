@@ -48,6 +48,10 @@ class UserRepository implements UserRepositoryInterface
 	public function createUserProfsById($request,$id)
 	{
         $user = $this->getUserById($id);//SNS認証で作成したUserに変更予定
+
+        if($request->email){
+        	$user->email = encrypt($request->email);
+        }
         $user->name = $request->name;
         // $user->email = encrypt($request->email);
         $user->sex = $request->sex;
@@ -108,11 +112,13 @@ class UserRepository implements UserRepositoryInterface
 	      	}
 	      	$model->save();
 	      	DB::commit();
+	      	return $model;
       	}catch(\Exception $e){
       		DB::rollback();
       		echo $e;
       		exit();
       	}
+
 	}
 
 	public function editOtherProfsSingleByUser($request,$user,$key)
@@ -124,8 +130,8 @@ class UserRepository implements UserRepositoryInterface
 			$model = $className::where('user_id',$user->id)->first();
 			$model->$key = $request->$key;
 			$model->save();
-
 			DB::commit();
+			return $model;
 		}catch(\Exception $e){
 			DB::rollback();
 			echo $e;

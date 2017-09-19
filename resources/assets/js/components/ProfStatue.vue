@@ -25,7 +25,7 @@
 			addStatue(statue){
 				this.addedStatues.push(statue);
 				this.request.statue_id = statue.id;
-				axios.post('/users/' + this.user.id, this.request).then(res => {
+				axios.post('/statue/' + this.user.id, this.request).then(res => {
 					console.log(res.data.statue.id);
 					this.addedStatues.push(res.data.statue);
 				});		

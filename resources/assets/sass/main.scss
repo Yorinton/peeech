@@ -57,6 +57,19 @@ $i:1;
 	}
 	$i:$i + 1;	
 }
+/* mr %指定 */
+.mr5p {
+	margin-right: 5%;
+}
+.mr10p {
+	margin-right: 10%;
+}
+.mr15p {
+	margin-right: 15%;
+}
+.mr_a {
+	margin-right: auto;
+}
 /* margin-left */
 $i:1;
 @while $i <= 10 {
@@ -65,6 +78,21 @@ $i:1;
 	}
 	$i:$i + 1;	
 }
+/* ml %指定 */
+.ml5p {
+	margin-left: 5%;
+}
+.ml10p {
+	margin-left: 10%;
+}
+.ml15p {
+	margin-left: 15%;
+}
+.ml_a {
+	margin-left: auto;
+}
+
+
 /* padding-bottom */
 $i:0;
 @while $i <= 50 {
@@ -103,7 +131,14 @@ $i:10;
 	.lh#{$i} {
 		line-height:#{$i}px;
 	}
-	$i:$i + 10;	
+	$i:$i + 2;	
+}
+/* height %指定 */
+.ht80 {
+	height: 80%;
+}
+.ht100 {
+	height: 100%;
 }
 
 /* 背景色 */
@@ -112,6 +147,14 @@ $i:10;
 }
 .bg_grey {
 	background-color: lightgrey!important;
+}
+
+/* フォントウェイト */
+.fw_b {
+	font-weight: bold;
+}
+.fw_n {
+	font-weight: normal;
 }
 
 
@@ -134,6 +177,10 @@ $i:10;
 	background: -ms-linear-gradient(top,  #ffa087,#fe66a4); /* IE10+ */
 	background: linear-gradient(to bottom, #ffa087,#fe66a4); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa087', endColorstr='#fe66a4',GradientType=0 ); /* IE6-9 */
+}
+// 項目を分けるライン
+.separator {
+	border-bottom: $borderSeparate;
 }
 
 // 編集ボタン
@@ -188,6 +235,9 @@ $i:10;
 }
 .wd50 {
 	width:50%;
+}
+.wd55 {
+	width:55%;
 }
 .wd60 {
 	width:60%;
@@ -245,20 +295,31 @@ $i:20;
     overflow: hidden;
 }
 .list_border {
-	border-top:1px solid rgba(0,0,0,.1);
+	border-bottom:$borderSeparate;
 }
 /*
 *
 * 共通スタイル
 *
 */
+/* html */
+// html {
+// 	height: 100%;
+// }
+// body {
+// 	height: 100%;
+// }
+
+a {
+	color:#636b6f;
+}
+
 /* セレクトボックス */
 select {
 	-webkit-appearance: none!important;
 	-moz-appearance: none!important;
 	appearance: none!important;	
 }
-
 /* 表示 / 非表示 */
 .disnone {
 	display:none;
@@ -392,6 +453,14 @@ input[type="submit"],input[type="button"] {
     color: #b5b5b5;
     border: none;	
 }
+/* ページ右上に表示するコンテンツ */
+.content_right_top {
+	position: fixed;
+    top: 0;
+    z-index: 1000;
+    right: 0;
+    padding: 15px;
+}
 
 /*
 *
@@ -414,6 +483,7 @@ input[type="submit"],input[type="button"] {
 	color:white;
 	font-weight: bold;
 	-webkit-font-smoothing: antialiased;
+	border:none;
 }
 .registerBtn {
 	@extend .submitBtn;
@@ -427,17 +497,21 @@ input[type="submit"],input[type="button"] {
     object-fit: cover;
     border-radius: 50%;
 }
+.thumb_middle {
+	@extend .thumb;
+	width:70px;
+	height: 70px;
+}
+
 .thumb_mini {
+	@extend .thumb;
 	width: 50px;
     height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
 }
 .thumb_mini_s {
+	@extend .thumb;
 	width: 20px;
     height: 20px;
-    object-fit: cover;
-    border-radius: 50%;
 }
 .thumb_form {
 	text-align: center;
@@ -453,27 +527,73 @@ input[type="submit"],input[type="button"] {
 * 今日のファン友
 *
 */
+.card_container {
+	background: #f7f7f8;
+}
 .card {
 	box-shadow:2px 2px 3px rgba(0,0,0,.3);
 	border-radius:3px;
 	padding:5%;
 	border:1px solid lightgrey;
+	position: relative;
+	background: white;
 }
+.card_detail {
+	@extend .card;
+}
+
 .negativeBtn {
 	background: #bdbea4;
 	color:white;
 	font-weight: bold;
 	-webkit-font-smoothing: antialiased;
+	border:none;
 }
 .name {
-	height: 100px;
+	height: 80px;
     display: table-cell;
     vertical-align: middle;	
+	padding-left: 5%;
+    padding-right: 5%;
+    width:100%;
 }
 .profile_link > a{
-	color:$linkColor;
+	color:$baseColorPink;
 	font-weight: bold;
 }
+.tag_container {
+	height: 34px;
+    overflow: hidden;	
+}
+.btn_judge_container {
+	position: absolute;
+    width: 90%;
+    bottom: 0;
+}
+.introduction_sentents {
+	height:150px;
+	overflow: hidden;
+}
+/* フレンドプロフィール */
+.link_back {
+	margin-left: 20px;
+    line-height: 34px;
+    margin-bottom: 0;
+}
+.link_back > a {
+	color: #444444;
+}
+.top_bar {
+	position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    margin-left: -6%;
+    background-color: white;
+    padding-top: 10px;
+}
+
+
 /*
 *
 * チャットルーム

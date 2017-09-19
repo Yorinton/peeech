@@ -27,17 +27,16 @@
 			addEvent(){
 				console.log(this.event);
 				this.request.event = this.event;
-				axios.post('/users/' + this.user.id,this.request).then(res => {
+				axios.post('/event/' + this.user.id,this.request).then(res => {
 					console.log(res.data.event);
 					this.event_names.push(res.data.event);
 				});
 			},
 			removeEvent(event){
 				this.remId = this.event_names.indexOf(event);
-				this.event_names.splice(this.remId,1);
-				this.request.event = 'favorite';
 				axios.delete('/users/' + event.id, {data:{key:'event'}}).then(res => {
 					console.log(res.data);
+					this.event_names.splice(this.remId,1);
 				});
 			}
 		}

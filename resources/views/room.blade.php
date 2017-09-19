@@ -3,6 +3,9 @@
 @section('content')
 <div class="container mb100 mt50">
     <div class="row">
+        <div class="content_right_top">
+            <a href="{{ url('/friend/'.Auth::id().'/'.$friend->id) }}">プロフ</a>
+        </div>
         <div class="col-md-8 col-md-offset-2">
         	<div class="form-group">
         		<div id="app">
