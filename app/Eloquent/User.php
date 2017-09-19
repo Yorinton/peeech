@@ -81,7 +81,11 @@ class User extends Authenticatable
     }
     public function rooms()
     {
-        return $this->hasMany(Room::class);
+        return $this->hasMany(Room::class,'from_user_id');
+    }
+    public function roomsTo()
+    {
+        return $this->hasMany(Room::class,'to_user_id');
     }
     public function messages()
     {

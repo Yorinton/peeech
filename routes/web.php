@@ -91,7 +91,7 @@ Route::get('/home', 'HomeController@subindex');
 Route::post('/room','RoomController@setRoom');
 
 // チャットルーム入室(取得)
-Route::get('/room/{room_id}','RoomController@getRoom')->name('room');
+Route::get('/room/{room_id}','RoomController@showRoom')->name('room');
 
 //ルーム内メッセージ取得
 Route::get('/messages/{room_id}',function($room_id){
@@ -121,7 +121,7 @@ Route::post('/messages',function(){
 })->middleware('auth');
 
 //ルーム一覧取得
-Route::get('/rooms/{id}','RoomController@show');
+Route::get('/rooms/{id}','RoomController@showChatLists');
 
 Auth::routes();
 
