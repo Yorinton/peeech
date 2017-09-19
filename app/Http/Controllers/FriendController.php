@@ -31,8 +31,18 @@ class FriendController extends UserController
     public function chooseTemplate($datas)
     {
         $datas['hasMatched'] = $this->matchingService->hasMatched($datas['user']);
-        $datas['backUrl'] = $_SERVER['HTTP_REFERER'];
+        $datas['backUrl'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'http://dammie.com';
+        $datas['backUrlClass'] = $this->isBackUrl();
         return view('friend',$datas);
+    }
+
+    //直前のURLが存在するか(直アクセスでないかどうか)チェック
+    public function isBackUrl()
+    {
+        if(isset($_SERVER['HTTP_REFERER'])){
+            return 'disblo';
+        }
+        return 'disnone';
     }
 
 }

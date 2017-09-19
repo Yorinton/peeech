@@ -5,7 +5,7 @@
     <div class="row" id="prof">
         <msg></msg>
         <div class="sp-between pb10 top_bar">
-            <p class="link_back"><a href="{{ $backUrl }}">戻る</a></p>
+            <p class="link_back"><a class="{{ $backUrlClass }}" href="{{ $backUrl }}">戻る</a></p>
             @if($hasMatched)
             <form method="post" action="{{ url('/room') }}" class="fr">
                 {{ csrf_field() }}
