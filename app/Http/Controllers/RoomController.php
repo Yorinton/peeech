@@ -73,7 +73,7 @@ class RoomController extends Controller
         return view('rooms')->with('friends',$friends)->with('title',$this->title);  
     }
 
-    public function setTitle($value)
+    protected function setTitle($value)
     {
         return $this->title = $value;
     }

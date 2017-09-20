@@ -73,8 +73,8 @@ class User extends Authenticatable
     }
     public function matchings()
     {
-        return $this->hasMany(Matching::class);
-    }    
+        return $this->hasMany(Matching::class,'from_user_id');
+    }
     public function accounts()
     {
         return $this->hasMany(LinkedSocialAccount::class);

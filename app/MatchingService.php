@@ -20,9 +20,7 @@ class MatchingService
 
 	public function hasMatched($friend)
 	{
-		$friend_id = $friend->id;
-		// dd($this->matching->hasMatched($friend_id));
-		return $this->matching->hasMatched($friend_id);
+		return $this->matching->hasMatched($friend->id);
 	}
 
 }

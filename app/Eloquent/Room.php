@@ -78,7 +78,8 @@ class Room extends Model
 
 	    if($user->id === $room->from_user_id){
 	        return User::where('id',$room->to_user_id)->first();
-	    }elseif($user->id === $room->to_user_id) {
+        }
+	    if($user->id === $room->to_user_id) {
 	        return User::where('id',$room->from_user_id)->first();
 	    }
     }
@@ -98,8 +99,7 @@ class Room extends Model
     }
 
 
-
-
+    //ルームIDからルームを取得
     public function findRoomById($room_id)
     {
     	return Room::findOrFail($room_id);

@@ -7,7 +7,7 @@
             @if(isset($friends))
             @foreach($friends as $friend)
             <div class="matching_friend">
-                <a class="" href="{{ url('/friend/'.$user->id.'/'.$friend->id) }}">
+                <a class="" href="{{ url('/friend/'.Auth::id().'/'.$friend->id) }}">
                     <div class="of_h pt10 pb10 list_border">
                         <img class="thumb_middle" src="{{ $friend->img_path}}">
                         <div class="fr wd70">

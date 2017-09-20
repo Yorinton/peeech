@@ -66,7 +66,7 @@ Route::post('/matchings/{from_user_id}','RecommendController@judge');
 **/
 
 //マッチング相手一覧取得
-Route::get('/matchings/{id}','MatchingController@show');
+Route::get('/matchings/{id}','MatchingController@showMatchedFriends');
 
 
 /**
