@@ -23,7 +23,7 @@
 	.composer_container {
 		width: 100%;
 	    position: fixed;
-	    bottom: 50px;
+	    bottom: 0;
 	    margin-left: -15px;
 	    padding: 5px;
 	    background-color: #eeeeee;

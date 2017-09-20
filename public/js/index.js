@@ -110,7 +110,21 @@ $(function(){ //即時関数にすることで外から中の変数を参照出�
 	if($(location).attr('pathname').match(/^.*room\/.*$/)){
 		console.log('成功');	
 		$('.navbar-toggle').addClass('disnone');
+		$('footer').addClass('disnone');
 		// $('.container').removeClass('mt80').addClass('mt20');
+	}
+	//メニューボタン出しわけ
+	if($(location).attr('pathname').match(/^.*friends\/.*$/)){
+		$('.menu1').attr('src','../../images/icons/menu_color/menu1.png');
+	}
+	if($(location).attr('pathname').match(/^.*matchings\/.*$/)){
+		$('.menu2').attr('src','../../images/icons/menu_color/menu2.png');
+	}
+	if($(location).attr('pathname').match(/^.*rooms\/.*$/)){
+		$('.menu3').attr('src','../../images/icons/menu_color/menu3.png');
+	}
+	if($(location).attr('pathname').match(/^.*profiles\/.*$/)){
+		$('.menu4').attr('src','../../images/icons/menu_color/menu4.png');
 	}
 
 	//画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録

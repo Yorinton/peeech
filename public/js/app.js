@@ -16053,7 +16053,7 @@ if (typeof jQuery === 'undefined') {
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n.chatMsg {\n\tpadding:10px;\n\tborder-radius: 3px;\n\tfont-size: 12px;\n}\n.composer_container {\n\twidth: 100%;\n    position: fixed;\n    bottom: 50px;\n    margin-left: -15px;\n    padding: 5px;\n    background-color: #eeeeee;\n}\n.msg_container {\n\toverflow: hidden;\n    width: 100%;\n}\n.msg_text_other {\n\tfloat: right;\n    width: 80%;\n    background-color: #f7f7f8;\n}\n.msg_text_mine {\n\tfloat: right;\n    width: 90%;\n    background-color: #ffe2db;\n}\n.msg_thumb_container {\n\twidth: 15%;\n}\n.msg_thumb {\n\twidth: 35px;\n    height: 35px;\n}\n\n", ""]);
+exports.push([module.i, "\n.chatMsg {\n\tpadding:10px;\n\tborder-radius: 3px;\n\tfont-size: 12px;\n}\n.composer_container {\n\twidth: 100%;\n    position: fixed;\n    bottom: 0;\n    margin-left: -15px;\n    padding: 5px;\n    background-color: #eeeeee;\n}\n.msg_container {\n\toverflow: hidden;\n    width: 100%;\n}\n.msg_text_other {\n\tfloat: right;\n    width: 80%;\n    background-color: #f7f7f8;\n}\n.msg_text_mine {\n\tfloat: right;\n    width: 90%;\n    background-color: #ffe2db;\n}\n.msg_thumb_container {\n\twidth: 15%;\n}\n.msg_thumb {\n\twidth: 35px;\n    height: 35px;\n}\n\n", ""]);
 
 /***/ }),
 /* 85 */
