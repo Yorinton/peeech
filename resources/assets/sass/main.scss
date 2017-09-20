@@ -297,18 +297,21 @@ $i:20;
 .list_border {
 	border-bottom:$borderSeparate;
 }
+.text_align_c {
+	text-align: center;
+}
+.text_align_l {
+	text-align: left;
+}
+.text_align_r {
+	text-align: right;
+}
+
 /*
 *
 * 共通スタイル
 *
 */
-/* html */
-// html {
-// 	height: 100%;
-// }
-// body {
-// 	height: 100%;
-// }
 
 a {
 	color:#636b6f;
@@ -596,8 +599,14 @@ input[type="submit"],input[type="button"] {
 
 /*
 *
-* チャットルーム
+* 非会員TOPページ
 *
 */
+.hero_img {
+	background:url('../../images/top/hero.png') no-repeat top center;
+}
+.panel {
+	background: none;
+}
 
 

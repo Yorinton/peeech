@@ -146,16 +146,6 @@
                         <span class="del_idol"></span>
                     </div>                   
                 </div>
-<!--                 <div class="form-group">
-                    <label for="" class="label_prof">推し</label>
-                    <input name="favorite" type="text" class="form-control form-favorite" placeholder="" id="">
-                    <p>
-                        <a class="btn btn-success btn-favorite"> + </a>
-                    </p>
-                    <div>
-                        <span class="del_favorite"></span>
-                    </div>
-                </div> -->
                 <div class="form-group mb20">
                     <label for="" class="label_prof wd80"><span>居住地域</span></label><span class="required">必須</span>
                     <select name="region[]" type="text" class="form-control inputBaseStyle mt10" id="">
@@ -179,32 +169,6 @@
                     @endif 
                     </div>                 
                 </div>
-<!--                 <div class="form-group">
-                    <label for="" class="label_prof">どんな人と繋がりたい？</label>
-                    <p>
-                        <input type="checkbox" name="statue[]" value="1" checked="checked">statue1
-                    </p>
-                    <p>
-                        <input type="checkbox" name="statue[]" value="2" checked="checked">statue2
-                    </p>
-                    <p>
-                        <input type="checkbox" name="statue[]" value="3" checked="checked">statue3
-                    </p>
-                </div> -->
-<!--                 <div class="form-group">
-                    <label for="" class="label_prof">参加予定イベント</label>
-                    <input name="event" type="text" class="form-control form-event" placeholder="参加予定イベント" id="">
-                    <p>
-                        <a class="btn btn-success btn-event"> + </a>
-                    </p>
-                    <div>
-                        <span class="del_event"></span>
-                    </div>
-                </div> -->
-<!--                 <div class="form-group">
-                    <label for="" class="label_prof">自己紹介</label>
-                    <textarea name="introduction" class="form-control" placeholder="自己紹介" id="" rows="20" required>{{ old('introduction',$user->introduction) }}</textarea>
-                </div> -->
                 <div class="form-group submitBtnContainer">
                     <input class="form-control registerBtn" type="submit" value="登録">
                 </div>           
