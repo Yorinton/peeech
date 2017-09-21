@@ -32,8 +32,7 @@ class RecommendController extends Controller
 					$friends = $this->recommendService->getRecommendListsById($id);
 
 			    }else{
-			    	$m = '次のレコメンドをお待ち下さい';
-			    	return view('friends')->with('m',$m)->with('title',$title);
+			    	return view('friends')->with('title',$title);
 			    }
 		    	return view('friends')->with('id',$id)
 		    						  ->with('friends',$friends)

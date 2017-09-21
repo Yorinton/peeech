@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mb50 mt50 pt15 ht100 card_container">
+<div class="container pb50 mt50 pt15 ht100 card_container">
     <div class="row ht100">
         <div class="col-md-8 col-md-offset-2 ht100">
             @if(isset($m))
@@ -63,6 +63,9 @@
                 </div>
                 @endforeach
             @endif
+            <div class="card card_no_match mb10 ht80 disnone">
+                <img class="wd100" src="../../images/services/friend_finish.png">
+            </div>
         </div>
     </div>
 </div>

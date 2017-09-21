@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mb100 mt50">
+<div class="container mb30 mt50">
     <div class="row">
         <div class="content_right_top">
             <a href="{{ url('/friend/'.Auth::id().'/'.$friend->id) }}">プロフ</a>

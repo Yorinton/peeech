@@ -3,9 +3,11 @@
 @section('content')
 <div class="container mb50 mt50">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 mt10">
-            @if(isset($friends))
-            @foreach($friends as $friend)
+        <div class="col-md-8 col-md-offset-2">
+            @if(isset($friends))     
+            <div class="convert_to_max_size_of_page">
+                <img class="wd100" src="../../images/services/match.png">
+            </div>            @foreach($friends as $friend)
             <div class="matching_friend">
                 <a class="" href="{{ url('/friend/'.Auth::id().'/'.$friend->id) }}">
                     <div class="of_h pt10 pb10 list_border">

@@ -3,20 +3,22 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 pt20 hero_img text_align_c">
-            <header>
-                <div class="text_align_c">
-                    <h1 class="fs18">好きなアイドルでつながる<br>アイドルファン限定<br>友達作りサービス</h1>
-                    <h2><img class="wd80" src="../../images/top/logo.png" alt="Peeech"></h2>
-                </div>
-                <div class="panel">
-                    <div class="panel-body text_align_c">    
-                        <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd100 mb10">Twitterで登録・ログイン</a>
-                        <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd100">Facebookで登録・ログイン</a>
+        <div class="col-md-8 col-md-offset-2 pt20 text_align_c">
+            <header class="header hero_img">
+                <div class="wd100 ht100 header_content">
+                    <div class="text_align_c">
+                        <h1 class="fs18">好きなアイドルでつながる<br>アイドルファン限定<br>友達作りサービス</h1>
+                        <h2><img class="wd80" src="../../images/top/logo.png" alt="Peeech"></h2>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-body text_align_c">    
+                            <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd100 mb10">Twitterで登録・ログイン</a>
+                            <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd100">Facebookで登録・ログイン</a>
+                        </div>
                     </div>
                 </div>
             </header>
-            <section>
+            <section class="mt300">
                 <h2>アイドルファン活動をより楽しくする出会い</h2>                
                 <div>
                     <p>Peeechは、アイドルファンの「ファン同士でつながりたい」「一緒にこんなことをしてみたい」を実現し、ファン活動がより充実・楽しくなるアイドルファンに特化した友達作りサービスです。</p>

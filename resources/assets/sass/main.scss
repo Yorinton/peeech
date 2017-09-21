@@ -43,7 +43,7 @@ $i:0;
 }
 /* margin-top */
 $i:0;
-@while $i <= 120 {
+@while $i <= 300 {
 	.mt#{$i} {
 		margin-top:#{$i}px;
 	}
@@ -268,6 +268,11 @@ $i:20;
 	}
 	$i:$i + 5;	
 }
+.convert_to_max_size_of_page {
+	margin-left: $sideMarginOfContainer;
+	margin-right: $sideMarginOfContainer;
+}
+
 
 //フロート
 .fr {
@@ -326,6 +331,7 @@ select {
 	-moz-appearance: none!important;
 	appearance: none!important;	
 }
+
 /* 表示 / 非表示 */
 .disnone {
 	display:none;
@@ -349,6 +355,12 @@ input[type="submit"],input[type="button"] {
     padding: 5px 0;
     box-shadow: 0 -0.5px 3px rgba(0, 0, 0, 0.2);
 }
+.menu_footer {
+	padding:0 3%;	
+}
+
+
+
 /* プロフィールラベル */
 .label_prof {
 	@include index;
@@ -547,6 +559,10 @@ input[type="submit"],input[type="button"] {
 .card_detail {
 	@extend .card;
 }
+.card_no_match {
+	@extend .card;
+	padding:0;
+}
 
 .negativeBtn {
 	background: #bdbea4;
@@ -599,7 +615,6 @@ input[type="submit"],input[type="button"] {
     padding-top: 10px;
 }
 
-
 /*
 *
 * 非会員TOPページ
@@ -607,9 +622,20 @@ input[type="submit"],input[type="button"] {
 */
 .hero_img {
 	background:url('../../images/top/hero.png') no-repeat top center;
+	background-size: 180%;
 }
 .panel {
 	background: none;
+}
+.header {
+    position: absolute;
+	left: 0;
+    top: 0;
+}
+.header_content {
+	margin-top: -20px;
+    padding-top: 20px;
+    background: rgba(0,0,0,.3);
 }
 
 
