@@ -27,7 +27,7 @@
 
 /* フォントサイズ */
 $i:10;
-@while $i <= 18 {
+@while $i <= 30 {
 	.fs#{$i} {
 		font-size:#{$i}px;
 	}
@@ -111,7 +111,7 @@ $i:0;
 }
 /* padding-right */
 $i:1;
-@while $i <= 10 {
+@while $i <= 20 {
 	.pr#{$i} {
 		padding-right:#{$i}px;
 	}
@@ -119,7 +119,7 @@ $i:1;
 }
 /* padding-left */
 $i:1;
-@while $i <= 10 {
+@while $i <= 20 {
 	.pl#{$i} {
 		padding-left:#{$i}px;
 	}
@@ -156,6 +156,10 @@ $i:10;
 .fw_n {
 	font-weight: normal;
 }
+/* フォントカラー */
+.fc_white {
+	color:$FontColorContrast;
+}
 
 
 // 必須マーク
@@ -178,9 +182,25 @@ $i:10;
 	background: linear-gradient(to bottom, #ffa087,#fe66a4); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa087', endColorstr='#fe66a4',GradientType=0 ); /* IE6-9 */
 }
+
+//background-color
+@mixin bg_color {
+	background: #f44336; /* Old browsers */
+	background: -moz-linear-gradient(left,  #fe66a4,#ffa087); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#fe66a4),color-stop(100%,#ffa087)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #fe66a4,#ffa087); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #fe66a4,#ffa087); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #fe66a4,#ffa087); /* IE10+ */
+	background: linear-gradient(to right, #fe66a4,#ffa087); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fe66a4', endColorstr='#ffa087',GradientType=1 ); /* IE6-9 */
+}
+
 // 項目を分けるライン
 .separator {
 	border-bottom: $borderSeparate;
+}
+.sepalator_top {
+	border-top: $borderSeparate;
 }
 
 // 編集ボタン
@@ -221,6 +241,9 @@ $i:10;
 }
 
 // width
+.wd10 {
+	width:10%;
+}
 .wd20 {
 	width:20%;
 }
@@ -509,6 +532,7 @@ input[type="submit"],input[type="button"] {
     font-size: 20px;	
 }
 
+/* 画像関連 */
 .thumb {
 	width: 80px;
     height: 80px;
@@ -534,6 +558,10 @@ input[type="submit"],input[type="button"] {
 .thumb_form {
 	text-align: center;
 }
+.img_box_shadow {
+	box-shadow: 4px 4px 10px rgba(0,0,0,.5);
+}
+
 .selected_tag {
 	background-color: $baseColorPink;
 	color: white;
@@ -622,21 +650,41 @@ input[type="submit"],input[type="button"] {
 */
 .hero_img {
 	background:url('../../images/top/hero.png') no-repeat top center;
-	background-size: 180%;
+	background-size: 240%;
 }
 .panel {
 	background: none;
 }
 .header {
-    position: absolute;
-	left: 0;
+    left: 0;
     top: 0;
+    margin-left: -15px;
+    margin-right: -15px;
+    height: 500px;
 }
 .header_content {
 	margin-top: -20px;
     padding-top: 20px;
-    background: rgba(0,0,0,.3);
+    background: rgba(0,0,0,.5);
+    position: relative;
 }
-
-
-
+.section_bg_color {
+	@include bg_color;
+}
+.btn_sns_container {
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.btn_twitter {
+	background-color: #2eacea;
+    color: white;
+    border: none;
+    box-shadow: 0 0 3px rgba(255,255,255,.5);
+}
+.btn_facebook {
+	background-color: #3b5c94;
+    border: none;
+    color: white;
+    box-shadow: 0 0 10px rgba(255,255,255,.5);
+}
