@@ -2,7 +2,7 @@
     <div class="mb20">
         <label class="label_prof wd80 mb15"><span>参加予定イベント</span></label>
 	    <div class="form-group disfle">
-	        <input name="event" type="text" class="form-control inputBaseStyle mr10" v-model="event" placeholder="イベント名" required>
+	        <input name="event" type="text" class="form-control inputBaseStyle mr10 fs16" v-model="event" placeholder="イベント名" required>
 	        <button class="btn btn_add fs10" v-on:click="addEvent">+</button>
 	    </div>              
 		<div class="wrap mt10 mb10">

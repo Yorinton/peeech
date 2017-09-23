@@ -3,7 +3,7 @@
         <label class="label_prof wd80 mb15"><span>居住地域</span></label>
         <div>
             <div class="disfle">
-                <select name="region" type="text" class="form-control inputBaseStyle mr5" v-model="region.region">
+                <select name="region" type="text" class="form-control inputBaseStyle mr5 fs16" v-model="region.region">
                 	<option disabled="disabled">選択して下さい</option>
                     <option v-for="pref in prefs" v-bind:value="pref">{{ pref }}</option>
                 </select>

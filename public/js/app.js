@@ -1762,7 +1762,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.favorite),
       expression: "favorite"
     }],
-    staticClass: "form-control inputBaseStyle mr10",
+    staticClass: "form-control inputBaseStyle mr10 fs16",
     attrs: {
       "name": "favorite",
       "type": "text",
@@ -1973,7 +1973,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.introduction),
       expression: "introduction"
     }],
-    staticClass: "form-control inputBaseStyle mr10",
+    staticClass: "form-control inputBaseStyle mr10 fs16",
     attrs: {
       "name": "introduction",
       "placeholder": "自己紹介",
@@ -2043,7 +2043,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.email),
       expression: "email"
     }],
-    staticClass: "form-control inputBaseStyle mr10",
+    staticClass: "form-control inputBaseStyle mr10 fs16",
     attrs: {
       "name": "email",
       "type": "email",
@@ -2135,7 +2135,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.region.region),
       expression: "region.region"
     }],
-    staticClass: "form-control inputBaseStyle mr5",
+    staticClass: "form-control inputBaseStyle mr5 fs16",
     attrs: {
       "name": "region",
       "type": "text"
@@ -2237,7 +2237,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.event),
       expression: "event"
     }],
-    staticClass: "form-control inputBaseStyle mr10",
+    staticClass: "form-control inputBaseStyle mr10 fs16",
     attrs: {
       "name": "event",
       "type": "text",
@@ -2299,7 +2299,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.name),
       expression: "name"
     }],
-    staticClass: "form-control inputBaseStyle mr10",
+    staticClass: "form-control inputBaseStyle mr10 fs16",
     attrs: {
       "name": "name",
       "type": "text",
