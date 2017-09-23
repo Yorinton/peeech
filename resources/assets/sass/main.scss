@@ -296,6 +296,11 @@ $i:20;
 	margin-right: $sideMarginOfContainer;
 }
 
+//テキストインデント
+.text_indent {
+	padding-left: 1rem;
+	text-indent: -1rem;
+}
 
 //フロート
 .fr {
