@@ -125,6 +125,7 @@ Route::get('/rooms/{id}','RoomController@showChatLists');
 
 Auth::routes();
 
+
 // アイドル名取得&DB登録
 // Route::get('/idols',function(){
 // 	$i;
