@@ -2,7 +2,7 @@
     <div class="mb20">
         <label class="label_prof wd80 mb15"><span>推し</span></label>
 	    <div class="form-group disfle">
-	        <input name="favorite" type="text" class="form-control inputBaseStyle mr10" v-model="favorite" placeholder="推し" required>
+	        <input name="favorite" type="text" class="form-control inputBaseStyle mr10 fs16" v-model="favorite" placeholder="推し" required>
 	        <button class="btn btn_add fs10" v-on:click="addFavorite">+</button>
 	    </div>              
 		<div class="wrap mt10 mb10">

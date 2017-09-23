@@ -32,5 +32,10 @@ class MasterProvider extends ServiceProvider
         $this->app->bind('masterDbService',function($app){
             return new MasterDbService($this->app->make('masterRepository'));
         });
+        $this->app->bind(
+            'App\Repositories\Master\MasterRepositoryInterface',
+            'App\Repositories\Master\MasterRepository'
+        );
+
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Repositories\Master\MasterRepository;
+use App\Repositories\Master\MasterRepositoryInterface;
 
 
 class MasterDbService
@@ -10,7 +10,7 @@ class MasterDbService
 
 	protected $masterRepository;
 
-	public function __construct(MasterRepository $masterRepository)
+	public function __construct(MasterRepositoryInterface $masterRepository)
 	{
 		$this->masterRepository = $masterRepository;
 	}

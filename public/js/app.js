@@ -1762,7 +1762,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.favorite),
       expression: "favorite"
     }],
-    staticClass: "form-control inputBaseStyle mr10",
+    staticClass: "form-control inputBaseStyle mr10 fs16",
     attrs: {
       "name": "favorite",
       "type": "text",
@@ -1824,7 +1824,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.selected),
       expression: "selected"
     }],
-    staticClass: "form-control phonetic inputBaseStyle mr5 wd35",
+    staticClass: "form-control phonetic inputBaseStyle mr5 wd35 fs16",
     attrs: {
       "name": "phonetic"
     },
@@ -1848,7 +1848,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })), _vm._v(" "), _c('div', {
     staticClass: "wd65 mr5"
   }, [_c('select', {
-    staticClass: "form-control form-idol disblo inputBaseStyle mr5",
+    staticClass: "form-control form-idol disblo inputBaseStyle mr5 fs16",
     attrs: {
       "name": "idol",
       "id": "idols_1"
@@ -1856,7 +1856,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.idol_masters), function(idol) {
     return (idol.phonetic_id >= 1 && idol.phonetic_id <= 5) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
       "name": "",
       "id": "idols_2"
@@ -1864,7 +1864,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.idol_masters), function(idol) {
     return (idol.phonetic_id >= 6 && idol.phonetic_id <= 10) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
       "name": "",
       "id": "idols_3"
@@ -1872,7 +1872,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.idol_masters), function(idol) {
     return (idol.phonetic_id >= 11 && idol.phonetic_id <= 15) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
       "name": "",
       "id": "idols_4"
@@ -1880,7 +1880,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.idol_masters), function(idol) {
     return (idol.phonetic_id >= 16 && idol.phonetic_id <= 20) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
       "name": "",
       "id": "idols_5"
@@ -1888,7 +1888,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.idol_masters), function(idol) {
     return (idol.phonetic_id >= 21 && idol.phonetic_id <= 25) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
       "name": "",
       "id": "idols_6"
@@ -1896,7 +1896,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.idol_masters), function(idol) {
     return (idol.phonetic_id >= 26 && idol.phonetic_id <= 30) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
       "name": "",
       "id": "idols_7"
@@ -1904,7 +1904,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.idol_masters), function(idol) {
     return (idol.phonetic_id >= 31 && idol.phonetic_id <= 35) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
       "name": "",
       "id": "idols_8"
@@ -1912,7 +1912,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.idol_masters), function(idol) {
     return (idol.phonetic_id >= 36 && idol.phonetic_id <= 40) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
       "name": "",
       "id": "idols_9"
@@ -1920,7 +1920,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.idol_masters), function(idol) {
     return (idol.phonetic_id >= 41 && idol.phonetic_id <= 45) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
-    staticClass: "form-control form-idol disnone inputBaseStyle mr5",
+    staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
       "name": "",
       "id": "idols_10"
@@ -1973,7 +1973,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.introduction),
       expression: "introduction"
     }],
-    staticClass: "form-control inputBaseStyle mr10",
+    staticClass: "form-control inputBaseStyle mr10 fs16",
     attrs: {
       "name": "introduction",
       "placeholder": "自己紹介",
@@ -2043,7 +2043,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.email),
       expression: "email"
     }],
-    staticClass: "form-control inputBaseStyle mr10",
+    staticClass: "form-control inputBaseStyle mr10 fs16",
     attrs: {
       "name": "email",
       "type": "email",
@@ -2135,7 +2135,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.region.region),
       expression: "region.region"
     }],
-    staticClass: "form-control inputBaseStyle mr5",
+    staticClass: "form-control inputBaseStyle mr5 fs16",
     attrs: {
       "name": "region",
       "type": "text"
@@ -2237,7 +2237,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.event),
       expression: "event"
     }],
-    staticClass: "form-control inputBaseStyle mr10",
+    staticClass: "form-control inputBaseStyle mr10 fs16",
     attrs: {
       "name": "event",
       "type": "text",
@@ -2299,7 +2299,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.name),
       expression: "name"
     }],
-    staticClass: "form-control inputBaseStyle mr10",
+    staticClass: "form-control inputBaseStyle mr10 fs16",
     attrs: {
       "name": "name",
       "type": "text",
@@ -16053,7 +16053,7 @@ if (typeof jQuery === 'undefined') {
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n.chatMsg {\n\tpadding:10px;\n\tborder-radius: 3px;\n\tfont-size: 12px;\n}\n.composer_container {\n\twidth: 100%;\n    position: fixed;\n    bottom: 50px;\n    margin-left: -15px;\n    padding: 5px;\n    background-color: #eeeeee;\n}\n.msg_container {\n\toverflow: hidden;\n    width: 100%;\n}\n.msg_text_other {\n\tfloat: right;\n    width: 80%;\n    background-color: #f7f7f8;\n}\n.msg_text_mine {\n\tfloat: right;\n    width: 90%;\n    background-color: #ffe2db;\n}\n.msg_thumb_container {\n\twidth: 15%;\n}\n.msg_thumb {\n\twidth: 35px;\n    height: 35px;\n}\n\n", ""]);
+exports.push([module.i, "\n.chatMsg {\n\tpadding:10px;\n\tborder-radius: 3px;\n\tfont-size: 12px;\n}\n.composer_container {\n\twidth: 100%;\n    position: fixed;\n    bottom: 0;\n    margin-left: -15px;\n    padding: 5px;\n    background-color: #eeeeee;\n}\n.msg_container {\n\toverflow: hidden;\n    width: 100%;\n}\n.msg_text_other {\n\tfloat: right;\n    width: 80%;\n    background-color: #f7f7f8;\n}\n.msg_text_mine {\n\tfloat: right;\n    width: 90%;\n    background-color: #ffe2db;\n}\n.msg_thumb_container {\n\twidth: 15%;\n}\n.msg_thumb {\n\twidth: 35px;\n    height: 35px;\n}\n\n", ""]);
 
 /***/ }),
 /* 85 */

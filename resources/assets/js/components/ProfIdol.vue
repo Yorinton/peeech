@@ -2,38 +2,38 @@
 	<div class="mb20">
 		<label class="label_prof wd80 mb15"><span>好きなアイドル</span></label>
 	    <div class="disfle">
-	        <select name='phonetic' class="form-control phonetic inputBaseStyle mr5 wd35" v-on:change="selectPhonetic" v-model="selected">
+	        <select name='phonetic' class="form-control phonetic inputBaseStyle mr5 wd35 fs16" v-on:change="selectPhonetic" v-model="selected">
 	        	<option v-for="phonetic in phonetics" v-bind:value="phonetic.value">{{ phonetic.text }}</option>
 	        </select>
 	        <div class="wd65 mr5">
-	            <select name="idol" class="form-control form-idol disblo inputBaseStyle mr5" id="idols_1">
+	            <select name="idol" class="form-control form-idol disblo inputBaseStyle mr5 fs16" id="idols_1">
 	                <option v-for="idol in idol_masters" v-if="idol.phonetic_id >= 1 && idol.phonetic_id <= 5">{{ idol.idol }}</option>
 	            </select>
-	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_2">
+	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_2">
 	                <option v-for="idol in idol_masters" v-if="idol.phonetic_id >= 6 && idol.phonetic_id <= 10">{{ idol.idol }}</option>
 	            </select>
-	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_3">
+	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_3">
 	                <option v-for="idol in idol_masters" v-if="idol.phonetic_id >= 11 && idol.phonetic_id <= 15">{{ idol.idol }}</option>
 	            </select>
-	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_4">
+	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_4">
 	                <option v-for="idol in idol_masters" v-if="idol.phonetic_id >= 16 && idol.phonetic_id <= 20">{{ idol.idol }}</option>
 	            </select>
-	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_5">
+	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_5">
 	                <option v-for="idol in idol_masters" v-if="idol.phonetic_id >= 21 && idol.phonetic_id <= 25">{{ idol.idol }}</option>
 	            </select>
-	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_6">
+	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_6">
 	                <option v-for="idol in idol_masters" v-if="idol.phonetic_id >= 26 && idol.phonetic_id <= 30">{{ idol.idol }}</option>
 	            </select>
-	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_7">
+	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_7">
 	                <option v-for="idol in idol_masters" v-if="idol.phonetic_id >= 31 && idol.phonetic_id <= 35">{{ idol.idol }}</option>
 	            </select>
-	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_8">
+	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_8">
 	                <option v-for="idol in idol_masters" v-if="idol.phonetic_id >= 36 && idol.phonetic_id <= 40">{{ idol.idol }}</option>
 	            </select> 
-	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_9">
+	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_9">
 	                <option v-for="idol in idol_masters" v-if="idol.phonetic_id >= 41 && idol.phonetic_id <= 45">{{ idol.idol }}</option>
 	            </select>
-	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5" id="idols_10">
+	            <select name="" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_10">
 	                <option v-for="idol in idol_masters" v-if="idol.phonetic_id === 46">{{ idol.idol }}</option>
 	            </select>
 	        </div>                  

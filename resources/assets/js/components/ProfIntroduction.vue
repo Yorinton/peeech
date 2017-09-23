@@ -2,7 +2,7 @@
 	<div class="mb20">
 		<label class="label_prof wd80 mb15"><span>自己紹介</span></label>
 	    <div class="form-group">
-	        <textarea name="introduction" class="form-control inputBaseStyle mr10" v-model="introduction" placeholder="自己紹介" rows="5" required></textarea>
+	        <textarea name="introduction" class="form-control inputBaseStyle mr10 fs16" v-model="introduction" placeholder="自己紹介" rows="5" required></textarea>
 	        <button class="form-control wd30 fs10" v-on:click="sendIntroduction">変更</button>
 	    </div>
 	</div>
