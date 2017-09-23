@@ -7,8 +7,8 @@
             <header class="header hero_img">
                 <div class="wd100 ht100 header_content">
                     <div class="text_align_c">
-                        <h1 class="fs18 fc_white">好きなアイドルでつながる<br>アイドルファン限定<br>友達作りサービス</h1>
-                        <h2><img class="wd80" src="../../images/top/logo.png" alt="Peeech"></h2>
+                        <h1 class="fs22 lh32 fc_white">好きなアイドルでつながる<br>アイドルファン限定<br>友達作りサービス</h1>
+                        <h2><img class="wd90" src="../../images/top/logo.png" alt="Peeech"></h2>
                     </div>
                     <div class="panel btn_sns_container">
                         <div class="panel-body text_align_c">    
@@ -97,8 +97,16 @@
             </section>
             <section class="convert_to_max_size_of_page section_bg_color fc_white pl15 pr15 pb5">
                 <h3 class="fw_b mb35 pt35">Peeechの想い</h3>
-                <p>アイドルファン・アイドルオタの<br>幸せな瞬間をもっと増やしたい</p>
-                <p></p>
+                <p class="fs18 fw_b mb40">アイドルファン・アイドルオタの<br>幸せな瞬間をもっと増やしたい</p>
+                <p class="text_align_c lh30">好きなアイドルのライブで推しメンの輝く姿を見る、レスをもらう推しメンとの握手会で直接応援の言葉をかけたり二人だけの秘密の会話を楽しんだり。</p>
+                <p class="text_align_c lh30">時には遠くまで何時間もかけて行って何時間も並ぶなどアイドルファン活動は大変な部分もあるけれどその先に待つ、楽しくて幸せな瞬間があると思います。</p>
+                <p class="text_align_c lh30">私は以前はよく一人でライブハウスに行くことが多く大好きなアイドルに会える！というのはそれはそれで楽しいのですが、現場によっては馴染みにくかったり、一人で並んでいる最中寂しいな、好きなアイドルについてもっと誰かと共有したいなと感じることがありました。</p>
+                <p class="text_align_c lh30">そんなあるときから、SNSでつながったとあるオタク友達のおかげで仲間達と好きなアイドルについて語り合ったり一緒にライブ同行・握手連番、時には遠征などをするようになりすごく楽しい時間を過ごしたのです。</p>
+                <p class="text_align_c lh30">「アイドルに会いに行く・アイドルとの時間を楽しむ」もちろんそれが大きな目的ではありましたが「仲間たちに会いに行く」というのも一つの楽しみになっていったのです。</p>
+                <p class="text_align_c lh30">そんな経験から、ファン活動を誰かと一緒にもっと楽しめ幸せな瞬間をより増やせるといいな、と思いこのサービスを個人的に作っています。</p>
+                <p class="text_align_c lh30">もちろん、「ファン活動を一人で楽しむ」というのもいいものだと思います。</p>
+                <p class="text_align_c lh30">ただ、時々、ほんの少しの時間でも「誰かと一緒にその場を楽しむ」…そんな時間もあってもいいのかもしれません。</p>
+                <p class="text_align_c lh30">ぜひPeeechで沢山の楽しい思い出を作ってください＾＾</p>
             </section>
             <footer class="pt20">
                 <div>
