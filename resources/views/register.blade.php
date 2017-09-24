@@ -89,52 +89,52 @@
                         <div class="wd65">
                             <select name="idol" class="form-control form-idol disblo inputBaseStyle mr5 fs16" id="idols_1">
                                 @foreach($idol_masters->where('phonetic_id','>=',1)->where('phonetic_id','<=',5) as $idol)
-                                <option>{{ $idol->idol }}</option>
+                                <option data-num="{{ $idol->id }}">{{ $idol->idol }}</option>
                                 @endforeach
                             </select>
                             <select name="idol" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_2">
                                 @foreach($idol_masters->where('phonetic_id','>=',6)->where('phonetic_id','<=',10) as $idol)
-                                <option>{{ $idol->idol }}</option>
+                                <option data-num="{{ $idol->id }}">{{ $idol->idol }}</option>
                                 @endforeach
                             </select>
                             <select name="idol" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_3">
                                 @foreach($idol_masters->where('phonetic_id','>=',11)->where('phonetic_id','<=',15) as $idol)
-                                <option>{{ $idol->idol }}</option>
+                                <option data-num="{{ $idol->id }}">{{ $idol->idol }}</option>
                                 @endforeach
                             </select>
                             <select name="idol" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_4">
                                 @foreach($idol_masters->where('phonetic_id','>=',16)->where('phonetic_id','<=',20) as $idol)
-                                <option>{{ $idol->idol }}</option>
+                                <option data-num="{{ $idol->id }}">{{ $idol->idol }}</option>
                                 @endforeach
                             </select>
                             <select name="idol" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_5">
                                 @foreach($idol_masters->where('phonetic_id','>=',21)->where('phonetic_id','<=',25) as $idol)
-                                <option>{{ $idol->idol }}</option>
+                                <option data-num="{{ $idol->id }}">{{ $idol->idol }}</option>
                                 @endforeach
                             </select>
                             <select name="idol" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_6">
                                 @foreach($idol_masters->where('phonetic_id','>=',26)->where('phonetic_id','<=',30) as $idol)
-                                <option>{{ $idol->idol }}</option>
+                                <option data-num="{{ $idol->id }}">{{ $idol->idol }}</option>
                                 @endforeach
                             </select>
                             <select name="idol" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_7">
                                 @foreach($idol_masters->where('phonetic_id','>=',31)->where('phonetic_id','<=',35) as $idol)
-                                <option>{{ $idol->idol }}</option>
+                                <option data-num="{{ $idol->id }}">{{ $idol->idol }}</option>
                                 @endforeach
                             </select>                                                                                      
                             <select name="idol" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_8">
                                 @foreach($idol_masters->where('phonetic_id','>=',36)->where('phonetic_id','<=',40) as $idol)
-                                <option>{{ $idol->idol }}</option>
+                                <option data-num="{{ $idol->id }}">{{ $idol->idol }}</option>
                                 @endforeach
                             </select> 
                             <select name="idol" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_9">
                                 @foreach($idol_masters->where('phonetic_id','>=',41)->where('phonetic_id','<=',45) as $idol)
-                                <option>{{ $idol->idol }}</option>
+                                <option data-num="{{ $idol->id }}">{{ $idol->idol }}</option>
                                 @endforeach
                             </select>
                             <select name="idol" class="form-control form-idol disnone inputBaseStyle mr5 fs16" id="idols_10">
                                 @foreach($idol_masters->where('phonetic_id',46) as $idol)
-                                <option>{{ $idol->idol }}</option>
+                                <option data-num="{{ $idol->id }}">{{ $idol->idol }}</option>
                                 @endforeach
                             </select>
                         </div>

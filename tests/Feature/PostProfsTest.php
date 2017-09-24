@@ -8,8 +8,14 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 // use App\Eloquent\User as User;
 use App\Eloquent\Idol as Idol;
+use App\Eloquent\IdolMaster as IdolMaster;
 use App\Eloquent\Purpose as Purpose;
 use App\Eloquent\Region as Region;
+
+use App\Services\IdolService;
+use App\Repositories\Idol\IdolRepository;
+use App\Repositories\Idol\IdolRepositoryInterface;
+
 
 use App;
 
@@ -24,7 +30,7 @@ class PostProfsTest extends TestCase
      */
 
     /** @test */
-    public function createNewUserProfsTest()
+    public function create_profs_at_the_first_time()
     {
         //ユーザー作成(SNS認証後と同じ状態を作る)
         $user = $this->app->make('user');
@@ -38,17 +44,17 @@ class PostProfsTest extends TestCase
             //POSTでプロフィールデータを保存
             $id = $user->id;
             $this->actingAs($user)
-                 ->json('POST', '/profiles/'.$id, $request);
+                 ->post('/profiles/'.$id, $request);
 
             //登録emailが表示されることを確認
             $this->actingAs($user)
-                 ->json('GET','/profiles/'.$id)
-                 ->assertSee($request['year'])
-                 ->assertSee($request['month'])
-                 ->assertSee($request['day'])
-                 ->assertSee($request['added_idol'])
-                 ->assertSee($request['region']);
-            $this->assertEquals('1920-10-11',$user->birthday);
+                 ->get('/profiles/'.$id)
+                 ->assertSee('AIS')
+                 ->assertSee('アイドルカレッジ')
+                 ->assertSee('zeanagg@gmail.com')
+                 ->assertSee('東京都')
+                 ->assertSee('1992年12月10日');
+
             //最後にテスト用ユーザーを削除
             $user->delete();
         }catch(\Exception $e){

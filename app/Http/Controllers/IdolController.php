@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Eloquent\Idol;
 use Illuminate\Http\Request;
-use App\UserService;
+use App\Services\IdolService;
 
 class IdolController extends Controller
 {
 
 
-    protected $userService;
+    protected $idolService;
 
-    public function __construct(UserService $userService)
+    public function __construct(IdolService $idolService)
     {
-        $this->userService = $userService;
+        $this->idolService = $idolService;
         $this->middleware('auth');
     }
     /**
@@ -45,9 +45,8 @@ class IdolController extends Controller
      */
     public function store(Request $request,$user_id)
     {
-        $this->validate($request,['idol' => 'required|max:255']);
-        $user = $this->userService->getUser($user_id);
-        $idol = $this->userService->addOtherProfsSingle($request,$user,'idol');
+        $this->validate($request,['idol' => 'required|integer']);
+        $idol = $this->idolService->store($request->idol);
         return ['idol' => $idol];
     }
 

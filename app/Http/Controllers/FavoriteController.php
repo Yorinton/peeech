@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Eloquent\Favorite;
 use Illuminate\Http\Request;
-use App\UserService;
+use App\Services\UserService;
 
 class FavoriteController extends Controller
 {

@@ -1126,7 +1126,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		addIdol: function addIdol() {
 			var _this = this;
 
-			this.request.idol = $("select[name='idol'] > option:selected").text();
+			this.request.idol = parseInt($("select[name='idol'] > option:selected").val());
 			console.log(this.request.idol);
 			axios.post('/idol/' + this.user.id, this.request).then(function (res) {
 				console.log(res.data);
@@ -1854,7 +1854,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "idols_1"
     }
   }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 1 && idol.phonetic_id <= 5) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+    return (idol.phonetic_id >= 1 && idol.phonetic_id <= 5) ? _c('option', {
+      domProps: {
+        "value": idol.id
+      }
+    }, [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
     staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
@@ -1862,7 +1866,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "idols_2"
     }
   }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 6 && idol.phonetic_id <= 10) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+    return (idol.phonetic_id >= 6 && idol.phonetic_id <= 10) ? _c('option', {
+      domProps: {
+        "value": idol.id
+      }
+    }, [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
     staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
@@ -1870,7 +1878,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "idols_3"
     }
   }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 11 && idol.phonetic_id <= 15) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+    return (idol.phonetic_id >= 11 && idol.phonetic_id <= 15) ? _c('option', {
+      domProps: {
+        "value": idol.id
+      }
+    }, [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
     staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
@@ -1878,7 +1890,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "idols_4"
     }
   }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 16 && idol.phonetic_id <= 20) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+    return (idol.phonetic_id >= 16 && idol.phonetic_id <= 20) ? _c('option', {
+      domProps: {
+        "value": idol.id
+      }
+    }, [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
     staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
@@ -1886,7 +1902,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "idols_5"
     }
   }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 21 && idol.phonetic_id <= 25) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+    return (idol.phonetic_id >= 21 && idol.phonetic_id <= 25) ? _c('option', {
+      domProps: {
+        "value": idol.id
+      }
+    }, [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
     staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
@@ -1894,7 +1914,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "idols_6"
     }
   }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 26 && idol.phonetic_id <= 30) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+    return (idol.phonetic_id >= 26 && idol.phonetic_id <= 30) ? _c('option', {
+      domProps: {
+        "value": idol.id
+      }
+    }, [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
     staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
@@ -1902,7 +1926,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "idols_7"
     }
   }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 31 && idol.phonetic_id <= 35) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+    return (idol.phonetic_id >= 31 && idol.phonetic_id <= 35) ? _c('option', {
+      domProps: {
+        "value": idol.id
+      }
+    }, [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
     staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
@@ -1910,7 +1938,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "idols_8"
     }
   }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 36 && idol.phonetic_id <= 40) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+    return (idol.phonetic_id >= 36 && idol.phonetic_id <= 40) ? _c('option', {
+      domProps: {
+        "value": idol.id
+      }
+    }, [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
     staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
@@ -1918,7 +1950,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "idols_9"
     }
   }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id >= 41 && idol.phonetic_id <= 45) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+    return (idol.phonetic_id >= 41 && idol.phonetic_id <= 45) ? _c('option', {
+      domProps: {
+        "value": idol.id
+      }
+    }, [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   })), _vm._v(" "), _c('select', {
     staticClass: "form-control form-idol disnone inputBaseStyle mr5 fs16",
     attrs: {
@@ -1926,7 +1962,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "idols_10"
     }
   }, _vm._l((_vm.idol_masters), function(idol) {
-    return (idol.phonetic_id === 46) ? _c('option', [_vm._v(_vm._s(idol.idol))]) : _vm._e()
+    return (idol.phonetic_id === 46) ? _c('option', {
+      domProps: {
+        "value": idol.id
+      }
+    }, [_vm._v(_vm._s(idol.idol))]) : _vm._e()
   }))]), _vm._v(" "), _c('button', {
     staticClass: "btn btn-idol ml5 btn_add",
     on: {
