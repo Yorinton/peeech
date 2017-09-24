@@ -70,10 +70,6 @@ class UserRepository implements UserRepositoryInterface
 		}else{    
 	    	$model->$key = $value;
 		}
-		if($key === 'idol'){
-			$idol_id = IdolMaster::where('idol',$value)->first()->id;
-			$model->idol_id = $idol_id;
-		}
 		$model->user_id = $user->id;	    
 	    $model->save();
 	}

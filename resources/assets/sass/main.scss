@@ -465,6 +465,16 @@ input[type="submit"],input[type="button"] {
     top: 0;
     width: 100%;
 }
+.menu_btn {
+	border:none;
+	padding:5px;
+}
+.menu_btn:hover {
+	opacity:0.8;
+}
+.menu_btn_img {
+	width:25px;
+}
 
 /* ページタイトル */
 .title-area-register {

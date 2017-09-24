@@ -27,14 +27,14 @@
         <nav class="navbar navbar-default navbar-static-top nav-bar-fixed mb0">
             <div class="container">
                 <div class="navbar-header">
-
                     <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <button type="button" class="navbar-toggle collapsed menu_btn" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
+                        <img class="menu_btn_img" src="../../images/icons/menu_btn.png">
+                   <!--      <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+ -->                    </button>
                     <div class="title-area-register">
                         <h4 class="title-text text_clamp_title">{{ $title or 'Peeech' }}</h4>
                     </div>
