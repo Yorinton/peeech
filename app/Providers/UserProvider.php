@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Eloquent\User as User;
 use App\Repositories\User\UserRepository;
-use App\UserService;
+use App\Services\UserService;
 
 class UserProvider extends ServiceProvider
 {

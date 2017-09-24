@@ -1,15 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Services;
 
 use App\Repositories\User\UserRepositoryInterface;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use App\Libs\DisplayData as DisplayData;
 use Request;
 use DB;
 
 class UserService
 {
-	use ValidatesRequests,Libs\DisplayData;
+	use ValidatesRequests,DisplayData;
 
 	public $userRepository;
 

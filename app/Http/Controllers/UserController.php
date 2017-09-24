@@ -9,7 +9,8 @@ use App;
 use App\Eloquent\Region;
 use Intervention\Image\Facades\Image;
 use App\MasterDbService;
-use App\UserService;
+use App\Services\UserService;
+use App\Services\IdolService;
 use Request as RequestFacade;
 use App\ImageService;
 use Illuminate\Contracts\Encryption\DecryptException;
@@ -24,13 +25,15 @@ class UserController extends Controller
 	protected $userService;
     protected $imageService;
     protected $matchingService;
+    protected $idolService;
 
-	public function __construct(MasterDbService $masterDbService,UserService $userService,ImageService $imageService,MatchingService $matchingService)
+	public function __construct(MasterDbService $masterDbService,UserService $userService,ImageService $imageService,MatchingService $matchingService,IdolService $idolService)
 	{
 		$this->masterDbService = $masterDbService;
 		$this->userService = $userService;
         $this->imageService = $imageService;
         $this->matchingService = $matchingService;
+        $this->idolService = $idolService;
         $this->middleware('auth');
 	}
     /**
@@ -85,7 +88,7 @@ class UserController extends Controller
             //Userのプロフィール情報などをDBに保存
             $user = $this->userService->getUser($id);
             $this->userService->createUserProfs($request,$id);
-            $this->userService->createOtherProfs($request,$user,'idol');
+            $this->idolService->storeMultiple($request->added_idol);
             $this->userService->createOtherProfs($request,$user,'region');
             $this->userService->createOtherProfs($request,$user,'purpose');
 
