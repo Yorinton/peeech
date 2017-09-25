@@ -94,10 +94,12 @@ Route::post('/room','RoomController@setRoom');
 Route::get('/room/{room_id}','RoomController@showRoom')->name('room');
 
 //ルーム内メッセージ取得
-Route::get('/messages/{room_id}',function($room_id){
-	//全メッセージが取得されてしまう => 特定のroom_idにひもづくものだけ取得するよう変更
-	return App\Eloquent\Message::with('user')->where('room_id',$room_id)->get();
-})->middleware('auth');
+// Route::get('/messages/{room_id}',function($room_id){
+// 	//全メッセージが取得されてしまう => 特定のroom_idにひもづくものだけ取得するよう変更
+// 	return App\Eloquent\Message::with('user')->where('room_id',$room_id)->get();
+// })->middleware('auth');
+
+Route::get('/messages/{room_id}','MessageController@index')->middleware('auth');
 
 //メッセージの保存
 Route::post('/messages',function(){

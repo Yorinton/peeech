@@ -31,14 +31,12 @@ class Matching extends Model
     {
         $friends = [];
         if(!$this->hasInterestingUser()){
-            dd($friends);
             return $friends;
         }
         $matchings = Matching::where('from_user_id',$id)->where('judge',1)->get();
         foreach ($matchings as $matching) {
             if($this->isInterestedByFriend($matching->to_user_id)){
                 $friend = $matching->user;
-                // User::where('id',$matching->to_user_id)->first();
                 //表示用に整形
                 $friend->birthday = $this->birthdayFormat($friend->birthday);
                 $friend->sex = $this->sexFormat($friend->sex);

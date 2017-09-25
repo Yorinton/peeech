@@ -7,7 +7,8 @@
             @if(isset($friends))     
             <div class="convert_to_max_size_of_page">
                 <img class="wd100" src="../../images/services/match.png">
-            </div>            @foreach($friends as $friend)
+            </div>            
+            @foreach($friends as $friend)
             <div class="matching_friend">
                 <a class="" href="{{ url('/friend/'.Auth::id().'/'.$friend->id) }}">
                     <div class="of_h pt10 pb10 list_border">

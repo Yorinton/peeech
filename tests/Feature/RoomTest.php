@@ -7,39 +7,62 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
+use App\Eloquent\Room;
+use App\Eloquent\Message;
+
 class RoomTest extends TestCase
 {
-   //  public function an_authenticated_user_can_create_room()
-   //  {
-   //  	$user = $this->app->make('user')->where('id',54)->first();
- 		// $this->be($user);
 
- 		// $request = [
- 		// 	'from_user_id' => $user->id,
- 		// 	'to_user_id' => 57
- 		// ];
- 		// $this->post('/room',$request);
+	/*
+	* 
+	* Room
+	*
+	*/
+	/** @test */
+	public function an_authenticated_user_can_make_chatroom()
+    {
+    	$user = $this->app->make('user');
 
- 		// $room = $user->rooms()->where('from_user_id',$user->id)->first();
- 		// $this->assertEquals($user->id,$room->from_user_id);
- 		// $room->delete();
-   //  }
+    }
 
-   //  /** @test */
-   //  public function an_authenticated_user_can_join_room_of_own()
-   //  {
-   //  	$user = $this->app->make('user')->where('id',54)->first();
- 		// $this->be($user);
+	/*
+	* 
+	* Message
+	*
+	*/
+	/** @test */
+    public function an_authenticated_user_can_see_messages_in_their_room()
+    {
+    	try{
+	    	$user = $this->app->make('user');
+	    	$user->name = 'test';
+	    	$user->save();
+	    	$room = new Room;
+	    	$room->from_user_id = $user->id;
+	    	$room->to_user_id = 1;
+	    	$room->save();
 
- 		// $request = [
- 		// 	'from_user_id' => $user->id,
- 		// 	'to_user_id' => 57
- 		// ];
- 		// $this->post('/room',$request);
+	    	$message = new Message;
+	    	$message->room_id = $room->id;
+	    	$message->user_id = $user->id;
+	    	$message->message = 'こんにちわ';
+	    	$message->save();
 
- 		// $room = $user->rooms()->where('from_user_id',$user->id)->first();
- 		// $this->get('/room'.$room->id)
- 		// 	 ->assertStatus(200);
- 		// $room->delete();
-   //  }
+	    	$response = $this->actingAs($user)
+	    					 ->get('/messages/'.$room->id);
+
+	    	$this->assertContains(json_encode('こんにちわ'),json_encode($response));
+
+	    	$user->delete();
+    	}catch(\Exception $e){
+    		echo $e;
+    		$user->delete();
+    	}
+    }
+
+    /** @test */
+    public function an_authenticated_user_can_post_a_message_in_their_room()
+    {
+    	$user = $this->app->make('user');
+    }
 }

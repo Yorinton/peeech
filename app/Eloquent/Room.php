@@ -55,6 +55,10 @@ class Room extends Model
     {
     	return Room::where('from_user_id',$from_user_id)->where('to_user_id',$to_user_id)->orWhere('from_user_id',$to_user_id)->where('to_user_id',$from_user_id)->exists();
     }
+    public function isRoomByUserOneSide($user_id)
+    {
+        return Room::where('from_user_id',$user_id)->orWhere('to_user_id',$user_id)->exists();
+    }
     public function isRoomById($room_id)
     {
     	return Room::where('id',$room_id)->exists();

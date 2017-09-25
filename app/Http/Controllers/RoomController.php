@@ -63,7 +63,7 @@ class RoomController extends Controller
             return view('rooms')->with('m',$m)->with('title',$this->title);  
         }
 
-        if(!isset($user->rooms) && !isset($user->roomsTo)){
+        if(!$this->room->isRoomByUserOneSide($user->id)){
             $m = 'まだメッセージをやり取りしたフレンドはいません';
             return view('rooms')->with('m',$m)->with('title',$this->title);
         }
