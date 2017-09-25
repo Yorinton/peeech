@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Eloquent\Message as Message;
+use App\Eloquent\Room as Room;
 use Illuminate\Http\Request;
+use Auth;
+use App\Events\MessagePosted;
 
 class MessageController extends Controller
 {
@@ -35,7 +38,21 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+
+        $message = new Message();
+        $message->message = request('message');
+        $message->room_id = request('roomId');//おいおい編集
+        $user->messages()->save($message);
+
+        //roomsのupdated_atを更新する
+        $room = Room::where('id',$message->room_id)->first();
+        Room::where('id',$message->room_id)->update(['from_user_id' => $room->from_user_id]);
+
+        //Announce that a new message has been posted
+        broadcast(new MessagePosted($message,$user))->toOthers();
+
+        return ["message" => request('message')];
     }
 
     /**

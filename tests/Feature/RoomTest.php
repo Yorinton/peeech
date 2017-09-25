@@ -37,6 +37,7 @@ class RoomTest extends TestCase
 	    	$user = $this->app->make('user');
 	    	$user->name = 'test';
 	    	$user->save();
+
 	    	$room = new Room;
 	    	$room->from_user_id = $user->id;
 	    	$room->to_user_id = 1;
@@ -63,6 +64,37 @@ class RoomTest extends TestCase
     /** @test */
     public function an_authenticated_user_can_post_a_message_in_their_room()
     {
-    	$user = $this->app->make('user');
+    	try{
+	    	$user = $this->app->make('user');
+	    	$user->name = 'test';
+	    	$user->save();
+
+			$room = new Room;
+	    	$room->from_user_id = $user->id;
+	    	$room->to_user_id = 1;
+	    	$room->save();
+
+	    	$request = ['message' => 'ゴンザレス',
+	    				'roomId' => $room->id,
+	    				'user' => ['name' => $user->name,
+	    						   'id' => $user->id,
+	    						   'img_path' => '',],
+
+	    				];
+
+	    	$response = $this->actingAs($user)->post('/messages',$request);
+
+	    	$this->assertContains(json_encode('ゴンザレス'),json_encode($response));
+
+	    	$messages = $user->messages;
+	    	foreach ($messages as $message) {
+	    		$this->assertEquals($message->message,'ゴンザレス');
+	    	}
+	    	$user->delete();
+    	}catch(\Exception $e){
+    		echo $e;
+    		$user->delete();
+    	}
+
     }
 }

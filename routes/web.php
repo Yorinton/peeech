@@ -22,49 +22,53 @@ Route::get('/', function () {
 
 /**
  *
- * プロフィール
+ * プロフィール関連
  *
 **/
-
 // プロフィール登録画面表示
-// Route::get('/registerpage','UserController@index');
 Route::get('/registerpage/{id}','UserController@index')->name('registerpage');
+
 // プロフィール情報登録(初期)
 Route::post('/profiles/{id}','UserController@store');
+
 // プロフィール情報取得
 Route::get('/profiles/{id}','UserController@show')->name('profiles');
+
 // プロフィール情報更新
 Route::patch('/user/{id}','UserController@update');
 Route::patch('/region/{id}','RegionController@update');
+
 // プロフィール情報追加
-// Route::post('/users/{id}','UserController@update');
 Route::post('/idol/{user_id}','IdolController@store');
 Route::post('/favorite/{user_id}','FavoriteController@store');
 Route::post('/event/{user_id}','EventController@store');
 Route::post('/activity/{user_id}','ActivityController@store');
 Route::post('/statue/{user_id}','StatueController@store');
+
 // プロフィール情報削除
 Route::delete('/users/{id}','UserController@delete');
 
+
 /**
  *
- * 今日のファン友候補
+ * レコメンド関連
  *
 **/
-
 //今日のファン友画面取得
 Route::get('/friends/{id}','RecommendController@list')->name('friends');
+
 //ファン友のプロフィール画面
 Route::get('/friend/{id}/{friend_id}','FriendController@showProfile');
+
 //ジャッジ結果登録
 Route::post('/matchings/{from_user_id}','RecommendController@judge');
 
+
 /**
  *
- * マッチング相手
+ * マッチング関連
  *
 **/
-
 //マッチング相手一覧取得
 Route::get('/matchings/{id}','MatchingController@showMatchedFriends');
 
@@ -82,6 +86,7 @@ Route::get('login/{provider}/callback','Auth\SocialAccountController@handleProvi
 Route::get('/home/{id}', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@subindex');
 
+
 /**
  *
  * メッセージ関連
@@ -94,37 +99,20 @@ Route::post('/room','RoomController@setRoom');
 Route::get('/room/{room_id}','RoomController@showRoom')->name('room');
 
 //ルーム内メッセージ取得
-// Route::get('/messages/{room_id}',function($room_id){
-// 	//全メッセージが取得されてしまう => 特定のroom_idにひもづくものだけ取得するよう変更
-// 	return App\Eloquent\Message::with('user')->where('room_id',$room_id)->get();
-// })->middleware('auth');
-
 Route::get('/messages/{room_id}','MessageController@index')->middleware('auth');
 
 //メッセージの保存
-Route::post('/messages',function(){
-	//Store tne new message
-	$user = Auth::user();
-
-	$message = new App\Eloquent\Message();
-	$message->message = request('message');
-	$message->room_id = request('roomId');//おいおい編集
-	$user->messages()->save($message);
-
-	//roomsのupdated_atを更新する
-	$room = App\Eloquent\Room::where('id',$message->room_id)->first();
-	App\Eloquent\Room::where('id',$message->room_id)->update(['from_user_id' => $room->from_user_id]);
-
-	//Announce that a new message has been posted
-	broadcast(new MessagePosted($message,$user))->toOthers();
-
-	return ["message" => request('message')];
-
-})->middleware('auth');
+Route::post('/messages','MessageController@store')->middleware('auth');
 
 //ルーム一覧取得
 Route::get('/rooms/{id}','RoomController@showChatLists');
 
+
+/**
+ *
+ * 認証関連
+ *
+**/
 Auth::routes();
 
 
