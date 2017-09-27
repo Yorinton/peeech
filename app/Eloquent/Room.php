@@ -4,6 +4,7 @@ namespace App\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
 use App;
+use Auth;
 
 class Room extends Model
 {
@@ -18,6 +19,10 @@ class Room extends Model
     {
     	return $this->hasMany(Message::class);
     }
+    public function access_to_rooms()
+    {
+        return $this->hasMany(AccessToRoom::class);
+    }
 
 
 
@@ -29,6 +34,8 @@ class Room extends Model
     	$room->to_user_id = $to_user_id;
     	$room->save();
 
+        $this->createAccessTime(Auth::user(),$room->id);
+
     	return $room;
     }
 
@@ -39,7 +46,9 @@ class Room extends Model
     {
         $room = Room::where('from_user_id',$from_user_id)->where('to_user_id',$to_user_id)->orWhere('from_user_id',$to_user_id)->where('to_user_id',$from_user_id)->first();
 
-        return $room;	
+        $this->updateAccessTime(Auth::user(),$room->id);
+
+        return $room;
     }
 
 
@@ -97,7 +106,8 @@ class Room extends Model
                 //表示用に整形
                 $friend->birthday = $this->birthdayFormat($friend->birthday);
                 $friend->sex = $this->sexFormat($friend->sex);
-                $friends[] = $friend;
+                $isMessagesUpdated = $this->isNonReadMessages($friend,$room->id);
+                $friends[] = ['user' => $friend,'isNonReadMessages' => $isMessagesUpdated];
         }
         return $friends;
     }
@@ -109,5 +119,38 @@ class Room extends Model
     	return Room::findOrFail($room_id);
     }
 
+    //ユーザーがルームにアクセスした時間を記録
+    public function createAccessTime(User $user,$room_id)
+    {
+        $access_to_room = new AccessToRoom;
+        $access_to_room->room_id = $room_id;
+        $access_to_room->user_id = $user->id;
+        $access_to_room->save();
+    }
+
+    //ユーザーがルームにアクセスした時間を更新
+    public function updateAccessTime(User $user,$room_id)
+    {
+        AccessToRoom::where('user_id',$user->id)->where('room_id',$room_id)->update(['room_id' => $room_id]);
+    }
+
+    //直近のアクセス時間を取得
+    public function getLatestAccessTime($room_id)
+    {
+        return $access_to_room = AccessToRoom::where('user_id',Auth::id())->where('room_id',$room_id)->first()->updated_at->timestamp;
+        // $latestAccessTime - $access_to_room->updated_at;
+    }
+
+    //メッセージはアップデートされているか
+    public function isNonReadMessages(User $friend,$room_id)
+    {
+        if($friend->messages->isEmpty()){
+            return '×';
+        }
+        $latestMessageUpdate = $friend->messages()->latest()->first()->updated_at->timestamp;
+        $latestAccessTime = $this->getLatestAccessTime($room_id);
+        // dd($latestMessageUpdate > $latestAccessTime);
+        return $latestMessageUpdate > $latestAccessTime ? '○' : '×';
+    }
 
 }

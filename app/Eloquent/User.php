@@ -95,5 +95,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Activity::class);
     }
+    public function access_to_rooms()
+    {
+        return $this->hasMany(AccessToRoom::class);
+    }
 
 }

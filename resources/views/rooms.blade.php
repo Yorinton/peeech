@@ -9,20 +9,21 @@
             <div class="matching_friend">
                 <!-- <a> -->
                 <div class="of_h pt10 pb10 list_border to_room">
-                    <img class="thumb_middle" src="{{ $friend->img_path}}">
+                    <img class="thumb_middle" src="{{ $friend['user']->img_path}}">
                     <div class="fr wd70">
-                        <p class="mb0 fw_b text_clamp_s fs15">{{ $friend->name }}</p>
-                        <p class="mb0 fs13">{{ $friend->birthday }} / {{ $friend->sex}} / 
-                            @foreach($friend->regions as $region)
+                        <p class="mb0 fw_b text_clamp_s fs15">{{ $friend['user']->name }}</p>
+                        <p class="mb0 fs13">{{ $friend['user']->birthday }} / {{ $friend['user']->sex}} / 
+                            @foreach($friend['user']->regions as $region)
                             <span>{{ $region->region }}</span>
                             @endforeach
                         </p>
-                        <p class="mb0 text_clamp_m fs10">{{ $friend->introduction}}</p>
+                        <p class="mb0 text_clamp_m fs10">{{ $friend['user']->introduction}}</p>
+                        <p>{{ $friend['isNonReadMessages'] }}</p>
                     </div>
                     <form method="post" action="{{ url('/room') }}" class="disnone make_room">
                         {{ csrf_field() }}
                         <input type="hidden" name="from_user_id" value="{{ Auth::id() }}">
-                        <input type="hidden" name="to_user_id" value="{{ $friend->id }}">
+                        <input type="hidden" name="to_user_id" value="{{ $friend['user']->id }}">
                         <input type="submit" name="" value="メッセージを送る">
                     </form>
                 </div>

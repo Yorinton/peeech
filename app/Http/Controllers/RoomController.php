@@ -45,6 +45,11 @@ class RoomController extends Controller
         }
         $friend = $this->room->getChatFriend($user,$room_id);
 
+        //アクセス時間更新
+        // $this->room->createAccessTime(Auth::user(),$room_id);
+        $this->room->updateAccessTime($user,$room_id);
+
+
         return view('room')->with('room_id',$room_id)
                            ->with('title',$friend->name)
                            ->with('user',$user)
