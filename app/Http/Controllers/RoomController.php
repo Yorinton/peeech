@@ -18,11 +18,13 @@ class RoomController extends Controller
     protected $room;
     protected $title; 
 
+
     public function __construct(Room $room)
     {
         $this->room = $room;
         $this->middleware('auth');
     }
+
 
     public function setRoom(Request $request)
     {
@@ -33,6 +35,7 @@ class RoomController extends Controller
         }
     	return redirect()->route('room',[$room]);
     }
+
 
     public function showRoom($room_id)
     {
@@ -58,6 +61,7 @@ class RoomController extends Controller
         
     }
 
+
     public function showChatLists($id)
     {
         $this->setTitle('チャット一覧');
@@ -77,6 +81,7 @@ class RoomController extends Controller
 
         return view('rooms')->with('friends',$friends)->with('title',$this->title);  
     }
+
 
     protected function setTitle($value)
     {

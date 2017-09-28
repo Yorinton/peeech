@@ -160,6 +160,9 @@ $i:10;
 .fc_white {
 	color:$FontColorContrast;
 }
+.fc_mark {
+	color:$baseColorPink;
+}
 
 
 // 必須マーク
@@ -273,6 +276,9 @@ $i:10;
 }
 .wd70 {
 	width:70%;
+}
+.wd75 {
+	width:75%;
 }
 .wd80 {
 	width:80%;

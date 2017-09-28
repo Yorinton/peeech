@@ -119,6 +119,7 @@ class Room extends Model
     	return Room::findOrFail($room_id);
     }
 
+
     //ユーザーがルームにアクセスした時間を記録
     public function createAccessTime(User $user,$room_id)
     {
@@ -128,29 +129,30 @@ class Room extends Model
         $access_to_room->save();
     }
 
+
     //ユーザーがルームにアクセスした時間を更新
     public function updateAccessTime(User $user,$room_id)
     {
         AccessToRoom::where('user_id',$user->id)->where('room_id',$room_id)->update(['room_id' => $room_id]);
     }
 
+
     //直近のアクセス時間を取得
     public function getLatestAccessTime($room_id)
     {
         return $access_to_room = AccessToRoom::where('user_id',Auth::id())->where('room_id',$room_id)->first()->updated_at->timestamp;
-        // $latestAccessTime - $access_to_room->updated_at;
     }
+
 
     //メッセージはアップデートされているか
     public function isNonReadMessages(User $friend,$room_id)
     {
         if($friend->messages->isEmpty()){
-            return '×';
+            return '';
         }
         $latestMessageUpdate = $friend->messages()->latest()->first()->updated_at->timestamp;
         $latestAccessTime = $this->getLatestAccessTime($room_id);
-        // dd($latestMessageUpdate > $latestAccessTime);
-        return $latestMessageUpdate > $latestAccessTime ? '○' : '×';
+        return $latestMessageUpdate > $latestAccessTime ? '●' : '';
     }
 
 }

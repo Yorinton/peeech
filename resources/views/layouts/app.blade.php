@@ -36,7 +36,7 @@
                         <span class="icon-bar"></span>
  -->                    </button>
                     <div class="title-area-register">
-                        <h4 class="title-text text_clamp_title">{{ $title or 'Peeech' }}</h4>
+                        <h4 class="title-text text_clamp_title wd70">{{ $title or 'Peeech' }}</h4>
                     </div>
                     <!-- <title-default></title-default> -->
                     <!-- Branding Image -->

@@ -9,6 +9,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 use App\Eloquent\Room;
 use App\Eloquent\Message;
+use App\Eloquent\User;
 
 class RoomTest extends TestCase
 {
@@ -97,4 +98,26 @@ class RoomTest extends TestCase
     	}
 
     }
+
+
+    /** @test */
+    public function an_authenticated_user_can_see_chat_lists()
+    {
+    	$user = User::where('id',1)->first();
+
+    	$this->actingAs($user)
+    		 ->get('/rooms/'.$user->id)
+    		 ->assertSee('よりんすと')
+    		 ->assertSee('Peeech公式')
+    		 ->assertSee('遊べる貸切スペース');
+
+    }
+
+
+    /** @test */
+    public function mark_on_the_latest_chats_in_the_chat_lists_page()
+    {
+    	
+    }
+
 }

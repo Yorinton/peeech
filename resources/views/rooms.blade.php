@@ -11,14 +11,14 @@
                 <div class="of_h pt10 pb10 list_border to_room">
                     <img class="thumb_middle" src="{{ $friend['user']->img_path}}">
                     <div class="fr wd70">
-                        <p class="mb0 fw_b text_clamp_s fs15">{{ $friend['user']->name }}</p>
+                        <p class="fr fs15 fc_mark">{{ $friend['isNonReadMessages'] }}</p>
+                        <p class="mb0 fw_b text_clamp_s fs15 wd80">{{ $friend['user']->name }}</p>
                         <p class="mb0 fs13">{{ $friend['user']->birthday }} / {{ $friend['user']->sex}} / 
                             @foreach($friend['user']->regions as $region)
                             <span>{{ $region->region }}</span>
                             @endforeach
                         </p>
                         <p class="mb0 text_clamp_m fs10">{{ $friend['user']->introduction}}</p>
-                        <p>{{ $friend['isNonReadMessages'] }}</p>
                     </div>
                     <form method="post" action="{{ url('/room') }}" class="disnone make_room">
                         {{ csrf_field() }}
