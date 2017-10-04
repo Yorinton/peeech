@@ -16,6 +16,7 @@ use App\ImageService;
 use Illuminate\Contracts\Encryption\DecryptException;
 use App\MatchingService;
 use Auth;
+use Gate;
 
 class UserController extends Controller
 {
@@ -171,14 +172,18 @@ class UserController extends Controller
     {
     	if($this->userService->getUser($id)){
 
-	        $user = $this->userService->getUser($id);
+            $user = $this->userService->getUser($id);
 
-          if($request->img_path){
+            if(Gate::denies('update-user',$user)){
+                echo '指定のユーザー情報は更新出来ません';
+            }
 
-            $this->imageService->upload($request,$id);
-            return redirect()->route('profiles',[$user]);
+            if($request->img_path){
 
-          }
+                $this->imageService->upload($request,$id);
+                return redirect()->route('profiles',[$user]);
+
+            }
 	        $this->userService->updateUserProfs($request,$id);
 
         }

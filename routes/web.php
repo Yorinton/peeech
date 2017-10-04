@@ -107,6 +107,14 @@ Route::post('/messages','MessageController@store')->middleware('auth');
 //ルーム一覧取得
 Route::get('/rooms/{id}','RoomController@showChatLists');
 
+/**
+ *
+ * メッセージ関連
+ *
+**/
+Route::get('/mail','MailController@sendMail');
+
+
 
 /**
  *
