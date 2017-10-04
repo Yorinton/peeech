@@ -14,7 +14,7 @@ class MailController extends Controller
     public function sendMail()
     {
     	$friends_num = 3;
-    	$friend_ex = User::where('id',3)->first();
+    	$friend_ex = User::where('id',32)->first();
     	$user = Auth::user();
         Mail::to('sansan106700@gmail.com')->send(new MatchingNotification($friends_num,$friend_ex,$user));
 
