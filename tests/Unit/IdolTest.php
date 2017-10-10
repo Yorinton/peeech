@@ -54,6 +54,8 @@ class IdolTest extends TestCase
             //delete user and idols
             $user->delete();
         }catch(\Exception $e){
+            $this->assertTure(false);
+            echo $e;
             $user->delete();
         }
     }

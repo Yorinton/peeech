@@ -33,5 +33,9 @@ class AppServiceProvider extends ServiceProvider
             'App\Repositories\Idol\IdolRepositoryInterface',
             'App\Repositories\Idol\IdolRepository'
         );
+        $this->app->bind(
+            'Peeech\Domain\Repositories\Idol\IdolRepositoryInterface',
+            'Peeech\Data\Repositories\Idol\IdolRepository'
+        );
     }
 }

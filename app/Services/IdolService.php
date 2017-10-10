@@ -2,32 +2,29 @@
 
 namespace App\Services;
 
-use App\Repositories\Idol\IdolRepositoryInterface;
-// use App\Repositories\Master\MasterRepositoryInterface;
-
+use Peeech\Domain\Models\Idol\Idol;
+use Peeech\Domain\Models\Idol\IdolId;
 /**
 * 
 */
 class IdolService
 {
 	
-	protected $idolRepo;
+	protected $idol;
 
-	function __construct(IdolRepositoryInterface $idolRepo)
+	function __construct(Idol $idol)
 	{
-		$this->idolRepo = $idolRepo;
+		$this->idol = $idol;
 	}
-
     /**
      * add a new idol for a user.
      *
      * @param string $idol_id
      * @return Illuminate\Database\Eloquent\Model
      */
-	public function store(Int $idol_id)
+	public function store(int $idol_id)
 	{
-		$idol = $this->idolRepo->getIdolMasterById($idol_id);		
-		return $this->idolRepo->store($idol);
+		return $this->idol->add(new IdolId($idol_id));
 	}
 
     /**

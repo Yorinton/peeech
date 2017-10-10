@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Eloquent\Idol;
 use Illuminate\Http\Request;
 use App\Services\IdolService;
+use App\Http\Requests\IdolRequest;
 
 class IdolController extends Controller
 {
@@ -43,9 +44,8 @@ class IdolController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$user_id)
+    public function store(IdolRequest $request,$user_id)
     {
-        $this->validate($request,['idol' => 'required|integer']);
         $idol = $this->idolService->store($request->idol);
         return ['idol' => $idol];
     }
