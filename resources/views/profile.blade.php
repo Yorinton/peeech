@@ -15,6 +15,13 @@
                     </ul>
                 </div>
             @endif
+            <div id="slider-pro" class="slider-pro">
+                <div class="sp-slides">
+                    <div class="sp-slide"><img class="sp-image" src="{{ asset('../../images/services/tutorial.png') }}"></div>
+                    <div class="sp-slide"><img class="sp-image" src="{{ asset('../../images/img02.jpg') }}"></div>
+                    <div class="sp-slide"><img class="sp-image" src="{{ asset('../../images/img03.jpg') }}"></div>
+                </div>
+            </div>
             <div>
                 <div class="thumb_container mb20 wrap">
                     <img class="thumb preview" src="{{ $user->img_path }}">

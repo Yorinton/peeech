@@ -5,6 +5,8 @@ namespace Peeech\Domain\Models\Idol;
 use Peeech\Domain\Repositories\Idol\IdolRepositoryInterface;
 use App\Eloquent\Idol as EloquentIdol;
 use App\Eloquent\IdolMaster as EloquentIdolMaster;
+use Illuminate\Database\Eloquent\Collection;
+use Peeech\Domain\Models\User;
 
 /**
 * Idol Domain
@@ -18,14 +20,20 @@ final class Idol
 	/** @var IdolIdLists */
 	private $ids;
 
-	/** @var IdolMaster */
+	/** @var UserId */
+	private $user_id;
+
+	/** @var EloquentIdol */
+	private $idol;
+
+	/** @var EloquentIdolMaster */
 	private $idol_master;
 
 	/** @var IdolRepositoryInterface */
-	protected $idolRepo;
+	private $idolRepo;
 
 
-	function __construct(IdolRepositoryInterface $idolRepo)
+	public function __construct(IdolRepositoryInterface $idolRepo)
 	{
 		$this->idolRepo = $idolRepo;
 	}
@@ -43,28 +51,28 @@ final class Idol
 	}
 
     /**
-     * add some new idols for a user.
+     * get idol lists from idol master.
      *
-     * @param array $ids
-     * @return void
+     * 
+     * @return EloquentIdolMaster
      */
-	public function addMultiple(IdolIdLists $ids)
-	{
-		foreach ($ids->value() as $id) {
-			$this->add($id);
-		}
-	}
+    public function getAllIdolsFromMaster(): Collection
+    {
+    	return $this->idolRepo->getAllIdolsFromMaster();
+    }
 
     /**
      * get name of idol from idol master.
      *
      * @param IdolId $id
-     * @return String
+     * @return EloquentIdolMaster
      */
 	private function getIdolFromMasterById(IdolId $id): EloquentIdolMaster
 	{
 		return $this->idolRepo->getIdolFromMasterById($id->value());	
 	}
+
+
 
 
 }

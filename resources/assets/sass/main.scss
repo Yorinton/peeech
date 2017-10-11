@@ -719,3 +719,19 @@ input[type="submit"],input[type="button"] {
 	@extend .btn_facebook;
 	opacity: 0.7;
 }
+
+/*
+*
+* チュートリアル
+*
+*/
+#slider-pro {
+	position: fixed;
+    background: rgba(0,0,0,.5);
+    top: 0;
+    z-index: 1000;
+    padding-top: 15%;
+    height: 100%;
+    display: none;
+}
+

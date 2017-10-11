@@ -166,4 +166,27 @@ $(function(){ //即時関数にすることで外から中の変数を参照出�
 		$('.card:first-child').removeClass('disnone');
 	}
 
+	if($('#slider-pro').length > 0){
+
+		var ht_w = $(window).height();
+		var ht_card = ht_w - 157;
+
+		//スライド
+		$('#slider-pro').sliderPro({
+			buttons: true, //スライダーのページャを表示する
+			startSlide: 0, //最初のスライドを指定する
+			arrows: false, //左右の矢印ボタンを表示する
+			width: '90%', //横幅を設定する
+			height: ht_card, //高さを設定する
+			autoplay: true, //自動再生の設定
+			loop: false, //スライドをループさせる設定
+			visibleSize: '0%', //前後のスライドを表示するかの設定
+			forceSize: 'fullWidth', //スライダーの幅をブラウザ幅に設定する
+			autoplay: false
+		});
+	}
+
+
+
+
 });

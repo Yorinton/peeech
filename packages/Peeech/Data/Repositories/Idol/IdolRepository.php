@@ -7,6 +7,7 @@ use App\Eloquent\Idol;
 use App\Eloquent\IdolMaster;
 use DB;
 use Auth;
+use Illuminate\Database\Eloquent\Collection;
 
 class IdolRepository implements IdolRepositoryInterface
 {
@@ -45,6 +46,17 @@ class IdolRepository implements IdolRepositoryInterface
 			return $e;
 
 		}		
+	}
+
+    /**
+     * get idol lists from idol master.
+     *
+     * 
+     * @return Collection
+     */
+	public function getAllIdolsFromMaster(): Collection
+	{
+		return IdolMaster::all();
 	}
 
     /**
