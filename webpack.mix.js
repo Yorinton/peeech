@@ -49,6 +49,7 @@ mix.browserSync({
 
 mix.js('resources/assets/js/app.js', 'public/js')
   .js('resources/assets/js/prof.js', 'public/js')
+  // .js('node_modules/flipsnap/flipsnap.js', 'public/js')
   .sass('resources/assets/sass/app.scss', 'public/css')
   .sass('resources/assets/sass/main.scss', 'public/css')
   .options({

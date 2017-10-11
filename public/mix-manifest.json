@@ -4,5 +4,6 @@
   "/mix.js": "/mix.js",
   "/css/main.css": "/css/main.css",
   "/js/recommend.js": "/js/recommend.js",
-  "/js/prof.js": "/js/prof.js"
+  "/js/prof.js": "/js/prof.js",
+  "/js/flipsnap.js": "/js/flipsnap.js"
 }

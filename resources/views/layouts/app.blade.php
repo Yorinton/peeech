@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('css/main.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/slider-pro.min.css') }}">
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -97,7 +97,11 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}"></script>
-    <script src="{{ asset('js/index.js') }}"></script>
     <script src="{{ asset('js/jquery-3.2.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.sliderPro.min.js') }}"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+    <!-- <script src="{{ asset('js/flipsnap.js') }}"></script> -->
+    <script src="{{ asset('js/index.js') }}"></script> 
+
 </body>
 </html>

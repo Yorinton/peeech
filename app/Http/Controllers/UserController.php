@@ -133,6 +133,10 @@ class UserController extends Controller
 
                 $title = 'プロフィール';
 
+                //初回アクセスかどうか(登録画面からの遷移かどうか)の判定
+
+                //on boarding部分に当てるclassの定義
+
                 return $this->chooseTemplate(compact('user','region','statue_ids','statue_masters','prefs','idol_masters','title','act_masters'));
 
     	}
