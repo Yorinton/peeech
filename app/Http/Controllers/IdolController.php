@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Eloquent\Idol;
 use Illuminate\Http\Request;
-use App\Services\IdolService;
+use Peeech\Application\Services\Idol\IdolService;
 use App\Http\Requests\IdolRequest;
 
 class IdolController extends Controller

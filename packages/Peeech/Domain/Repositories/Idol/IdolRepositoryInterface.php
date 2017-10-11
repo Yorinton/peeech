@@ -17,6 +17,14 @@ interface IdolRepositoryInterface
 
 
     /**
+     * get idol lists from idol master.
+     *
+     * 
+     * @return EloquentIdolMaster
+     */
+    public function getAllIdolsFromMaster();
+
+    /**
      * get a idol_master by idol id.
      *
      * @param string $idol

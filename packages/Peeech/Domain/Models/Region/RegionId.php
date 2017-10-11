@@ -1,20 +1,20 @@
 <?php
-namespace Peeech\Domain\Models\Idol;
+
+namespace Peeech\Domain\Models\Region;
 
 
-final class IdolId
+final class RegionId
 {
-	
-	/** @var int */
+
+	/** @var int */	
 	private $value;
 
 	/**
 	 * @param int $value
 	 */
-
 	public function __construct($value)
 	{
-		$this->value = $value;
+		$this->value = $value;		
 	}
 
 	public function value(): int
@@ -22,11 +22,6 @@ final class IdolId
 		return $this->value;
 	}
 
-	public function toInt(): int
-	{
-		return (int)$this->value;
-	}
 }
-
 
 ?>

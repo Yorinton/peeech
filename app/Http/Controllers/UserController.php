@@ -10,7 +10,8 @@ use App\Eloquent\Region;
 use Intervention\Image\Facades\Image;
 use App\MasterDbService;
 use App\Services\UserService;
-use App\Services\IdolService;
+// use App\Services\IdolService;
+use Peeech\Application\Services\Idol\IdolService;
 use Request as RequestFacade;
 use App\ImageService;
 use Illuminate\Contracts\Encryption\DecryptException;
@@ -127,7 +128,8 @@ class UserController extends Controller
 
                 //各マスタデータ
                 $statue_masters = $this->masterDbService->getMaster('statue');
-                $idol_masters = $this->masterDbService->getMaster('idol');
+                // $idol_masters = $this->masterDbService->getMaster('idol');
+                $idol_masters = $this->idolService->getAllIdols();
                 $act_masters = $this->masterDbService->getMaster('activity');
                 $prefs = json_encode($this->getPref());
 
