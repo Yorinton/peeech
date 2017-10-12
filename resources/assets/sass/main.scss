@@ -732,6 +732,14 @@ input[type="submit"],input[type="button"] {
     z-index: 1000;
     padding-top: 15%;
     height: 100%;
-    display: none;
 }
+.sp-selected-button {
+	background-color: #fe66a4!important;
+}
+.sp-button {
+	border: 1px solid #fe66a4!important;
+	background: white;
+	box-shadow: 0 0 15px white;
+}
+
 
