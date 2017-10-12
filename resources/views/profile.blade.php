@@ -15,7 +15,7 @@
                     </ul>
                 </div>
             @endif
-            <div id="slider-pro" class="slider-pro">
+            <div id="slider-pro" class="slider-pro {{ $tutorial }}">
                 <div class="sp-slides">
                     <div class="sp-slide"><img class="sp-image" src="{{ asset('../../images/services/tutorial.png') }}"></div>
                     <div class="sp-slide"><img class="sp-image" src="{{ asset('../../images/img02.jpg') }}"></div>
