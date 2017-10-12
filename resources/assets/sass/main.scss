@@ -741,5 +741,14 @@ input[type="submit"],input[type="button"] {
 	background: white;
 	box-shadow: 0 0 15px white;
 }
+.sp-buttons {
+	top: -8%;
+}
+@media only screen and (max-width: 568px) and (min-width: 320px) {
+	.sp-buttons > .sp-button {
+		width: 10px;
+    	height: 10px;
+	}
+}
 
 
