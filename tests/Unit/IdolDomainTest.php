@@ -75,33 +75,33 @@ class IdolDomainTest extends TestCase
     }
 
     /** @test */
-    public function an_authenticated_user_can_add_some_idols()
-    {
-    	try{
-	    	$user = $this->app->make('user');
-			$user->name = 'より';
-			$user->save();
-			$this->actingAs($user);
+   //  public function an_authenticated_user_can_add_some_idols()
+   //  {
+   //  	try{
+	  //   	$user = $this->app->make('user');
+			// $user->name = 'より';
+			// $user->save();
+			// $this->actingAs($user);
 
-	        $eloquentIdol = new EloquentIdol;
-	        $eloquentIdolMaster = new EloquentIdolMaster;
-			$idolRepo = new IdolRepository($eloquentIdol,$eloquentIdolMaster);
-			$idol = new Idol($idolRepo);
-			$ids = new IdolIdLists([2,4,10]);
+	  //       $eloquentIdol = new EloquentIdol;
+	  //       $eloquentIdolMaster = new EloquentIdolMaster;
+			// $idolRepo = new IdolRepository($eloquentIdol,$eloquentIdolMaster);
+			// $idol = new Idol($idolRepo);
+			// $ids = new IdolIdLists([2,4,10]);
 
-			$idol->addMultiple($ids);
-			$idols = EloquentIdol::where('user_id',$user->id)->get();
-			$idols->each(function($item,$key){
-				$this->assertInstanceOf(EloquentIdol::class,$item);
-			});
+			// $idol->addMultiple($ids);
+			// $idols = EloquentIdol::where('user_id',$user->id)->get();
+			// $idols->each(function($item,$key){
+			// 	$this->assertInstanceOf(EloquentIdol::class,$item);
+			// });
 
-    		$user->delete();
-    	}catch(\Exception $e){
-    		$this->assertTrue(false);
-    		echo $e;
-    		$user->delete();
-    	}
-    }
+   //  		$user->delete();
+   //  	}catch(\Exception $e){
+   //  		$this->assertTrue(false);
+   //  		echo $e;
+   //  		$user->delete();
+   //  	}
+   //  }
 
     /** @test */
     public function an_authenticated_user_can_add_some_idols_on_idolService()

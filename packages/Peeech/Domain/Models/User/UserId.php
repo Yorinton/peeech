@@ -15,9 +15,9 @@ final class UserId
 		$this->value = $value;
 	}
 
-	public function value(): int
+	public function getUserId(): int
 	{
-		return $this->value;
+		return (Int)$this->value;
 	}
 
 }

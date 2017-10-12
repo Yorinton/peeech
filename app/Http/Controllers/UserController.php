@@ -10,7 +10,6 @@ use App\Eloquent\Region;
 use Intervention\Image\Facades\Image;
 use App\MasterDbService;
 use App\Services\UserService;
-// use App\Services\IdolService;
 use Peeech\Application\Services\Idol\IdolService;
 use Request as RequestFacade;
 use App\ImageService;

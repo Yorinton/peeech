@@ -4,7 +4,7 @@ namespace Peeech\Domain\Models\Region;
 
 final class RegionName
 {
-	const ENUM = [
+	const PREFECTURES = [
 	 	'北海道' => '北海道',
 		'青森県' => '青森県',
 		'岩手県' => '岩手県',
@@ -62,7 +62,7 @@ final class RegionName
         if (!static::isValidValue($key)) {
             throw new \InvalidArgumentException('都道府県を指定して下さい');
         }
-        $this->scalar = self::ENUM[$key];
+        $this->scalar = self::PREFECTURES[$key];
     }
 
     public function value(): String
@@ -72,7 +72,7 @@ final class RegionName
 
     public static function isValidValue($key)
     {
-        return array_key_exists($key, self::ENUM);
+        return array_key_exists($key, self::PREFECTURES);
     }
 
     public function __toString()
