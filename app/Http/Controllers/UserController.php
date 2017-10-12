@@ -136,14 +136,21 @@ class UserController extends Controller
                 $title = 'プロフィール';
 
                 //初回アクセスかどうか(登録画面からの遷移かどうか)の判定
+                $tutorial = $this->isFirstAccessToProfilePage();
 
-                //on boarding部分に当てるclassの定義
-
-                return $this->chooseTemplate(compact('user','region','statue_ids','statue_masters','prefs','idol_masters','title','act_masters'));
+                return $this->chooseTemplate(compact('user','region','statue_ids','statue_masters','prefs','idol_masters','title','act_masters','tutorial'));
 
     	}
     	echo '指定のユーザーは存在しません';                             
     }
+
+    public function isFirstAccessToProfilePage()
+    {
+        if(strpos($_SERVER['HTTP_REFERER'],'registerpage')){
+            return 'disblo';
+        }
+        return 'disnone';
+    } 
 
     /**
      * Choose Template of displaying profile (user or friend)
