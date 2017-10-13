@@ -16,7 +16,7 @@
 				</p>
 			</p>
 		</div>
-		<p><a class="btn_link" href="http://homestead.app/matchings/{{ $user->id }}">他のマッチングをチェック♬</a></p>
+		<p><a class="btn_link" href="{{ $url }}">他のマッチングをチェック♬</a></p>
 	</div>
 </body>
 <style type="text/css">

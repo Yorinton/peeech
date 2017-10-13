@@ -20,6 +20,7 @@ class MatchingNotification extends Mailable
     public $friends_num;//マッチングした人数
     public $friend_ex;//マッチングしたファン友の一人
     public $user;
+    public $url;
 
 
     /**
@@ -33,6 +34,7 @@ class MatchingNotification extends Mailable
         $this->friends_num = $friends_num;
         $this->friend_ex = $friend_ex;
         $this->user = $user;
+        $this->url = (string)config('app.url').'/matchings/'.$user->id;
     }
 
     /**
