@@ -16,7 +16,7 @@ class MailController extends Controller
     	$friends_num = 3;
     	$friend_ex = User::where('id',3)->first();
     	$user = Auth::user();
-        Mail::to('sansan106700@gmail.com')->send(new MatchingNotification($friends_num,$friend_ex,$user));
+        Mail::to('ka2ki.yori@outlook.com')->send(new MatchingNotification($friends_num,$friend_ex,$user));
 
         return redirect()->to('/rooms/'.$user->id);
     }
