@@ -41,37 +41,14 @@ class Kernel extends ConsoleKernel
                 
                 // 全てのUserに対して実施
                 foreach ($users as $user) {
-                    //User一人あたりの処理
-                    //userが登録した好きなアイドルを全員リレーションで取得
-                    $idols = $user->idols;//リレーション先のレコードを取得する場合1対多で多の方は複数形にする
 
-                    //好きなアイドルが登録されているレコードをidolsテーブルから全て取得し、該当レコードのuser_idを配列でまとめる
-                    $friend_ids = [];
-                    foreach ($idols as $idol) {
-                        // echo $idol->idol;
-                        // echo $idol->user_id;
-                        $idol_names = DB::table('idols')->where('idol',$idol->idol)->get();
-                        foreach ($idol_names as $idol_name) {
-                            if(!in_array($idol_name->user_id, $friend_ids)){
-                                // 既にrecommendsテーブルにレコードが存在する場合を除く
-                                if($idol_name->user_id !== $user->id){
-                                    if(!Recommend::where('friend_id',$idol_name->user_id)->where('user_id',$user->id)->exists()) {
-                                        $friend_ids[] = $idol_name->user_id;//array_pushより早いらしい
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    // $i = 0;
+                    //オブジェクトの配列が返ってくる
+                    $friends = DB::select(DB::raw("select id from users where id = any(select user_id from idols where idol = any(select idol from idols where user_id = $user->id)) and id != $user->id and id not in (select friend_id from recommends where user_id = $user->id)"));
                     //同じアイドルが好きなファン友候補のfriend_idをrecommendsテーブルに保存
-                    foreach ($friend_ids as $friend_id) {
-                        // echo $friend_id;
+                    foreach ($friends as $friend) {
                         $recommends = new Recommend();
-                            if($friend_id !== $user->id){
-                                $recommends->friend_id = $friend_id;
-                                // $recommends->user_id = $user->id;
-                                $user->recommends()->save($recommends);
-                        }
+                        $recommends->friend_id = $friend->id;
+                        $user->recommends()->save($recommends);
                     }
                 }
             }
