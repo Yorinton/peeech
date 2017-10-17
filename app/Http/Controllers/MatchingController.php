@@ -33,7 +33,7 @@ class MatchingController extends Controller
         $friends = $this->matching->getMatchedFriends($id);
 
         if(count($friends) <= 0){
-            $m = 'まだマッチングしたファン友はいません';
+            $m = "まだマッチングしたファン友はいないよ>< プロフィールを充実させてマッチングの確立を高めよう！";
             return view('matchings')->with('m',$m)->with('title',$this->title);
         }
 

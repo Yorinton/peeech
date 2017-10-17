@@ -3,9 +3,16 @@
 @section('content')
 <div class="container mb30 mt50">
     <div class="row">
-        <div class="content_right_top">
-            <a href="{{ url('/friend/'.Auth::id().'/'.$friend->id) }}">プロフ</a>
+        <div class="content_left_top">
+            <p><a class="{{ $backUrl['class'] }}" href="{{ $backUrl['url'] }}">戻る</a></p>
         </div>
+        @if(isset($m))
+        <span class="msg_error">{{ $m }}</span>
+        @endif
+        @if(isset($friend))
+        <div class="content_right_top">   
+            <a href="{{ url('/friend/'.Auth::id().'/'.$friend->id) }}">プロフ</a>
+        </div>       
         <div class="col-md-8 col-md-offset-2">
         	<div class="form-group">
         		<div id="app">
@@ -23,6 +30,7 @@
         		</div>
 			</div>
 		</div>
+        @endif 
 	</div>
 </div>
 @endsection

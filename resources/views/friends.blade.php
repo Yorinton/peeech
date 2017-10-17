@@ -5,7 +5,7 @@
     <div class="row ht100">
         <div class="col-md-8 col-md-offset-2 ht100">
             @if(isset($m))
-            <span>{{ $m }}</span>
+            <span class="msg_error">{{ $m }}</span>
             @endif
             @if(isset($friends))
                 @foreach($friends as $friend)

@@ -444,6 +444,14 @@ input[type="submit"],input[type="button"] {
     color: #fe66a4;
 }
 /* メッセージ */
+.msg_error{
+	font-size: 20px;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-top: 15px;
+}
+
 .msg {
 	font-size:12px;
 	font-weight: bold;
@@ -521,6 +529,13 @@ input[type="submit"],input[type="button"] {
     top: 0;
     z-index: 1000;
     right: 0;
+    padding: 15px;
+}
+.content_left_top {
+	position: fixed;
+    top: 0;
+    z-index: 1000;
+    left: 0;
     padding: 15px;
 }
 

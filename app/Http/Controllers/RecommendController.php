@@ -38,8 +38,8 @@ class RecommendController extends Controller
 		    						  ->with('friends',$friends)
 		    						  ->with('title',$title);
 	    	}else {
-	    		$m = '該当するファン友候補はまだいません';
-	    		return view('friends')->with('m',$m)->with('title',$title);
+	    		// $m = '該当するファン友候補はまだいません';
+	    		return view('friends')->with('title',$title);
 	    	}
 	    }else{
 	    	$m = '該当ユーザーは存在しません';

@@ -23,7 +23,7 @@ class UserTableSeeder extends Seeder
 
 	    	DB::beginTransaction();
 	    	try{
-    			for ($i=1; $i < 11 ; $i++) {
+    			for ($i=1; $i < 5 ; $i++) {
 			    	$user = new User();
 			    	$user->name = 'テストユーザー'.$i;
 			    	$user->email = encrypt($i.'aaaa@gmail.com');

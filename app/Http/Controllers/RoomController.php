@@ -40,25 +40,31 @@ class RoomController extends Controller
     public function showRoom($room_id)
     {
         $user = Auth::user();
+        //戻るのリンク先
+        $backUrl = $this->BackUrl();
+
         if(!$this->room->isRoomById($room_id)){
-            return "このルームは存在しません";
+            $m = "このルームは存在しません";
+            return view('room')->with('m',$m)->with('backUrl',$backUrl);
         }
         if(!$this->room->isOwner($user,$room_id)){
-            return "このルームには参加できません";
+            $m = "このルームには参加できません";
+            return view('room')->with('m',$m)->with('backUrl',$backUrl);
         }
         $friend = $this->room->getChatFriend($user,$room_id);
 
         //アクセス時間更新
-        // $this->room->createAccessTime(Auth::user(),$room_id);
-        $this->room->updateAccessTime($user,$room_id);
-
+        if(!$this->room->isAccessTime($user,$room_id)){
+            $this->room->createAccessTime($user,$room_id);
+        }else{
+            $this->room->updateAccessTime($user,$room_id);
+        }
 
         return view('room')->with('room_id',$room_id)
                            ->with('title',$friend->name)
                            ->with('user',$user)
                            ->with('friend',$friend)
-                           ->with('backUrl',$_SERVER['HTTP_REFERER']);
-        
+                           ->with('backUrl',$backUrl);
     }
 
 
@@ -86,6 +92,15 @@ class RoomController extends Controller
     protected function setTitle($value)
     {
         return $this->title = $value;
+    }
+
+    //直前のURLが存在するか(直アクセスでないかどうか)チェック
+    private function BackUrl(): array
+    {
+        if(isset($_SERVER['HTTP_REFERER'])){
+            return ['url' => $_SERVER['HTTP_REFERER'],'class' => 'disblo'];
+        }
+        return ['url' => '','class' => 'disnone'];
     }
 
 }

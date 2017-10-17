@@ -19,7 +19,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\Recommend::class
     ];
 
     /**
@@ -30,29 +30,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
-        // 同じアイドル好きのユーザーをrecommendsテーブルに登録
-        $schedule->call(function () {
-            if(User::all()){
 
-                // 全Userを取得
-                $users = User::all();
-                
-                // 全てのUserに対して実施
-                foreach ($users as $user) {
+        // レコメンド
+        // $schedule->command('recommend')->everyMinute();
 
-                    //オブジェクトの配列が返ってくる
-                    $friends = DB::select(DB::raw("select id from users where id = any(select user_id from idols where idol = any(select idol from idols where user_id = $user->id)) and id != $user->id and id not in (select friend_id from recommends where user_id = $user->id)"));
-                    //同じアイドルが好きなファン友候補のfriend_idをrecommendsテーブルに保存
-                    foreach ($friends as $friend) {
-                        $recommends = new Recommend();
-                        $recommends->friend_id = $friend->id;
-                        $user->recommends()->save($recommends);
-                    }
-                }
-            }
-        })->everyMinute();
 
 
         // 新しくマッチングした場合にお知らせ
@@ -84,7 +65,7 @@ class Kernel extends ConsoleKernel
                     }
                 }
         	}	
-        })->everyMinute();
+        })->daily();
     }
 
     /**

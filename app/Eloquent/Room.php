@@ -143,11 +143,20 @@ class Room extends Model
         return $access_to_room = AccessToRoom::where('user_id',Auth::id())->where('room_id',$room_id)->first()->updated_at->timestamp;
     }
 
+    //AccessTimeが記録されているか
+    public function isAccessTime(User $user,$room_id)
+    {
+        return AccessToRoom::where('user_id',$user->id)->where('room_id',$room_id)->exists();
+    }
+
 
     //メッセージはアップデートされているか
     public function isNonReadMessages(User $friend,$room_id)
     {
         if($friend->messages->isEmpty()){
+            return '';
+        }
+        if(!$this->isAccessTime(Auth::user(),$room_id)){
             return '';
         }
         $latestMessageUpdate = $friend->messages()->latest()->first()->updated_at->timestamp;

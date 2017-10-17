@@ -6,6 +6,7 @@ use App\Eloquent\Recommend as Recommend;
 use App\Eloquent\User as User;
 use App\Repositories\Recommend\RecommendRepository;
 use App\Repositories\User\UserRepository;
+use DB;
 
 
 class RecommendService
@@ -40,6 +41,30 @@ class RecommendService
 		$recommends = $this->Rrepo->getRecommendOnlySettledNullById($id);
 		// recommendsのfriend_idをキーにUserのリストを生成する
 		return $this->collectionsToUserLists($recommends,'friend_id');
+	}
+
+	public function recommendFriendsToUser()
+	{
+        if(User::all()){
+
+            // 全Userを取得
+            $users = User::all();
+            
+            // 全てのUserに対して実施
+            foreach ($users as $user) {
+
+                //オブジェクトの配列が返ってくる
+                $friends = DB::select(DB::raw("select id from users where id = any(select user_id from idols where idol = any(select idol from idols where user_id = $user->id)) and id != $user->id and id not in (select friend_id from recommends where user_id = $user->id) limit 3"));
+
+                //同じアイドルが好きなファン友候補のfriend_idをrecommendsテーブルに保存
+                foreach ($friends as $friend) {
+                    $recommend = new Recommend();
+                    $recommend->friend_id = $friend->id;
+                    $recommend->user_id = $user->id;
+                    $recommend->save();
+                }
+            }
+        }		
 	}
 }
 

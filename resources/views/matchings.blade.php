@@ -27,7 +27,7 @@
             </div>
             @endforeach
             @elseif(isset($m))
-            <span>{{ $m }}</span>
+            <span class="msg_error">{{ $m }}</span>
             @endif
         </div>
     </div>
