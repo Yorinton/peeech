@@ -73,7 +73,7 @@ class UserService
 	        if($key !== '_token' && $key !== '_method' && $key !== 'id'){
 				//バリデーションルールの配列
 				$rules = [
-					'name' => ['name' => 'required|max:255'],
+					'name' => ['name' => 'required|max:20'],
 					'email' => ['email' => 'required|email|unique:users,email'],
 					'sex' => ['sex' => 'required|max:11'],
 					'introduction' => ['introduction' => 'required|max:1000'],
@@ -96,8 +96,8 @@ class UserService
         if($request->$key){
         	$rules = [
         		'idol' => ['idol' => 'required|max:255'],
-        		'favorite' => ['favorite' => 'required|max:255'],
-        		'event' => ['event' => 'required|max:255'],
+        		'favorite' => ['favorite' => 'required|max:25'],
+        		'event' => ['event' => 'required|max:30'],
         		'region' => ['region' => 'required|max:255'],
         		'activity' => ['activity' => 'required|max:255'],
         		'statue_id' => ['statue_id' => 'required'],
