@@ -30,7 +30,7 @@
                 <div class="form-group mb20">
                     <label for="" class="label_prof wd80"><span>生年月日</span></label><span class="required">必須</span>
                     <div class="sp-between mt10">
-                        <select name="year" class="form-control inputBaseStyle mr20 he40 fs16">
+                        <select name="year" class="form-control inputBaseStyle mr20 he40 fs16" required="required">
                             <option>年</option>
                             @for($i=2002;$i > 1949;$i--)
                                 @if(old('year') == $i)
@@ -40,7 +40,7 @@
                                 @endif
                             @endfor
                         </select>
-                        <select name="month" class="form-control inputBaseStyle mr20 he40 fs16">
+                        <select name="month" class="form-control inputBaseStyle mr20 he40 fs16" required="required">
                             <option>月</option>
                             @for($i=1;$i < 13;$i++)
                                 @if(old('month') == $i)
@@ -50,7 +50,7 @@
                                 @endif
                             @endfor
                         </select>
-                        <select name="day" class="form-control inputBaseStyle he40 fs16">
+                        <select name="day" class="form-control inputBaseStyle he40 fs16" required="required">
                             <option>日</option>
                             @for($i=1;$i < 32;$i++)
                                 @if(old('day') == $i)
@@ -149,7 +149,7 @@
                 <div class="form-group mb20">
                     <label for="" class="label_prof wd80"><span>居住地域</span></label><span class="required">必須</span>
                     <select name="region[]" type="text" class="form-control inputBaseStyle mt10 fs16" id="">
-                        <option value="">選択してね</option>
+                        <option value="" disabled>選択してね</option>
                         @foreach($prefs as $pref)
                         <option value="{{ $pref }}">{{ $pref }}</option>
                         @endforeach

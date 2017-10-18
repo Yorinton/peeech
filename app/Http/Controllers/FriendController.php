@@ -20,7 +20,8 @@ class FriendController extends UserController
     	if(!$user->recommends->where('friend_id',$friend_id)->isEmpty()){
     		return $this->show($friend_id);
     	}
-    	return 'ご指定の友達は存在しません';
+        $m = 'ご指定の友達は存在しません';
+    	return view('errors.msg')->with('m',$m);
     }
     /**
      * Choose Template of displaying profile (user or friend)

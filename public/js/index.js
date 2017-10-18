@@ -104,12 +104,14 @@ $(function(){ //即時関数にすることで外から中の変数を参照出�
 		});		
 	}
 	if($(location).attr('pathname').match(/^.*friend\/.*$/)){
-		console.log('成功');	
+		//エラーの場合はnavbarは表示
+		if($('.msg_error').length > 0){
+			return;
+		}
 		$('.navbar').addClass('disnone');
 		// $('.container').removeClass('mt80').addClass('mt20');
 	}
 	if($(location).attr('pathname').match(/^.*room\/.*$/)){
-		console.log('成功');	
 		$('.navbar-toggle').addClass('disnone');
 		$('footer').addClass('disnone');
 		// $('.container').removeClass('mt80').addClass('mt20');

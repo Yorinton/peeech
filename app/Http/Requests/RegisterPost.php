@@ -35,4 +35,26 @@ class RegisterPost extends FormRequest
             'purpose' => 'required'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'ニックネームを入力して下さい',
+            'name.max:255' => 'ニックネームが長すぎます',
+            'email.required' => 'メールアドレスは必須です(非公開)',
+            'email.email' => 'メールアドレスの形式で入力して下さい',
+            'email.unique:users,email' => '入力されたメールアドレスは登録済みです',
+            'sex.required' => '性別を選択して下さい',
+            'sex.max:11' => '性別は11文字以内で指定して下さい',
+            'year.required' => '生まれた年を指定して下さい',
+            'year.integer' => '生まれた年を指定して下さい',
+            'month.required' => '生まれた月を指定して下さい',
+            'month.integer' => '生まれた月を指定して下さい',
+            'day.required' => '生まれた日を指定して下さい',
+            'day.integer' => '生まれた日を指定して下さい',
+            'added_idol.required' => '好きなアイドルを一組以上選択して下さい',
+            'region.required' => '地域を選択して下さい',
+            'purpose.required' => 'ご利用目的を選択して下さい',
+        ];
+    }
 }
