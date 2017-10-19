@@ -47,6 +47,7 @@ class MatchingService
                         $friends_num = count($friends);
                         $friend_ex = $friends->first();
 
+//                        dd(decrypt($user->email));
                         // MatchingNotificationインスタンスの引数にファン友数とファン友の一人のインスタンスと自分のインスタンスを渡す
                         Mail::to(decrypt($user->email))->send(new MatchingNotification($friends_num, $friend_ex, $user));
                     }

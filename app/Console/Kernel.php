@@ -32,7 +32,10 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // レコメンド
-//        $schedule->command('matching:email')->withoutOverlapping();
+//        $schedule->command('recommend')->withoutOverlapping();
+
+        // マッチングメール
+        $schedule->command('matching:email')->withoutOverlapping();
 
     }
 
