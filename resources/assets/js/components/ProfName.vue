@@ -22,7 +22,6 @@
 			sendName(){
 				if(this.name){
 					this.request.name = this.name;
-					//namesentというイベントを送信
 					this.$emit("namesent",{
 						id:this.user.id,
 						request:this.request

@@ -4,6 +4,7 @@
 <div class="container mb50 mt80 container_10">
     <div class="row" id="prof">
         <msg></msg>
+        <msg-error></msg-error>
         <div class="col-md-8 col-md-offset-2">
         @if(Auth::id() === $user->id) 
             @if (count($errors) > 0)

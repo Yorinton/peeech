@@ -9,6 +9,7 @@ Vue.component('prof-statue',require('./components/ProfStatue.vue'));
 Vue.component('prof-event',require('./components/ProfEvent.vue'));
 Vue.component('prof-email',require('./components/ProfEmail.vue'));
 Vue.component('msg',require('./components/common/Msg.vue'));
+Vue.component('msg-error',require('./components/common/MsgError.vue'));
 
 //Vueインスタンス生成
 const prof = new Vue({
@@ -23,6 +24,11 @@ const prof = new Vue({
 		    				$('.msg_cover').removeClass('msg_appear');
 						}, 3000);
 					}
+				}).catch(error => {
+                    $(".msg_error").addClass('msg_appear_er');
+                    setTimeout(function() {
+                        $('.msg_error').removeClass('msg_appear_er');
+                    }, 3000);
 				});
 			}else{
 				axios.patch('/region/' + req.id, req.request).then(res => {
@@ -32,7 +38,12 @@ const prof = new Vue({
 		    				$('.msg_cover').removeClass('msg_appear');
 						}, 3000);
 					}
-				});				
+				}).catch(error => {
+                    $(".msg_error").addClass('msg_appear_er');
+                    setTimeout(function() {
+                        $('.msg_error').removeClass('msg_appear_er');
+                    }, 3000);
+				});
 			}
 		}
 	},

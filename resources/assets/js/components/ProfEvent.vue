@@ -30,7 +30,13 @@
 				axios.post('/event/' + this.user.id,this.request).then(res => {
 					console.log(res.data.event);
 					this.event_names.push(res.data.event);
-				});
+				}).catch(error => {
+                    console.log('失敗><');
+                    $(".msg_error").addClass('msg_appear_er');
+                    setTimeout(function() {
+                        $('.msg_error').removeClass('msg_appear_er');
+                    }, 3000);
+                });
 			},
 			removeEvent(event){
 				this.remId = this.event_names.indexOf(event);

@@ -77,7 +77,13 @@
 				axios.post('/idol/' + this.user.id,this.request).then(res => {
 					console.log(res.data);
 					this.idol_names.push(res.data.idol);//res.data = ['idol' => request('idol')]
-				});
+				}).catch(error => {
+                    console.log('失敗><');
+                    $(".msg_error").addClass('msg_appear_er');
+                    setTimeout(function() {
+                        $('.msg_error').removeClass('msg_appear_er');
+                    }, 3000);
+                });
 			},
 			removeIdol(idol){
 				this.remId = this.idol_names.indexOf(idol);
