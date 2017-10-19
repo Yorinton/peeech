@@ -180,11 +180,10 @@ $(function(){ //即時関数にすることで外から中の変数を参照出�
 			arrows: false, //左右の矢印ボタンを表示する
 			width: '90%', //横幅を設定する
 			height: ht_card, //高さを設定する
-			autoplay: true, //自動再生の設定
+			autoplay: false, //自動再生の設定
 			loop: false, //スライドをループさせる設定
 			visibleSize: '0%', //前後のスライドを表示するかの設定
-			forceSize: 'fullWidth', //スライダーの幅をブラウザ幅に設定する
-			autoplay: false
+			forceSize: 'fullWidth' //スライダーの幅をブラウザ幅に設定する
 		});
 	}
 

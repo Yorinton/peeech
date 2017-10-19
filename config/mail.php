@@ -62,10 +62,10 @@ return [
 
     //ダミー送信先アドレス
 
-    // 'to' => [
-    //     'address' => '06e521be18-9f969f@inbox.mailtrap.io',
-    //     'name' => 'Katsuki'
-    // ],
+     'to' => [
+         'address' => '06e521be18-9f969f@inbox.mailtrap.io',
+         'name' => 'Katsuki'
+     ],
 
     /*
     |--------------------------------------------------------------------------

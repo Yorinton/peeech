@@ -7,17 +7,21 @@ use App\Eloquent\User;
 use App\Mail\MatchingNotification;
 use Illuminate\Support\Facades\Mail;
 use Auth;
+use Artisan;
 
 class MailController extends Controller
 {
     //
     public function sendMail()
     {
-    	$friends_num = 3;
-    	$friend_ex = User::where('id',32)->first();
-    	$user = Auth::user();
-        Mail::to('ka2ki.yori@outlook.com')->send(new MatchingNotification($friends_num,$friend_ex,$user));
 
-        return redirect()->to('/rooms/'.$user->id);
+        $exitCode = Artisan::call('matching:email');
+        return $exitCode;
+//    	$friends_num = 3;
+//    	$friend_ex = User::where('id',3)->first();
+//    	$user = Auth::user();
+//        Mail::to('ka2ki.yori@outlook.com')->send(new MatchingNotification($friends_num,$friend_ex,$user));
+//
+//        return redirect()->to('/rooms/'.$user->id);
     }
 }

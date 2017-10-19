@@ -26,7 +26,7 @@ class RegisterPost extends FormRequest
         return [
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users,email',
-            'sex' => 'required|max:3',
+            'sex' => 'required',
             'year' => 'required|integer',
             'month' => 'required|integer',
             'day' => 'required|integer',
@@ -45,7 +45,6 @@ class RegisterPost extends FormRequest
             'email.email' => 'メールアドレスの形式で入力して下さい',
             'email.unique:users,email' => '入力されたメールアドレスは登録済みです',
             'sex.required' => '性別を選択して下さい',
-            'sex.max:3' => '性別を選択して下さい',
             'year.required' => '生まれた年を指定して下さい',
             'year.integer' => '生まれた年を指定して下さい',
             'month.required' => '生まれた月を指定して下さい',
