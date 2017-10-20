@@ -3,11 +3,6 @@
 namespace App\Console;
 
 use DB;
-use App\Eloquent\User as User;
-use App\Eloquent\Recommend as Recommend;
-use App\Eloquent\Matching as Matching;
-use App\Mail\MatchingNotification;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -32,10 +27,13 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // レコメンド
-//        $schedule->command('recommend')->withoutOverlapping();
+        $schedule->command('recommend')->withoutOverlapping();
+        $schedule->command('recommend')->withoutOverlapping();
+        $schedule->command('recommend')->withoutOverlapping();
+
 
         // マッチングメール
-        $schedule->command('matching:email')->withoutOverlapping();
+//        $schedule->command('matching:email')->withoutOverlapping();
 
     }
 
