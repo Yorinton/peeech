@@ -18,9 +18,13 @@
             @endif
             <div id="slider-pro" class="slider-pro {{ $tutorial }}">
                 <div class="sp-slides">
-                    <div class="sp-slide"><img class="sp-image" src="{{ asset('../../images/services/tutorial.png') }}"></div>
-                    <div class="sp-slide"><img class="sp-image" src="{{ asset('../../images/img02.jpg') }}"></div>
-                    <div class="sp-slide"><img class="sp-image" src="{{ asset('../../images/img03.jpg') }}"></div>
+                    <div class="sp-slide"><img class="sp-image" src="{{ asset('../../images/services/tutorial/tutorial1.png') }}"></div>
+                    <div class="sp-slide"><img class="sp-image" src="{{ asset('../../images/services/tutorial/tutorial2.png') }}"></div>
+                    <div class="sp-slide"><img class="sp-image" src="{{ asset('../../images/services/tutorial/tutorial3.png') }}"></div>
+                    <div class="sp-slide">
+                        <img class="sp-image" src="{{ asset('../../images/services/tutorial/tutorial4-2.png') }}">
+                        <img class="sp-image btn_close" src="{{ asset('../../images/services/tutorial/btn.png') }}">
+                    </div>
                 </div>
             </div>
             <div>

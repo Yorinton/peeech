@@ -187,5 +187,12 @@ $(function(){ //即時関数にすることで外から中の変数を参照出�
 		});
 	}
 
+	if($('#slider-pro').length > 0) {
+        $('.btn_close').on('click', function () {
+            $('#slider-pro').removeClass('disblo');
+            $('#slider-pro').addClass('disnone');
+        });
+    }
+
 
 });
