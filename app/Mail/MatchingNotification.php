@@ -44,7 +44,7 @@ class MatchingNotification extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.matched')
-                    ->text('emails.matched_plain');
+        return $this->view('emails.matched')->subject('Peeech マッチングのお知らせ');
+//                    ->text('emails.matched_plain');
     }
 }

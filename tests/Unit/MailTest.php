@@ -23,7 +23,7 @@ class MailTest extends TestCase
     {
     	$friends_num = 3;
     	$friend_ex = User::where('id',3)->first();
-    	$user = User::where('id',2)->first();
+    	$user = User::where('id',1)->first();
         Mail::to('sansan106700@gmail.com')->send(new MatchingNotification($friends_num,$friend_ex,$user));
     }
 }
