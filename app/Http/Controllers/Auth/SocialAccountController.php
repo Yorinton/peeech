@@ -54,11 +54,8 @@ class SocialAccountController extends Controller
             	//認証後プロフィールページにリダイレクト
             	return redirect()->to('/home/'.$authUser->id);
 
-            }elseif($status == 'login'){
-                
-                return redirect()->route('profiles',[$authUser]);
-            
             }
+
         }catch(\Exception $e){
             echo "アカウント作成に失敗しました。再度お試し下さい";
             echo $e;
