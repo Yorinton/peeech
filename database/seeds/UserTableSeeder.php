@@ -45,6 +45,18 @@ class UserTableSeeder extends Seeder
 			     	$idol->idol_id = $idol_master->id;
 			     	$user->idols()->save($idol);
 
+                    $idol = new Idol();
+                    $idol_master = IdolMaster::where('id',210)->first();
+                    $idol->idol = $idol_master->idol;
+                    $idol->idol_id = $idol_master->id;
+                    $user->idols()->save($idol);
+
+                    $idol = new Idol();
+                    $idol_master = IdolMaster::where('id',4)->first();
+                    $idol->idol = $idol_master->idol;
+                    $idol->idol_id = $idol_master->id;
+                    $user->idols()->save($idol);
+
 			     	$region = new Region();
 			     	$region->region = '福岡県';
 			     	$user->regions()->save($region);

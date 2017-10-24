@@ -27,9 +27,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // レコメンド
-        $schedule->command('recommend')->withoutOverlapping();
-        $schedule->command('recommend')->withoutOverlapping();
-        $schedule->command('recommend')->withoutOverlapping();
+//        $schedule->command('recommend')->withoutOverlapping();
+//        $schedule->command('recommend')->withoutOverlapping();
+//        $schedule->command('recommend')->withoutOverlapping();
 
 
         // マッチングメール

@@ -32,7 +32,7 @@ class MailTest extends TestCase
     public function testRecommendNotification()
     {
         $user = User::where('id',1)->first();
-        Mail::to(decrypt($user->email))->send(new RecommendNotification());
+        Mail::to(decrypt($user->email))->send(new RecommendNotification($user));
         $this->assertTrue(true);
     }
 }

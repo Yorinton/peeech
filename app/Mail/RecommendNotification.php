@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Eloquent\User as User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -11,14 +12,18 @@ class RecommendNotification extends Mailable
 {
     use Queueable, SerializesModels;
 
+
+    public $user;
+    public $url;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(User $user)
     {
-        //
+        $this->user = $user;
+        $this->url = (string)config('app.url').'/friends/'.$user->id;
     }
 
     /**
