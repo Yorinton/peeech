@@ -32,13 +32,15 @@ class RecommendController extends Controller
 					$friends = $this->recommendService->getRecommendListsById($id);
 
 			    }else{
-			    	return view('friends')->with('title',$title);
+                    $wait_img_path = RecommendService::recommendImagePath($id);
+                    return view('friends')->with('title',$title)->with('wait_img_path',$wait_img_path);
 			    }
 		    	return view('friends')->with('id',$id)
 		    						  ->with('friends',$friends)
 		    						  ->with('title',$title);
 	    	}else {
-	    		return view('friends')->with('title',$title);
+	    	    $wait_img_path = RecommendService::recommendImagePath($id);
+	    		return view('friends')->with('title',$title)->with('wait_img_path',$wait_img_path);
 	    	}
 	    }else{
 	    	$m = '該当ユーザーは存在しません';

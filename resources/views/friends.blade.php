@@ -64,7 +64,9 @@
                 @endforeach
             @endif
             <div class="card card_no_match mb10 ht80 disnone">
-                <img class="wd100" src="../../images/services/friend_finish.png">
+                @if(isset($wait_img_path))
+                <img class="wd100" src="{{ $wait_img_path }}">
+                @endif
             </div>
         </div>
     </div>

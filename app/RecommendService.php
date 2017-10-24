@@ -74,6 +74,16 @@ class RecommendService
         }
 	}
 
+	public static function isRecommend(int $user_id): bool
+    {
+        $recommend = resolve('Peeech\Domain\Models\Recommend\Recommend');
+        return $recommend->isRecommend($user_id);
+    }
+
+    public static function recommendImagePath(int $user_id)
+    {
+        return self::isRecommend($user_id) ? '../../images/services/recommend_finish.png':'../../images/services/recommend_before.png';
+    }
 }
 
 ?>
