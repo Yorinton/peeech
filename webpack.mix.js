@@ -47,8 +47,8 @@ mix.browserSync({
       reloadOnRestart: true
   });
 
-mix.js('resources/assets/js/app.js', 'public/js')
-  .js('resources/assets/js/prof.js', 'public/js')
+mix.js(['resources/assets/js/app.js','resources/assets/js/prof.js'], 'public/js/app.js')
+  // .js('resources/assets/js/prof.js', 'public/js')
   .js('public/js/index.js','public/js')
   .sass('resources/assets/sass/app.scss', 'public/css')
   .sass('resources/assets/sass/main.scss', 'public/css')
