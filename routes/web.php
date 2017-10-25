@@ -112,7 +112,7 @@ Route::get('/rooms/{id}','RoomController@showChatLists');
  * メッセージ関連
  *
 **/
-Route::get('/mail','MailController@sendMail');
+//Route::get('/mail','MailController@sendMail');
 
 
 

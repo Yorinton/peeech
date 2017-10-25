@@ -4,7 +4,6 @@
 <div class="container mb50 mt50">
     <div class="row">
         <div class="col-md-8 col-md-offset-2 mt10">
-            <p><a href="{{ url('/mail') }}">メール送信テスト</a></p>
             @if(isset($friends))
             @foreach($friends as $friend)
             <div class="matching_friend">
