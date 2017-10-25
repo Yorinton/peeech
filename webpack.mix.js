@@ -49,16 +49,14 @@ mix.browserSync({
 
 mix.js('resources/assets/js/app.js', 'public/js')
   .js('resources/assets/js/prof.js', 'public/js')
-  .minify('public/js/app.js')
-  .minify('public/js/prof.js')
-  .minify('public/js/index.js')
-  // .js('node_modules/flipsnap/flipsnap.js', 'public/js')
+  .js('public/js/index.js','public/js')
   .sass('resources/assets/sass/app.scss', 'public/css')
   .sass('resources/assets/sass/main.scss', 'public/css')
   .options({
       postCss: [
           require('autoprefixer')()
-      ]
+      ],
+      processCssUrls: false
   });
 
 if (mix.config.inProduction) {
