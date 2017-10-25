@@ -54,6 +54,10 @@ class SocialAccountController extends Controller
             	//認証後プロフィールページにリダイレクト
             	return redirect()->to('/home/'.$authUser->id);
 
+            }elseif($status == 'login'){
+
+                return redirect()->route('profiles',[$authUser]);
+
             }
 
         }catch(\Exception $e){
