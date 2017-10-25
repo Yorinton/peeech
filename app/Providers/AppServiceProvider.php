@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
 use Auth;
+use Peeech\Domain\Models\Recommend\Recommend;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -45,5 +46,6 @@ class AppServiceProvider extends ServiceProvider
             'Peeech\Domain\Repositories\Recommend\RecommendRepositoryInterface',
             'Peeech\Data\Repositories\Recommend\RecommendRepository'
         );
+
     }
 }

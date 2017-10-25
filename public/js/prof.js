@@ -432,9 +432,9 @@ var prof = new Vue({
 						}, 3000);
 					}
 				}).catch(function (error) {
-					$(".msg_error").addClass('msg_appear_er');
+					$(".msg_error_prof").addClass('msg_appear_er');
 					setTimeout(function () {
-						$('.msg_error').removeClass('msg_appear_er');
+						$('.msg_error_prof').removeClass('msg_appear_er');
 					}, 3000);
 				});
 			} else {
@@ -446,9 +446,9 @@ var prof = new Vue({
 						}, 3000);
 					}
 				}).catch(function (error) {
-					$(".msg_error").addClass('msg_appear_er');
+					$(".msg_error_prof").addClass('msg_appear_er');
 					setTimeout(function () {
-						$('.msg_error').removeClass('msg_appear_er');
+						$('.msg_error_prof').removeClass('msg_appear_er');
 					}, 3000);
 				});
 			}
@@ -595,9 +595,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				_this.event_names.push(res.data.event);
 			}).catch(function (error) {
 				console.log('失敗><');
-				$(".msg_error").addClass('msg_appear_er');
+				$(".msg_error_prof").addClass('msg_appear_er');
 				setTimeout(function () {
-					$('.msg_error').removeClass('msg_appear_er');
+					$('.msg_error_prof').removeClass('msg_appear_er');
 				}, 3000);
 			});
 		},
@@ -655,9 +655,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				_this.favorite_names.push(res.data.favorite);
 			}).catch(function (error) {
 				console.log('失敗><');
-				$(".msg_error").addClass('msg_appear_er');
+				$(".msg_error_prof").addClass('msg_appear_er');
 				setTimeout(function () {
-					$('.msg_error').removeClass('msg_appear_er');
+					$('.msg_error_prof').removeClass('msg_appear_er');
 				}, 3000);
 			});
 		},
@@ -957,7 +957,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
-exports.push([module.i, "\n.msg_error {\n    text-align: center;\n    width: 100%;\n    padding: 10px 0;\n    height: 60px;\n    line-height: 40px;\n    font-size: 15px;\n    background: #d71a18;\n    color: white;\n    margin-left: -6%;\n    z-index: 1000;\n}\n.msg_hide_er {\n    position: fixed;\n    top: -90px;\n    transition-property:top;\n    transition-duration:.6s;\n    transition-timing-function:ease-in-out;\n}\n.msg_appear_er {\n    top:-20px;\n    transition-property:top;\n    transition-duration:.6s;\n    transition-timing-function:ease-in-out;\n}\n", ""]);
+exports.push([module.i, "\n.msg_error_prof {\n    text-align: center;\n    width: 100%;\n    padding: 10px 0;\n    height: 60px;\n    line-height: 40px;\n    font-size: 15px;\n    background: #d71a18;\n    color: white;\n    margin-left: -6%;\n    z-index: 1000;\n}\n.msg_hide_er {\n    position: fixed;\n    top: -90px;\n    transition-property:top;\n    transition-duration:.6s;\n    transition-timing-function:ease-in-out;\n}\n.msg_appear_er {\n    top:0;\n    transition-property:top;\n    transition-duration:.6s;\n    transition-timing-function:ease-in-out;\n}\n", ""]);
 
 /***/ }),
 /* 16 */
@@ -1422,7 +1422,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _vm._m(0)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "msg_error msg_hide_er"
+    staticClass: "msg_error_prof msg_hide_er"
   }, [_c('p', [_vm._v("登録失敗。文字数・形式をご確認下さい！")])])
 }]}
 module.exports.render._withStripped = true

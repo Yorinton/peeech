@@ -25,9 +25,9 @@ const prof = new Vue({
 						}, 3000);
 					}
 				}).catch(error => {
-                    $(".msg_error").addClass('msg_appear_er');
+                    $(".msg_error_prof").addClass('msg_appear_er');
                     setTimeout(function() {
-                        $('.msg_error').removeClass('msg_appear_er');
+                        $('.msg_error_prof').removeClass('msg_appear_er');
                     }, 3000);
 				});
 			}else{
@@ -39,9 +39,9 @@ const prof = new Vue({
 						}, 3000);
 					}
 				}).catch(error => {
-                    $(".msg_error").addClass('msg_appear_er');
+                    $(".msg_error_prof").addClass('msg_appear_er');
                     setTimeout(function() {
-                        $('.msg_error').removeClass('msg_appear_er');
+                        $('.msg_error_prof').removeClass('msg_appear_er');
                     }, 3000);
 				});
 			}

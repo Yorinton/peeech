@@ -32,9 +32,9 @@
 					this.event_names.push(res.data.event);
 				}).catch(error => {
                     console.log('失敗><');
-                    $(".msg_error").addClass('msg_appear_er');
+                    $(".msg_error_prof").addClass('msg_appear_er');
                     setTimeout(function() {
-                        $('.msg_error').removeClass('msg_appear_er');
+                        $('.msg_error_prof').removeClass('msg_appear_er');
                     }, 3000);
                 });
 			},

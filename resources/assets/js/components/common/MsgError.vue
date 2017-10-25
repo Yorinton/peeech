@@ -1,10 +1,10 @@
 <template>
-    <div class="msg_error msg_hide_er">
+    <div class="msg_error_prof msg_hide_er">
         <p>登録失敗。文字数・形式をご確認下さい！</p>
     </div>
 </template>
 <style type="text/css">
-    .msg_error {
+    .msg_error_prof {
         text-align: center;
         width: 100%;
         padding: 10px 0;
@@ -24,7 +24,7 @@
         transition-timing-function:ease-in-out;
     }
     .msg_appear_er {
-        top:-20px;
+        top:0;
         transition-property:top;
         transition-duration:.6s;
         transition-timing-function:ease-in-out;
