@@ -62,7 +62,7 @@ class SocialAccountController extends Controller
 
         }catch(\Exception $e){
             echo "アカウント作成に失敗しました。再度お試し下さい";
-            echo $e;
+            echo $e->getMessage();
         }
     }
 
