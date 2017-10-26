@@ -34,7 +34,7 @@
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed menu_btn" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
-                        <img class="menu_btn_img" src="../../images/icons/menu_btn.png">
+                        <img alt="メニュー" class="menu_btn_img" src="../../images/icons/menu_btn.png">
                    <!--      <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -90,10 +90,10 @@
         @if(Auth::user())
         <footer class="footer">
             <div class="container sp-between">
-                <a class="text_align_c wd25 menu_footer" href="{{ url('/friends/'.Auth::user()->id) }}"><img class="wd80 menu1" src="../../images/icons/menu_no_color/menu1_2.png"></a>
-                <a class="text_align_c wd25 menu_footer" href="{{ url('/matchings/'.Auth::user()->id) }}"><img class="wd80 menu2" src="../../images/icons/menu_no_color/menu2_2.png"></a>
-                <a class="text_align_c wd25 menu_footer" href="{{ url('/rooms/'.Auth::user()->id) }}"><img class="wd80 menu3" src="../../images/icons/menu_no_color/menu3_2.png"></a>
-                <a class="text_align_c wd25 menu_footer" href="{{ url('/profiles/'.Auth::user()->id) }}"><img class="wd80 menu4" src="../../images/icons/menu_no_color/menu4_2.png"></a>
+                <a class="text_align_c wd25 menu_footer" href="{{ url('/friends/'.Auth::user()->id) }}"><img alt="見つける" class="wd80 menu1" src="../../images/icons/menu_no_color/menu1_2.png"></a>
+                <a class="text_align_c wd25 menu_footer" href="{{ url('/matchings/'.Auth::user()->id) }}"><img alt="マッチング" class="wd80 menu2" src="../../images/icons/menu_no_color/menu2_2.png"></a>
+                <a class="text_align_c wd25 menu_footer" href="{{ url('/rooms/'.Auth::user()->id) }}"><img alt="メッセージ" class="wd80 menu3" src="../../images/icons/menu_no_color/menu3_2.png"></a>
+                <a class="text_align_c wd25 menu_footer" href="{{ url('/profiles/'.Auth::user()->id) }}"><img alt="アカウント" class="wd80 menu4" src="../../images/icons/menu_no_color/menu4_2.png"></a>
             </div>
         </footer>
         @endif
@@ -103,9 +103,7 @@
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="{{ asset('js/jquery-3.2.0.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.sliderPro.min.js') }}"></script>
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
-    <!-- <script src="{{ asset('js/flipsnap.js') }}"></script> -->
-    <script src="{{ asset('js/index.js') }}"></script> 
+    <script src="{{ asset('js/index.js') }}"></script>
 
 </body>
 </html>

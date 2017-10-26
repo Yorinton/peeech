@@ -11,7 +11,7 @@
                 @foreach($friends as $friend)
                 <div class="card mb10 ht80 disnone">
                     <div class="mb10 disfle">
-                        <img class="thumb ml5p" src="{{ $friend->img_path }}">
+                        <img alt="{{ $friend->name }}" class="thumb ml5p" src="{{ $friend->img_path }}">
                         <div class="basic_info wd55 ml5p mr_a">
                             <p class="name">
                                 <span class="fw_b text_clamp_m">{{ $friend->name }}</span>
@@ -44,7 +44,6 @@
                         <p class="profile_link mt5">
                             <a href="{{ url('/friend/'.Auth::id().'/'.$friend->id) }}">
                                 もっと見る
-                                <img src="">
                             </a>
                         </p>
                     </div>
@@ -65,7 +64,7 @@
             @endif
             <div class="card card_no_match mb10 ht80 disnone">
                 @if(isset($wait_img_path))
-                <img class="wd100" src="{{ $wait_img_path }}">
+                <img alt="次のレコメンドをお待ち下さい！" class="wd100" src="{{ $wait_img_path }}">
                 @endif
             </div>
         </div>

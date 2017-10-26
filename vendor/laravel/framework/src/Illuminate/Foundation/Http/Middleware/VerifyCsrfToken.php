@@ -64,7 +64,9 @@ class VerifyCsrfToken
         ) {
             return $this->addCookieToResponse($request, $next($request));
         }
-
+        if(config('app.env') == 'production') {
+            abort(403);
+        }
         throw new TokenMismatchException;
     }
 

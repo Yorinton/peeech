@@ -191,6 +191,7 @@ return [
          * External Service Providers...
          */
         Barryvdh\Debugbar\ServiceProvider::class,
+        RenatoMarinho\LaravelPageSpeed\ServiceProvider::class,
         Weidner\Goutte\GoutteServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
 
