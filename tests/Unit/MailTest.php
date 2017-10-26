@@ -20,7 +20,7 @@ class MailTest extends TestCase
      * @return void
      */
     /** @test */
-    public function send_mail_to_test_address()
+    public function testMatchedNotification()
     {
     	$friends_num = 3;
     	$friend_ex = User::where('id',6)->first();
