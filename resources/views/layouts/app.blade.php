@@ -10,6 +10,10 @@
 
     <title>{{ config('app.name', 'Peeech') }}</title>
 
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('css/main.css') }}" rel="stylesheet">
