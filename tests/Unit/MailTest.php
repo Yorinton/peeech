@@ -23,15 +23,15 @@ class MailTest extends TestCase
     public function send_mail_to_test_address()
     {
     	$friends_num = 3;
-    	$friend_ex = User::where('id',3)->first();
-    	$user = User::where('id',1)->first();
-        Mail::to('sansan106700@gmail.com')->send(new MatchingNotification($friends_num,$friend_ex,$user));
+    	$friend_ex = User::where('id',6)->first();
+    	$user = User::where('id',83471)->first();
+        Mail::to(decrypt($user->email))->send(new MatchingNotification($friends_num,$friend_ex,$user));
         $this->assertTrue(true);
     }
 
     public function testRecommendNotification()
     {
-        $user = User::where('id',1)->first();
+        $user = User::where('id',83471)->first();
         Mail::to(decrypt($user->email))->send(new RecommendNotification($user));
         $this->assertTrue(true);
     }

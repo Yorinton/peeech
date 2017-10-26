@@ -33,6 +33,8 @@ class RecommendNotification extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.recommended')->subject('Peeech ファン友発見！');
+        return $this->view('emails.recommended')
+                    ->text('emails.recommended_plain')
+                    ->subject('Peeech ファン友発見！');
     }
 }
