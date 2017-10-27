@@ -12,7 +12,14 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Peeech'),
+    'name' => env('APP_NAME', 'Peeech | 好きなアイドルで繋がるマッチングサービス'),
+
+
+    /*
+     * sentence of description for SEO
+     */
+    'description' => 'あなたの推しは誰ですか？好きなアイドルでファン仲間と繋がろう♬好きなアイドルを登録すればあなたに合ったファン友候補がレコメンドされるよ^^握手会、ライブ、連番、アイドルトークなどなど。あなたのファン活動をもっと楽しくする仲間と出会おう！',
+
 
     /*
     |--------------------------------------------------------------------------
