@@ -1,6 +1,6 @@
 <template lang="html">
 	<div class="chat-composer">
-		<input id="message" type="text" name="" placeholder="メッセージを入力" v-model="messageText" @keyup.enter="sendMessage" required>
+		<input class="message-input" id="message" type="text" name="" placeholder="メッセージを入力" v-model="messageText" @keyup.enter="sendMessage" required>
 		<button class="ml5 btn inputBaseStyle submitBtn" @click="sendMessage">送信</button>
 	</div>
 </template>
@@ -42,6 +42,10 @@
 	}
 	.chat-composer button {
 		border-radius: 0;
+	}
+	.message-input {
+		-webkit-appearance:none;
+		border:none!important;
 	}
 
 </style>

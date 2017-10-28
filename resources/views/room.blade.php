@@ -17,9 +17,6 @@
         	<div class="form-group">
         		<div id="app">
         		    <div class="panel-heading">
-                        <span class="badge pull-right">
-                            @{{ usersInRoom.length }}
-                        </span>         
                     </div>
         			<chat-log v-bind:messages="messages" v-bind:user-id="{{ $user->id }}"></chat-log>
                     <div class="composer_container">
