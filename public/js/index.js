@@ -434,7 +434,7 @@ module.exports = __webpack_require__(13);
 						var ht_w = $(window).height();
 						// var ht_card = ht_w * 0.727;
 						var ht_card = ht_w - 157;
-						var ht_text = ht_w - 418;
+						var ht_text = ht_w - 430;
 						$('.card').height(ht_card);
 						$('.introduction_sentents').height(ht_text);
 						$('.card:first-child').removeClass('disnone');
