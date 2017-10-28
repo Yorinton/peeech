@@ -31,13 +31,15 @@
                                 @endforeach
                             </p>
                         </div>
+                        @if(count($friend->activities)>0)
                         <div class="tag_container mb10">
                             <p class="activity mb0">
                                 @foreach($friend->activities as $activity)
                                 <span class="activity_name tag_grey dis_inblo mb5">{{ $activity->activity }}</span>
                                 @endforeach
                             </p>
-                        </div>                        
+                        </div>
+                        @endif
                         <div class="introduction_sentents">
                             <p>{{ $friend->introduction }}</p>
                         </div>
