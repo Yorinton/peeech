@@ -43,7 +43,7 @@
             </div>
             <prof-name v-bind:user="{{ $user }}" v-on:namesent="editValue"></prof-name>
             <div class="mb20">
-                <label class="label_prof wd80 mb10"><span>生年月日 / 性別</span></label>
+                <label class="label_prof wd80 mb10"><span>年齢 / 性別</span></label>
                 <div class="ml10 fs16">
                     <span>{{ $user->birthday }} / </span>
                     <span>{{ $user->sex }}</span>                  
