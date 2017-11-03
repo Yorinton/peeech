@@ -28,8 +28,13 @@ trait DisplayData
 	//誕生日整形
 	public function birthdayFormat(String $birthday)
 	{
-		$birthArr = explode('-',$birthday);
-		return (int)$birthArr[0].'年'.(int)$birthArr[1].'月'.(int)$birthArr[2].'日';
+	    $now = date('Ymd');
+	    $birth = str_replace('-','',$birthday);
+	    $age = floor(($now - $birth)/10000).'歳';
+	    return $age;
+
+//		$birthArr = explode('-',$birthday);
+//		return (int)$birthArr[0].'年'.(int)$birthArr[1].'月'.(int)$birthArr[2].'日';
 	}
 	//性別整形
 	public function sexFormat(String $sex){
