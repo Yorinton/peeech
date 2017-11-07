@@ -65,10 +65,22 @@
                 <div class="form-group mb20">
                     <label for="" class="label_prof wd80"><span>性別</span></label><span class="required">必須</span>
                     <div class="form-group mt10">
-                        <input type="radio" name="sex" value="male" id="male" class="disnone">
-                        <label class="sex_label tag_no_select" for="male">男性</label>
-                        <input type="radio" name="sex" value="female" id="female" class="disnone">
-                        <label class="sex_label tag_no_select" for="female">女性</label>
+                        @if(old('sex') && old('sex') == 'male')
+                            <input type="radio" name="sex" value="male" id="male" class="disnone" checked="checked">
+                            <label class="sex_label tag_no_select tag_blue" for="male">男性</label>
+                            <input type="radio" name="sex" value="female" id="female" class="disnone">
+                            <label class="sex_label tag_no_select" for="female">女性</label>
+                        @elseif(old('sex') && old('sex') == 'female')
+                            <input type="radio" name="sex" value="male" id="male" class="disnone">
+                            <label class="sex_label tag_no_select" for="male">男性</label>
+                            <input type="radio" name="sex" value="female" id="female" class="disnone" checked="checked">
+                            <label class="sex_label tag_no_select tag_pink" for="female">女性</label>
+                        @else
+                            <input type="radio" name="sex" value="male" id="male" class="disnone">
+                            <label class="sex_label tag_no_select" for="male">男性</label>
+                            <input type="radio" name="sex" value="female" id="female" class="disnone">
+                            <label class="sex_label tag_no_select" for="female">女性</label>
+                        @endif
                     </div>
                 </div>                                               
                 <div class="form-group mb20">
@@ -144,6 +156,11 @@
                     </div>                                       
                     <div class="wrap">
                         <span class="del_idol"></span>
+                        @if(old('added_idol'))
+                            @foreach(old('added_idol') as $idolId)
+                                <div class='added_idol_container tag_pink mr5 mb5'><span class='del_idol_btn'>×</span><span class='added_idol'>{{ $idol_masters->where('id',$idolId)->first()->idol }}</span><input type='hidden' name='added_idol[]' value="{{ $idolId }}"></div>
+                            @endforeach
+                        @endif
                     </div>                   
                 </div>
                 <div class="form-group mb20">
@@ -151,7 +168,14 @@
                     <select name="region[]" type="text" class="form-control inputBaseStyle mt10 fs16" id="">
                         <option value="" disabled>選択してね</option>
                         @foreach($prefs as $pref)
-                        <option value="{{ $pref }}">{{ $pref }}</option>
+                            @if(old('region'))
+                            @foreach(old('region') as $region)
+                            @if($region == $pref)
+                            <option selected="selected" value="{{ $pref }}">{{ $pref }}</option>
+                            @endif
+                            @endforeach
+                            @endif
+                            <option value="{{ $pref }}">{{ $pref }}</option>
                         @endforeach
                     </select>
                 </div>

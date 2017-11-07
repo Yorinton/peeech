@@ -20,6 +20,12 @@ $(function () {
             }
         }
     });
+
+    //oldで表示されているアイドルのタグに適用するイベント
+    $(".added_idol_container").on("click",function(){
+        $(this).remove();
+    });
+
     //推し
     $(".btn-favorite").on("click", function () {
         var txt = $(".form-favorite").val();
