@@ -17,6 +17,7 @@ use Illuminate\Contracts\Encryption\DecryptException;
 use App\MatchingService;
 use Auth;
 use Gate;
+use Cache;
 
 class UserController extends Controller
 {
@@ -54,6 +55,7 @@ class UserController extends Controller
 
             $title = '利用登録';
 
+
             return view('register')->with("prefs",$prefs)
             					   ->with('user',$user)
             					   ->with('idol_masters',$idol_masters)
@@ -83,6 +85,7 @@ class UserController extends Controller
     //$requestに入力されたプロフィール情報が入る
     public function store(RegisterPost $request,$id)
     {
+
         DB::beginTransaction();
         try{
 
