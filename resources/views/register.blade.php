@@ -183,15 +183,37 @@
                     <label for="" class="label_prof wd80"><span>利用目的</span></label><span class="required">必須</span>
                     <div class="form-group mt10">
                     @if(isset($purpose_masters))
+                        @if(old('purpose'))
+                        @foreach($purpose_masters as $purpose_master)
+                            @if(in_array($purpose_master->id,old('purpose')))
+                            <div class="checkbox_container mb10">
+                                <label for="{{ $purpose_master->id}}" class="fs14 checkbox_{{ $purpose_master->id}}">
+                                    <img class="thumb_mini_s img_checkbox_{{ $purpose_master->id}} mr5" src="../../images/icons/checked.png">
+                                    <span class="fw_n">{{ $purpose_master->purpose }}</span>
+                                </label>
+                                <input id="{{ $purpose_master->id}}" type="checkbox" name="purpose[]" value="{{ $purpose_master->id}}" class="{{ $purpose_master->id}} disnone" checked="checked">
+                            </div>
+                            @else
+                            <div class="checkbox_container mb10">
+                                <label for="{{ $purpose_master->id}}" class="fs14 checkbox_{{ $purpose_master->id}}">
+                                    <img class="thumb_mini_s img_checkbox_{{ $purpose_master->id}} mr5" src="../../images/icons/no_checked.png">
+                                    <span class="fw_n">{{ $purpose_master->purpose }}</span>
+                                </label>
+                                <input id="{{ $purpose_master->id}}" type="checkbox" name="purpose[]" value="{{ $purpose_master->id}}" class="{{ $purpose_master->id}} disnone">
+                            </div>
+                            @endif
+                        @endforeach
+                        @else
                         @foreach($purpose_masters as $purpose_master)
                             <div class="checkbox_container mb10">
                                 <label for="{{ $purpose_master->id}}" class="fs14 checkbox_{{ $purpose_master->id}}">
-                                <img class="thumb_mini_s img_checkbox_{{ $purpose_master->id}} mr5" src="../../images/icons/no_checked.png">
-                                <span class="fw_n">{{ $purpose_master->purpose }}</span>
+                                    <img class="thumb_mini_s img_checkbox_{{ $purpose_master->id}} mr5" src="../../images/icons/no_checked.png">
+                                    <span class="fw_n">{{ $purpose_master->purpose }}</span>
                                 </label>
                                 <input id="{{ $purpose_master->id}}" type="checkbox" name="purpose[]" value="{{ $purpose_master->id}}" class="{{ $purpose_master->id}} disnone">
                             </div>
                         @endforeach
+                        @endif
                     @endif 
                     </div>                 
                 </div>
