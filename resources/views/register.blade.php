@@ -185,6 +185,7 @@
                     @if(isset($purpose_masters))
                         @if(old('purpose'))
                         @foreach($purpose_masters as $purpose_master)
+                            <p class="disnone purpose_id">{{ $purpose_master->id }}</p>
                             @if(in_array($purpose_master->id,old('purpose')))
                             <div class="checkbox_container mb10">
                                 <label for="{{ $purpose_master->id}}" class="fs14 checkbox_{{ $purpose_master->id}}">
@@ -205,6 +206,7 @@
                         @endforeach
                         @else
                         @foreach($purpose_masters as $purpose_master)
+                            <p class="disnone purpose_id">{{ $purpose_master->id }}</p>
                             <div class="checkbox_container mb10">
                                 <label for="{{ $purpose_master->id}}" class="fs14 checkbox_{{ $purpose_master->id}}">
                                     <img class="thumb_mini_s img_checkbox_{{ $purpose_master->id}} mr5" src="../../images/icons/no_checked.png">
