@@ -28,7 +28,7 @@
     </div>
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}"></script>
-    <script src="{{ asset('js/index.js') }}"></script>
+    <script src="{{ asset('js/index_2.js') }}"></script>
     <script src="{{ asset('js/jquery-3.2.0.min.js') }}"></script>
 </body>
 </html>

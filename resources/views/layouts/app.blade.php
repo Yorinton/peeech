@@ -104,7 +104,6 @@
     <script src="{{ asset('js/jquery-3.2.0.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.sliderPro.min.js') }}"></script>
     <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
-    <script src="{{ asset('js/index.js') }}"></script>
     <script src="{{ asset('js/index_2.js') }}"></script>
 </body>
 </html>
