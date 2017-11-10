@@ -294,14 +294,14 @@ $(function () {
     if ($('#slider-pro').length > 0) {
 
         var ht_w = $(window).height();
-        var ht_card = ht_w - 57;
+        var ht_card = ht_w;
 
         //スライド
         $('#slider-pro').sliderPro({
             buttons: true, //スライダーのページャを表示する
             startSlide: 0, //最初のスライドを指定する
             arrows: false, //左右の矢印ボタンを表示する
-            width: '90%', //横幅を設定する
+            width: '100%', //横幅を設定する
             height: ht_card, //高さを設定する
             autoplay: false, //自動再生の設定
             loop: false, //スライドをループさせる設定
