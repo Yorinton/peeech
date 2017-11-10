@@ -48230,7 +48230,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "name": "introduction",
       "placeholder": "自己紹介",
-      "rows": "5",
+      "rows": "7",
       "required": ""
     },
     domProps: {
@@ -48243,11 +48243,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }), _vm._v(" "), _c('button', {
-    staticClass: "form-control wd30 fs10",
+    staticClass: "form-control wd100 fs14 mt10 btn inputBaseStyle submitBtn",
     on: {
       "click": _vm.sendIntroduction
     }
-  }, [_vm._v("変更")])])])
+  }, [_vm._v("登録")])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('label', {
     staticClass: "label_prof wd80 mb15"
