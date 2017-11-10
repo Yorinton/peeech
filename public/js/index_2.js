@@ -294,7 +294,7 @@ $(function () {
     if ($('#slider-pro').length > 0) {
 
         var ht_w = $(window).height();
-        var ht_card = ht_w - 157;
+        var ht_card = ht_w - 57;
 
         //スライド
         $('#slider-pro').sliderPro({
