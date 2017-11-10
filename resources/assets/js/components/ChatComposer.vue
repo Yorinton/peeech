@@ -1,6 +1,6 @@
 <template lang="html">
 	<div class="chat-composer">
-		<input class="message-input" id="message" type="text" name="" placeholder="メッセージを入力" v-model="messageText" @keyup.enter="sendMessage" required>
+		<input class="message-input fs16" id="message" type="text" name="" placeholder="メッセージを入力" v-model="messageText" @keyup.enter="sendMessage" required>
 		<button class="ml5 btn inputBaseStyle submitBtn" @click="sendMessage">送信</button>
 	</div>
 </template>

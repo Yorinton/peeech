@@ -48629,7 +48629,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.messageText),
       expression: "messageText"
     }],
-    staticClass: "message-input",
+    staticClass: "message-input fs16",
     attrs: {
       "id": "message",
       "type": "text",
