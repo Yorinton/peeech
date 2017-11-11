@@ -1,0 +1,23 @@
+<?php
+
+namespace Peeech\Data\Repositories\Message;
+
+use App\Eloquent\Room;
+use Peeech\Domain\Repositories\Message\MessageRepositoryInterface;
+
+class EloquentMessageRepository implements MessageRepositoryInterface
+{
+    public function changeStatus(int $room_id,int $recipient_id)
+    {
+//        $messages = Room::find($room_id)->messages;
+//
+//        dd($messages);
+//        foreach($messages as $message){
+//            if($message->has_read === true){
+//                return;
+//            }
+//            $message->has_read = true;
+//            $message->save();
+//        }
+    }
+}

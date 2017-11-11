@@ -10937,15 +10937,29 @@ var app = new Vue({
         //room.blade.php表示時に最新メッセージを表示する
         if ($(".room_id").length > 0) {
             var bodyHeight = $('body').height() + 100;
-            console.log(bodyHeight);
+            console.log(bodyHeight + 'beforeupdate');
             $('body').scrollTop(bodyHeight);
         }
     },
     updated: function updated() {
         // 最新メッセージ表示
         var bodyHeight = $('body').height() + 100;
-        console.log(bodyHeight);
+        console.log(bodyHeight + 'updated');
         $(document).scrollTop(bodyHeight);
+
+        var userId = $(".user_id").text(); //アクセスしている本人のuser_id
+        var roomId = $(".room_id").text(); //room_id
+
+        // console.log(userId + '：ユーザーID');
+        // console.log(roomId + '：ルームID');
+        var receiver = {
+            user_id: userId,
+            room_id: roomId
+        };
+        //ここで受信したメッセージを既読に設定(axios非同期でAPI呼び出し)
+        axios.post('/messages/receive', receiver).then(function (res) {
+            console.log(res.data);
+        });
     }
 });
 

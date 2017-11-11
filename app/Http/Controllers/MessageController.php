@@ -43,6 +43,8 @@ class MessageController extends Controller
         $message = new Message();
         $message->message = request('message');
         $message->room_id = request('roomId');//おいおい編集
+        $message->has_read = false;
+
         $user->messages()->save($message);
 
         //roomsのupdated_atを更新する
