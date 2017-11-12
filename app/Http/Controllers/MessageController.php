@@ -44,6 +44,7 @@ class MessageController extends Controller
         $message->message = request('message');
         $message->room_id = request('roomId');//おいおい編集
         $message->has_read = false;
+        $message->notified = false;
 
         $user->messages()->save($message);
 

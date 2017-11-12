@@ -110,6 +110,9 @@ Route::get('/rooms/{id}','RoomController@showChatLists');
 //メッセージ既読
 Route::post('/messages/receive','MessageReceiveController@receive')->middleware('auth');
 
+//メッセージ通知
+Route::post('/messages/notify','MessageReceiveController@notify')->middleware('auth');
+
 /**
  *
  * メッセージ関連

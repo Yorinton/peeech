@@ -7,17 +7,24 @@ use Peeech\Application\Services\Message\MessageReceiver;
 
 class MessageReceiveController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return array
+     */
     public function receive(Request $request)
     {
-        //message_recipientsテーブルのhas_readをtrue(1)に
         $room_id = (int)$request->room_id;
         $recipient_id = (int)$request->user_id;
 
-        MessageReceiver::toHasReadMessage($room_id,$recipient_id);
+        return MessageReceiver::toHasReadMessage($room_id,$recipient_id);
     }
 
-    public function isRead(): bool
+    public function notify(Request $request)
     {
-        //message_recipientsテーブルのhas_readを取得しtrueかfalseかチェック
+        $room_id = (int)$request->room_id;
+        $sender_id = (int)$request->user_id;
+
+        return MessageReceiver::sendMessageNotification($room_id,$sender_id);
     }
+
 }

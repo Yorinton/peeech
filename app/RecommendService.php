@@ -14,44 +14,44 @@ use Mail;
 class RecommendService
 {
 
-	use Libs\DisplayData;
+    use Libs\DisplayData;
 
-	protected $Rrepo;
-	protected $Urepo;
+    protected $Rrepo;
+    protected $Urepo;
 
-	public function __construct(RecommendRepository $Rrepo,UserRepository $Urepo)
-	{
-		$this->Rrepo = $Rrepo;
-		$this->Urepo = $Urepo;
-	}
+    public function __construct(RecommendRepository $Rrepo, UserRepository $Urepo)
+    {
+        $this->Rrepo = $Rrepo;
+        $this->Urepo = $Urepo;
+    }
 
-	// Userに関連するモデルのコレクションからUserのリストを生成する(Matchingsでも使えるかも)
-	public function collectionsToUserLists($collections,$keyInUser)
-	{
-		$friends = [];
-    	foreach ($collections as $collection) {
-    		$friend = $this->Urepo->getUserById($collection->$keyInUser);
-    		$friend->birthday = $this->birthdayFormat($friend->birthday);
-    		$friend->sex = $this->sexFormat($friend->sex);
-    		$friends[] = $friend;
-    	}
-    	return $friends; 
-	}
+    // Userに関連するモデルのコレクションからUserのリストを生成する(Matchingsでも使えるかも)
+    public function collectionsToUserLists($collections, $keyInUser)
+    {
+        $friends = [];
+        foreach ($collections as $collection) {
+            $friend = $this->Urepo->getUserById($collection->$keyInUser);
+            $friend->birthday = $this->birthdayFormat($friend->birthday);
+            $friend->sex = $this->sexFormat($friend->sex);
+            $friends[] = $friend;
+        }
+        return $friends;
+    }
 
-	public function getRecommendListsById($id)
-	{
-		$recommends = $this->Rrepo->getRecommendOnlySettledNullById($id);
-		// recommendsのfriend_idをキーにUserのリストを生成する
-		return $this->collectionsToUserLists($recommends,'friend_id');
-	}
+    public function getRecommendListsById($id)
+    {
+        $recommends = $this->Rrepo->getRecommendOnlySettledNullById($id);
+        // recommendsのfriend_idをキーにUserのリストを生成する
+        return $this->collectionsToUserLists($recommends, 'friend_id');
+    }
 
-	public function recommendFriendsToUser()
-	{
-        if(User::all()){
+    public function recommendFriendsToUser()
+    {
+        if (User::all()) {
 
             // 全Userを取得
             $users = User::all();
-            
+
             // 全てのUserに対して実施
             foreach ($users as $user) {
 
@@ -65,16 +65,16 @@ class RecommendService
                     $recommend->user_id = $user->id;
                     $recommend->save();
                 }
-                if(count($friends) > 0) {
+                if (count($friends) > 0) {
                     Mail::to(decrypt($user->email))->send(new RecommendNotification($user));
                 }
 
             }
 
         }
-	}
+    }
 
-	public static function isRecommend(int $user_id): bool
+    public static function isRecommend(int $user_id): bool
     {
         $recommend = resolve('Peeech\Domain\Models\Recommend\Recommend');
         return $recommend->isRecommend($user_id);
@@ -82,8 +82,6 @@ class RecommendService
 
     public static function recommendImagePath(int $user_id)
     {
-        return self::isRecommend($user_id) ? '../../images/services/recommend_finish.png':'../../images/services/recommend_before.png';
+        return self::isRecommend($user_id) ? '../../images/services/recommend_finish.png' : '../../images/services/recommend_before.png';
     }
 }
-
-?>

@@ -36,7 +36,7 @@ const app = new Vue({
     		//このメソッドが呼び出された際に、指定のURLに非同期でポストする
             axios.post('/messages', message).then(response => {
             	console.log(response.data);
-            });     
+            });
     	}
     },
     created(){
@@ -65,40 +65,62 @@ const app = new Vue({
                 //配列の各要素に対して条件式に当てはまるかチェックし当てはまるものだけで新しい配列を作る
             })
             .listen('MessagePosted',(e) => {
+
+                var userId = $(".user_id").text();//アクセスしている本人のuser_id
+                var roomId = $(".room_id").text();//room_id
+
+                // console.log(userId + '：ユーザーID');
+                // console.log(roomId + '：ルームID');
+                var receiver = {
+                    user_id:userId,
+                    room_id:roomId,
+                };
+                //ここで受信したメッセージを既読に設定(axios非同期でAPI呼び出し)
+                axios.post('/messages/receive',receiver).then(res => {
+                    console.log('listenのreceive/roomId' + res.data.roomId);
+                    console.log('listenのreceive/recipientId' + res.data.recipientId);
+                });
                 //Handle event
                 this.messages.push({
                     //MessagePostedイベントクラスのプロパティ
                     message: e.message.message,
                     user: e.user
                 });
-            });    
+
+            });
     },
     beforeUpdate(){
         //room.blade.php表示時に最新メッセージを表示する
         if($(".room_id").length > 0){
             var bodyHeight = $('body').height() + 100;
-            console.log(bodyHeight + 'beforeupdate');
             $('body').scrollTop(bodyHeight);
         }
     },
     updated(){
         // 最新メッセージ表示
         var bodyHeight = $('body').height() + 100;
-        console.log(bodyHeight + 'updated');
         $(document).scrollTop(bodyHeight);
 
         var userId = $(".user_id").text();//アクセスしている本人のuser_id
         var roomId = $(".room_id").text();//room_id
 
-        // console.log(userId + '：ユーザーID');
-        // console.log(roomId + '：ルームID');
         var receiver = {
             user_id:userId,
             room_id:roomId,
         };
-        //ここで受信したメッセージを既読に設定(axios非同期でAPI呼び出し)
+
         axios.post('/messages/receive',receiver).then(res => {
-           console.log(res.data);
+            var receiver = {
+                user_id:res.data.recipientId,
+                room_id:res.data.roomId,
+            };
+            setTimeout(function(receiver){
+                axios.post('/messages/notify',receiver).then(res => {
+                    console.log('notify' + res.data.result);
+                });
+            },60000,receiver);
         });
+
+
     }
 });
