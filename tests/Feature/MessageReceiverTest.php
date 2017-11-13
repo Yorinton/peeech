@@ -8,27 +8,17 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use DB;
 
 class MessageReceiverTest extends TestCase
 {
 
     use DatabaseMigrations;
     use DatabaseTransactions;
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-//    public function testNotify()
-//    {
-//
-//        $user = $this->app->make('user')->where('id',83480)->first();
-//        $this->be($user);
-//
-//        dd(MessageReceiver::hasNotReadMessage(2));
-//        $this->assertTrue(true);
-//    }
 
+    /**
+     * @throws \Exception
+     */
     public function testReceiveMessage()
     {
         /*
@@ -37,23 +27,32 @@ class MessageReceiverTest extends TestCase
          *
          * */
 
-         //ファクトリに書き直す
-         $sender = createTestUserData(1);
-         $receiver = createTestUserData(2);
+        //ファクトリに書き直す
+        DB::beginTransaction();
+        try {
+            $sender = createTestUserData(1);
+            $receiver = createTestUserData(2);
 
-         $room = createTestRoomData($sender,$receiver);
+            $room = createTestRoomData($sender, $receiver);
 
-         createTestMessageData($room,$sender);
-         createTestMessageData($room,$sender);
+            createTestMessageData($room, $sender);
+            createTestMessageData($room, $sender);
 
-         MessageReceiver::toHasReadMessage($room->id,$receiver->id);
+            MessageReceiver::toHasReadMessage($room->id, $receiver->id);
 
-         $this->assertDatabaseHas('messages',[
-             'user_id' => $sender->id,
-             'room_id' => $room->id,
-             'has_read' => 1
-         ]);
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            echo $e->getMessage();
+        }
+        $this->assertDatabaseHas('messages', [
+            'user_id' => $sender->id,
+            'room_id' => $room->id,
+            'has_read' => 1
+        ]);
 
+        $sender->delete();
+        $receiver->delete();
 
     }
 
