@@ -24,34 +24,50 @@ Vue.component('chat-composer', require('./components/ChatComposer.vue'));
 const app = new Vue({
     el: '#app',
     data: {
-		messages: [],
+        messages: [],
         usersInRoom: []
     },
     methods: {
         // message・user・roomId・img_pathという4つのプロパティを持つオブジェクトをmessageという名前でaddMessage()の引数に指定
-    	addMessage(message){
-    		//Add to existing messages
-    		this.messages.push(message);//push() -> 配列の末尾に要素を追加
-    		//Persist to the database etc
-    		//このメソッドが呼び出された際に、指定のURLに非同期でポストする
+        addMessage(message) {
+            //Add to existing messages
+            this.messages.push(message);//push() -> 配列の末尾に要素を追加
+            //Persist to the database etc
+            //このメソッドが呼び出された際に、指定のURLに非同期でポストする
             axios.post('/messages', message).then(response => {
-            	console.log(response.data);
+                console.log(response.data);
             });
-    	}
+        },
+        receive(receiver) {
+            axios.post('/messages/receive', receiver).then(res => {
+                var receiver = {
+                    user_id: res.data.recipientId,
+                    room_id: res.data.roomId,
+                };
+                this.notify(receiver);
+            });
+        },
+        notify(receiver){
+            setTimeout(function (receiver) {
+                axios.post('/messages/notify', receiver).then(res => {
+                    console.log('notify' + res.data.result);
+                });
+            }, 60000, receiver);
+        }
     },
-    created(){
+    created() {
 
-        if($(".room_id").length > 0){
+        if ($(".room_id").length > 0) {
             var roomId = $(".room_id").text();
 
-        	//このインスタンスが作成された際に、指定のURLに非同期でリクエストする
-        	axios.get('/messages/' + roomId).then(response => {
-        		this.messages = response.data;
-        		// console.log(response);
-        	});
+            //このインスタンスが作成された際に、指定のURLに非同期でリクエストする
+            axios.get('/messages/' + roomId).then(response => {
+                this.messages = response.data;
+                // console.log(response);
+            });
         }
         Echo.join('chatroom.' + roomId)// 入室しているroomIdをここに入れる
-            //チャンネルを購入している全ユーザー情報を含む配列を返す
+        //チャンネルを購入している全ユーザー情報を含む配列を返す
             .here((users) => {
                 this.usersInRoom = users;
             })
@@ -64,63 +80,26 @@ const app = new Vue({
                 this.usersInRoom = this.usersInRoom.filter(u => u != user);
                 //配列の各要素に対して条件式に当てはまるかチェックし当てはまるものだけで新しい配列を作る
             })
-            .listen('MessagePosted',(e) => {
-
-                var userId = $(".user_id").text();//アクセスしている本人のuser_id
-                var roomId = $(".room_id").text();//room_id
-
-                // console.log(userId + '：ユーザーID');
-                // console.log(roomId + '：ルームID');
-                var receiver = {
-                    user_id:userId,
-                    room_id:roomId,
-                };
-                //ここで受信したメッセージを既読に設定(axios非同期でAPI呼び出し)
-                axios.post('/messages/receive',receiver).then(res => {
-                    console.log('listenのreceive/roomId' + res.data.roomId);
-                    console.log('listenのreceive/recipientId' + res.data.recipientId);
-                });
+            .listen('MessagePosted', (e) => {
                 //Handle event
                 this.messages.push({
                     //MessagePostedイベントクラスのプロパティ
                     message: e.message.message,
                     user: e.user
                 });
-
+                console.log('メッセージ受信');
             });
     },
-    beforeUpdate(){
-        //room.blade.php表示時に最新メッセージを表示する
-        if($(".room_id").length > 0){
-            var bodyHeight = $('body').height() + 100;
-            $('body').scrollTop(bodyHeight);
-        }
-    },
-    updated(){
+    updated() {
         // 最新メッセージ表示
         var bodyHeight = $('body').height() + 100;
         $(document).scrollTop(bodyHeight);
 
-        var userId = $(".user_id").text();//アクセスしている本人のuser_id
-        var roomId = $(".room_id").text();//room_id
-
         var receiver = {
-            user_id:userId,
-            room_id:roomId,
+            user_id: $(".user_id").text(),
+            room_id: $(".room_id").text(),
         };
 
-        axios.post('/messages/receive',receiver).then(res => {
-            var receiver = {
-                user_id:res.data.recipientId,
-                room_id:res.data.roomId,
-            };
-            setTimeout(function(receiver){
-                axios.post('/messages/notify',receiver).then(res => {
-                    console.log('notify' + res.data.result);
-                });
-            },60000,receiver);
-        });
-
-
+        this.receive(receiver);
     }
 });

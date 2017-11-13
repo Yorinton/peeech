@@ -10895,90 +10895,74 @@ var app = new Vue({
             axios.post('/messages', message).then(function (response) {
                 console.log(response.data);
             });
+        },
+        receive: function receive(receiver) {
+            var _this = this;
+
+            axios.post('/messages/receive', receiver).then(function (res) {
+                var receiver = {
+                    user_id: res.data.recipientId,
+                    room_id: res.data.roomId
+                };
+                _this.notify(receiver);
+            });
+        },
+        notify: function notify(receiver) {
+            setTimeout(function (receiver) {
+                axios.post('/messages/notify', receiver).then(function (res) {
+                    console.log('notify' + res.data.result);
+                });
+            }, 60000, receiver);
         }
     },
     created: function created() {
-        var _this = this;
+        var _this2 = this;
 
         if ($(".room_id").length > 0) {
             var roomId = $(".room_id").text();
 
             //このインスタンスが作成された際に、指定のURLに非同期でリクエストする
             axios.get('/messages/' + roomId).then(function (response) {
-                _this.messages = response.data;
+                _this2.messages = response.data;
                 // console.log(response);
             });
         }
         Echo.join('chatroom.' + roomId) // 入室しているroomIdをここに入れる
         //チャンネルを購入している全ユーザー情報を含む配列を返す
         .here(function (users) {
-            _this.usersInRoom = users;
+            _this2.usersInRoom = users;
         })
         //新たに参加したユーザー情報
         .joining(function (user) {
-            _this.usersInRoom.push(user);
+            _this2.usersInRoom.push(user);
         })
         //離脱したユーザー情報
         .leaving(function (user) {
-            _this.usersInRoom = _this.usersInRoom.filter(function (u) {
+            _this2.usersInRoom = _this2.usersInRoom.filter(function (u) {
                 return u != user;
             });
             //配列の各要素に対して条件式に当てはまるかチェックし当てはまるものだけで新しい配列を作る
         }).listen('MessagePosted', function (e) {
-
-            var userId = $(".user_id").text(); //アクセスしている本人のuser_id
-            var roomId = $(".room_id").text(); //room_id
-
-            // console.log(userId + '：ユーザーID');
-            // console.log(roomId + '：ルームID');
-            var receiver = {
-                user_id: userId,
-                room_id: roomId
-            };
-            //ここで受信したメッセージを既読に設定(axios非同期でAPI呼び出し)
-            axios.post('/messages/receive', receiver).then(function (res) {
-                console.log('listenのreceive/roomId' + res.data.roomId);
-                console.log('listenのreceive/recipientId' + res.data.recipientId);
-            });
             //Handle event
-            _this.messages.push({
+            _this2.messages.push({
                 //MessagePostedイベントクラスのプロパティ
                 message: e.message.message,
                 user: e.user
             });
+            console.log('メッセージ受信');
         });
-    },
-    beforeUpdate: function beforeUpdate() {
-        //room.blade.php表示時に最新メッセージを表示する
-        if ($(".room_id").length > 0) {
-            var bodyHeight = $('body').height() + 100;
-            $('body').scrollTop(bodyHeight);
-        }
     },
     updated: function updated() {
         // 最新メッセージ表示
         var bodyHeight = $('body').height() + 100;
         $(document).scrollTop(bodyHeight);
 
-        var userId = $(".user_id").text(); //アクセスしている本人のuser_id
-        var roomId = $(".room_id").text(); //room_id
-
         var receiver = {
-            user_id: userId,
-            room_id: roomId
+            user_id: $(".user_id").text(),
+            room_id: $(".room_id").text()
         };
 
-        axios.post('/messages/receive', receiver).then(function (res) {
-            var receiver = {
-                user_id: res.data.recipientId,
-                room_id: res.data.roomId
-            };
-            setTimeout(function (receiver) {
-                axios.post('/messages/notify', receiver).then(function (res) {
-                    console.log('notify' + res.data.result);
-                });
-            }, 60000, receiver);
-        });
+        this.receive(receiver);
     }
 });
 
