@@ -55,7 +55,7 @@ class MessageReceiver
         return ['result' => '未送信'];
     }
 
-    public static function hasNotReadMessage(int $room_id,int $sender_id): bool
+    private static function hasNotReadMessage(int $room_id,int $sender_id): bool
     {
          //notifiedカラムがfalseの場合を条件に加える
          $sentMessage = Message::where('room_id',$room_id)

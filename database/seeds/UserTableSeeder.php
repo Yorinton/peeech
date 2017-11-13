@@ -19,7 +19,7 @@ class UserTableSeeder extends Seeder
     public function run()//db:seed Artisanコマンドが呼び出された時に実行される
     {
 
-    	$faker = Faker\Factory::create();
+    	$faker = Factory::create();
 
 	    	DB::beginTransaction();
 	    	try{

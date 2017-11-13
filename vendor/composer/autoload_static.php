@@ -4680,7 +4680,7 @@ class ComposerStaticInit2335af6f1bcd1b48a1af468154e38d0b
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
         'Tests\\DuskTestCase' => __DIR__ . '/../..' . '/tests/DuskTestCase.php',
         'Tests\\Feature\\BirthdayToAgeTest' => __DIR__ . '/../..' . '/tests/Feature/BirthdayToAgeTest.php',
-        'Tests\\Feature\\MessageNotifyTest' => __DIR__ . '/../..' . '/tests/Feature/MessageNotifyTest.php',
+        'Tests\\Feature\\MessageReceiverTest' => __DIR__ . '/../..' . '/tests/Feature/MessageNotifyTest.php',
         'Tests\\Feature\\PostProfsTest' => __DIR__ . '/../..' . '/tests/Feature/PostProfsTest.php',
         'Tests\\Feature\\RecommendedUserTest' => __DIR__ . '/../..' . '/tests/Feature/RecommendedUserTest.php',
         'Tests\\Feature\\RoomTest' => __DIR__ . '/../..' . '/tests/Feature/RoomTest.php',

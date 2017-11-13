@@ -4281,7 +4281,7 @@ return array(
     'Tests\\CreatesApplication' => $baseDir . '/tests/CreatesApplication.php',
     'Tests\\DuskTestCase' => $baseDir . '/tests/DuskTestCase.php',
     'Tests\\Feature\\BirthdayToAgeTest' => $baseDir . '/tests/Feature/BirthdayToAgeTest.php',
-    'Tests\\Feature\\MessageNotifyTest' => $baseDir . '/tests/Feature/MessageNotifyTest.php',
+    'Tests\\Feature\\MessageReceiverTest' => $baseDir . '/tests/Feature/MessageNotifyTest.php',
     'Tests\\Feature\\PostProfsTest' => $baseDir . '/tests/Feature/PostProfsTest.php',
     'Tests\\Feature\\RecommendedUserTest' => $baseDir . '/tests/Feature/RecommendedUserTest.php',
     'Tests\\Feature\\RoomTest' => $baseDir . '/tests/Feature/RoomTest.php',
