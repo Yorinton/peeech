@@ -30,9 +30,9 @@
     <div class="ht100">
         <nav class="navbar navbar-default navbar-static-top nav-bar-fixed mb0">
             <div class="container">
-                <div class="navbar-header">
+                <div class="navbar-header navbar-header_bg_color">
                     <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed menu_btn" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <button type="button" class="navbar-toggle collapsed menu_btn disnone" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
                         <img class="menu_btn_img" src="../../images/icons/menu_btn.png">
                    <!--      <span class="icon-bar"></span>
@@ -40,7 +40,7 @@
                         <span class="icon-bar"></span>
  -->                    </button>
                     <div class="title-area-register">
-                        <h4 class="title-text text_clamp_title wd70">{{ $title or 'Peeech' }}</h4>
+                        <h4 class="title-text_white text_clamp_title wd70">{{ $title or 'Peeech' }}</h4>
                     </div>
                     <!-- <title-default></title-default> -->
                     <!-- Branding Image -->

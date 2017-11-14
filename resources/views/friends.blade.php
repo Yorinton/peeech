@@ -9,7 +9,7 @@
             @endif
             @if(isset($friends))
                 @foreach($friends as $friend)
-                <div class="card mb10 ht80 disnone">
+                <div class="card card_shadow mb10 ht80 disnone">
                     <div class="mb10 disfle">
                         <img class="thumb ml5p" src="{{ $friend->img_path }}">
                         <div class="basic_info wd55 ml5p mr_a">
