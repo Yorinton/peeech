@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container pb50 mt50 pt15 ht100 card_container">
+<div class="container pb50 mt40 pt15 ht100 card_container">
     <div class="row ht100">
         <div class="col-md-8 col-md-offset-2 ht100">
             @if(isset($m))

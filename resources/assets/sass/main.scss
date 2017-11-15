@@ -570,10 +570,14 @@ input[type="submit"], input[type="button"] {
 
 .title-text {
   text-align: center;
-  font-weight: bold;
   margin-left: auto;
   margin-right: auto;
-  line-height: 30px;
+  line-height: 20px;
+}
+
+.title-text_gradation {
+  @extend .title-text;
+  font-weight: bold;
   background: #444444;
   background: -webkit-linear-gradient(left, #ffa087 0%, #fe66a4 100%);
   -webkit-text-fill-color: transparent;
@@ -581,11 +585,7 @@ input[type="submit"], input[type="button"] {
 }
 
 .title-text_white {
-  text-align: center;
-  font-weight: bold;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 30px;
+  @extend .title-text;
   color: white;
 }
 
@@ -851,6 +851,10 @@ input[type="submit"], input[type="button"] {
 
 .section_bg_color {
   @include bg_color;
+}
+
+.navbar_thin {
+  min-height: 30px;
 }
 
 .navbar-header_bg_color {

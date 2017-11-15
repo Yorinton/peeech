@@ -28,7 +28,7 @@
 </head>
 <body class="bg_white">
     <div class="ht100">
-        <nav class="navbar navbar-default navbar-static-top nav-bar-fixed mb0">
+        <nav class="navbar navbar_thin navbar-default navbar-static-top nav-bar-fixed mb0">
             <div class="container">
                 <div class="navbar-header navbar-header_bg_color">
                     <!-- Collapsed Hamburger -->
