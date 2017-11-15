@@ -134,7 +134,7 @@ $i: 1;
 }
 
 /* padding-left */
-$i: 1;
+$i: 0;
 @while $i <= 20 {
   .pl#{$i} {
     padding-left: #{$i}px;
@@ -416,7 +416,8 @@ select {
   -moz-appearance: none !important;
   appearance: none !important;
 }
-p,h1,h2,h3,h4 {
+
+p, h1, h2, h3, h4 {
   letter-spacing: 1px;
 }
 
@@ -569,14 +570,23 @@ input[type="submit"], input[type="button"] {
 
 .title-text {
   text-align: center;
-  font-weight: bold;
   margin-left: auto;
   margin-right: auto;
-  line-height: 30px;
+  line-height: 20px;
+}
+
+.title-text_gradation {
+  @extend .title-text;
+  font-weight: bold;
   background: #444444;
   background: -webkit-linear-gradient(left, #ffa087 0%, #fe66a4 100%);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+}
+
+.title-text_white {
+  @extend .title-text;
+  color: white;
 }
 
 .container_5 {
@@ -694,6 +704,20 @@ input[type="submit"], input[type="button"] {
   cursor: pointer;
 }
 
+.btn_logout_list {
+  list-style: none;
+  text-align: right;
+  display: inline-block;
+  width: 100%;
+}
+
+.btn_logout {
+  padding: 5px;
+  border: solid 1px rgba(0,0,0,.3);
+  border-radius: 5px;
+  color: rgba(0,0,0,.4);
+}
+
 /*
 *
 * 今日のファン友
@@ -710,6 +734,11 @@ input[type="submit"], input[type="button"] {
   //border:1px solid lightgrey;
   position: relative;
   background: white;
+}
+
+.card_shadow {
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, .3);
+  border: 1px solid lightgrey;
 }
 
 .card_detail {
@@ -823,8 +852,17 @@ input[type="submit"], input[type="button"] {
 .section_bg_color {
   @include bg_color;
 }
+
+.navbar_thin {
+  min-height: 30px;
+}
+
+.navbar-header_bg_color {
+  @include bg_color;
+}
+
 .service_logo {
-  margin-top:140px;
+  margin-top: 140px;
 }
 
 .btn_sns_container {
@@ -832,12 +870,14 @@ input[type="submit"], input[type="button"] {
   bottom: -100px;
   width: 100%;
 }
+
 .btn_sns {
   line-height: 30px;
   color: white;
   border: none;
   box-shadow: 0 0 3px rgba(255, 255, 255, .5);
 }
+
 .btn_twitter {
   @extend .btn_sns;
   background-color: #2eacea;
