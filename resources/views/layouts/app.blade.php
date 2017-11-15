@@ -24,7 +24,15 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-    <!-- <script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script> -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-44969371-9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-44969371-9');
+    </script>
 </head>
 <body class="bg_white">
     <div class="ht100">
