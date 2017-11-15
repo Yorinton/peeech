@@ -4,7 +4,7 @@
 <div class="container mb30 mt50">
     <div class="row">
         <div class="content_left_top">
-            <p><a class="{{ $backUrl['class'] }}" href="{{ $backUrl['url'] }}">戻る</a></p>
+            <p class="mb0"><a class="{{ $backUrl['class'] }} fc_white" href="{{ $backUrl['url'] }}">戻る</a></p>
         </div>
         @if(isset($m))
         <span class="msg_error">{{ $m }}</span>
