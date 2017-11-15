@@ -35,14 +35,14 @@ class MessageReceiver
 
     public static function sendMessageNotification(int $room_id,int $sender_id)
     {
-        if($room = Room::where('from_user_id',$sender_id)->first()){
+        if($room = Room::where('from_user_id',$sender_id)->where('id',$room_id)->first()){
             $receiver = User::where('id',$room->to_user_id)->first();
-        }elseif($room = Room::where('to_user_id',$sender_id)->first()){
+        }elseif($room = Room::where('to_user_id',$sender_id)->where('id',$room_id)->first()){
             $receiver = User::where('id',$room->from_user_id)->first();
         }
         if(self::hasNotReadMessage($room_id,$sender_id)) {
             //リポジトリに移す
-            Mail::to(decrypt($receiver->email))->send(new MessageNotification(self::getSender($sender_id)));
+            Mail::to(decrypt($receiver->email))->send(new MessageNotification(self::getSender($sender_id),$room_id));
             //messagesのnotifiedカラムをtrueにする
             $messages = Message::where('room_id',$room_id)->where('user_id',$sender_id)->get();
             foreach($messages as $message) {

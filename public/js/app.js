@@ -48639,17 +48639,17 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "chat-composer"
-  }, [_c('input', {
+  }, [_c('textarea', {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: (_vm.messageText),
       expression: "messageText"
     }],
-    staticClass: "message-input fs16",
+    staticClass: "message-input fs16 wd100",
     attrs: {
       "id": "message",
-      "type": "text",
+      "rows": "1",
       "name": "",
       "placeholder": "メッセージを入力",
       "required": ""
@@ -48658,10 +48658,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "value": (_vm.messageText)
     },
     on: {
-      "keyup": function($event) {
-        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
-        _vm.sendMessage($event)
-      },
       "input": function($event) {
         if ($event.target.composing) { return; }
         _vm.messageText = $event.target.value
