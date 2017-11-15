@@ -13,7 +13,7 @@ use DB;
 class MessageReceiverTest extends TestCase
 {
 
-    use DatabaseMigrations;
+//    use DatabaseMigrations;
     use DatabaseTransactions;
 
     /**
@@ -54,6 +54,35 @@ class MessageReceiverTest extends TestCase
         $sender->delete();
         $receiver->delete();
 
+    }
+
+    public function testNotifyMessageReceived()
+    {
+        DB::beginTransaction();
+        try {
+            $sender = createTestUserData(1);
+            $receiver = createTestUserData(2);
+
+            $room = createTestRoomData($sender, $receiver);
+
+            createTestMessageData($room, $sender);
+            createTestMessageData($room, $sender);
+
+            MessageReceiver::sendMessageNotification($room->id, $sender->id);
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            echo $e->getMessage();
+        }
+        $this->assertDatabaseHas('messages', [
+            'user_id' => $sender->id,
+            'room_id' => $room->id,
+            'notified' => 1
+        ]);
+
+        $sender->delete();
+        $receiver->delete();
     }
 
 }

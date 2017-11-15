@@ -13,14 +13,16 @@ class MessageNotification extends Mailable
     use Queueable, SerializesModels;
 
     public $sender;
+    public $url;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(User $sender)
+    public function __construct(User $sender,int $room_id)
     {
         $this->sender = $sender;
+        $this->url = (string)config('app.url').'/room/'.$room_id;
     }
 
     /**
@@ -32,6 +34,6 @@ class MessageNotification extends Mailable
     {
         return $this->view('emails.messagesent')
 //            ->text('emails.messagesent_plain')
-                    ->subject('Peeech 新規メッセージ！');
+                    ->subject('Peeech 新規メッセージが届きました');
     }
 }
