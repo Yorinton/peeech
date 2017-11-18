@@ -65,7 +65,13 @@
                     <img class="wd60 img_box_shadow" src="../../images/top/miryoku_03.png">
                     <h4 class="fw_b mt20 mb20">アイドルファン特化だから<br>友達や同行者を見つけやすい</h4>
                     <p class="mb40 pl15 pr15">通常のマッチングサービスやイベント同行者募集サービスと異なりアイドルファン特化型のため効率的にファン仲間と繋がれます</p>
-                </div>                                              
+                </div>
+                <div class="panel_sns_below">
+                    <div class="panel-body text_align_c">
+                        <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd100 mb10 btn_twitter">Twitterで登録・ログイン</a>
+                        <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd100 btn_facebook">Facebookで登録・ログイン</a>
+                    </div>
+                </div>
             </section>
             <section>
                 <h4 class="fw_b pt35 mb35 mt0 fs20">誘いやすさにこだわりました</h4>
@@ -99,7 +105,13 @@
                 </div>
                 <div>
                     <h4 class="fw_b mt25 mb50 fs16">仲良くなったら一緒にオフ会したり<br>色んなファン活動を楽しもう</h4>
-                </div>                       
+                </div>
+                <div class="panel_sns_below">
+                    <div class="panel-body text_align_c">
+                        <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd100 mb10 btn_twitter">Twitterで登録・ログイン</a>
+                        <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd100 btn_facebook">Facebookで登録・ログイン</a>
+                    </div>
+                </div>
             </section>
             <section class="convert_to_max_size_of_page section_bg_color fc_white pl15 pr15 pb5">
                 <h3 class="fw_b mb35 pt35">Peeechの想い</h3>
