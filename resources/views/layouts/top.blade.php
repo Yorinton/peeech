@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('css/main.css') }}" rel="stylesheet">
+    <link rel="apple-touch-icon" href="../../images/icons/sp_home_icon.png" />
 
     <!-- Scripts -->
     <script>
