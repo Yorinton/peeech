@@ -39,6 +39,7 @@ class RedirectIfPC
     }
 
     protected function isSmartPhone(){
+        return true;
         //UserAgentのチェック
         return preg_match("/(".implode("|",$this->agents).")/",Arr::get($_SERVER, 'HTTP_USER_AGENT', "PC"));
     }
