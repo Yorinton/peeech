@@ -29,7 +29,7 @@
 
 /* フォントサイズ */
 $i: 10;
-@while $i <= 30 {
+@while $i <= 50 {
   .fs#{$i} {
     font-size: #{$i}px;
   }
@@ -693,6 +693,7 @@ input[type="submit"], input[type="button"] {
 
 .img_box_shadow {
   box-shadow: 4px 4px 10px rgba(0, 0, 0, .5);
+  width:200px;
 }
 
 .selected_tag {
@@ -922,6 +923,27 @@ input[type="submit"], input[type="button"] {
 .btn_facebook:hover {
   @extend .btn_facebook;
   opacity: 0.7;
+}
+/*
+*
+* PCトップ
+*
+*/
+
+.explain_50 {
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+.explain_60 {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.explain_80 {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 /*
