@@ -4,7 +4,7 @@
 <div class="container wd100">
     <div class="row">
         <div class="col-md-8 col-md-offset-2 pt20 text_align_c wd100 ml0">
-            <header class="header hero_img">
+            <header class="header hero_img_pc">
                 <div class="wd100 ht100 header_content">
                     <div class="text_align_c jf-center">
                         <div class="wd30 service_logo_container pt70">
