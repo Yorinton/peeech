@@ -30,17 +30,26 @@ class RedirectIfPC
      */
     public function handle($request, Closure $next)
     {
-        if(!$this->isSmartPhone()){
+        //pcから + /pc以外へアクセスの場合/pcへリダイレクト
+        if(!$this->isSmartPhone() && !$this->isPcPage($request)){
             //PCページにリダイレクト
-            return redirect("http://asobiba101.com");
+            return redirect('pc');
         }
-
+        //spから + /pcへアクセスの場合 / へリダイレクト
+        if($this->isSmartPhone() && $this->isPcPage($request)){
+            return redirect('/');
+        }
         return $next($request);
     }
 
     protected function isSmartPhone(){
-        return true;
         //UserAgentのチェック
         return preg_match("/(".implode("|",$this->agents).")/",Arr::get($_SERVER, 'HTTP_USER_AGENT', "PC"));
+    }
+
+    protected function isPcPage($request)
+    {
+        //パスにpcが含まれる
+        return preg_match("(pc)",$request->path());
     }
 }
