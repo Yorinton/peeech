@@ -81,8 +81,8 @@ $i: 1;
 }
 
 /* margin-left */
-$i: 1;
-@while $i <= 10 {
+$i: 0;
+@while $i <= 30 {
   .ml#{$i} {
     margin-left: #{$i}px;
   }
@@ -117,7 +117,7 @@ $i: 0;
 
 /* padding-top */
 $i: 0;
-@while $i <= 50 {
+@while $i <= 100 {
   .pt#{$i} {
     padding-top: #{$i}px;
   }
@@ -261,6 +261,10 @@ $i: 10;
 .sp-around {
   @include ValueSetPrefix('display', 'flex');
   @include PropertySetPrefix('justify-content', 'space-around');
+}
+.jf-center {
+  @include ValueSetPrefix('display', 'flex');
+  @include PropertySetPrefix('justify-content', 'center');
 }
 
 // flex-boxのwrap
@@ -816,7 +820,8 @@ input[type="submit"], input[type="button"] {
 */
 .hero_img {
   background: url('../../images/top/hero.png') no-repeat top center;
-  background-size: 240%;
+  background-size: 100%;
+  background-position: right;
 }
 
 .panel {
@@ -844,7 +849,7 @@ input[type="submit"], input[type="button"] {
 
 .header_content {
   margin-top: -20px;
-  padding-top: 20px;
+  padding-top: 100px;
   background: rgba(0, 0, 0, .5);
   position: relative;
 }
@@ -860,9 +865,24 @@ input[type="submit"], input[type="button"] {
 .navbar-header_bg_color {
   @include bg_color;
 }
+.service_logo_container {
+  width:350px;
+  //margin-top:50px;
+}
 
 .service_logo {
-  margin-top: 140px;
+  //margin-top: 140px;
+}
+.service_logo_img {
+  width:300px;
+}
+.service_page {
+  width:350px;
+  height:460px;
+  overflow:hidden;
+}
+.service_page_img {
+  width:350px;
 }
 
 .btn_sns_container {

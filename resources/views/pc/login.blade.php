@@ -1,38 +1,32 @@
 @extends('layouts.top')
 
 @section('content')
-<div class="container">
+<div class="container wd100">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 pt20 text_align_c">
+        <div class="col-md-8 col-md-offset-2 pt20 text_align_c wd100 ml0">
             <header class="header hero_img">
                 <div class="wd100 ht100 header_content">
-                    <div class="text_align_c">
-                        <h1 class="fs22 lh32 fc_white">好きなアイドルでつながる<br>アイドルファン限定<br>友達作りサービス</h1>
-                        <h2 class="service_logo"><img class="wd90" src="../../images/top/logo.png" alt="Peeech"></h2>
-                        <div class="panel_sns wd100">
-                            <div class="panel-body text_align_c">
-                                <p>ここにQRコード
-                                    <img src="" alt="QRコード">
-                                </p>
+                    <div class="text_align_c jf-center">
+                        <div class="wd30 service_logo_container pt70">
+                            <h2 class="service_logo"><img class="wd100 service_logo_img" src="../../images/top/logo.png" alt="Peeech"></h2>
+                            <h1 class="fs15 lh30 fc_white text_align_l ml30 mt10">好きなアイドルでつながる<br>アイドルファン限定友達作りサービス</h1>
+                            <div class="text_align_c mt40">
+                                <img src="../../images/qr/QR.png" class="wd45">
                             </div>
+                        </div>
+                        <div class="wd30 service_page">
+                            <img class="service_page_img" src="../../images/top/second_02.png">
                         </div>
                     </div>
                 </div>
             </header>
-            <section class="convert_to_max_size_of_page section_bg_color fc_white pl15 pr15">
-                <h2 class="mt0 pt20 fs24 fw_b mb30">アイドルファン活動をより楽しくする出会い</h2>                
+            <section class="convert_to_max_size_of_page section_bg_color fc_white pl15 pr15 pt30">
+                <h2 class="mt0 pt20 fs24 fw_b mb30">アイドルファン活動をより楽しくする出会い</h2>
                 <div class="mb30">
                     <p class="mb30">Peeechは、アイドルファンの「ファン同士でつながりたい」「一緒にこんなことをしてみたい」を実現し、ファン活動がより充実・楽しくなるアイドルファンに特化した友達作りサービスです。</p>
-                    <img class="wd100" src="../../images/top/second_02.png">
                 </div>
                 <div>
                     <img class="wd90 mb20" src="../../images/top/second_01.png">
-                </div>
-                <div class="panel_sns_below">
-                    <div class="panel-body text_align_c">
-                        <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd100 mb10 btn_twitter">Twitterで登録・ログイン</a>
-                        <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd100 btn_facebook">Facebookで登録・ログイン</a>
-                    </div>
                 </div>
             </section>
             <section>
@@ -67,12 +61,6 @@
                     <h4 class="fw_b mt20 mb20">アイドルファン特化だから<br>友達や同行者を見つけやすい</h4>
                     <p class="mb40 pl15 pr15">通常のマッチングサービスやイベント同行者募集サービスと異なりアイドルファン特化型のため効率的にファン仲間と繋がれます</p>
                 </div>
-                <div class="panel_sns_below">
-                    <div class="panel-body text_align_c">
-                        <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd100 mb10 btn_twitter">Twitterで登録・ログイン</a>
-                        <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd100 btn_facebook">Facebookで登録・ログイン</a>
-                    </div>
-                </div>
             </section>
             <section>
                 <h4 class="fw_b pt35 mb35 mt0 fs20">誘いやすさにこだわりました</h4>
@@ -106,12 +94,6 @@
                 </div>
                 <div>
                     <h4 class="fw_b mt25 mb50 fs16">仲良くなったら一緒にオフ会したり<br>色んなファン活動を楽しもう</h4>
-                </div>
-                <div class="panel_sns_below">
-                    <div class="panel-body text_align_c">
-                        <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd100 mb10 btn_twitter">Twitterで登録・ログイン</a>
-                        <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd100 btn_facebook">Facebookで登録・ログイン</a>
-                    </div>
                 </div>
             </section>
             <section class="convert_to_max_size_of_page section_bg_color fc_white pl15 pr15 pb5">
