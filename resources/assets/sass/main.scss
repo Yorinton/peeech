@@ -821,6 +821,10 @@ input[type="submit"], input[type="button"] {
 */
 .hero_img {
   background: url('../../images/top/hero.png') no-repeat top center;
+  background-size: 240%;
+}
+.hero_img_pc {
+  background: url('../../images/top/hero.png') no-repeat top center;
   background-size: 100%;
   background-position: right;
 }
