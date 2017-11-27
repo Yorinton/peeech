@@ -120,6 +120,14 @@ Route::post('/messages/notify','MessageReceiveController@notify')->middleware('a
 **/
 //Route::get('/mail','MailController@sendMail');
 
+/**
+ *
+ * PCアクセス時のリダイレクト
+ *
+ **/
+
+Route::get('/pc','RedirectController@pc')->name('pc');
+
 
 
 /**
