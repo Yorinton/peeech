@@ -28,8 +28,9 @@ class UserController extends Controller
     protected $imageService;
     protected $matchingService;
     protected $idolService;
+    protected $is_production;
 
-	public function __construct(MasterDbService $masterDbService,UserService $userService,ImageService $imageService,MatchingService $matchingService,IdolService $idolService)
+    public function __construct(MasterDbService $masterDbService,UserService $userService,ImageService $imageService,MatchingService $matchingService,IdolService $idolService)
 	{
 		$this->masterDbService = $masterDbService;
 		$this->userService = $userService;
@@ -37,7 +38,9 @@ class UserController extends Controller
         $this->matchingService = $matchingService;
         $this->idolService = $idolService;
         $this->middleware('auth');
-	}
+        $this->is_production = env('APP_ENV') === 'production' ? true : false;
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -98,7 +101,8 @@ class UserController extends Controller
 
             DB::commit();
 
-            return redirect()->route('profiles',[$user]);
+//            return redirect()->route('profiles',[$user]);
+            return redirect('/profiles/'.$user->id,302,[],$this->is_production);
 
         }catch(\Exception $e){
         
