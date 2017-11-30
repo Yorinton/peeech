@@ -98,7 +98,7 @@
         @if(Auth::user())
         <footer class="footer">
             <div class="container sp-between">
-                <a class="text_align_c wd25 menu_footer" href="{{ url('/friends/'.Auth::user()->id) }}"><img class="wd80 menu1" src="../../images/icons/menu_no_color/menu1_2.png"></a>
+                <a class="text_align_c wd25 menu_footer" href="{{ url('/friends/'.Auth::user()->id) }}"><img class="wd80 menu1" src="{{ secure_asset('images/icons/menu_no_color/menu1_2.png') }}"></a>
                 <a class="text_align_c wd25 menu_footer" href="{{ url('/matchings/'.Auth::user()->id) }}"><img class="wd80 menu2" src="../../images/icons/menu_no_color/menu2_2.png"></a>
                 <a class="text_align_c wd25 menu_footer" href="{{ url('/rooms/'.Auth::user()->id) }}"><img class="wd80 menu3" src="../../images/icons/menu_no_color/menu3_2.png"></a>
                 <a class="text_align_c wd25 menu_footer" href="{{ url('/profiles/'.Auth::user()->id) }}"><img class="wd80 menu4" src="../../images/icons/menu_no_color/menu4_2.png"></a>
