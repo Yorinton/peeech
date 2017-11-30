@@ -23,6 +23,7 @@ class RedirectToHttps
 
     public function isHttps()
     {
-        return isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on');
+        return isset($_SERVER['HTTPS']);
+//        return isset($_SERVER['HTTPS']) && (strtolower($_SERVER['HTTPS']) == 'on');
     }
 }
