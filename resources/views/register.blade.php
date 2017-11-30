@@ -13,7 +13,7 @@
                     </ul>
                 </div>
             @endif
-            <form method="POST" action="{{ url('/profiles/'.$user->id) }}">
+            <form method="POST" action="{{ url('/profiles',$user->id,$is_production) }}">
                 {{ csrf_field() }}
                 <div class="form-group mb20">
                     <label for="" class="label_prof wd80"><span>ニックネーム</span></label><span class="required">必須</span>
@@ -189,7 +189,7 @@
                             @if(in_array($purpose_master->id,old('purpose')))
                             <div class="checkbox_container mb10">
                                 <label for="{{ $purpose_master->id}}" class="fs14 checkbox_{{ $purpose_master->id}}">
-                                    <img class="thumb_mini_s img_checkbox_{{ $purpose_master->id}} mr5" src="../../images/icons/checked.png">
+                                    <img class="thumb_mini_s img_checkbox_{{ $purpose_master->id}} mr5" src="{{ asset('images/icons/checked.png',$is_production)}}">
                                     <span class="fw_n">{{ $purpose_master->purpose }}</span>
                                 </label>
                                 <input id="{{ $purpose_master->id}}" type="checkbox" name="purpose[]" value="{{ $purpose_master->id}}" class="{{ $purpose_master->id}} disnone" checked="checked">
@@ -197,7 +197,7 @@
                             @else
                             <div class="checkbox_container mb10">
                                 <label for="{{ $purpose_master->id}}" class="fs14 checkbox_{{ $purpose_master->id}}">
-                                    <img class="thumb_mini_s img_checkbox_{{ $purpose_master->id}} mr5" src="../../images/icons/no_checked.png">
+                                    <img class="thumb_mini_s img_checkbox_{{ $purpose_master->id}} mr5" src="{{ asset('images/icons/no_checked.png',$is_production)}}">
                                     <span class="fw_n">{{ $purpose_master->purpose }}</span>
                                 </label>
                                 <input id="{{ $purpose_master->id}}" type="checkbox" name="purpose[]" value="{{ $purpose_master->id}}" class="{{ $purpose_master->id}} disnone">
@@ -209,7 +209,7 @@
                             <p class="disnone purpose_id">{{ $purpose_master->id }}</p>
                             <div class="checkbox_container mb10">
                                 <label for="{{ $purpose_master->id}}" class="fs14 checkbox_{{ $purpose_master->id}}">
-                                    <img class="thumb_mini_s img_checkbox_{{ $purpose_master->id}} mr5" src="../../images/icons/no_checked.png">
+                                    <img class="thumb_mini_s img_checkbox_{{ $purpose_master->id}} mr5" src="{{ asset('images/icons/no_checked.png',$is_production) }}">
                                     <span class="fw_n">{{ $purpose_master->purpose }}</span>
                                 </label>
                                 <input id="{{ $purpose_master->id}}" type="checkbox" name="purpose[]" value="{{ $purpose_master->id}}" class="{{ $purpose_master->id}} disnone">

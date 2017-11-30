@@ -7,7 +7,7 @@
         <div class="sp-between pb10 top_bar">
             <p class="link_back"><a class="{{ $backUrlClass }}" href="{{ $backUrl }}">戻る</a></p>
             @if($hasMatched)
-            <form method="post" action="{{ url('/room') }}" class="fr">
+            <form method="post" action="{{ url('/room',[],$is_production) }}" class="fr">
                 {{ csrf_field() }}
                 <input type="hidden" name="from_user_id" value="{{ Auth::id() }}">
                 <input type="hidden" name="to_user_id" value="{{ $user->id }}">

@@ -11,8 +11,8 @@
         @endif
         @if(isset($friend))
         <div class="content_right_top">   
-            <a href="{{ url('/friend/'.Auth::id().'/'.$friend->id) }}">
-                <img class="menu_btn_img" src="../../images/icons/profile.png">
+            <a href="{{ url('/friend',[Auth::id(),$friend->id],$is_production) }}">
+                <img class="menu_btn_img" src="{{ asset('images/icons/profile.png',$is_production) }}">
             </a>
         </div>       
         <div class="col-md-8 col-md-offset-2">

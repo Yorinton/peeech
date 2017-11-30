@@ -19,19 +19,19 @@
                     <div id="slider-pro" class="slider-pro {{ $tutorial }}">
                         <div class="sp-slides">
                             <div class="sp-slide"><img class="sp-image"
-                                                       src="{{ asset('../../images/services/tutorial/tutorial1.png') }}">
+                                                       src="{{ asset('images/services/tutorial/tutorial1.png',$is_production) }}">
                             </div>
                             <div class="sp-slide"><img class="sp-image"
-                                                       src="{{ asset('../../images/services/tutorial/tutorial2.png') }}">
+                                                       src="{{ asset('images/services/tutorial/tutorial2.png',$is_production) }}">
                             </div>
                             <div class="sp-slide"><img class="sp-image"
-                                                       src="{{ asset('../../images/services/tutorial/tutorial3.png') }}">
+                                                       src="{{ asset('images/services/tutorial/tutorial3.png',$is_production) }}">
                             </div>
                             <div class="sp-slide">
                                 <img class="sp-image"
-                                     src="{{ asset('../../images/services/tutorial/tutorial4-2.png') }}">
+                                     src="{{ asset('images/services/tutorial/tutorial4-2.png',$is_production) }}">
                                 <img class="sp-image btn_close"
-                                     src="{{ asset('../../images/services/tutorial/btn.png') }}">
+                                     src="{{ asset('images/services/tutorial/btn.png',$is_production) }}">
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                         <div class="thumb_container mb20 wrap">
                             <img class="thumb preview" src="{{ $user->img_path }}">
                             <form class="form-group thumb_form ml10" method="post"
-                                  action="{{ url('/user/'.$user->id) }}" enctype="multipart/form-data" files='true'>
+                                  action="{{ url('/user',$user->id,$is_production) }}" enctype="multipart/form-data" files='true'>
                                 {{ csrf_field() }}
                                 {{ method_field('PATCH') }}
                                 <div class="wrap mb0 lh80 dis_inblo">
