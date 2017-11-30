@@ -73,15 +73,15 @@
                     <div>
                         <ul class="pl0">
                             <li class="btn_logout_list">
-                                <a class="btn_logout" href=""
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    ログアウト
-                                </a>
+                                {{--<a class="btn_logout" href=""--}}
+                                   {{--onclick="event.preventDefault();--}}
+                                                     {{--document.getElementById('logout-form').submit();">--}}
+                                    {{--ログアウト--}}
+                                {{--</a>--}}
 
-                                <form id="logout-form" action="{{ url('/logout',[],$is_production) }}" method="POST"
-                                      style="display: none;">
+                                <form id="logout-form" action="{{ url('/logout',[],$is_production) }}" method="POST">
                                     {{ csrf_field() }}
+                                    <input type="submit" name="" value="ログアウト">
                                 </form>
                             </li>
                         </ul>
