@@ -15,15 +15,14 @@ class RedirectToHttps
      */
     public function handle($request, Closure $next)
     {
-        if(!$this->isSsl() && config('app.env') === 'production'){
+        if(!$this->isHttps() && config('app.env') === 'production'){
             return redirect('https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
         }
         return $next($request);
     }
 
-    public function isSsl()
+    public function isHttps()
     {
-        dd($_SERVER['HTTPS']);
-        return isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+        return isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on');
     }
 }
