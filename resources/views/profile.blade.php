@@ -73,7 +73,7 @@
                     <div>
                         <ul class="pl0">
                             <li class="btn_logout_list">
-                                <a class="btn_logout" href="{{ route('logout') }}"
+                                <a class="btn_logout" href=""
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     ログアウト
