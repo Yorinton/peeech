@@ -20,7 +20,7 @@
                         </p>
                         <p class="mb0 text_clamp_m fs10">{{ $friend['user']->introduction}}</p>
                     </div>
-                    <form method="post" action="{{ url('/room') }}" class="disnone make_room">
+                    <form method="post" action="{{ url('/room',[],$is_production) }}" class="disnone make_room">
                         {{ csrf_field() }}
                         <input type="hidden" name="from_user_id" value="{{ Auth::id() }}">
                         <input type="hidden" name="to_user_id" value="{{ $friend['user']->id }}">

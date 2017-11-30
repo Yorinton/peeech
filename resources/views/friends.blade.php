@@ -44,19 +44,19 @@
                             <p>{{ $friend->introduction }}</p>
                         </div>
                         <p class="profile_link mt5">
-                            <a href="{{ url('/friend/'.Auth::id().'/'.$friend->id) }}">
+                            <a href="{{ url('/friend',[Auth::id(),$friend->id],$is_production) }}">
                                 もっと見る
                                 <img src="">
                             </a>
                         </p>
                     </div>
                     <div class="form-group disfle btn_judge_container">
-                        <form class="mr10 wd50" method="post" action="{{ url('/matchings/'.$id) }}">
+                        <form class="mr10 wd50" method="post" action="{{ url('/matchings',$id,$is_production) }}">
                             {{ csrf_field() }}
                             <input class="form-control" type="hidden" name="to_user_id" value="{{ $friend->id }}">
                             <input class="form-control negativeBtn fs18 lh22" type="submit" name="not_interest" value="興味なし">
                         </form>
-                        <form class="wd50" method="post" action="{{ url('/matchings/'.$id) }}">
+                        <form class="wd50" method="post" action="{{ url('/matchings',$id,$is_production) }}">
                             {{ csrf_field() }}
                             <input class="form-control" type="hidden" name="to_user_id" value="{{ $friend->id }}">
                             <input class="form-control submitBtn fs18 lh22" type="submit" name="interest" value="興味あり">
@@ -67,7 +67,7 @@
             @endif
             <div class="card card_no_match mb10 ht80 disnone">
                 @if(isset($wait_img_path))
-                <img class="wd100" src="{{ $wait_img_path }}">
+                <img class="wd100" src="{{ asset($wait_img_path,$is_production) }}">
                 @endif
             </div>
         </div>

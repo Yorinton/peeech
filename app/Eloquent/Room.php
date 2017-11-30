@@ -42,7 +42,7 @@ class Room extends Model
 
 
     //既存ルーム情報の取得
-    public function getRoomInfo($from_user_id,$to_user_id)
+    public function getRoomInfo($from_user_id,$to_user_id):Room
     {
         $room = Room::where('from_user_id',$from_user_id)->where('to_user_id',$to_user_id)->orWhere('from_user_id',$to_user_id)->where('to_user_id',$from_user_id)->first();
 

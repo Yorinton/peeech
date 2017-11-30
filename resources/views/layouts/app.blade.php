@@ -11,13 +11,13 @@
     <title>{{ config('app.name', 'Peeech') }}</title>
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="../../images/icons/sp_home_icon.png" />
+    <link rel="shortcut icon" href="{{ url('/favicon.ico',[],$is_production) }}" type="image/x-icon">
+    <link rel="icon" href="{{ url('/favicon.ico',[],$is_production) }}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{ url('images/icons/sp_home_icon.png',[],$is_production) }}" />
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('css/main.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/slider-pro.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/slider-pro.min.css',$is_production) }}">
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -42,7 +42,7 @@
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed menu_btn disnone" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
-                        <img class="menu_btn_img" src="../../images/icons/menu_btn.png">
+                        <img class="menu_btn_img" src="{{ asset('images/icons/menu_btn.png',$is_production) }}">
                    <!--      <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -52,7 +52,7 @@
                     </div>
                     <!-- <title-default></title-default> -->
                     <!-- Branding Image -->
-                    <a class="navbar-brand disnone" href="{{ url('/') }}">
+                    <a class="navbar-brand disnone" href="{{ url('/',[],$is_production) }}">
                         {{ config('app.name', 'Peeech') }}
                     </a>
                 </div>
@@ -98,10 +98,10 @@
         @if(Auth::user())
         <footer class="footer">
             <div class="container sp-between">
-                <a class="text_align_c wd25 menu_footer" href="{{ url('/friends/'.Auth::user()->id) }}"><img class="wd80 menu1" src="../../images/icons/menu_no_color/menu1_2.png"></a>
-                <a class="text_align_c wd25 menu_footer" href="{{ url('/matchings/'.Auth::user()->id) }}"><img class="wd80 menu2" src="../../images/icons/menu_no_color/menu2_2.png"></a>
-                <a class="text_align_c wd25 menu_footer" href="{{ url('/rooms/'.Auth::user()->id) }}"><img class="wd80 menu3" src="../../images/icons/menu_no_color/menu3_2.png"></a>
-                <a class="text_align_c wd25 menu_footer" href="{{ url('/profiles/'.Auth::user()->id) }}"><img class="wd80 menu4" src="../../images/icons/menu_no_color/menu4_2.png"></a>
+                <a class="text_align_c wd25 menu_footer" href="{{ url('/friends',Auth::user()->id, $is_production) }}"><img class="wd80 menu1" src="{{ asset('images/icons/menu_no_color/menu1_2.png',$is_production) }}"></a>
+                <a class="text_align_c wd25 menu_footer" href="{{ url('/matchings',Auth::user()->id, $is_production) }}"><img class="wd80 menu2" src="{{ asset('images/icons/menu_no_color/menu2_2.png',$is_production) }}"></a>
+                <a class="text_align_c wd25 menu_footer" href="{{ url('/rooms',Auth::user()->id, $is_production) }}"><img class="wd80 menu3" src="{{ asset('images/icons/menu_no_color/menu3_2.png',$is_production) }}"></a>
+                <a class="text_align_c wd25 menu_footer" href="{{ url('/profiles',Auth::user()->id, $is_production) }}"><img class="wd80 menu4" src="{{ asset('images/icons/menu_no_color/menu4_2.png',$is_production) }}"></a>
             </div>
         </footer>
         @endif
@@ -109,9 +109,8 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}"></script>
-    <script src="{{ asset('js/jquery-3.2.0.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/jquery.sliderPro.min.js') }}"></script>
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
-    <script src="{{ asset('js/index_2.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.2.0.min.js',$is_production) }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.sliderPro.min.js',$is_production) }}"></script>
+    <script src="{{ asset('js/index_2.js',$is_production) }}"></script>
 </body>
 </html>
