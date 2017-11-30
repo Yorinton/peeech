@@ -36,7 +36,7 @@
         @yield('content')
     </div>
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js',$is_production) }}"></script>
+    <script src="{{ asset('js/app.js',$is_production) }}"></script>
     <script src="{{ asset('js/index_2.js',$is_production) }}"></script>
     <script src="{{ asset('js/jquery-3.2.0.min.js',$is_production) }}"></script>
 </body>
