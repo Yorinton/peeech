@@ -15,16 +15,40 @@ class RedirectToHttps
      */
     public function handle($request, Closure $next)
     {
-        if(!$this->isHttps() && config('app.env') === 'production'){
-//            return redirect('https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-            header('Location: https://'.$_SERVER["HTTP_HOST"].$_SERVER['REQUEST_URI']);
+        if(!$this->is_ssl() && config('app.env') === 'production'){
+            return redirect('https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+//            header('Location: https://'.$_SERVER["HTTP_HOST"].$_SERVER['REQUEST_URI']);
         }
         return $next($request);
     }
 
-    public function isHttps()
+    /**
+     * Determine if the protocol is HTTPS.
+     * @return bool
+     */
+    public function is_ssl()
     {
-        dd($_SERVER);
-        return array_key_exists('HTTPS', $_SERVER) && ($_SERVER["HTTPS"] == "on");
+        if ( isset($_SERVER['HTTPS']) === true ) // Apache
+        {
+            return ( $_SERVER['HTTPS'] === 'on' or $_SERVER['HTTPS'] === '1' );
+        }
+        elseif ( isset($_SERVER['SSL']) === true ) // IIS
+        {
+            return ( $_SERVER['SSL'] === 'on' );
+        }
+        elseif ( isset($_SERVER['HTTP_X_FORWARDED_PROTO']) === true ) // Reverse proxy
+        {
+            return ( strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https' );
+        }
+        elseif ( isset($_SERVER['HTTP_X_FORWARDED_PORT']) === true ) // Reverse proxy
+        {
+            return ( $_SERVER['HTTP_X_FORWARDED_PORT'] === '443' );
+        }
+        elseif ( isset($_SERVER['SERVER_PORT']) === true )
+        {
+            return ( $_SERVER['SERVER_PORT'] === '443' );
+        }
+
+        return false;
     }
 }
