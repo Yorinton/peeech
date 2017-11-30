@@ -15,8 +15,8 @@
     <link rel="icon" href="{{ url('/favicon.ico',[],$is_production) }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ url('images/icons/sp_home_icon.png',[],$is_production) }}" />
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <link href="{{ mix('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css',$is_production) }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css',$is_production) }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/slider-pro.min.css',$is_production) }}">
     <!-- Scripts -->
     <script>
@@ -108,7 +108,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js',$is_production) }}"></script>
     <script src="{{ asset('js/jquery-3.2.0.min.js',$is_production) }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.sliderPro.min.js',$is_production) }}"></script>
     <script src="{{ asset('js/index_2.js',$is_production) }}"></script>
