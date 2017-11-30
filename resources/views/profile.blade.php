@@ -79,7 +79,7 @@
                                     ログアウト
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                <form id="logout-form" action="{{ url('logout',[],$is_production) }}" method="POST"
                                       style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
