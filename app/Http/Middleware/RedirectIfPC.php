@@ -30,6 +30,7 @@ class RedirectIfPC
      */
     public function handle($request, Closure $next)
     {
+
         //pcから + /pc以外へアクセスの場合/pcへリダイレクト
         if(!$this->isSmartPhone() && !$this->isPcPage($request)){
             //PCページにリダイレクト
