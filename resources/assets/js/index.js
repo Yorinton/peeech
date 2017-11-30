@@ -78,62 +78,62 @@ $(function () {
         console.log('本番');
         //利用目的選択
         $(".checkbox_2").on('click', function () {
-            if ($(".img_checkbox_2").attr('src') === '../../images/icons/no_checked.png') {
-                $(".img_checkbox_2").attr('src', '../../images/icons/checked.png');
+            if ($(".img_checkbox_2").attr('src') === 'https://peeech.com/images/icons/no_checked.png') {
+                $(".img_checkbox_2").attr('src', 'https://peeech.com/images/icons/checked.png');
             } else {
-                $(".img_checkbox_2").attr('src', '../../images/icons/no_checked.png');
+                $(".img_checkbox_2").attr('src', 'https://peeech.com/images/icons/no_checked.png');
             }
         });
         $(".checkbox_12").on('click', function () {
-            if ($(".img_checkbox_12").attr('src') === '../../images/icons/no_checked.png') {
-                $(".img_checkbox_12").attr('src', '../../images/icons/checked.png');
+            if ($(".img_checkbox_12").attr('src') === 'https://peeech.com/images/icons/no_checked.png') {
+                $(".img_checkbox_12").attr('src', 'https://peeech.com/images/icons/checked.png');
             } else {
-                $(".img_checkbox_12").attr('src', '../../images/icons/no_checked.png');
+                $(".img_checkbox_12").attr('src', 'https://peeech.com/images/icons/no_checked.png');
             }
         });
         $(".checkbox_22").on('click', function () {
-            if ($(".img_checkbox_22").attr('src') === '../../images/icons/no_checked.png') {
-                $(".img_checkbox_22").attr('src', '../../images/icons/checked.png');
+            if ($(".img_checkbox_22").attr('src') === 'https://peeech.com/images/icons/no_checked.png') {
+                $(".img_checkbox_22").attr('src', 'https://peeech.com/images/icons/checked.png');
             } else {
-                $(".img_checkbox_22").attr('src', '../../images/icons/no_checked.png');
+                $(".img_checkbox_22").attr('src', 'https://peeech.com/images/icons/no_checked.png');
             }
         });
         $(".checkbox_32").on('click', function () {
-            if ($(".img_checkbox_32").attr('src') === '../../images/icons/no_checked.png') {
-                $(".img_checkbox_32").attr('src', '../../images/icons/checked.png');
+            if ($(".img_checkbox_32").attr('src') === 'https://peeech.com/images/icons/no_checked.png') {
+                $(".img_checkbox_32").attr('src', 'https://peeech.com/images/icons/checked.png');
             } else {
-                $(".img_checkbox_32").attr('src', '../../images/icons/no_checked.png');
+                $(".img_checkbox_32").attr('src', 'https://peeech.com/images/icons/no_checked.png');
             }
         });
     }else if($('p.purpose_id:nth-child(1)').text() === '1'){
         console.log('ローカル');
         //利用目的選択
         $(".checkbox_1").on('click', function () {
-            if ($(".img_checkbox_1").attr('src') === '../../images/icons/no_checked.png') {
-                $(".img_checkbox_1").attr('src', '../../images/icons/checked.png');
+            if ($(".img_checkbox_1").attr('src') === 'http://dev.peeech.com/images/icons/no_checked.png') {
+                $(".img_checkbox_1").attr('src', 'http://dev.peeech.com/images/icons/checked.png');
             } else {
-                $(".img_checkbox_1").attr('src', '../../images/icons/no_checked.png');
+                $(".img_checkbox_1").attr('src', 'http://dev.peeech.com/images/icons/no_checked.png');
             }
         });
         $(".checkbox_2").on('click', function () {
-            if ($(".img_checkbox_2").attr('src') === '../../images/icons/no_checked.png') {
-                $(".img_checkbox_2").attr('src', '../../images/icons/checked.png');
+            if ($(".img_checkbox_2").attr('src') === 'http://dev.peeech.com/images/icons/no_checked.png') {
+                $(".img_checkbox_2").attr('src', 'http://dev.peeech.com/images/icons/checked.png');
             } else {
-                $(".img_checkbox_2").attr('src', '../../images/icons/no_checked.png');
+                $(".img_checkbox_2").attr('src', 'http://dev.peeech.com/images/icons/no_checked.png');
             }
         });
         $(".checkbox_3").on('click', function () {
-            if ($(".img_checkbox_3").attr('src') === '../../images/icons/no_checked.png') {
-                $(".img_checkbox_3").attr('src', '../../images/icons/checked.png');
+            if ($(".img_checkbox_3").attr('src') === 'http://dev.peeech.com/images/icons/no_checked.png') {
+                $(".img_checkbox_3").attr('src', 'http://dev.peeech.com/images/icons/checked.png');
             } else {
-                $(".img_checkbox_3").attr('src', '../../images/icons/no_checked.png');
+                $(".img_checkbox_3").attr('src', 'http://dev.peeech.com/images/icons/no_checked.png');
             }
         });
         $(".checkbox_4").on('click', function () {
-            if ($(".img_checkbox_4").attr('src') === '../../images/icons/no_checked.png') {
-                $(".img_checkbox_4").attr('src', '../../images/icons/checked.png');
+            if ($(".img_checkbox_4").attr('src') === 'http://dev.peeech.com/images/icons/no_checked.png') {
+                $(".img_checkbox_4").attr('src', 'http://dev.peeech.com/images/icons/checked.png');
             } else {
-                $(".img_checkbox_4").attr('src', '../../images/icons/no_checked.png');
+                $(".img_checkbox_4").attr('src', 'http://dev.peeech.com/images/icons/no_checked.png');
             }
         });
     }
