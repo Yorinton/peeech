@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('css/main.css') }}" rel="stylesheet">
-    <link rel="apple-touch-icon" href="../../images/icons/sp_home_icon.png" />
+    <link rel="apple-touch-icon" href="{{ asset('images/icons/sp_home_icon.png',$is_production)}}" />
 
     <!-- Scripts -->
     <script>
@@ -36,8 +36,8 @@
         @yield('content')
     </div>
     <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}"></script>
-    <script src="{{ asset('js/index_2.js') }}"></script>
-    <script src="{{ asset('js/jquery-3.2.0.min.js') }}"></script>
+    <script src="{{ mix('js/app.js',$is_production) }}"></script>
+    <script src="{{ asset('js/index_2.js',$is_production) }}"></script>
+    <script src="{{ asset('js/jquery-3.2.0.min.js',$is_production) }}"></script>
 </body>
 </html>
