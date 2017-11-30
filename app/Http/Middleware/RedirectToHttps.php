@@ -16,14 +16,14 @@ class RedirectToHttps
     public function handle($request, Closure $next)
     {
         if(!$this->isHttps() && config('app.env') === 'production'){
-            return redirect('https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+//            return redirect('https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+            header('Location: https://'.$_SERVER["HTTP_HOST"].$_SERVER['REQUEST_URI']);
         }
         return $next($request);
     }
 
     public function isHttps()
     {
-        return isset($_SERVER['HTTPS']);
-//        return isset($_SERVER['HTTPS']) && (strtolower($_SERVER['HTTPS']) == 'on');
+        return array_key_exists('HTTPS', $_SERVER) && $_SERVER["HTTPS"] == "on";
     }
 }
