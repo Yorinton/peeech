@@ -24,6 +24,7 @@ class RedirectToHttps
 
     public function isHttps()
     {
+        dd($_SERVER);
         return array_key_exists('HTTPS', $_SERVER) && ($_SERVER["HTTPS"] == "on");
     }
 }
