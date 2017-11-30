@@ -16,13 +16,15 @@ class RoomController extends Controller
     use App\Libs\DisplayData;
 
     protected $room;
-    protected $title; 
+    protected $title;
+    protected $is_production;
 
 
     public function __construct(Room $room)
     {
         $this->room = $room;
         $this->middleware('auth');
+        $this->is_production = env('APP_ENV') === 'production' ? true : false;
     }
 
 
@@ -33,7 +35,8 @@ class RoomController extends Controller
     	}else{
             $room = $this->room->getRoomInfo($request->from_user_id,$request->to_user_id);
         }
-    	return redirect()->route('room',[$room]);
+//    	return redirect()->route('room',[$room]);
+        return redirect('/room/'.$room->id,302,[],$this->is_production);
     }
 
 
