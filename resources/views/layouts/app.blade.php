@@ -98,10 +98,10 @@
         @if(Auth::user())
         <footer class="footer">
             <div class="container sp-between">
-                <a class="text_align_c wd25 menu_footer" href="{{ url('/friends/',Auth::user()->id, $is_production) }}"><img class="wd80 menu1" src="{{ asset('images/icons/menu_no_color/menu1_2.png',$is_production) }}"></a>
-                <a class="text_align_c wd25 menu_footer" href="{{ url('/matchings/',Auth::user()->id, $is_production) }}"><img class="wd80 menu2" src="{{ asset('images/icons/menu_no_color/menu2_2.png',$is_production) }}"></a>
-                <a class="text_align_c wd25 menu_footer" href="{{ url('/rooms/',Auth::user()->id, $is_production) }}"><img class="wd80 menu3" src="{{ asset('images/icons/menu_no_color/menu3_2.png',$is_production) }}"></a>
-                <a class="text_align_c wd25 menu_footer" href="{{ url('/profiles/',Auth::user()->id, $is_production) }}"><img class="wd80 menu4" src="{{ asset('images/icons/menu_no_color/menu4_2.png',$is_production) }}"></a>
+                <a class="text_align_c wd25 menu_footer" href="{{ url('/friends',Auth::user()->id, $is_production) }}"><img class="wd80 menu1" src="{{ asset('images/icons/menu_no_color/menu1_2.png',$is_production) }}"></a>
+                <a class="text_align_c wd25 menu_footer" href="{{ url('/matchings',Auth::user()->id, $is_production) }}"><img class="wd80 menu2" src="{{ asset('images/icons/menu_no_color/menu2_2.png',$is_production) }}"></a>
+                <a class="text_align_c wd25 menu_footer" href="{{ url('/rooms',Auth::user()->id, $is_production) }}"><img class="wd80 menu3" src="{{ asset('images/icons/menu_no_color/menu3_2.png',$is_production) }}"></a>
+                <a class="text_align_c wd25 menu_footer" href="{{ url('/profiles',Auth::user()->id, $is_production) }}"><img class="wd80 menu4" src="{{ asset('images/icons/menu_no_color/menu4_2.png',$is_production) }}"></a>
             </div>
         </footer>
         @endif
