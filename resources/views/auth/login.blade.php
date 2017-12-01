@@ -3,16 +3,16 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 pt20 text_align_c">
+        <div class="col-md-8 col-md-offset-2 text_align_c">
             <header class="header hero_img">
                 <div class="wd100 ht100 header_content">
                     <div class="text_align_c">
-                        <h1 class="fs22 lh32 fc_white">好きなアイドルでつながる<br>アイドルファン限定<br>友達作りサービス</h1>
-                        <h2 class="service_logo"><img class="wd90" src="../../images/top/logo.png" alt="Peeech"></h2>
+                        <h1 class="concept_text">好きなアイドルでつながる<br>アイドルファン限定<br>友達作りサービス</h1>
+                        <h2 class="service_logo"><img class="wd70" src="../../images/top/logo.png" alt="Peeech"></h2>
                         <div class="panel_sns wd100">
-                            <div class="panel-body text_align_c">
-                                <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd100 mb10 btn_twitter">Twitterで登録・ログイン</a>
-                                <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd100 btn_facebook">Facebookで登録・ログイン</a>
+                            <div class="panel-body text_align_c sns_btn_container">
+                                <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd_px250 mb10 btn_twitter">Twitterで登録・ログイン</a>
+                                <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd_px250 btn_facebook">Facebookで登録・ログイン</a>
                             </div>
                         </div>
                     </div>

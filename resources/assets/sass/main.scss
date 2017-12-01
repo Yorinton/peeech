@@ -333,6 +333,9 @@ $i: 10;
 .wd100 {
   width: 100%;
 }
+.wd_px250 {
+  width:250px;
+}
 
 //height
 $i: 20;
@@ -821,12 +824,22 @@ input[type="submit"], input[type="button"] {
 */
 .hero_img {
   background: url('../../images/top/hero.png') no-repeat top center;
-  background-size: 240%;
+  background-size: 150%;
+  background-position-y: 100px;
+  background-position-x: 30%;
 }
 .hero_img_pc {
   background: url('../../images/top/hero.png') no-repeat top center;
   background-size: 100%;
   background-position: right;
+}
+.concept_text {
+  font-size: 20px;
+  line-height: 28px;
+  margin-top: 1%;
+  letter-spacing: 3px;
+  margin-bottom: 0;
+  color:white;
 }
 
 .panel {
@@ -843,6 +856,12 @@ input[type="submit"], input[type="button"] {
   @extend .panel_sns;
   margin-bottom: 0;
 }
+.sns_btn_container {
+  width: 300px;
+  margin: auto;
+}
+
+
 
 .header {
   left: 0;
@@ -853,8 +872,7 @@ input[type="submit"], input[type="button"] {
 }
 
 .header_content {
-  margin-top: -20px;
-  padding-top: 100px;
+  padding-top: 5%;
   background: rgba(0, 0, 0, .5);
   position: relative;
 }
@@ -876,7 +894,8 @@ input[type="submit"], input[type="button"] {
 }
 
 .service_logo {
-  //margin-top: 140px;
+  margin-bottom:40%;
+  margin-top:0;
 }
 .service_logo_img {
   width:300px;
