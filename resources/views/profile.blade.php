@@ -16,30 +16,12 @@
                             </ul>
                         </div>
                     @endif
-                    <div id="slider-pro" class="slider-pro {{ $tutorial }}">
-                        <div class="sp-slides">
-                            <div class="sp-slide"><img class="sp-image"
-                                                       src="{{ asset('images/services/tutorial/tutorial1.png',$is_production) }}">
-                            </div>
-                            <div class="sp-slide"><img class="sp-image"
-                                                       src="{{ asset('images/services/tutorial/tutorial2.png',$is_production) }}">
-                            </div>
-                            <div class="sp-slide"><img class="sp-image"
-                                                       src="{{ asset('images/services/tutorial/tutorial3.png',$is_production) }}">
-                            </div>
-                            <div class="sp-slide">
-                                <img class="sp-image"
-                                     src="{{ asset('images/services/tutorial/tutorial4-2.png',$is_production) }}">
-                                <img class="sp-image btn_close"
-                                     src="{{ asset('images/services/tutorial/btn.png',$is_production) }}">
-                            </div>
-                        </div>
-                    </div>
                     <div>
                         <div class="thumb_container mb20 wrap">
                             <img class="thumb preview" src="{{ $user->img_path }}">
                             <form class="form-group thumb_form ml10" method="post"
-                                  action="{{ url('/user',$user->id,$is_production) }}" enctype="multipart/form-data" files='true'>
+                                  action="{{ url('/user',$user->id,$is_production) }}" enctype="multipart/form-data"
+                                  files='true'>
                                 {{ csrf_field() }}
                                 {{ method_field('PATCH') }}
                                 <div class="wrap mb0 lh80 dis_inblo">
@@ -74,9 +56,9 @@
                         <ul class="pl0">
                             <li class="btn_logout_list">
                                 {{--<a class="btn_logout" href=""--}}
-                                   {{--onclick="event.preventDefault();--}}
-                                                     {{--document.getElementById('logout-form').submit();">--}}
-                                    {{--ログアウト--}}
+                                {{--onclick="event.preventDefault();--}}
+                                {{--document.getElementById('logout-form').submit();">--}}
+                                {{--ログアウト--}}
                                 {{--</a>--}}
 
                                 <form id="logout-form" action="{{ url('/logout',[],$is_production) }}" method="POST">
@@ -85,6 +67,25 @@
                                 </form>
                             </li>
                         </ul>
+                    </div>
+                    <div id="slider-pro" class="slider-pro {{ $tutorial }}">
+                        <div class="sp-slides">
+                            <div class="sp-slide"><img class="sp-image"
+                                                       src="{{ asset('images/services/tutorial/tutorial1.png',$is_production) }}">
+                            </div>
+                            <div class="sp-slide"><img class="sp-image"
+                                                       src="{{ asset('images/services/tutorial/tutorial2.png',$is_production) }}">
+                            </div>
+                            <div class="sp-slide"><img class="sp-image"
+                                                       src="{{ asset('images/services/tutorial/tutorial3.png',$is_production) }}">
+                            </div>
+                            <div class="sp-slide">
+                                <img class="sp-image"
+                                     src="{{ asset('images/services/tutorial/tutorial4-2.png',$is_production) }}">
+                                <img class="sp-image btn_close"
+                                     src="{{ asset('images/services/tutorial/btn.png',$is_production) }}">
+                            </div>
+                        </div>
                     </div>
                 @else
                     <p>ご指定のユーザーのプロフィールは表示出来ません</p>

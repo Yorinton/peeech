@@ -39,14 +39,6 @@
         <nav class="navbar navbar_thin navbar-default navbar-static-top nav-bar-fixed mb0">
             <div class="container">
                 <div class="navbar-header navbar-header_bg_color">
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed menu_btn disnone" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <img class="menu_btn_img" src="{{ asset('images/icons/menu_btn.png',$is_production) }}">
-                   <!--      <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
- -->                    </button>
                     <div class="title-area-register">
                         <h4 class="title-text_white text_clamp_title wd70">{{ $title or 'Peeech' }}</h4>
                     </div>
@@ -56,41 +48,6 @@
                         {{ config('app.name', 'Peeech') }}
                     </a>
                 </div>
-                {{--<div class="collapse navbar-collapse" id="app-navbar-collapse">--}}
-                    {{--<!-- Left Side Of Navbar -->--}}
-                    {{--<ul class="nav navbar-nav">--}}
-                        {{--&nbsp;--}}
-                    {{--</ul>--}}
-
-                    {{--<!-- Right Side Of Navbar -->--}}
-                    {{--<ul class="nav navbar-nav navbar-right">--}}
-                        {{--<!-- Authentication Links -->--}}
-                        {{--@if (Auth::guest())--}}
-                            {{--<li><a href="{{ route('login') }}">Login</a></li>--}}
-                            {{--<!-- <li><a href="{{ route('register') }}">Register</a></li> -->--}}
-                        {{--@else--}}
-                            {{--<li class="dropdown">--}}
-                                {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">--}}
-                                    {{--{{ Auth::user()->name }} <span class="caret"></span>--}}
-                                {{--</a>--}}
-
-                                {{--<ul class="dropdown-menu" role="menu">--}}
-                                    {{--<li>--}}
-                                        {{--<a href="{{ route('logout') }}"--}}
-                                            {{--onclick="event.preventDefault();--}}
-                                                     {{--document.getElementById('logout-form').submit();">--}}
-                                            {{--Logout--}}
-                                        {{--</a>--}}
-
-                                        {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-                                            {{--{{ csrf_field() }}--}}
-                                        {{--</form>--}}
-                                    {{--</li>--}}
-                                {{--</ul>--}}
-                            {{--</li>--}}
-                        {{--@endif--}}
-                    {{--</ul>--}}
-                {{--</div>--}}
             </div>
         </nav>
 
