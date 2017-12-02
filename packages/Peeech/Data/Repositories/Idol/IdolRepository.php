@@ -56,7 +56,7 @@ class IdolRepository implements IdolRepositoryInterface
      */
 	public function getAllIdolsFromMaster(): Collection
 	{
-		return IdolMaster::all();
+		return IdolMaster::orderBy('phonetic_id','asc')->get();
 	}
 
     /**

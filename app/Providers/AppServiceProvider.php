@@ -6,7 +6,10 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
 use Auth;
+use Peeech\Application\Services\Idol\IdolService;
+use Peeech\Domain\Models\Idol\Idol;
 use Peeech\Domain\Models\Recommend\Recommend;
+use Peeech\Domain\Repositories\Idol\IdolRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -47,6 +50,12 @@ class AppServiceProvider extends ServiceProvider
             'Peeech\Domain\Repositories\Recommend\RecommendRepositoryInterface',
             'Peeech\Data\Repositories\Recommend\RecommendRepository'
         );
+        $this->app->bind(Idol::class,function($app){
+            return new Idol($this->app->make(IdolRepositoryInterface::class));
+        });
+        $this->app->bind(IdolService::class,function($app){
+            return new IdolService($this->app->make(Idol::class));
+        });
 
     }
 }
