@@ -3,12 +3,12 @@
 @section('content')
 <div class="container wd100">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 pt20 text_align_c wd100 ml0">
+        <div class="col-md-8 col-md-offset-2 text_align_c wd100 ml0">
             <header class="header hero_img_pc">
                 <div class="wd100 ht100 header_content">
                     <div class="text_align_c jf-center">
                         <div class="wd30 service_logo_container pt70">
-                            <h2 class="service_logo"><img class="wd100 service_logo_img" src="../../images/top/logo.png" alt="Peeech"></h2>
+                            <h2 class=""><img class="wd100 service_logo_img" src="../../images/top/logo.png" alt="Peeech"></h2>
                             <h1 class="fs15 lh30 fc_white text_align_l ml30 mt10">好きなアイドルでつながる<br>アイドルファン限定友達作りサービス</h1>
                             <div class="text_align_c mt40">
                                 <img src="../../images/qr/QR.png" class="wd45">
