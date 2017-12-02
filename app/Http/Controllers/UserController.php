@@ -52,7 +52,8 @@ class UserController extends Controller
 
             $user = $this->userService->getUser($id);
 
-            $idol_masters = $this->masterDbService->getMaster('idol');
+            $idol_masters = $this->idolService->getAllIdols();
+//            $idol_masters = $this->masterDbService->getMaster('idol');
             $purpose_masters = $this->masterDbService->getMaster('purpose');
             $prefs = $this->getPref();
 
