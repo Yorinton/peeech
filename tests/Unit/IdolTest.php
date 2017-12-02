@@ -10,6 +10,7 @@ use App\Eloquent\Idol as Idol;
 use App\Eloquent\IdolMaster as IdolMaster;
 
 use App\Services\IdolService;
+use Peeech\Application\Services\Idol\IdolService as DomainIdolService;
 use App\Repositories\Idol\IdolRepository;
 use App\Repositories\Idol\IdolRepositoryInterface;
 
@@ -87,5 +88,23 @@ class IdolTest extends TestCase
         }catch(\Exception $e){
             $user->delete();
         }
+    }
+
+    public function testGetAllIdolsByMasterService()
+    {
+        $masterService = $this->app->make(App\MasterDbService::class);
+        $idols = $masterService->getMaster('idol');
+        dd($idols);
+
+        $this->assertTrue(true);
+    }
+
+    public function testGetAllIdolsByIdolService()
+    {
+        $idolService = $this->app->make(DomainIdolService::class);
+        $idols = $idolService->getAllIdols();
+        dd($idols);
+
+        $this->assertTrue(true);
     }
 }
