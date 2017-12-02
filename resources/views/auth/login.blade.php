@@ -11,8 +11,8 @@
                         <h2 class="service_logo"><img class="wd70" src="../../images/top/logo.png" alt="Peeech"></h2>
                         <div class="panel_sns wd100">
                             <div class="panel-body text_align_c sns_btn_container">
-                                <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd_px250 mb10 btn_twitter">Twitterで登録・ログイン</a>
-                                <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd_px250 btn_facebook">Facebookで登録・ログイン</a>
+                                <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd_px250 mb10 btn_twitter"><img class="wd100" src="{{ asset('images/button/btn_twitter.png',$is_production) }}"></a>
+                                <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd_px250 btn_facebook"><img class="wd100" src="{{ asset('images/button/btn_facebook.png',$is_production) }}"></a>
                             </div>
                         </div>
                     </div>
@@ -29,8 +29,8 @@
                 </div>
                 <div class="panel_sns_below">
                     <div class="panel-body text_align_c">
-                        <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd100 mb10 btn_twitter">Twitterで登録・ログイン</a>
-                        <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd100 btn_facebook">Facebookで登録・ログイン</a>
+                        <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd100 mb10 btn_twitter"><img class="wd100" src="{{ asset('images/button/btn_twitter.png',$is_production) }}"></a>
+                        <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd100 btn_facebook"><img class="wd100" src="{{ asset('images/button/btn_facebook.png',$is_production) }}"></a>
                     </div>
                 </div>
             </section>
@@ -68,8 +68,8 @@
                 </div>
                 <div class="panel_sns_below">
                     <div class="panel-body text_align_c">
-                        <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd100 mb10 btn_twitter">Twitterで登録・ログイン</a>
-                        <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd100 btn_facebook">Facebookで登録・ログイン</a>
+                        <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd100 mb10 btn_twitter"><img class="wd100" src="{{ asset('images/button/btn_twitter.png',$is_production) }}"></a>
+                        <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd100 btn_facebook"><img class="wd100" src="{{ asset('images/button/btn_facebook.png',$is_production) }}"></a>
                     </div>
                 </div>
             </section>
@@ -108,8 +108,8 @@
                 </div>
                 <div class="panel_sns_below">
                     <div class="panel-body text_align_c">
-                        <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd100 mb10 btn_twitter">Twitterで登録・ログイン</a>
-                        <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd100 btn_facebook">Facebookで登録・ログイン</a>
+                        <a href="{{ url('/login/twitter') }}" class="btn btn-default btn-md wd100 mb10 btn_twitter"><img class="wd100" src="{{ asset('images/button/btn_twitter.png',$is_production) }}"></a>
+                        <a href="{{ url('/login/facebook') }}" class="btn btn-primary btn-md wd100 btn_facebook"><img class="wd100" src="{{ asset('images/button/btn_facebook.png',$is_production) }}"></a>
                     </div>
                 </div>
             </section>

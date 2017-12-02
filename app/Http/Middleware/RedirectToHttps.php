@@ -18,9 +18,6 @@ class RedirectToHttps
         if(!$this->is_ssl() && config('app.env') === 'production'){
             return redirect('https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
         }
-//        if (!$request->secure() && env('APP_ENV') === 'production') { // 本番環境のみ常時SSL化する
-//            return redirect()->secure($request->getRequestUri());
-//        }
         return $next($request);
     }
 
