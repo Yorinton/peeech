@@ -56,7 +56,8 @@ mix.js(['resources/assets/js/app.js','resources/assets/js/prof.js'], 'public/js/
   .options({
       postCss: [
           require('autoprefixer')()
-      ]
+      ],
+      processCssUrls: false
   });
 
 if (mix.config.inProduction) {
