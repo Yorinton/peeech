@@ -26,7 +26,7 @@ class ImageService
         //アップロードしたファイルのパス
         $image = Image::make($request->img_path->getRealPath());
         //保存先パス
-        $path = '/images/user_profiles/' . $filename;
+        $path = '/images/user_profile/' . $filename;
         //画像を保存する
         $image->save(public_path() . $path);
 
