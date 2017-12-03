@@ -28,11 +28,17 @@ class UserService
 	{
 		return $this->userRepository->getUserById($id);
 	}
-
 	public function getOtherProfs($id,$tableName)
 	{
 		return $this->userRepository->getOtherProfsByUser($id,$tableName);
 	}
+	//利用登録まで完了しているかチェック
+	public function hasCreated($id): bool
+    {
+        $user = $this->getUser($id);
+        return $user && $user->sex && $user->birthday && $user->name && $user->email && $user->idols;
+    }
+
 	/*
 	*
 	* CREATE 新規作成
