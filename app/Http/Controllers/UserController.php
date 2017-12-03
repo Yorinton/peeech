@@ -121,6 +121,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        if(!$this->userService->hasCreated($id)){
+            return redirect('/registerpage/'.$id,302,[],$this->is_production);
+        }
+
         //usersテーブル
     	if($this->userService->getUser($id)){
         		//user関連情報を取得 + 整形

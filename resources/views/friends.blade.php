@@ -11,7 +11,7 @@
                 @foreach($friends as $friend)
                 <div class="card card_shadow mb10 ht80 disnone">
                     <div class="mb10 disfle">
-                        <img class="thumb ml5p" src="{{ asset($friend->img_path,$is_production) }}">
+                        <img class="thumb ml5p" src="{{ $friend->img_path }}">
                         <div class="basic_info wd55 ml5p mr_a">
                             <p class="name">
                                 <span class="fw_b text_clamp_m">{{ $friend->name }}</span>
