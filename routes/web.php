@@ -14,6 +14,7 @@ use App\Events\MessagePosted;
 |
 */
 
+
 Route::get('/', function () {
     return redirect()->route('login');
 });

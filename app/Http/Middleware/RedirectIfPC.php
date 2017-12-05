@@ -34,11 +34,11 @@ class RedirectIfPC
         //pcから + /pc以外へアクセスの場合/pcへリダイレクト
         if(!$this->isSmartPhone() && !$this->isPcPage($request)){
             //PCページにリダイレクト
-            return redirect('pc');
+            return redirect('pc',302,[],$this->isProduction());
         }
         //spから + /pcへアクセスの場合 / へリダイレクト
         if($this->isSmartPhone() && $this->isPcPage($request)){
-            return redirect('/');
+            return redirect('/',302,[],$this->isProduction());
         }
         return $next($request);
     }
@@ -52,5 +52,10 @@ class RedirectIfPC
     {
         //パスにpcが含まれる
         return preg_match("(pc)",$request->path());
+    }
+
+    protected function isProduction()
+    {
+        return env('APP_ENV') === 'production';
     }
 }
