@@ -68,7 +68,8 @@
                             </li>
                         </ul>
                     </div>
-                    <div id="slider-pro" class="slider-pro {{ $tutorial }}">
+                    @if($tutorial)
+                    <div id="slider-pro" class="slider-pro">
                         <div class="sp-slides">
                             <div class="sp-slide"><img class="sp-image"
                                                        src="{{ asset('images/services/tutorial/tutorial1.png',$is_production) }}">
@@ -87,6 +88,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 @else
                     <p>ご指定のユーザーのプロフィールは表示出来ません</p>
                 @endif

@@ -158,9 +158,9 @@ class UserController extends Controller
     public function isFirstAccessToProfilePage()
     {
         if(isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'],'registerpage')){
-            return 'disblo';
+            return true;
         }
-        return 'disnone';
+        return false;
     } 
 
     /**
