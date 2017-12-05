@@ -16,6 +16,9 @@ use App\Events\MessagePosted;
 
 
 Route::get('/', function () {
+    if(env('APP_ENV') === 'local'){
+        return redirect('/login',302,[],true);
+    }
     return redirect()->route('login');
 });
 
