@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+
+    protected $is_production;
     /**
      * Create a new controller instance.
      *
@@ -15,6 +17,11 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        if(env('APP_ENV') === 'production'){
+            $this->is_production = true;
+        }else{
+            $this->is_production = false;
+        }
     }
 
     /**
@@ -35,7 +42,8 @@ class HomeController extends Controller
     public function subindex()
     {
         $user = Auth::user();
-        return redirect()->route('profiles',[$user]);
+        return redirect('/profiles/'.$user->id,302,[],$this->is_production);
+//        return redirect()->route('profiles',[$user]);
     }
 
 
