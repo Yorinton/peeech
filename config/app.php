@@ -186,6 +186,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\UserProvider::class,
         App\Providers\MasterProvider::class,
+        App\Providers\ImageServiceProvider::class,
 
         /*
          * External Service Providers...

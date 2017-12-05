@@ -36,6 +36,7 @@ Route::get('/profiles/{id}','UserController@show')->name('profiles');
 
 // プロフィール情報更新
 Route::patch('/user/{id}','UserController@update');
+Route::patch('/image/{id}','UserController@updateImage');
 Route::patch('/region/{id}','RegionController@update');
 
 // プロフィール情報追加

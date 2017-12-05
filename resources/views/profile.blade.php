@@ -20,7 +20,7 @@
                         <div class="thumb_container mb20 wrap">
                             <img class="thumb preview" src="{{ $user->img_path }}">
                             <form class="form-group thumb_form ml10" method="post"
-                                  action="{{ url('/user',$user->id,$is_production) }}" enctype="multipart/form-data"
+                                  action="{{ url('/image',$user->id,$is_production) }}" enctype="multipart/form-data"
                                   files='true'>
                                 {{ csrf_field() }}
                                 {{ method_field('PATCH') }}

@@ -202,17 +202,26 @@ class UserController extends Controller
                 echo '指定のユーザー情報は更新出来ません';
             }
 
-            if($request->img_path){
-
-                $this->imageService->upload($request,$id);
-                return redirect()->route('profiles',[$user]);
-
-            }
 	        $this->userService->updateUserProfs($request,$id);
 
         }
         echo '指定のユーザーは存在しません';
 
+    }
+
+    public function updateImage(Request $request,$id)
+    {
+        if ($user = $this->userService->getUser($id)) {
+
+            if (!$request->img_path) {
+                return '画像が指定されていません。「画像を設定」ボタンから画像を指定して再度お試し下さい';
+            }
+
+            $this->imageService->upload($request, $id);
+            return redirect()->route('profiles', [$user]);
+
+        }
+        echo '指定のユーザーは存在しません';
     }
 
     /**

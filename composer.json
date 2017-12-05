@@ -7,7 +7,7 @@
     "require": {
         "php": ">=5.6.4",
         "ext-gd": "*",
-        "aws/aws-sdk-php": "~2.6",
+        "aws/aws-sdk-php": "3.*",
         "barryvdh/laravel-debugbar": "~2.4",
         "doctrine/dbal": "^2.5",
         "fabpot/goutte": "^3.2",
