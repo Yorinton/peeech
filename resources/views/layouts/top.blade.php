@@ -11,8 +11,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <link href="{{ mix('css/main.css') }}" rel="stylesheet">
+    <link rel="preload" as="style" href="{{ mix('css/app.css') }}" onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" href="{{ mix('css/main.css') }}" onload="this.rel='stylesheet'">
     <link rel="apple-touch-icon" href="{{ asset('images/icons/sp_home_icon.png',$is_production)}}" />
 
     <!-- Scripts -->
