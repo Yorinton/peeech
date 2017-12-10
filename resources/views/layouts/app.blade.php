@@ -17,7 +17,7 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('css/main.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/slider-pro.min.css',$is_production) }}">
+    <link type="text/css" href="{{ asset('css/slider-pro.min.css',$is_production) }}" rel="stylesheet">
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
