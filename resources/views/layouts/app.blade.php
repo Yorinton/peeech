@@ -15,8 +15,8 @@
     <link rel="icon" href="{{ url('/favicon.ico',[],$is_production) }}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{ url('images/icons/sp_home_icon.png',[],$is_production) }}" />
     <!-- Styles -->
-    <link rel="preload" as="style" href="{{ mix('css/app.css') }}" onload="this.rel='stylesheet'">
-    <link rel="preload" as="style" href="{{ mix('css/main.css') }}" onload="this.rel='stylesheet'">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/main.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('css/slider-pro.min.css',$is_production) }}" rel="stylesheet">
     <!-- Scripts -->
     <script>
