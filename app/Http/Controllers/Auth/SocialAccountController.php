@@ -44,7 +44,7 @@ class SocialAccountController extends Controller
     	}catch(\Excepion $e){
     		// /loginルートにリダイレクト
     		// echo $e;
-    		return redirect('/login');
+    		return redirect('/login',302,[],$this->is_production);
     	}
 
         try{
