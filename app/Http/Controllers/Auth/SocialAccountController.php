@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Socialite;
 use App\SocialAccountService as SocialAccountService;
+use Auth;
 
 class SocialAccountController extends Controller
 {
@@ -58,8 +59,13 @@ class SocialAccountController extends Controller
         	//Auth::login($authUser,true);と同じ
 
             if($status == 'register'){
+                if(Auth::check()){
+                    return redirect('/registerpage/'.$authUser->id,302,[],$this->is_production);
+                }else{
+                    return view('auth.login');
+                }
             	//認証後プロフィールページにリダイレクト
-            	return redirect()->to('/home/'.$authUser->id);
+//            	return redirect()->to('/home/'.$authUser->id);
 
             }elseif($status == 'login'){
 
