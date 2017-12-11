@@ -10,6 +10,13 @@ use App\SocialAccountService as SocialAccountService;
 class SocialAccountController extends Controller
 {
 
+    protected $is_production;
+
+    public function __construct()
+    {
+        $this->is_production = env('APP_ENV') === 'production' ? true : false;
+    }
+
     /**
      * Redirect the user to the GitHub authentication page.
      * プロバイダの認証ページへのリダイレクト
@@ -56,8 +63,8 @@ class SocialAccountController extends Controller
 
             }elseif($status == 'login'){
 
-                return redirect()->route('profiles',[$authUser]);
-
+//                return redirect()->route('profiles',[$authUser]);
+                return redirect('/profiles/'.$authUser->id,302,[],$this->is_production);
             }
 
         }catch(\Exception $e){
