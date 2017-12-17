@@ -32,7 +32,7 @@ class RegisterPost extends FormRequest
             'day' => 'required|integer',
             'added_idol' => 'required',
             'region' => 'required',
-            'purpose' => 'required'
+//            'purpose' => 'required'
         ];
     }
 
@@ -53,7 +53,7 @@ class RegisterPost extends FormRequest
             'day.integer' => '生まれた日を指定して下さい',
             'added_idol.required' => '好きなアイドルを一組以上選択して下さい',
             'region.required' => '地域を選択して下さい',
-            'purpose.required' => 'ご利用目的を選択して下さい',
+//            'purpose.required' => 'ご利用目的を選択して下さい',
         ];
     }
 }
