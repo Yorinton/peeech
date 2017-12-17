@@ -17,11 +17,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        if(env('APP_ENV') === 'production'){
-            $this->is_production = true;
-        }else{
-            $this->is_production = false;
-        }
+        $this->is_production = env('APP_ENV') === 'production' ? true : false;
     }
 
     /**

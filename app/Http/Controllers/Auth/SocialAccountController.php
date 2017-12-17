@@ -6,9 +6,17 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Socialite;
 use App\SocialAccountService as SocialAccountService;
+use Auth;
 
 class SocialAccountController extends Controller
 {
+
+    protected $is_production;
+
+    public function __construct()
+    {
+        $this->is_production = env('APP_ENV') === 'production' ? true : false;
+    }
 
     /**
      * Redirect the user to the GitHub authentication page.
@@ -36,7 +44,7 @@ class SocialAccountController extends Controller
     	}catch(\Excepion $e){
     		// /loginルートにリダイレクト
     		// echo $e;
-    		return redirect('/login');
+    		return redirect('/login',302,[],$this->is_production);
     	}
 
         try{
@@ -51,13 +59,18 @@ class SocialAccountController extends Controller
         	//Auth::login($authUser,true);と同じ
 
             if($status == 'register'){
+                if(Auth::check()){
+                    return redirect('/registerpage/'.$authUser->id,302,[],$this->is_production);
+                }else{
+                    return view('auth.login');
+                }
             	//認証後プロフィールページにリダイレクト
-            	return redirect()->to('/home/'.$authUser->id);
+//            	return redirect()->to('/home/'.$authUser->id);
 
             }elseif($status == 'login'){
 
-                return redirect()->route('profiles',[$authUser]);
-
+//                return redirect()->route('profiles',[$authUser]);
+                return redirect('/profiles/'.$authUser->id,302,[],$this->is_production);
             }
 
         }catch(\Exception $e){
