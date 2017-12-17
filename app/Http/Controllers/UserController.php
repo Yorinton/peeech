@@ -89,7 +89,7 @@ class UserController extends Controller
             $this->userService->createUserProfs($request,$id);
             $this->idolService->storeMultiple($request->added_idol);
             $this->userService->createOtherProfs($request,$user,'region');
-            $this->userService->createOtherProfs($request,$user,'purpose');
+//            $this->userService->createOtherProfs($request,$user,'purpose');
 
             DB::commit();
 
