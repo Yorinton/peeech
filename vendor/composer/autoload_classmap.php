@@ -3251,6 +3251,7 @@ return array(
     'Peeech\\Domain\\Repositories\\User\\SexRepositoriesInterface' => $baseDir . '/packages/Peeech/Domain/Repositories/User/SexRepositoryInterface.php',
     'Peeech\\Domain\\Uploader\\ImageUploaderInterface' => $baseDir . '/packages/Peeech/Domain/Uploader/ImageUploaderInterface.php',
     'Peeech\\Domain\\Utilities\\Enum' => $baseDir . '/packages/Peeech/Domain/Utilities/Enum.php',
+    'Peeech\\Infrastructure\\Uploader\\FilesystemImageUploader' => $baseDir . '/packages/Peeech/Infrastructure/Uploader/FilesystemImageUploader.php',
     'Peeech\\Infrastructure\\Uploader\\S3ImageUploader' => $baseDir . '/packages/Peeech/Infrastructure/Uploader/S3ImageUploader.php',
     'PharIo\\Manifest\\Application' => $vendorDir . '/phar-io/manifest/src/values/Application.php',
     'PharIo\\Manifest\\ApplicationName' => $vendorDir . '/phar-io/manifest/src/values/ApplicationName.php',
