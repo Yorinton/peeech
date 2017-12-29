@@ -29,10 +29,8 @@ class ImageService
 
 
         $ext = substr($filename, strrpos($filename, '.') + 1);
-        if (strtolower($ext) !== 'png' && strtolower($ext) !== 'jpg' && strtolower($ext) !== 'gif') {
-            echo '画像以外のファイルが指定されています。画像ファイル(png/jpg/jpeg/gif)を指定して下さい';
-            exit();
-        }
+        $this->isImage($ext);
+
         $tmpname = str_replace('/tmp/', '', $_FILES['img_path']['tmp_name']);
         $new_filename = 'profiles/' . $id . '-' . time() . '-' . $tmpname . '.' . $ext;
 
@@ -40,6 +38,14 @@ class ImageService
 
         $this->userRepository->updateUserProfsById($id, 'img_path', $path);
 
+    }
+
+    public function isImage($ext)
+    {
+        if (strtolower($ext) !== 'png' && strtolower($ext) !== 'jpg' && strtolower($ext) !== 'jpeg' && strtolower($ext) !== 'gif') {
+            echo '画像以外のファイルが指定されています。画像ファイル(png/jpg/jpeg/gif)を指定して下さい';
+            exit();
+        }
     }
 
 }
